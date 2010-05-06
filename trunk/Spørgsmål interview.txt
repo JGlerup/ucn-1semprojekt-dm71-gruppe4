@@ -1,3 +1,5 @@
 1: Hvem har ansvaret for at vedligeholde og opdatere systemerne i fremtiden?
 
 2: Hvorfor nogle applikationer og informationer er vigtige på lang og kort sigt?
+
+3: Hvornår gives der rabat og hvor meget?
