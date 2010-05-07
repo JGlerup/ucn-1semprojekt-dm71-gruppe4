@@ -101,6 +101,807 @@
 		quid       	"4BE29197021A"
 		exportControl 	"Public"
 		logical_models 	(list unit_reference_list)
+		statemachine 	(object State_Machine "State/Activity Model"
+		    quid       	"4BE3C183031F"
+		    states     	(list States
+			(object State "$UNNAMED$0"
+			    quid       	"4BE3C1C10304"
+			    type       	"StartState")
+			(object ActivityState "Salg starter"
+			    quid       	"4BE3C1CA0037")
+			(object State "NewState"
+			    quid       	"4BE3C1CB03BF"
+			    type       	"Normal")
+			(object State "$UNNAMED$1"
+			    quid       	"4BE3C1CF038B"
+			    type       	"EndState")
+			(object State "Kunde kommer med vare"
+			    quid       	"4BE3C2000175"
+			    type       	"Normal")
+			(object State "Kunde spørger efter vare"
+			    quid       	"4BE3C21701DD"
+			    type       	"Normal")
+			(object State "Ekspedient søger efter vare på lageret"
+			    quid       	"4BE3C227021D"
+			    type       	"Normal")
+			(object State "Vare findes på lager"
+			    quid       	"4BE3C25A0141"
+			    type       	"Normal")
+			(object SynchronizationState "$UNNAMED$2"
+			    quid       	"4BE3C26800ED")
+			(object State "Varen scannes ind"
+			    quid       	"4BE3C30E039B"
+			    type       	"Normal")
+			(object State "Varen udleveres"
+			    quid       	"4BE3C31503BF"
+			    type       	"Normal")
+			(object ActivityState "Salg afsluttes"
+			    quid       	"4BE3C32101A9")
+			(object Decision "$UNNAMED$3"
+			    quid       	"4BE3C65603AA")
+			(object ActivityState "NewActivity"
+			    quid       	"4BE3C67603E4")
+			(object ActivityState "Vare findes ikke på lager"
+			    quid       	"4BE3C68A0200")
+			(object State "NewState2"
+			    quid       	"4BE3C6BA001E"
+			    type       	"Normal")
+			(object ActivityState "Ekspedient spørger efter telfonnummer"
+			    quid       	"4BE3C6BE0101")
+			(object ActivityState "Der ringes efter kunde når vare kommer på lager"
+			    quid       	"4BE3C6D202D5")
+			(object Decision "$UNNAMED$4"
+			    quid       	"4BE3C72F00BA"))
+		    partitions 	(list Partitions)
+		    objects    	(list Objects)
+		    transitions 	(list transition_list
+			(object State_Transition
+			    quid       	"4BE3C26B025E"
+			    supplier   	"$UNNAMED$2"
+			    supplier_quidu 	"4BE3C26800ED"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Vare findes på lager"
+			    client_quidu 	"4BE3C25A0141"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C26B0261"))
+			(object State_Transition
+			    quid       	"4BE3C26E0121"
+			    supplier   	"$UNNAMED$2"
+			    supplier_quidu 	"4BE3C26800ED"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Kunde kommer med vare"
+			    client_quidu 	"4BE3C2000175"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C26E0124"))
+			(object State_Transition
+			    quid       	"4BE3C2880127"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Kunde kommer med vare"
+			    supplier_quidu 	"4BE3C2000175"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Salg starter"
+			    client_quidu 	"4BE3C1CA0037"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C288012A"))
+			(object State_Transition
+			    quid       	"4BE3C28A0059"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Kunde spørger efter vare"
+			    supplier_quidu 	"4BE3C21701DD"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Salg starter"
+			    client_quidu 	"4BE3C1CA0037"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C28A005C"))
+			(object State_Transition
+			    quid       	"4BE3C295017B"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Ekspedient søger efter vare på lageret"
+			    supplier_quidu 	"4BE3C227021D"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Kunde spørger efter vare"
+			    client_quidu 	"4BE3C21701DD"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C295017E"))
+			(object State_Transition
+			    quid       	"4BE3C297036B"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Vare findes på lager"
+			    supplier_quidu 	"4BE3C25A0141"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Ekspedient søger efter vare på lageret"
+			    client_quidu 	"4BE3C227021D"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C297036E"))
+			(object State_Transition
+			    quid       	"4BE3C3650391"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Varen scannes ind"
+			    supplier_quidu 	"4BE3C30E039B"
+			    client     	"$UNNAMED$2"
+			    client_quidu 	"4BE3C26800ED"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C3650394"))
+			(object State_Transition
+			    quid       	"4BE3C36800EE"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Varen udleveres"
+			    supplier_quidu 	"4BE3C31503BF"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Varen scannes ind"
+			    client_quidu 	"4BE3C30E039B"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C36800F1"))
+			(object State_Transition
+			    quid       	"4BE3C36B009B"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Salg afsluttes"
+			    supplier_quidu 	"4BE3C32101A9"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Varen udleveres"
+			    client_quidu 	"4BE3C31503BF"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C36B009E"))
+			(object State_Transition
+			    quid       	"4BE3C65E0266"
+			    supplier   	"$UNNAMED$3"
+			    supplier_quidu 	"4BE3C65603AA"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Ekspedient søger efter vare på lageret"
+			    client_quidu 	"4BE3C227021D"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C65E0269"))
+			(object State_Transition
+			    quid       	"4BE3C69F0104"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Vare findes ikke på lager"
+			    supplier_quidu 	"4BE3C68A0200"
+			    client     	"$UNNAMED$3"
+			    client_quidu 	"4BE3C65603AA"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C69F0107"))
+			(object State_Transition
+			    quid       	"4BE3C6A2037F"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Vare findes på lager"
+			    supplier_quidu 	"4BE3C25A0141"
+			    client     	"$UNNAMED$3"
+			    client_quidu 	"4BE3C65603AA"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C6A20382"))
+			(object State_Transition
+			    quid       	"4BE3C6CE02CB"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Ekspedient spørger efter telfonnummer"
+			    supplier_quidu 	"4BE3C6BE0101"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Vare findes ikke på lager"
+			    client_quidu 	"4BE3C68A0200"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C6CE02CE"))
+			(object State_Transition
+			    quid       	"4BE3C6F6002B"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Der ringes efter kunde når vare kommer på lager"
+			    supplier_quidu 	"4BE3C6D202D5"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Ekspedient spørger efter telfonnummer"
+			    client_quidu 	"4BE3C6BE0101"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C6F6002E"))
+			(object State_Transition
+			    quid       	"4BE3C70D01F9"
+			    supplier   	"$UNNAMED$2"
+			    supplier_quidu 	"4BE3C26800ED"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Der ringes efter kunde når vare kommer på lager"
+			    client_quidu 	"4BE3C6D202D5"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C70D01FC"))
+			(object State_Transition
+			    quid       	"4BE3C73E00E0"
+			    supplier   	"$UNNAMED$4"
+			    supplier_quidu 	"4BE3C72F00BA"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Salg starter"
+			    client_quidu 	"4BE3C1CA0037"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C73E00E3"))
+			(object State_Transition
+			    quid       	"4BE3C7420186"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Kunde kommer med vare"
+			    supplier_quidu 	"4BE3C2000175"
+			    client     	"$UNNAMED$4"
+			    client_quidu 	"4BE3C72F00BA"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C7420189"))
+			(object State_Transition
+			    quid       	"4BE3C74602D6"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Kunde spørger efter vare"
+			    supplier_quidu 	"4BE3C21701DD"
+			    client     	"$UNNAMED$4"
+			    client_quidu 	"4BE3C72F00BA"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3C74602D9"))
+			(object State_Transition
+			    quid       	"4BE3D0B70021"
+			    supplier   	"Use Case View::NewPackage::State/Activity Model::Salg starter"
+			    supplier_quidu 	"4BE3C1CA0037"
+			    client     	"$UNNAMED$0"
+			    client_quidu 	"4BE3C1C10304"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3D0B70024"))
+			(object State_Transition
+			    quid       	"4BE3D0BB00C6"
+			    supplier   	"$UNNAMED$1"
+			    supplier_quidu 	"4BE3C1CF038B"
+			    client     	"Use Case View::NewPackage::State/Activity Model::Salg afsluttes"
+			    client_quidu 	"4BE3C32101A9"
+			    sendEvent  	(object sendEvent
+				quid       	"4BE3D0BB00C9")))
+		    objectflows 	(list objectflow_list)
+		    statediagrams 	(list StateDiagrams
+			(object ActivityDiagram "Aktivitet: Privat Salg"
+			    quid       	"4BE3C183033F"
+			    title      	"Aktivitet: Privat Salg"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	1203
+			    items      	(list diagram_item_list
+				(object Swimlane "" @1
+				    line_color 	3342489
+				    width      	450)
+				(object StateView "StartState" "$UNNAMED$0" @2
+				    Parent_View 	@1
+				    location   	(1330, 173)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"4BE3C1C10304"
+				    autoResize 	TRUE)
+				(object ActivityStateView "Salg starter" @3
+				    Parent_View 	@1
+				    location   	(1331, 331)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@3
+					location   	(1331, 334)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Salg starter")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C1CA0037"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object StateView "EndState" "$UNNAMED$1" @4
+				    Parent_View 	@1
+				    location   	(979, 2710)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"4BE3C1CF038B"
+				    autoResize 	TRUE)
+				(object StateView "Normal" "Kunde kommer med vare" @5
+				    Parent_View 	@1
+				    location   	(846, 1009)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@5
+					location   	(846, 998)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	274
+					justify    	0
+					label      	"Kunde kommer med vare")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C2000175"
+				    width      	370
+				    height     	134
+				    autoResize 	TRUE)
+				(object StateView "Normal" "Kunde spørger efter vare" @6
+				    Parent_View 	@1
+				    location   	(1938, 658)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@6
+					location   	(1938, 647)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	274
+					justify    	0
+					label      	"Kunde spørger efter vare")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C21701DD"
+				    width      	370
+				    height     	134
+				    autoResize 	TRUE)
+				(object StateView "Normal" "Ekspedient søger efter vare på lageret" @7
+				    Parent_View 	@1
+				    location   	(1933, 865)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@7
+					location   	(1933, 854)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	376
+					justify    	0
+					label      	"Ekspedient søger efter vare på lageret")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C227021D"
+				    width      	472
+				    height     	134
+				    autoResize 	TRUE)
+				(object TransView "" @8
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C295017B"
+				    client     	@6
+				    supplier   	@7
+				    vertices   	(list Points
+					(1936, 725)
+					(1934, 797))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object StateView "Normal" "Vare findes på lager" @9
+				    Parent_View 	@1
+				    location   	(1529, 1308)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@9
+					location   	(1529, 1297)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	204
+					justify    	0
+					label      	"Vare findes på lager")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C25A0141"
+				    height     	134
+				    autoResize 	TRUE)
+				(object StateView "Normal" "Varen scannes ind" @10
+				    Parent_View 	@1
+				    location   	(979, 1983)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@10
+					location   	(979, 1972)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	232
+					justify    	0
+					label      	"Varen scannes ind")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C30E039B"
+				    width      	328
+				    height     	134
+				    autoResize 	TRUE)
+				(object StateView "Normal" "Varen udleveres" @11
+				    Parent_View 	@1
+				    location   	(978, 2229)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@11
+					location   	(978, 2218)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	204
+					justify    	0
+					label      	"Varen udleveres")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C31503BF"
+				    height     	134
+				    autoResize 	TRUE)
+				(object TransView "" @12
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C36800EE"
+				    client     	@10
+				    supplier   	@11
+				    vertices   	(list Points
+					(978, 2049)
+					(978, 2162))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Salg afsluttes" @13
+				    Parent_View 	@1
+				    location   	(978, 2506)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@13
+					location   	(978, 2509)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Salg afsluttes")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C32101A9"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @14
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C36B009B"
+				    client     	@11
+				    supplier   	@13
+				    vertices   	(list Points
+					(978, 2296)
+					(978, 2453))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object DecisionView "$UNNAMED$3" @15
+				    Parent_View 	@1
+				    location   	(1932, 1109)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C65603AA"
+				    autoResize 	TRUE)
+				(object TransView "" @16
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C65E0266"
+				    client     	@7
+				    supplier   	@15
+				    vertices   	(list Points
+					(1932, 931)
+					(1932, 1072))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @17
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C6A2037F"
+				    client     	@15
+				    supplier   	@9
+				    vertices   	(list Points
+					(1857, 1109)
+					(1639, 1241))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Vare findes ikke på lager" @18
+				    Parent_View 	@1
+				    location   	(2256, 1265)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@18
+					location   	(2256, 1268)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	269
+					justify    	0
+					label      	"Vare findes ikke på lager")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C68A0200"
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @19
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C69F0104"
+				    client     	@15
+				    supplier   	@18
+				    vertices   	(list Points
+					(2007, 1109)
+					(2171, 1211))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Ekspedient spørger efter telfonnummer" @20
+				    Parent_View 	@1
+				    location   	(2252, 1468)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@20
+					location   	(2252, 1471)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	366
+					justify    	0
+					label      	"Ekspedient spørger efter telfonnummer")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C6BE0101"
+				    width      	472
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @21
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C6CE02CB"
+				    client     	@18
+				    supplier   	@20
+				    vertices   	(list Points
+					(2254, 1318)
+					(2253, 1414))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object ActivityStateView "Der ringes efter kunde når vare kommer på lager" @22
+				    Parent_View 	@1
+				    location   	(2138, 1681)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object ItemLabel
+					Parent_View 	@22
+					location   	(2138, 1684)
+					fill_color 	13434879
+					anchor_loc 	1
+					nlines     	2
+					max_width  	488
+					justify    	0
+					label      	"Der ringes efter kunde når vare kommer på lager")
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C6D202D5"
+				    width      	594
+				    height     	106
+				    annotation 	1
+				    autoResize 	TRUE)
+				(object TransView "" @23
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C6F6002B"
+				    client     	@20
+				    supplier   	@22
+				    vertices   	(list Points
+					(2223, 1520)
+					(2166, 1627))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object DecisionView "$UNNAMED$4" @24
+				    Parent_View 	@1
+				    location   	(1332, 540)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    fill_color 	13434879
+				    quidu      	"4BE3C72F00BA"
+				    autoResize 	TRUE)
+				(object SynchronizationView "$UNNAMED$2" @25
+				    location   	(979, 1816)
+				    font       	(object Font
+					size       	10
+					face       	"Arial"
+					bold       	FALSE
+					italics    	FALSE
+					underline  	FALSE
+					strike     	FALSE
+					color      	0
+					default_color 	TRUE)
+				    label      	(object SegLabel @26
+					Parent_View 	@25
+					location   	(1141, 1745)
+					font       	(object Font
+					    size       	10
+					    face       	"Arial"
+					    bold       	FALSE
+					    italics    	TRUE
+					    underline  	FALSE
+					    strike     	FALSE
+					    color      	0
+					    default_color 	TRUE)
+					nlines     	2
+					max_width  	300
+					justify    	1
+					label      	""
+					pctDist    	1.000000
+					height     	0
+					orientation 	0)
+				    icon_style 	"Icon"
+				    line_color 	3342489
+				    quidu      	"4BE3C26800ED"
+				    autoResize 	TRUE
+				    sync_flow_direction 	1
+				    sync_is_horizontal 	TRUE)
+				(object TransView "" @27
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C26B025E"
+				    client     	@9
+				    supplier   	@25
+				    vertices   	(list Points
+					(1456, 1375)
+					(988, 1806))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @28
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C26E0121"
+				    client     	@5
+				    supplier   	@25
+				    vertices   	(list Points
+					(857, 1076)
+					(977, 1806))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @29
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C3650391"
+				    client     	@25
+				    supplier   	@10
+				    vertices   	(list Points
+					(979, 1825)
+					(979, 1916))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @30
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C70D01F9"
+				    client     	@22
+				    supplier   	@25
+				    vertices   	(list Points
+					(1894, 1709)
+					(1043, 1806))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @31
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C73E00E0"
+				    client     	@3
+				    supplier   	@24
+				    vertices   	(list Points
+					(1331, 384)
+					(1332, 503))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @32
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C7420186"
+				    client     	@24
+				    supplier   	@5
+				    vertices   	(list Points
+					(1257, 540)
+					(904, 942))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @33
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3C74602D6"
+				    client     	@24
+				    supplier   	@6
+				    vertices   	(list Points
+					(1407, 540)
+					(1753, 616))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @34
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3D0B70021"
+				    client     	@2
+				    supplier   	@3
+				    vertices   	(list Points
+					(1330, 202)
+					(1330, 277))
+				    line_style 	0
+				    x_offset   	FALSE)
+				(object TransView "" @35
+				    stereotype 	TRUE
+				    line_color 	3342489
+				    quidu      	"4BE3D0BB00C6"
+				    client     	@13
+				    supplier   	@4
+				    vertices   	(list Points
+					(978, 2559)
+					(978, 2668))
+				    line_style 	0
+				    x_offset   	FALSE)))
+			(object ActivityDiagram "Aktivitet: Erhverssalg"
+			    quid       	"4BE3D36A02F1"
+			    title      	"Aktivitet: Erhverssalg"
+			    zoom       	100
+			    max_height 	28350
+			    max_width  	21600
+			    origin_x   	0
+			    origin_y   	0
+			    items      	(list diagram_item_list
+				(object Swimlane "" @36
+				    line_color 	3342489
+				    width      	450)))))
 		logical_presentations 	(list unit_reference_list)))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
@@ -121,7 +922,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object UseCaseView "Use Case View::Handle Customer CRUD" @1
+		    (object UseCaseView "Use Case View::Handle Customer CRUD" @37
 			location   	(1225, 750)
 			font       	(object Font
 			    size       	10
@@ -133,7 +934,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@1
+			    Parent_View 	@37
 			    location   	(1225, 888)
 			    anchor_loc 	1
 			    nlines     	2
@@ -145,7 +946,7 @@
 			fill_color 	13434879
 			quidu      	"4BE2919A00ED"
 			height     	118)
-		    (object UseCaseView "Use Case View::Sale" @2
+		    (object UseCaseView "Use Case View::Sale" @38
 			location   	(1178, 1325)
 			font       	(object Font
 			    size       	10
@@ -157,7 +958,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@2
+			    Parent_View 	@38
 			    location   	(1178, 1463)
 			    anchor_loc 	1
 			    nlines     	2
@@ -169,7 +970,7 @@
 			fill_color 	13434879
 			quidu      	"4BE2920400A1"
 			height     	118)
-		    (object UseCaseView "Use Case View::Køb) ----" @3
+		    (object UseCaseView "Use Case View::Køb) ----" @39
 			location   	(1871, 200)
 			font       	(object Font
 			    size       	10
@@ -181,7 +982,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@3
+			    Parent_View 	@39
 			    location   	(1871, 338)
 			    anchor_loc 	1
 			    nlines     	2
@@ -193,7 +994,7 @@
 			fill_color 	13434879
 			quidu      	"4BE2920801A4"
 			height     	118)
-		    (object UseCaseView "Use Case View::Rent" @4
+		    (object UseCaseView "Use Case View::Rent" @40
 			location   	(1161, 1628)
 			font       	(object Font
 			    size       	10
@@ -205,7 +1006,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@4
+			    Parent_View 	@40
 			    location   	(1161, 1766)
 			    anchor_loc 	1
 			    nlines     	2
@@ -217,7 +1018,7 @@
 			fill_color 	13434879
 			quidu      	"4BE2921102ED"
 			height     	118)
-		    (object UseCaseView "Use Case View::Handle Item CRUD" @5
+		    (object UseCaseView "Use Case View::Handle Item CRUD" @41
 			location   	(1189, 1040)
 			font       	(object Font
 			    size       	10
@@ -229,7 +1030,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@5
+			    Parent_View 	@41
 			    location   	(1189, 1178)
 			    anchor_loc 	1
 			    nlines     	2
@@ -241,7 +1042,7 @@
 			fill_color 	13434879
 			quidu      	"4BE292240168"
 			height     	118)
-		    (object UseCaseView "Use Case View::Stattetisk.." @6
+		    (object UseCaseView "Use Case View::Stattetisk.." @42
 			location   	(1888, 596)
 			font       	(object Font
 			    size       	10
@@ -253,7 +1054,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@6
+			    Parent_View 	@42
 			    location   	(1888, 734)
 			    anchor_loc 	1
 			    nlines     	2
@@ -265,7 +1066,7 @@
 			fill_color 	13434879
 			quidu      	"4BE292670390"
 			height     	118)
-		    (object UseCaseView "Use Case View::Handle Employee CRUD" @7
+		    (object UseCaseView "Use Case View::Handle Employee CRUD" @43
 			location   	(1222, 484)
 			font       	(object Font
 			    size       	10
@@ -277,7 +1078,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@7
+			    Parent_View 	@43
 			    location   	(1222, 622)
 			    anchor_loc 	1
 			    nlines     	2
@@ -289,7 +1090,7 @@
 			fill_color 	13434879
 			quidu      	"4BE2928E0229"
 			height     	118)
-		    (object UseCaseView "Use Case View::Handle stock CRUD" @8
+		    (object UseCaseView "Use Case View::Handle stock CRUD" @44
 			location   	(1203, 221)
 			font       	(object Font
 			    size       	10
@@ -301,7 +1102,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@8
+			    Parent_View 	@44
 			    location   	(1203, 359)
 			    anchor_loc 	1
 			    nlines     	2
@@ -313,7 +1114,7 @@
 			fill_color 	13434879
 			quidu      	"4BE293040247"
 			height     	118)
-		    (object ClassView "Class" "Use Case View::Person" @9
+		    (object ClassView "Class" "Use Case View::Person" @45
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -328,7 +1129,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@9
+			    Parent_View 	@45
 			    location   	(269, 813)
 			    anchor_loc 	1
 			    nlines     	2
@@ -351,10 +1152,14 @@
 	    (object Class "Sale"
 		quid       	"4BE2943C0242"
 		class_attributes 	(list class_attribute_list
-		    (object ClassAttribute "Date"
+		    (object ClassAttribute "date"
 			quid       	"4BE29CA502FC")
-		    (object ClassAttribute "price"
-			quid       	"4BE29CB20087")))
+		    (object ClassAttribute "totalPrice"
+			quid       	"4BE29CB20087")
+		    (object ClassAttribute "delivery"
+			quid       	"4BE3C7A20216")
+		    (object ClassAttribute "saleId"
+			quid       	"4BE3C90E01D5")))
 	    (object Class "Employee"
 		quid       	"4BE2943D01F2"
 		superclasses 	(list inheritance_relationship_list
@@ -426,84 +1231,98 @@
 		class_attributes 	(list class_attribute_list
 		    (object ClassAttribute "sampleId"
 			quid       	"4BE297B3010A")))
-	    (object Association "$UNNAMED$0"
+	    (object Association "$UNNAMED$5"
 		quid       	"4BE2971600BD"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$1"
+		    (object Role "$UNNAMED$6"
 			quid       	"4BE29716038A"
 			supplier   	"Logical View::Account"
 			quidu      	"4BE2954E01E6"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$2"
+		    (object Role "$UNNAMED$7"
 			quid       	"4BE29716038C"
 			supplier   	"Logical View::Customer"
 			quidu      	"4BE2943F01FE"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$3"
+	    (object Association "$UNNAMED$8"
 		quid       	"4BE29C60036A"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$4"
+		    (object Role "$UNNAMED$9"
 			quid       	"4BE29C6103E5"
 			supplier   	"Logical View::Rent"
 			quidu      	"4BE294B001D6"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$5"
+		    (object Role "$UNNAMED$10"
 			quid       	"4BE29C6103E7"
 			supplier   	"Logical View::Item"
 			quidu      	"4BE294DF00A1"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$6"
+	    (object Association "$UNNAMED$11"
 		quid       	"4BE29C6303B3"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$7"
+		    (object Role "$UNNAMED$12"
 			quid       	"4BE29C64024B"
 			supplier   	"Logical View::Sale"
 			quidu      	"4BE2943C0242"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$8"
+		    (object Role "$UNNAMED$13"
 			quid       	"4BE29C64024D"
 			supplier   	"Logical View::Item"
 			quidu      	"4BE294DF00A1"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$9"
+	    (object Association "$UNNAMED$14"
 		quid       	"4BE29C72010C"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$10"
+		    (object Role "$UNNAMED$15"
 			quid       	"4BE29C7300CC"
 			supplier   	"Logical View::Sample"
 			quidu      	"4BE2979703B6"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$11"
+		    (object Role "$UNNAMED$16"
 			quid       	"4BE29C7300CE"
 			supplier   	"Logical View::Item"
 			quidu      	"4BE294DF00A1"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$12"
+	    (object Association "$UNNAMED$17"
 		quid       	"4BE29C76020F"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$13"
+		    (object Role "$UNNAMED$18"
 			quid       	"4BE29C7900B3"
 			supplier   	"Logical View::Stock"
 			quidu      	"4BE294B701FA"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$14"
+		    (object Role "$UNNAMED$19"
 			quid       	"4BE29C7900B5"
 			supplier   	"Logical View::Item"
 			quidu      	"4BE294DF00A1"
 			is_navigable 	TRUE)))
-	    (object Association "$UNNAMED$15"
+	    (object Association "$UNNAMED$20"
 		quid       	"4BE29CC4026D"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$16"
+		    (object Role "$UNNAMED$21"
 			quid       	"4BE29CC500C6"
 			supplier   	"Logical View::Item"
 			quidu      	"4BE294DF00A1"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$17"
+		    (object Role "$UNNAMED$22"
 			quid       	"4BE29CC500C8"
 			supplier   	"Logical View::Customer"
 			quidu      	"4BE2943F01FE"
-			is_navigable 	TRUE))))
+			is_navigable 	TRUE)))
+	    (object Association "$UNNAMED$23"
+		quid       	"4BE3CA3C037B"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$24"
+			quid       	"4BE3CA3D02BE"
+			supplier   	"Logical View::Item"
+			quidu      	"4BE294DF00A1"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$25"
+			quid       	"4BE3CA3D02C0"
+			supplier   	"Logical View::Stock"
+			quidu      	"4BE294B701FA"
+			is_navigable 	TRUE
+			is_aggregate 	TRUE))))
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
 		quid       	"4BE291790394"
@@ -512,7 +1331,7 @@
 		max_height 	28350
 		max_width  	21600
 		origin_x   	0
-		origin_y   	0
+		origin_y   	1094
 		items      	(list diagram_item_list))
 	    (object ClassDiagram "Domain Model"
 		quid       	"4BE2942E0055"
@@ -523,11 +1342,11 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object ClassView "Class" "Logical View::Employee" @10
+		    (object ClassView "Class" "Logical View::Employee" @46
 			ShowCompartmentStereotypes 	TRUE
 			SuppressOperation 	TRUE
 			IncludeAttribute 	TRUE
-			location   	(405, 378)
+			location   	(421, 378)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -538,8 +1357,8 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@10
-			    location   	(275, 297)
+			    Parent_View 	@46
+			    location   	(291, 297)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	260
@@ -550,8 +1369,8 @@
 			fill_color 	13434879
 			quidu      	"4BE2943D01F2"
 			compartment 	(object Compartment
-			    Parent_View 	@10
-			    location   	(275, 358)
+			    Parent_View 	@46
+			    location   	(291, 358)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -571,12 +1390,12 @@
 			height     	186
 			annotation 	8
 			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Personn" @11
+		    (object ClassView "Class" "Logical View::Personn" @47
 			ShowCompartmentStereotypes 	TRUE
 			SuppressOperation 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(408, 822)
+			location   	(426, 822)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -587,8 +1406,8 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@11
-			    location   	(309, 716)
+			    Parent_View 	@47
+			    location   	(327, 716)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	198
@@ -599,8 +1418,8 @@
 			fill_color 	13434879
 			quidu      	"4BE29488032F"
 			compartment 	(object Compartment
-			    Parent_View 	@11
-			    location   	(309, 777)
+			    Parent_View 	@47
+			    location   	(327, 777)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -620,22 +1439,22 @@
 			height     	236
 			annotation 	8
 			autoResize 	TRUE)
-		    (object InheritView "" @12
+		    (object InheritView "" @48
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"4BE294FC02B4"
-			client     	@10
-			supplier   	@11
+			client     	@46
+			supplier   	@47
 			vertices   	(list Points
-			    (405, 471)
-			    (406, 703))
+			    (421, 471)
+			    (423, 703))
 			line_style 	0)
-		    (object ClassView "Class" "Logical View::Account" @13
+		    (object ClassView "Class" "Logical View::Rent" @49
 			ShowCompartmentStereotypes 	TRUE
 			SuppressOperation 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(414, 1665)
+			location   	(1381, 1712)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -646,57 +1465,8 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@13
-			    location   	(322, 1559)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	184
-			    justify    	0
-			    label      	"Account")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"4BE2954E01E6"
-			compartment 	(object Compartment
-			    Parent_View 	@13
-			    location   	(322, 1620)
-			    font       	(object Font
-				size       	10
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	3
-			    max_width  	178
-			    justify    	1)
-			width      	202
-			height     	236
-			annotation 	8
-			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Rent" @14
-			ShowCompartmentStereotypes 	TRUE
-			SuppressOperation 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(1354, 1665)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@14
-			    location   	(1270, 1609)
+			    Parent_View 	@49
+			    location   	(1297, 1656)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	168
@@ -707,8 +1477,8 @@
 			fill_color 	13434879
 			quidu      	"4BE294B001D6"
 			compartment 	(object Compartment
-			    Parent_View 	@14
-			    location   	(1270, 1670)
+			    Parent_View 	@49
+			    location   	(1297, 1717)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -728,11 +1498,11 @@
 			height     	136
 			annotation 	8
 			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Sale" @15
+		    (object ClassView "Class" "Logical View::Sale" @50
 			ShowCompartmentStereotypes 	TRUE
 			SuppressOperation 	TRUE
 			IncludeAttribute 	TRUE
-			location   	(1984, 1228)
+			location   	(2048, 1231)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -743,11 +1513,11 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@15
-			    location   	(1903, 1146)
+			    Parent_View 	@50
+			    location   	(1936, 1100)
 			    fill_color 	13434879
 			    nlines     	1
-			    max_width  	163
+			    max_width  	224
 			    justify    	0
 			    label      	"Sale")
 			icon_style 	"Icon"
@@ -755,8 +1525,8 @@
 			fill_color 	13434879
 			quidu      	"4BE2943C0242"
 			compartment 	(object Compartment
-			    Parent_View 	@15
-			    location   	(1903, 1207)
+			    Parent_View 	@50
+			    location   	(1936, 1161)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -769,18 +1539,18 @@
 			    icon_style 	"Icon"
 			    fill_color 	13434879
 			    anchor     	2
-			    nlines     	2
-			    max_width  	146
+			    nlines     	4
+			    max_width  	222
 			    justify    	1)
-			width      	181
-			height     	188
+			width      	242
+			height     	286
 			annotation 	8
 			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Sample" @16
+		    (object ClassView "Class" "Logical View::Sample" @51
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(1658, 503)
+			location   	(1942, 619)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -791,8 +1561,8 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@16
-			    location   	(1550, 422)
+			    Parent_View 	@51
+			    location   	(1834, 538)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	216
@@ -803,8 +1573,8 @@
 			fill_color 	13434879
 			quidu      	"4BE2979703B6"
 			compartment 	(object Compartment
-			    Parent_View 	@16
-			    location   	(1550, 483)
+			    Parent_View 	@51
+			    location   	(1834, 599)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -824,12 +1594,12 @@
 			height     	186
 			annotation 	8
 			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Stock" @17
+		    (object ClassView "Class" "Logical View::Account" @52
 			ShowCompartmentStereotypes 	TRUE
 			SuppressOperation 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(1347, 228)
+			location   	(426, 1665)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -840,50 +1610,20 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@17
-			    location   	(1266, 177)
+			    Parent_View 	@52
+			    location   	(334, 1559)
 			    fill_color 	13434879
 			    nlines     	1
-			    max_width  	162
+			    max_width  	184
 			    justify    	0
-			    label      	"Stock")
+			    label      	"Account")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
-			quidu      	"4BE294B701FA"
-			height     	126
-			annotation 	8
-			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Item" @18
-			ShowCompartmentStereotypes 	TRUE
-			SuppressOperation 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(1335, 1194)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@18
-			    location   	(1201, 963)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	268
-			    justify    	0
-			    label      	"Item")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"4BE294DF00A1"
+			quidu      	"4BE2954E01E6"
 			compartment 	(object Compartment
-			    Parent_View 	@18
-			    location   	(1201, 1024)
+			    Parent_View 	@52
+			    location   	(334, 1620)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -896,138 +1636,18 @@
 			    icon_style 	"Icon"
 			    fill_color 	13434879
 			    anchor     	2
-			    nlines     	8
-			    max_width  	275
+			    nlines     	3
+			    max_width  	178
 			    justify    	1)
-			width      	286
-			height     	486
+			width      	202
+			height     	236
 			annotation 	8
 			autoResize 	TRUE)
-		    (object AssociationViewNew "$UNNAMED$3" @19
-			location   	(1347, 1516)
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"4BE29C60036A"
-			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$4" @20
-				Parent_View 	@19
-				location   	(57, 722)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"4BE29C6103E5"
-				client     	@19
-				supplier   	@14
-				vertices   	(list Points
-				    (1347, 1516)
-				    (1350, 1596))
-				line_style 	0)
-			    (object RoleView "$UNNAMED$5" @21
-				Parent_View 	@19
-				location   	(57, 722)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"4BE29C6103E7"
-				client     	@19
-				supplier   	@18
-				vertices   	(list Points
-				    (1347, 1516)
-				    (1344, 1437))
-				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$6" @22
-			location   	(1685, 1211)
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"4BE29C6303B3"
-			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$7" @23
-				Parent_View 	@22
-				location   	(395, 417)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"4BE29C64024B"
-				client     	@22
-				supplier   	@15
-				vertices   	(list Points
-				    (1685, 1211)
-				    (1893, 1222))
-				line_style 	0)
-			    (object RoleView "$UNNAMED$8" @24
-				Parent_View 	@22
-				location   	(395, 417)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"4BE29C64024D"
-				client     	@22
-				supplier   	@18
-				vertices   	(list Points
-				    (1685, 1211)
-				    (1478, 1201))
-				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$9" @25
-			location   	(1529, 773)
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"4BE29C72010C"
-			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$10" @26
-				Parent_View 	@25
-				location   	(182, -261)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"4BE29C7300CC"
-				client     	@25
-				supplier   	@16
-				vertices   	(list Points
-				    (1529, 773)
-				    (1613, 596))
-				line_style 	0)
-			    (object RoleView "$UNNAMED$11" @27
-				Parent_View 	@25
-				location   	(182, -261)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"4BE29C7300CE"
-				client     	@25
-				supplier   	@18
-				vertices   	(list Points
-				    (1529, 773)
-				    (1446, 950))
-				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$12" @28
-			location   	(1341, 620)
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"4BE29C76020F"
-			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$13" @29
-				Parent_View 	@28
-				location   	(-6, -414)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"4BE29C7900B3"
-				client     	@28
-				supplier   	@17
-				vertices   	(list Points
-				    (1341, 620)
-				    (1345, 291))
-				line_style 	0)
-			    (object RoleView "$UNNAMED$14" @30
-				Parent_View 	@28
-				location   	(-6, -414)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"4BE29C7900B5"
-				client     	@28
-				supplier   	@18
-				vertices   	(list Points
-				    (1341, 620)
-				    (1338, 950))
-				line_style 	0)))
-		    (object ClassView "Class" "Logical View::Customer" @31
+		    (object ClassView "Class" "Logical View::Customer" @53
 			ShowCompartmentStereotypes 	TRUE
 			SuppressOperation 	TRUE
 			IncludeAttribute 	TRUE
-			location   	(423, 1237)
+			location   	(430, 1228)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -1038,8 +1658,8 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@31
-			    location   	(296, 1181)
+			    Parent_View 	@53
+			    location   	(303, 1172)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	254
@@ -1050,8 +1670,8 @@
 			fill_color 	13434879
 			quidu      	"4BE2943F01FE"
 			compartment 	(object Compartment
-			    Parent_View 	@31
-			    location   	(296, 1242)
+			    Parent_View 	@53
+			    location   	(303, 1233)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1071,75 +1691,283 @@
 			height     	136
 			annotation 	8
 			autoResize 	TRUE)
-		    (object InheritView "" @32
+		    (object InheritView "" @54
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"4BE294FF035B"
-			client     	@31
-			supplier   	@11
+			client     	@53
+			supplier   	@47
 			vertices   	(list Points
-			    (420, 1168)
-			    (411, 940))
+			    (429, 1159)
+			    (427, 940))
 			line_style 	0)
-		    (object AssociationViewNew "$UNNAMED$0" @33
-			location   	(418, 1425)
+		    (object AssociationViewNew "$UNNAMED$5" @55
+			location   	(428, 1421)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"4BE2971600BD"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$1" @34
-				Parent_View 	@33
-				location   	(157, 191)
+			    (object RoleView "$UNNAMED$6" @56
+				Parent_View 	@55
+				location   	(167, 187)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"4BE29716038A"
-				client     	@33
-				supplier   	@13
+				client     	@55
+				supplier   	@52
 				vertices   	(list Points
-				    (418, 1425)
-				    (415, 1546))
+				    (428, 1421)
+				    (427, 1546))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$2" @35
-				Parent_View 	@33
-				location   	(157, 191)
+			    (object RoleView "$UNNAMED$7" @57
+				Parent_View 	@55
+				location   	(167, 187)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"4BE29716038C"
-				client     	@33
-				supplier   	@31
+				client     	@55
+				supplier   	@53
 				vertices   	(list Points
-				    (418, 1425)
-				    (420, 1305))
+				    (428, 1421)
+				    (429, 1296))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$15" @36
-			location   	(875, 1214)
+		    (object ClassView "Class" "Logical View::Stock" @58
+			ShowCompartmentStereotypes 	TRUE
+			SuppressOperation 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1347, 228)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@58
+			    location   	(1266, 177)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	162
+			    justify    	0
+			    label      	"Stock")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"4BE294B701FA"
+			height     	126
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Item" @59
+			ShowCompartmentStereotypes 	TRUE
+			SuppressOperation 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1381, 1228)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@59
+			    location   	(1247, 997)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	268
+			    justify    	0
+			    label      	"Item")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"4BE294DF00A1"
+			compartment 	(object Compartment
+			    Parent_View 	@59
+			    location   	(1247, 1058)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	8
+			    max_width  	275
+			    justify    	1)
+			width      	286
+			height     	486
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$8" @60
+			location   	(1381, 1557)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"4BE29C60036A"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$9" @61
+				Parent_View 	@60
+				location   	(91, 763)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"4BE29C6103E5"
+				client     	@60
+				supplier   	@49
+				vertices   	(list Points
+				    (1381, 1557)
+				    (1381, 1643))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$10" @62
+				Parent_View 	@60
+				location   	(91, 763)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"4BE29C6103E7"
+				client     	@60
+				supplier   	@59
+				vertices   	(list Points
+				    (1381, 1557)
+				    (1381, 1471))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$11" @63
+			location   	(1725, 1229)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"4BE29C6303B3"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$12" @64
+				Parent_View 	@63
+				location   	(435, 435)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"4BE29C64024B"
+				client     	@63
+				supplier   	@50
+				vertices   	(list Points
+				    (1725, 1229)
+				    (1926, 1230))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$13" @65
+				Parent_View 	@63
+				location   	(435, 435)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"4BE29C64024D"
+				client     	@63
+				supplier   	@59
+				vertices   	(list Points
+				    (1725, 1229)
+				    (1524, 1228))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$14" @66
+			location   	(1689, 891)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"4BE29C72010C"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$15" @67
+				Parent_View 	@66
+				location   	(342, -143)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"4BE29C7300CC"
+				client     	@66
+				supplier   	@51
+				vertices   	(list Points
+				    (1689, 891)
+				    (1854, 712))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$16" @68
+				Parent_View 	@66
+				location   	(342, -143)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"4BE29C7300CE"
+				client     	@66
+				supplier   	@59
+				vertices   	(list Points
+				    (1689, 891)
+				    (1524, 1071))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$20" @69
+			location   	(901, 1228)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"4BE29CC4026D"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$16" @37
-				Parent_View 	@36
-				location   	(502, -23)
+			    (object RoleView "$UNNAMED$21" @70
+				Parent_View 	@69
+				location   	(528, -9)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"4BE29CC500C6"
-				client     	@36
-				supplier   	@18
+				client     	@69
+				supplier   	@59
 				vertices   	(list Points
-				    (875, 1214)
-				    (1191, 1200))
+				    (901, 1228)
+				    (1237, 1228))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$17" @38
-				Parent_View 	@36
-				location   	(502, -23)
+			    (object RoleView "$UNNAMED$22" @71
+				Parent_View 	@69
+				location   	(528, -9)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"4BE29CC500C8"
-				client     	@36
-				supplier   	@31
+				client     	@69
+				supplier   	@53
 				vertices   	(list Points
-				    (875, 1214)
-				    (559, 1229))
+				    (901, 1228)
+				    (566, 1228))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$23" @72
+			location   	(1360, 637)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"4BE3CA3C037B"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$24" @73
+				Parent_View 	@72
+				location   	(13, 409)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"4BE3CA3D02BE"
+				client     	@72
+				supplier   	@59
+				vertices   	(list Points
+				    (1360, 637)
+				    (1372, 984))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$25" @74
+				Parent_View 	@72
+				location   	(13, 409)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"4BE3CA3D02C0"
+				client     	@72
+				supplier   	@58
+				vertices   	(list Points
+				    (1360, 637)
+				    (1349, 291))
 				line_style 	0)))))))
     root_subsystem 	(object SubSystem "Component View"
 	quid       	"4BE29177007D"
