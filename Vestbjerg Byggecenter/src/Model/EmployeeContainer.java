@@ -30,4 +30,23 @@ public class EmployeeContainer {
     {
         employees = new ArrayList<Employee>();
     }
-}
+
+
+    public int addEmployee(Employee employee)
+    {
+        int newID = 1;
+        if (employee.getEmployeeId() == 0)
+        {
+            if(employees.size() > 0)
+            {
+                int lastIndex = employees.size()-1;
+                Employee lastEmployee = employees.get(lastIndex);
+                newID = lastEmployee.getEmployeeId();
+                newID += 1;
+            }
+            employee.setEmployeeId(newID);
+        }
+        return newID;
+    }
+
+    }
