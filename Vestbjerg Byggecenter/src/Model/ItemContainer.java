@@ -14,5 +14,40 @@ import java.util.ArrayList;
 public class ItemContainer {
 
     private ArrayList<Item> items;
+    private static ItemContainer instance;
+
+
+     public static ItemContainer getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ItemContainer();
+        }
+        return instance;
+    }
+
+
+    public ItemContainer()
+    {
+        items = new ArrayList<Item>();
+    }
+
+    public void addItem(Item newItem)
+    {
+        items.add(newItem);
+    }
+
+
+    public Item getItem(int id)
+    {
+      for(Item item : items)
+      {
+          if(item.getId() == id)
+          {
+              return item;
+          }
+      }
+      return null;
+    }
 
 }
