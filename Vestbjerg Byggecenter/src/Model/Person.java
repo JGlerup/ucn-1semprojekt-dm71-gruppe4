@@ -15,4 +15,13 @@ public class Person {
     private String address;
     private int phone;
 
+    public Person(String name, String address, int phone) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+    }
+
+
+
+
 }
