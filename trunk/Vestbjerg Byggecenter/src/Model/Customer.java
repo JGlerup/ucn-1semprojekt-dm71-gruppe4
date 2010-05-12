@@ -9,8 +9,16 @@ package Model;
  *
  * @author Daniel
  */
-public class Customer {
+public class Customer extends Person {
 
-    private int CustomerId;
+    private int customerId;
+
+
+
+    public Customer(String name, String address,int phone,int customerId) {
+
+        super (name, address, phone);
+        this.customerId = customerId;
+    }
 
 }
