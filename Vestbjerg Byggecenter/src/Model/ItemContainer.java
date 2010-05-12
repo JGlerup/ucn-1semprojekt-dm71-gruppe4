@@ -42,7 +42,7 @@ public class ItemContainer {
     {
       for(Item item : items)
       {
-          if(item.getId() == id)
+          if(item.getItemId() == id)
           {
               return item;
           }
