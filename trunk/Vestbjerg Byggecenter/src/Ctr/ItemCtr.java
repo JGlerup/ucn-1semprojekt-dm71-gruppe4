@@ -29,10 +29,10 @@ public class ItemCtr {
         return item;
     }
     
-    public void createItem(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
+    public void createItem(int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
     {
+        int itemID = itemCon.generateID();
         Item item = new Item(itemID, itemPrice, description, maxInStock, minInStock, inStock, type, brand, place);
-        
         itemCon.addItem(item);
     }
 	
