@@ -41,7 +41,29 @@ public class ItemCtr {
     	itemCon.deleteItem(itemID);
     }
 
-    public void updateItem(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
+    public boolean updateItem(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
     {
+        Item i = itemCon.getItem(itemID);
+        if(i != null)
+        {
+            i.setBrand(brand);
+            i.setDescription(description);
+            i.setInStock(inStock);
+            i.setItemPrice(itemPrice);
+            i.setMaxInStock(maxInStock);
+            i.setMinInStock(minInStock);
+            i.setPlace(place);
+            i.setType(type);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public String listAllItems()
+    {
+        return itemCon.listAllItem();
     }
 }
