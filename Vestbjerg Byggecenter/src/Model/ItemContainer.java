@@ -37,6 +37,23 @@ public class ItemContainer {
         itemList.add(newItem);
     }
 
+    public int generateID()
+    {
+        int index = 0;
+        int newID = 0;
+        if(itemList.size() != 0)
+        {
+            index = itemList.size() -1;
+            Item i = itemList.get(index);
+            newID = i.getItemID() + 1;
+        }
+        else
+        {
+            newID = 1;
+        }
+        return newID;
+    }
+
 
     public Item getItem(int itemID)
     {
