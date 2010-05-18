@@ -22,18 +22,26 @@ public class ItemCtr {
     }
            
 
-    public Item getItem(int id)
+    public Item getItem(int itemID)
     {
-        Item item = itemCon.getItem(id);
+        Item item = itemCon.getItem(itemID);
         
         return item;
     }
     
-    public void createItem(int itemId, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
+    public void createItem(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
     {
-        Item item = new Item(itemId, itemPrice, description, maxInStock, minInStock, inStock, type, brand, place);
+        Item item = new Item(itemID, itemPrice, description, maxInStock, minInStock, inStock, type, brand, place);
         
         itemCon.addItem(item);
     }
-    
+	
+    public void deleteItem(int itemID)
+    {
+    	itemCon.deleteItem(itemID);
+    }
+
+    public void updateItem(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
+    {
+    }
 }

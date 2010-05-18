@@ -11,7 +11,7 @@ package Model;
  */
 public class Item {
 
-    private int itemId;
+    private int itemID;
     private int itemPrice;
     private String description;
     private int maxInStock;
@@ -24,8 +24,8 @@ public class Item {
 
 
 
-    public Item(int itemId, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place) {
-        this.itemId = itemId;
+    public Item(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place) {
+        this.itemID = itemID;
         this.itemPrice = itemPrice;
         this.description = description;
         this.maxInStock = maxInStock;
@@ -38,12 +38,12 @@ public class Item {
     }
 
 
-    public int getItemId() {
-        return itemId;
+    public int getItemID() {
+        return itemID;
     }
 
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
+    public void setItemID(int itemID) {
+        this.itemID = itemID;
     }
 
 
@@ -110,7 +110,4 @@ public class Item {
     public void setType(String type) {
         this.type = type;
     }
-
-
-
 }
