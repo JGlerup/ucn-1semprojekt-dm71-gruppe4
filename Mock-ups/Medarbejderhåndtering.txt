@@ -1,0 +1,5 @@
+***Medarbejderhåndtering***
+(1) Opret medarbejder
+(2) Slet medarbejder
+(3) Opdatere medarbejder
+( ) Hovedmenu

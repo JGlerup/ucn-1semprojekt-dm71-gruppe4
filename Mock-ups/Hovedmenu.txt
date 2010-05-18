@@ -1,0 +1,6 @@
+***Hovedmenu***
+(1) Salg
+(2) Lagerstyring
+(3) Kundehåndtering
+(4) Medarbejderhåndtering
+(5) Udlejning
