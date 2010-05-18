@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class CustomerContainer {
 
-    private ArrayList<Customer> customers;
+    private ArrayList<Customer> customerList;
     private static CustomerContainer instance;
 
     public static CustomerContainer getInstance()
@@ -28,27 +28,50 @@ public class CustomerContainer {
 
     public CustomerContainer()
     {
-        customers = new ArrayList<Customer>();
+        customerList= new ArrayList<Customer>();
     }
     
     public int addCustomer(Customer customer)
     {
         int newID = 1;
-        if (customer.getCustomerId() == 0)
+        if (customer.getCustomerID() == 0)
         {
-            if(customers.size() > 0)
+            if(customerList.size() > 0)
             {
-                int lastIndex = customers.size()-1;
-                Customer lastCustomer = customers.get(lastIndex);
-                newID = lastCustomer.getCustomerId();
+                int lastIndex = customerList.size()-1;
+                Customer lastCustomer = customerList.get(lastIndex);
+                newID = lastCustomer.getCustomerID();
                 newID += 1;
             }
             customer.setCustomerId(newID);
         }
         
-        customers.add(customer);
+        customerList.add(customer);
         return newID;
     }
+
+    public void deleteCustomer(int customerID)
+    {
+        int index = 0;
+        int storeIndex = 0;
+        boolean found = false;
+        while (!found && index < customerList.size())
+        {
+            if (customerList.get(index).getCustomerID() == customerID)
+            {
+                storeIndex = index;
+                found = true;
+            }
+            index++;
+        }
+        customerList.remove(storeIndex);
+    }
+
+     public void getCustomerID(int customerID)
+     {
+
+     }
+
 
 
 
