@@ -2,4 +2,5 @@
 (1) Opret medarbejder
 (2) Slet medarbejder
 (3) Opdatere medarbejder
+(4) Søg medarbejder
 ( ) Hovedmenu

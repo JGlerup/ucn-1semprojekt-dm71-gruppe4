@@ -1,3 +1,4 @@
 ***Salg***
 (1) Opret salg
+(2) Søg salg
 ( ) Hovedmenu

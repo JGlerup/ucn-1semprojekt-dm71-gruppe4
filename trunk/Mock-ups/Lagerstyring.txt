@@ -2,4 +2,5 @@
 (1) Opret vare
 (2) Slet vare
 (3) Opdater vare
+(4) Søg vare
 ( ) Hovedmenu
