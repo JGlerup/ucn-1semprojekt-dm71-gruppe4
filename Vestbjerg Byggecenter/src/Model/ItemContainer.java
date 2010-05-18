@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class ItemContainer {
 
-    private ArrayList<Item> items;
+    private ArrayList<Item> itemList;
     private static ItemContainer instance;
 
 
@@ -29,20 +29,20 @@ public class ItemContainer {
 
     public ItemContainer()
     {
-        items = new ArrayList<Item>();
+        itemList = new ArrayList<Item>();
     }
 
     public void addItem(Item newItem)
     {
-        items.add(newItem);
+        itemList.add(newItem);
     }
 
 
-    public Item getItem(int id)
+    public Item getItem(int itemID)
     {
-      for(Item item : items)
+      for(Item item : itemList)
       {
-          if(item.getItemId() == id)
+          if(item.getItemID() == itemID)
           {
               return item;
           }
@@ -50,4 +50,20 @@ public class ItemContainer {
       return null;
     }
 
+    public void deleteItem(int itemID)
+    {
+        int index = 0;
+        int storeIndex = 0;
+        boolean found = false;
+        while(!found && index < itemList.size())
+        {
+            if(itemList.get(index).getItemID() == itemID)
+            {
+                storeIndex = index;
+                found = true;
+            }
+            index++;
+        }
+        itemList.remove(storeIndex);
+    }
 }
