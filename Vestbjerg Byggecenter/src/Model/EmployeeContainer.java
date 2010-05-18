@@ -27,7 +27,7 @@ public class EmployeeContainer {
         employeeList = new ArrayList<Employee>();
     }
 
-    private int generateID()
+    public int generateID()
     {
         int index = 0;
         int newID = 0;
