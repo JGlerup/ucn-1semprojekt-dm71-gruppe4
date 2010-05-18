@@ -7,10 +7,6 @@ package Model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Daniel
- */
 public class EmployeeContainer {
 
     private ArrayList<Employee> employeeList;
@@ -39,7 +35,7 @@ public class EmployeeContainer {
         {
             index = employeeList.size() -1;
             Employee e = employeeList.get(index);
-            newID = e.getEmployeeId() + 1;
+            newID = e.getEmployeeID() + 1;
         }
         else
         {
@@ -54,7 +50,7 @@ public class EmployeeContainer {
         employeeList.add(e);
     }
 
-    public boolean deleteEmployee(int employeeID)
+    public void deleteEmployee(int employeeID)
     {
         int index = 0;
         int storeIndex = 0;
@@ -68,6 +64,7 @@ public class EmployeeContainer {
             }
             index++;
         }
+        employeeList.remove(storeIndex);
     }
 
     private Employee findEmployee(int id)
@@ -84,13 +81,16 @@ public class EmployeeContainer {
     }
 
 
-    public boolean updateEmployee(int employeeID, String password)
+    public boolean updateEmployee(int id,int employeeID, String password, String name, String address, int phone)
     {
         Employee e = findEmployee(id);
         if(e != null)
         {
             e.setEmployeeID(employeeID);
             e.setPassword(password);
+            e.setName(name);
+            e.setAddress(address);
+            e.setPhone(phone);
             return true;
         }
         else
@@ -98,6 +98,17 @@ public class EmployeeContainer {
             return false;
         }
     }
+
+    public String listAllEmployees()
+    {
+        String outputString = " ";
+        for(Employee e : employeeList)
+        {
+            outputString = outputString + e.getEmployeeID() + " - " + e.getName() + " - " + e.getAddress() + "\n";
+        }
+        return outputString;
+    }
+
 }
 
   
