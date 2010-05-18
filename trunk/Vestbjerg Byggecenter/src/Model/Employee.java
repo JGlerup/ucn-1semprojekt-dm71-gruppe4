@@ -11,25 +11,25 @@ package Model;
  */
 public class Employee extends Person {
 
-    private int employeeId;
+    private int employeeID;
     private String password;
 
 
 
 
-    public Employee(String name, String address,int phone,int employeeId, String password) {
+    public Employee(String name, String address,int phone,int employeeID, String password) {
 
         super (name, address, phone);
-        this.employeeId = employeeId;
+        this.employeeID = employeeID;
         this.password = password;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public int getEmployeeID() {
+        return employeeID;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
     }
 
     public String getPassword() {
