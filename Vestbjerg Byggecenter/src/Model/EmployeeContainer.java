@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class EmployeeContainer {
 
-    private ArrayList<Employee> employees;
+    private ArrayList<Employee> employeeList;
     private static EmployeeContainer instance;
 
     public static EmployeeContainer getInstance()
@@ -28,25 +28,76 @@ public class EmployeeContainer {
 
     public EmployeeContainer()
     {
-        employees = new ArrayList<Employee>();
+        employeeList = new ArrayList<Employee>();
     }
 
-
-    public int addEmployee(Employee employee)
+    private int generateID()
     {
-        int newID = 1;
-        if (employee.getEmployeeId() == 0)
+        int index = 0;
+        int newID = 0;
+        if(employeeList.size() != 0)
         {
-            if(employees.size() > 0)
-            {
-                int lastIndex = employees.size()-1;
-                Employee lastEmployee = employees.get(lastIndex);
-                newID = lastEmployee.getEmployeeId();
-                newID += 1;
-            }
-            employee.setEmployeeId(newID);
+            index = employeeList.size() -1;
+            Employee e = employeeList.get(index);
+            newID = e.getEmployeeId() + 1;
+        }
+        else
+        {
+            newID = 0;
         }
         return newID;
     }
 
+
+    public void addEmployee(Employee e)
+    {
+        employeeList.add(e);
     }
+
+    public boolean deleteEmployee(int employeeID)
+    {
+        int index = 0;
+        int storeIndex = 0;
+        boolean found = false;
+        while(!found && index < employeeList.size())
+        {
+            if(employeeList.get(index).getEmployeeID() == employeeID)
+            {
+                storeIndex = index;
+                found = true;
+            }
+            index++;
+        }
+    }
+
+    private Employee findEmployee(int id)
+    {
+        Employee e = null;
+        for(Employee employee : employeeList)
+        {
+            if(id == employee.getEmployeeID())
+            {
+                e = employee;
+            }
+        }
+        return e;
+    }
+
+
+    public boolean updateEmployee(int employeeID, String password)
+    {
+        Employee e = findEmployee(id);
+        if(e != null)
+        {
+            e.setEmployeeID(employeeID);
+            e.setPassword(password);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
+
+  
