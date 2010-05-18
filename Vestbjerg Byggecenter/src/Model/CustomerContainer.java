@@ -30,24 +30,29 @@ public class CustomerContainer {
     {
         customerList= new ArrayList<Customer>();
     }
-    
-    public int addCustomer(Customer customer)
+
+
+    public int generateID()
     {
-        int newID = 1;
-        if (customer.getCustomerID() == 0)
+        int index = 0;
+        int newID = 0;
+        if(customerList.size() != 0)
         {
-            if(customerList.size() > 0)
-            {
-                int lastIndex = customerList.size()-1;
-                Customer lastCustomer = customerList.get(lastIndex);
-                newID = lastCustomer.getCustomerID();
-                newID += 1;
-            }
-            customer.setCustomerId(newID);
+            index = customerList.size() -1;
+            Customer c = customerList.get(index);
+            newID = c.getCustomerID() + 1;
         }
-        
-        customerList.add(customer);
+        else
+        {
+            newID = 1;
+        }
         return newID;
+    }
+
+
+    public void addCustomer(Customer customer)
+    {
+        customerList.add(customer);
     }
 
     public void deleteCustomer(int customerID)

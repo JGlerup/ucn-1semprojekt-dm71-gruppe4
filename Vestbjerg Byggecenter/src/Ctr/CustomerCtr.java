@@ -29,10 +29,10 @@ public class CustomerCtr {
      * @param phone
      */
 
-    public void newCustomer(int customerID, String name, String address, int phone)
+    public void createCustomer(String name, String address, int phone)
 {
+    int customerID = customerContainer.generateID();
     Customer c = new Customer(customerID, name, address, phone);
-
     customerContainer.addCustomer(c);
 }
 
