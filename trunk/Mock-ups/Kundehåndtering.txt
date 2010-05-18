@@ -1,0 +1,5 @@
+***Kundehåndtering***
+(1) Opret kunde
+(2) Slet kunde
+(3) Opdatere kunde
+( ) Hovedmenu

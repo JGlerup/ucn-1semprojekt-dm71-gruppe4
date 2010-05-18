@@ -1,0 +1,5 @@
+***Lagerstyring***
+(1) Opret vare
+(2) Slet vare
+(3) Opdater vare
+( ) Hovedmenu
