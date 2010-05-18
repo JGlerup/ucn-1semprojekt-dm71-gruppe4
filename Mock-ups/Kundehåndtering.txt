@@ -2,4 +2,5 @@
 (1) Opret kunde
 (2) Slet kunde
 (3) Opdatere kunde
+(4) Søg kunde
 ( ) Hovedmenu
