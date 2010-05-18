@@ -11,23 +11,26 @@ package Model;
  */
 public class Customer extends Person {
 
-    private int customerId;
+    private int customerID;
 
 
 
-    public Customer(String name, String address,int phone,int customerId) {
+    public Customer(int customerID, String name, String address,int phone) {
 
         super (name, address, phone);
-        this.customerId = customerId;
+        this.customerID = customerID;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public int getCustomerID() {
+        return customerID;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomerId(int customerID) {
+        this.customerID = customerID;
     }
+
+
+
 
 
 
