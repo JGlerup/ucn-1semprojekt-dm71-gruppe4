@@ -39,7 +39,7 @@ public class CustomerCtr {
         Customer c = customerContainer.getCustomer(customerID);
         if(c != null)
         {
-            c.setCustomerId(customerID);
+            c.setCustomerID(customerID);
             c.setName(name);
             c.setAddress(address);
             c.setPhone(phone);

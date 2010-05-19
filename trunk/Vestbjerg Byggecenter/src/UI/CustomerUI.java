@@ -144,7 +144,7 @@ public class CustomerUI {
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\nPress return to continue");
-        String address = keyboard.nextLine();
+        String pause = keyboard.nextLine();
     }
 
     public void deleteCustomer()
