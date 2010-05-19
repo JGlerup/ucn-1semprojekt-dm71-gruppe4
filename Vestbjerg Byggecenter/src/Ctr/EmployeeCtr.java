@@ -19,11 +19,9 @@ public class EmployeeCtr {
 
 
 
-    public void createEmployee(String name, String address, int phone, String password)
+    public int createEmployee(String name, String address, int phone, String password)
     {
-            int employeeID = employeeContainer.generateID();
-            Employee e = new Employee(employeeID, name, address, phone, password);
-            employeeContainer.addEmployee(e);
+            return employeeContainer.createEmployee(name, address, phone, password);
     }
 
     public void deleteEmployee(int employeeID)

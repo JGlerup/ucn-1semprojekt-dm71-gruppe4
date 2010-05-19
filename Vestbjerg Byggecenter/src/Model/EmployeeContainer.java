@@ -39,7 +39,7 @@ public class EmployeeContainer {
         }
         else
         {
-            newID = 0;
+            newID = 1;
         }
         return newID;
     }
@@ -48,6 +48,14 @@ public class EmployeeContainer {
     public void addEmployee(Employee e)
     {
         employeeList.add(e);
+    }
+    
+    public int createEmployee(String name, String address, int phone, String password)
+    {
+        int employeeID = generateID();
+        Employee e = new Employee(employeeID, name, address, phone, password);
+        addEmployee(e);
+        return employeeID;
     }
 
     public void deleteEmployee(int employeeID)
