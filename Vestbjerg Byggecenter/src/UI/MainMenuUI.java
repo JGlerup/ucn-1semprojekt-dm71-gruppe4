@@ -58,6 +58,12 @@ public class MainMenuUI
                             }
                             else
                             {
+                                if (choice == 5)
+                                {
+                                    //udlejning
+                                }
+                                else
+                                {
                             writeEnd();
                             exit = true;
                             }//end else
