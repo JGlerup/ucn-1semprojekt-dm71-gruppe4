@@ -129,8 +129,7 @@ public class CustomerUI {
     {
          // makes an object keyboard to have input from the screen
          Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Write phonenumber +
-                   ");
+         System.out.println(" Write phonenumber: ");
          int phone = keyboard.nextInt();
          return phone;
     }
