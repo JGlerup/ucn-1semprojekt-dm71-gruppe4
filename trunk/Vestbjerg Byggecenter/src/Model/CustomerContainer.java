@@ -46,6 +46,7 @@ public class CustomerContainer {
 
     public int generateID(Customer customer)
     {
+        int index = 0;
         int newID = 1;
         
         if (customer.getCustomerID() == 0)

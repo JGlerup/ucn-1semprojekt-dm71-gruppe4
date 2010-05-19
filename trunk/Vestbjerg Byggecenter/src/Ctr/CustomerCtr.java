@@ -14,7 +14,7 @@ import Model.CustomerContainer;
  */
 public class CustomerCtr {
     
-     Customer customer;
+    private Customer customer;
     private CustomerContainer customerContainer;
 
     public CustomerCtr()
