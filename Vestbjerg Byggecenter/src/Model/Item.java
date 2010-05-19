@@ -12,11 +12,11 @@ package Model;
 public class Item {
 
     private int itemID;
-    private int itemPrice;
+    private double itemPrice;
     private String description;
     private int maxInStock;
     private int minInStock;
-    private int inStock;
+    private int itemsInStock;
     private String type;
     private String brand;
     private String place;
@@ -24,13 +24,13 @@ public class Item {
 
 
 
-    public Item(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place) {
+    public Item(int itemID, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String type, String brand, String place) {
         this.itemID = itemID;
         this.itemPrice = itemPrice;
         this.description = description;
         this.maxInStock = maxInStock;
         this.minInStock = minInStock;
-        this.inStock = inStock;
+        this.itemsInStock = itemsInStock;
         this.type = type;
         this.brand = brand;
         this.place = place;
@@ -47,7 +47,7 @@ public class Item {
     }
 
 
-    public int getItemPrice() {
+    public double getItemPrice() {
         return itemPrice;
     }
 
@@ -71,12 +71,12 @@ public class Item {
         this.description = description;
     }
 
-    public int getInStock() {
-        return inStock;
+    public int getItemsInStock() {
+        return itemsInStock;
     }
 
-    public void setInStock(int inStock) {
-        this.inStock = inStock;
+    public void setItemsInStock(int itemsInStock) {
+        this.itemsInStock = itemsInStock;
     }
 
     public int getMaxInStock() {
