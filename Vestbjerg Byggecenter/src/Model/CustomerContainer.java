@@ -62,9 +62,12 @@ public class CustomerContainer {
     }
 
 
-    public void addCustomer(Customer customer)
+    public int addCustomer(Customer customer)
     {
+        int id = generateID();
         customerList.add(customer);
+        
+        return id;
     }
 
     public void deleteCustomer(int customerID)
