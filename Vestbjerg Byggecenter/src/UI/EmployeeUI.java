@@ -29,7 +29,7 @@ public class EmployeeUI {
         {
             int choise = writeEmployeeMenu();
 
-            if(choise == 1)
+            if(choise == 1) //CREATE CUSTOMER
             {
                 createEmployee();
             }
