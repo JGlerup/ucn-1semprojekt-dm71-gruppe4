@@ -12,8 +12,9 @@ import Model.ItemContainer;
  *
  * @author Daniel
  */
-public class ItemCtr {
-    
+public class ItemCtr
+{
+
     private ItemContainer itemCon;
     
     public ItemCtr()
@@ -21,7 +22,6 @@ public class ItemCtr {
          itemCon = ItemContainer.getInstance();
     }
            
-
     public Item getItem(int itemID)
     {
         Item item = itemCon.getItem(itemID);
@@ -29,11 +29,12 @@ public class ItemCtr {
         return item;
     }
     
-    public void createItem(int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
+    public int createItem(double itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
     {
         int itemID = itemCon.generateID();
         Item item = new Item(itemID, itemPrice, description, maxInStock, minInStock, inStock, type, brand, place);
         itemCon.addItem(item);
+        return itemID;
     }
 	
     public void deleteItem(int itemID)
@@ -48,7 +49,7 @@ public class ItemCtr {
         {
             i.setBrand(brand);
             i.setDescription(description);
-            i.setInStock(inStock);
+            i.setItemsInStock(inStock);
             i.setItemPrice(itemPrice);
             i.setMaxInStock(maxInStock);
             i.setMinInStock(minInStock);
