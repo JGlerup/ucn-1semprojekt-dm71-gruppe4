@@ -27,37 +27,31 @@ public class EmployeeContainer {
         employeeList = new ArrayList<Employee>();
     }
 
-    public int generateID()
+    public int generateID(Employee employee)
     {
-        int index = 0;
         int newID = 0;
-        if(employeeList.size() != 0)
+        if(employee.getEmployeeID() == 0)
         {
-            index = employeeList.size() -1;
-            Employee e = employeeList.get(index);
-            newID = e.getEmployeeID() + 1;
-        }
-        else
-        {
-            newID = 1;
+            if(employeeList.size() != 0)
+            {
+                int lastIndex = employeeList.size() -1;
+                Employee lastEmployee = employeeList.get(lastIndex);
+                newID = lastEmployee.getEmployeeID();
+                newID = +1;
+            }
+            employee.setEmployeeID(newID);
         }
         return newID;
     }
 
 
-    public void addEmployee(Employee e)
+    public int addEmployee(Employee e)
     {
+        int employeeID = generateID(e);
         employeeList.add(e);
-    }
-    
-    public int createEmployee(String name, String address, int phone, String password)
-    {
-        int employeeID = generateID();
-        Employee e = new Employee(employeeID, name, address, phone, password);
-        addEmployee(e);
         return employeeID;
     }
-
+    
     public void deleteEmployee(int employeeID)
     {
         int index = 0;

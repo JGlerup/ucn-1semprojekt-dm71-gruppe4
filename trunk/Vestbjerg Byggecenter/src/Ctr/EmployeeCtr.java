@@ -21,7 +21,8 @@ public class EmployeeCtr {
 
     public int createEmployee(String name, String address, int phone, String password)
     {
-            return employeeContainer.createEmployee(name, address, phone, password);
+        Employee e = new Employee(name, address, phone, password);
+        return employeeContainer.addEmployee(e);
     }
 
     public void deleteEmployee(int employeeID)
