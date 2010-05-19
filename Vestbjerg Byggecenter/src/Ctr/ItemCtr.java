@@ -17,11 +17,19 @@ public class ItemCtr
 
     private ItemContainer itemCon;
     
+    /**
+     *
+     */
     public ItemCtr()
     {
          itemCon = ItemContainer.getInstance();
     }
            
+    /**
+     *
+     * @param itemID
+     * @return
+     */
     public Item getItem(int itemID)
     {
         Item item = itemCon.getItem(itemID);
@@ -29,19 +37,56 @@ public class ItemCtr
         return item;
     }
     
+    /**
+     *
+     * @param itemPrice
+     * @param description
+     * @param maxInStock
+     * @param minInStock
+     * @param inStock
+     * @param type
+     * @param brand
+     * @param place
+     * @return
+     */
     public int createItem(double itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
     {
-        int itemID = itemCon.generateID();
-        Item item = new Item(itemID, itemPrice, description, maxInStock, minInStock, inStock, type, brand, place);
-        itemCon.addItem(item);
-        return itemID;
+        Item i = new Item(itemPrice, description, maxInStock, minInStock, inStock, type, brand, place);
+        return itemCon.addItem(i);
     }
+
+    public boolean checkSupplyLimit(int minInStock, int maxInStock, int itemsInStock)
+    {
+        while(minInStock < itemsInStock && maxInStock > itemsInStock)
+        {
+            return false;
+        }
+        return true;
+    }
+
 	
+    /**
+     *
+     * @param itemID
+     */
     public void deleteItem(int itemID)
     {
     	itemCon.deleteItem(itemID);
     }
 
+    /**
+     *
+     * @param itemID
+     * @param itemPrice
+     * @param description
+     * @param maxInStock
+     * @param minInStock
+     * @param inStock
+     * @param type
+     * @param brand
+     * @param place
+     * @return
+     */
     public boolean updateItem(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
     {
         Item i = itemCon.getItem(itemID);
@@ -63,6 +108,10 @@ public class ItemCtr
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String listAllItems()
     {
         return itemCon.listAllItem();

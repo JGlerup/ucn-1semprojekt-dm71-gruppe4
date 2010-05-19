@@ -14,16 +14,16 @@ public class MainMenuUI
 {
 //   private SaleUI saleUI;
    private ItemUI itemUI;
-//   private CustomerUI customerUI;
-//   private EmployeeUI employeeUI;
+   private CustomerUI customerUI;
+   private EmployeeUI employeeUI;
 //   private RentUI rentUI;
    
    public MainMenuUI()
    {
 //       saleUI = new SaleUI();
        itemUI = new ItemUI();
-//       customerUI = new CustomerUI();
-//       employeeUI = new EmployeeUI();
+       customerUI = new CustomerUI();
+       employeeUI = new EmployeeUI();
        
        mainMenuStart();
    }
@@ -98,12 +98,12 @@ public class MainMenuUI
     
     private void startCustomerUI()
     {
-//        customerUI.start();
+        customerUI.start();
     }
     
     private void startEmployeeUI()
     {
-//        employeeUI.start();
+        employeeUI.start();
     }
    
 //    private void startRentUI()
