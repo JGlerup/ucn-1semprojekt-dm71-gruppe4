@@ -17,11 +17,9 @@ public class Employee extends Person {
 
 
 
-    public Employee(int employeeID, String name, String address, int phone, String password) {
+    public Employee(String name, String address, int phone, String password) {
 
         super (name, address, phone);
-        this.employeeID = employeeID;
-        this.password = password;
     }
 
     public int getEmployeeID() {
