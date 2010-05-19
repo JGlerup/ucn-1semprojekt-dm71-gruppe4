@@ -61,6 +61,13 @@ public class ItemUI
                             {
                                 listAllItems();
                             }
+                            else
+                            {
+                                if(choice == 6)
+                                {
+                                exit = true;
+                                }
+                            }
                         }
                     }
                 }
@@ -196,6 +203,11 @@ public class ItemUI
         int maxInStock = inputMaxInStock();
         int minInStock = inputMinInStock();
         int itemsInStock = inputItemsInStock();
+        while(itemCtr.checkSupplyLimit(minInStock, maxInStock, itemsInStock) == true)
+        {
+            System.out.println("Antallet af varer skal være indenfor minimums-/maksiumsbeholdningen");
+            itemsInStock = inputItemsInStock();
+        }
         String type = inputType();
         String brand = inputBrand();
         String place = inputPlace();
@@ -248,6 +260,7 @@ public class ItemUI
     private void pause()
     {
        Scanner keyboard = new Scanner(System.in);
-       String wait = keyboard.next();
+       System.out.println("Tryk retur for at fortsætte");
+       keyboard.nextLine();
     }
 }
