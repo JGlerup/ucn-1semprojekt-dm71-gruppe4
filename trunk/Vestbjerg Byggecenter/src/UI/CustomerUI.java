@@ -38,7 +38,8 @@ public class CustomerUI {
                 String name = inputName();
                 String address = inputAddress();
                 int phone = inputPhone();
-                System.out.println("\nNew customer crated with the ID:");
+                int id = createCustomer(name, address, phone);
+                System.out.println("\nNew customer crated with the ID: " + id);
                 pause();
             }
             else
@@ -151,6 +152,11 @@ public class CustomerUI {
         customerCtr.deleteCustomer(id);
         System.out.println("Customer deleted");
         pause();
+    }
+    
+    private int createCustomer(String name, String address, int phone)
+    {
+      return customerCtr.createCustomer(name, address, phone);
     }
     
     
