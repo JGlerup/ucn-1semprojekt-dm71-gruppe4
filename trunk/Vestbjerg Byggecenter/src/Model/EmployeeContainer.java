@@ -29,7 +29,7 @@ public class EmployeeContainer {
 
     public int generateID(Employee employee)
     {
-        int newID = 0;
+        int newID = 1;
         if(employee.getEmployeeID() == 0)
         {
             if(employeeList.size() != 0)

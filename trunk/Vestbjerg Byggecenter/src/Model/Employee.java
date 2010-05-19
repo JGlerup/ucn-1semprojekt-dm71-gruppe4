@@ -16,11 +16,11 @@ public class Employee extends Person {
 
 
 
-
     public Employee(String name, String address, int phone, String password) {
-
-        super (name, address, phone);
+        super(name, address, phone);
+        this.password = password;
     }
+
 
     public int getEmployeeID() {
         return employeeID;
