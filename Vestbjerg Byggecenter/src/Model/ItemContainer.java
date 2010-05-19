@@ -61,14 +61,15 @@ public class ItemContainer {
 
     public Item getItem(int itemID)
     {
-      for(Item item : itemList)
-      {
-          if(item.getItemID() == itemID)
-          {
-              return item;
-          }
-      }
-      return null;
+        Item i = null;
+        for(Item item : itemList)
+        {
+            if(itemID == item.getItemID())
+            {
+                i = item;
+            }
+        }
+        return i;
     }
 
     public void deleteItem(int itemID)

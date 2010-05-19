@@ -72,6 +72,7 @@ public class MainMenuUI
             }//end while
         }//end start
    }
+}
     
     private int writeMainMenu()
     {

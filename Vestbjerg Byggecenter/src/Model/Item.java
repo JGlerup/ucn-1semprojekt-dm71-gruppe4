@@ -20,6 +20,7 @@ public class Item {
     private String type;
     private String brand;
     private String place;
+    private Unit unit;
     
 
 
@@ -109,4 +110,23 @@ public class Item {
     public void setType(String type) {
         this.type = type;
     }
+
+    /**
+     * JEG LAVER LIGE NOGET UNIT FORSØG
+     */
+
+
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
+
+
+
+
+
+
 }
