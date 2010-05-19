@@ -33,17 +33,20 @@ public class CustomerUI {
         {
             int choise = writeCustomerMenu();
             
-            if(choise ==1)
+            if(choise ==1) //create Customer
             {
-                //create Customer
+                String name = inputName();
+                String address = inputAddress();
+                int phone = inputPhone();
                 System.out.println("\nNew customer crated with the ID:");
                 pause();
             }
             else
             {
-                if (choise == 2)
+                if (choise == 2) //delete customer
                 {
-                    //delete Customer
+                   deleteCustomer();
+
                 }
                 else
                 {
@@ -82,6 +85,56 @@ public class CustomerUI {
        return choise;
     }
 
+     private int inputCustomerID()
+    {
+        boolean succed = false;
+        int id = 0;
+        while(!succed)
+        {
+        // makes an object keyboard to have input from the console
+           Scanner keyboard = new Scanner(System.in);
+           System.out.println(" Angiv ID:  ");
+           try{
+             id = keyboard.nextInt();
+             succed = true;
+           }
+           catch (Exception e)
+            {
+             System.out.println("Det skal være et nummer. Prøv igen");
+             String input = keyboard.nextLine();
+           }
+        }//end while
+        return id;
+     }
+
+     private String inputName()
+    {
+         // makes an object keyboard to have input from the screen
+         Scanner keyboard = new Scanner(System.in);
+         System.out.println(" Write Name:  ");
+         String name = keyboard.nextLine();
+         return name;
+    }
+
+     private String inputAddress()
+    {
+         // makes an object keyboard to have input from the screen
+         Scanner keyboard = new Scanner(System.in);
+         System.out.println(" Write Address:  ");
+         String address = keyboard.nextLine();
+         return address;
+    }
+
+     private int inputPhone()
+    {
+         // makes an object keyboard to have input from the screen
+         Scanner keyboard = new Scanner(System.in);
+         System.out.println(" Write phonenumber +
+                   ");
+         int phone = keyboard.nextInt();
+         return phone;
+    }
+
     
     
     
@@ -90,6 +143,15 @@ public class CustomerUI {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\nPress return to continue");
         String address = keyboard.nextLine();
+    }
+
+    public void deleteCustomer()
+    {
+        int id = inputCustomerID();
+
+        customerCtr.deleteCustomer(id);
+        System.out.println("Customer deleted");
+        pause();
     }
     
     
