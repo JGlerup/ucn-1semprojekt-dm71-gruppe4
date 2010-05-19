@@ -32,25 +32,29 @@ public class ItemContainer {
         itemList = new ArrayList<Item>();
     }
 
-    public void addItem(Item newItem)
+    public int addItem(Item item)
     {
-        itemList.add(newItem);
+        int id = generateID(item);
+        itemList.add(item);
+        return id;
     }
 
-    public int generateID()
+    public int generateID(Item item)
     {
-        int index = 0;
-        int newID = 0;
-        if(itemList.size() != 0)
+        int newID = 1;
+
+        if (item.getItemID() == 0)
         {
-            index = itemList.size() -1;
-            Item i = itemList.get(index);
-            newID = i.getItemID() + 1;
+            if(itemList.size() != 0)
+            {
+                int lastIndex = itemList.size() -1;
+                Item lastItem = itemList.get(lastIndex);
+                newID = lastItem.getItemID();
+                newID += 1;
+            }
+            item.setItemID(newID);
         }
-        else
-        {
-            newID = 1;
-        }
+
         return newID;
     }
 
