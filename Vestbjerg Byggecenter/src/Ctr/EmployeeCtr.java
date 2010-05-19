@@ -15,7 +15,10 @@ public class EmployeeCtr {
     private Employee employee;
     private EmployeeContainer employeeContainer;
 
-
+public EmployeeCtr()
+{
+    employeeContainer = EmployeeContainer.getInstance();
+}
 
 
 
