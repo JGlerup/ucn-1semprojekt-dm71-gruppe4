@@ -42,9 +42,23 @@ public class CustomerCtr {
         customerContainer.deleteCustomer(CustomerID);
     }
 
-    public void updateCustomer(int customerID, String name, String address,int phone)
+    public boolean updateCustomer(int customerID, String name, String address,int phone)
     {
-
+        Customer c = customerContainer.getCustomer(customerID);
+        if(c != null)
+        {
+            c.setCustomerId(customerID);
+            c.setName(name);
+            c.setAddress(address);
+            c.setPhone(phone);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
+
+
 
 }
