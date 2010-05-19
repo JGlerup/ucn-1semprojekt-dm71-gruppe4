@@ -31,6 +31,18 @@ public class CustomerContainer {
         customerList= new ArrayList<Customer>();
     }
 
+     public Customer getCustomer(int customerID)
+    {
+      for(Customer customer : customerList)
+      {
+          if(customer.getCustomerID() == customerID)
+          {
+              return customer;
+          }
+      }
+      return null;
+    }
+
 
     public int generateID()
     {
