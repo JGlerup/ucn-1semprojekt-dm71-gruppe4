@@ -5,6 +5,7 @@
 
 package Ctr;
 
+import Model.Account;
 import Model.Customer;
 import Model.CustomerContainer;
 
@@ -16,6 +17,7 @@ public class CustomerCtr {
     
     private Customer customer;
     private CustomerContainer customerContainer;
+    private Account account;
 
     public CustomerCtr()
     {
@@ -36,7 +38,7 @@ public class CustomerCtr {
 
     public boolean updateCustomer(int customerID, String name, String address,int phone)
     {
-        Customer c = customerContainer.getCustomer(customerID);
+        Customer c = customerContainer.findCustomer(customerID);
         if(c != null)
         {
             c.setCustomerID(customerID);
@@ -49,6 +51,22 @@ public class CustomerCtr {
         {
             return false;
         }
+    }
+
+
+    
+    public void giveAccount(int customerID, String type, int regNr, int cardNr)
+    {
+        Customer c = getCustomer(customerID);
+        Account a = new Account(type, regNr, cardNr);
+        c.setAccount(a);
+    }
+
+    public Customer getCustomer(int customerID)
+    {
+
+        Customer c = customerContainer.findCustomer(customerID);
+        return c;
     }
 
 

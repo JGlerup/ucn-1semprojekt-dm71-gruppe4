@@ -57,17 +57,28 @@ public class CustomerUI {
                     }
                     else
                     {
-                        if (choise == 4)
+                        if (choise == 4) // assign account
                         {
-                            //getCustomer
+                           int customerID = inputCustomerID();
+                           String type = inputType();
+                           int regNr = inputRegNr();
+                           int cardNr = inputCardNr();
+                           assignAccount(customerID, type, regNr, cardNr);
+                          
                         }
                         else
                         {
+                            if (choise == 5)
+                            {
+                                //getCustomer
+                            }
+                            else
+                            {
                             System.out.println("Goodbye");
                             exit = true;
-                        }
+                            }
                     
-                   
+                        }//end else
                     }//end else
                 }//end else
             }//end else
@@ -79,10 +90,12 @@ public class CustomerUI {
        Scanner keyboard = new Scanner(System.in);
        System.out.println("\f *** Kunde Menu ***");
        System.out.println("(1) Opret kunde");
-       System.out.println("(2) slet kunde");
-       System.out.println("(3) opdater kunde");
-       System.out.println("(4) sÃ¸g kunde");
-       System.out.print("\n VÃ¦lg et felt: ");
+       System.out.println("(2) Slet kunde");
+       System.out.println("(3) Opdater kunde");
+       System.out.println("(4) Tildel konto");
+       System.out.println("(5) Find kunde");
+       System.out.println("(5) Tilbage");
+       System.out.print("\n Indtast nummer: ");
        
        int choise = keyboard.nextInt();
        return choise;
@@ -96,14 +109,14 @@ public class CustomerUI {
         {
         // makes an object keyboard to have input from the console
            Scanner keyboard = new Scanner(System.in);
-           System.out.println(" Angiv ID:  ");
+           System.out.println(" Angiv kundeID:  ");
            try{
              id = keyboard.nextInt();
              succed = true;
            }
            catch (Exception e)
             {
-             System.out.println("Det skal vÃ¦re et nummer. PrÃ¸v igen");
+             System.out.println("Fejl. Prøv igen");
              String input = keyboard.nextLine();
            }
         }//end while
@@ -114,7 +127,7 @@ public class CustomerUI {
     {
          // makes an object keyboard to have input from the screen
          Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Write Name:  ");
+         System.out.println(" Indtast Name:  ");
          String name = keyboard.nextLine();
          return name;
     }
@@ -123,7 +136,7 @@ public class CustomerUI {
     {
          // makes an object keyboard to have input from the screen
          Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Write Address:  ");
+         System.out.println(" Indtast Address:  ");
          String address = keyboard.nextLine();
          return address;
     }
@@ -132,9 +145,38 @@ public class CustomerUI {
     {
          // makes an object keyboard to have input from the screen
          Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Write phonenumber: ");
+         System.out.println(" Indtast telefon nummer: ");
          int phone = keyboard.nextInt();
          return phone;
+    }
+    
+    private String inputType()
+    {
+         // makes an object keyboard to have input from the screen
+         Scanner keyboard = new Scanner(System.in);
+         System.out.println(" Indtast type:  ");
+         String type = keyboard.nextLine();
+         return type;
+    }
+    
+    
+     private int inputRegNr()
+    {
+         // makes an object keyboard to have input from the screen
+         Scanner keyboard = new Scanner(System.in);
+         System.out.println(" Indtast reg nummeret: ");
+         int regNr = keyboard.nextInt();
+         return regNr;
+    }
+    
+    
+      private int inputCardNr()
+    {
+         // makes an object keyboard to have input from the screen
+         Scanner keyboard = new Scanner(System.in);
+         System.out.println(" indtast kortnummer: ");
+         int cardNr = keyboard.nextInt();
+         return cardNr;
     }
 
     
@@ -143,7 +185,7 @@ public class CustomerUI {
     private void pause()
     {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("\nPress return to continue");
+        System.out.println("\n Tryk enter for at fortsætte");
         String pause = keyboard.nextLine();
     }
 
@@ -153,6 +195,13 @@ public class CustomerUI {
 
         customerCtr.deleteCustomer(id);
         System.out.println("Customer deleted");
+        pause();
+    }
+    
+    public void assignAccount (int customerID, String type, int regNr, int cardNr)
+    {
+        customerCtr.giveAccount(customerID, type, regNr, cardNr);
+        System.out.println("Kunde med id" +customerID +"har fået tilføjet en konto");
         pause();
     }
     
