@@ -68,7 +68,6 @@ public class CustomerContainer {
     {
         int id = generateID(customer);
         customerList.add(customer);
-        
         return id;
     }
 
@@ -89,10 +88,7 @@ public class CustomerContainer {
         customerList.remove(storeIndex);
     }
 
-     public void getCustomerID(int customerID)
-     {
-
-     }
+     
 
 
 
