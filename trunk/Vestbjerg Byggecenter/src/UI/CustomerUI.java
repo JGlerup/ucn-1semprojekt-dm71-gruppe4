@@ -76,6 +76,7 @@ public class CustomerUI {
     public int writeCustomerMenu()
     {   //Userinterface
        Scanner keyboard = new Scanner(System.in);
+       System.out.println("\f *** Kunde Menu ***");
        System.out.println("(1) Opret kunde");
        System.out.println("(2) slet kunde");
        System.out.println("(3) opdater kunde");
