@@ -12,6 +12,7 @@ package Model;
 public class Customer extends Person {
 
     private int customerID;
+    private Account account;
 
 
 
@@ -26,6 +27,14 @@ public class Customer extends Person {
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
 

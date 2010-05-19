@@ -31,16 +31,18 @@ public class CustomerContainer {
         customerList= new ArrayList<Customer>();
     }
 
-     public Customer getCustomer(int customerID)
+     
+    public Customer findCustomer(int customerID)
     {
-      for(Customer customer : customerList)
-      {
-          if(customer.getCustomerID() == customerID)
-          {
-              return customer;
-          }
-      }
-      return null;
+        Customer c = null;
+        for(Customer customer : customerList)
+        {
+            if(customerID == customer.getCustomerID())
+            {
+                c = customer;
+            }
+        }
+        return c;
     }
 
 
