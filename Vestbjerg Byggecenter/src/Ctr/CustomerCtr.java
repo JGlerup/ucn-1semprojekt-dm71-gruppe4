@@ -14,20 +14,13 @@ import Model.CustomerContainer;
  */
 public class CustomerCtr {
     
-    private Customer customer;
+     Customer customer;
     private CustomerContainer customerContainer;
 
-
-
-
-
-    /**
-     * Method that creates a new customer and adds it in the container.
-     * @param customerID
-     * @param name
-     * @param address
-     * @param phone
-     */
+    public CustomerCtr()
+    {
+        customerContainer = CustomerContainer.getInstance();
+    }
 
     public int createCustomer(String name, String address, int phone)
 {
