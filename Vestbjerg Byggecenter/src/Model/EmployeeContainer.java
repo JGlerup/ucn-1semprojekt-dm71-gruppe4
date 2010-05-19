@@ -110,6 +110,11 @@ public class EmployeeContainer {
         return outputString;
     }
 
+    public ArrayList<Employee> listEmployee()
+    {
+        return employeeList;
+    }
+
 }
 
   
