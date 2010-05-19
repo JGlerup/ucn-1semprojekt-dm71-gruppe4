@@ -24,8 +24,8 @@ public class Item {
 
 
 
-    public Item(int itemID, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String type, String brand, String place) {
-        this.itemID = itemID;
+    public Item(double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String type, String brand, String place)
+    {
         this.itemPrice = itemPrice;
         this.description = description;
         this.maxInStock = maxInStock;
@@ -34,7 +34,6 @@ public class Item {
         this.type = type;
         this.brand = brand;
         this.place = place;
-
     }
 
 
