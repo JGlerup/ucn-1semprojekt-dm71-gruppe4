@@ -67,12 +67,12 @@ public class EmployeeContainer {
         employeeList.remove(storeIndex);
     }
 
-    private Employee findEmployee(int id)
+    public Employee findEmployee(int employeeID)
     {
         Employee e = null;
         for(Employee employee : employeeList)
         {
-            if(id == employee.getEmployeeID())
+            if(employeeID == employee.getEmployeeID())
             {
                 e = employee;
             }
@@ -81,12 +81,11 @@ public class EmployeeContainer {
     }
 
 
-    public boolean updateEmployee(int id,int employeeID, String password, String name, String address, int phone)
+    public boolean updateEmployee(int employeeID, String password, String name, String address, int phone)
     {
-        Employee e = findEmployee(id);
+        Employee e = findEmployee(employeeID);
         if(e != null)
         {
-            e.setEmployeeID(employeeID);
             e.setPassword(password);
             e.setName(name);
             e.setAddress(address);
