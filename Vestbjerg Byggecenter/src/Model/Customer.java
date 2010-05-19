@@ -24,7 +24,7 @@ public class Customer extends Person {
         return customerID;
     }
 
-    public void setCustomerId(int customerID) {
+    public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 

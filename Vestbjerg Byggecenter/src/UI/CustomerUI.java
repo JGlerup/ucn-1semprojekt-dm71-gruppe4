@@ -63,6 +63,7 @@ public class CustomerUI {
                         }
                         else
                         {
+                            System.out.println("Goodbye");
                             exit = true;
                         }
                     
