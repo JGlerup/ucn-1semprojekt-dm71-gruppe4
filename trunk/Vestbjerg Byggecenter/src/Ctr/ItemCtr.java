@@ -7,6 +7,7 @@ package Ctr;
 
 import Model.Item;
 import Model.ItemContainer;
+import Model.Unit;
 
 /**
  *
@@ -115,5 +116,12 @@ public class ItemCtr
     public String listAllItems()
     {
         return itemCon.listAllItem();
+    }
+
+    public void assignUnit(int serialNo, int itemID)
+    {
+        Item i = itemCon.getItem(itemID);
+        Unit u = new Unit(serialNo);
+        i.setUnit(u);
     }
 }

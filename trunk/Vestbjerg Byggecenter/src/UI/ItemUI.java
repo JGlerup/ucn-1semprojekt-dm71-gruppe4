@@ -53,7 +53,9 @@ public class ItemUI
                     {
                         if(choice == 4)
                         {
-                             //updateItem();
+                             int itemID = inputItemID();
+                             int serialNo = inputSerialNo();
+                             assignSerialNo(itemID, serialNo);
                         }
                         else
                         {
@@ -63,10 +65,8 @@ public class ItemUI
                             }
                             else
                             {
-                                if(choice == 6)
-                                {
+                                System.out.println("Hav en god dag");
                                 exit = true;
-                                }
                             }
                         }
                     }
@@ -83,7 +83,7 @@ public class ItemUI
             System.out.println(" (1) Find vare");
             System.out.println(" (2) Opret vare");
             System.out.println(" (3) Slet vare");
-            System.out.println(" (4) Opdater vare");
+            System.out.println(" (4) Tildel serie nummer");
             System.out.println(" (5) Vis en liste over alle varer");
             System.out.println(" (6) Return");
             System.out.print("\n VÃ¦lg et menupunkt: ");
@@ -213,6 +213,7 @@ public class ItemUI
         String place = inputPlace();
         int i = itemCtr.createItem(itemPrice, description, maxInStock, minInStock, itemsInStock, type, brand, place);
         System.out.println("Varen er oprettet og har fÃ¥et ID'et: " + i);
+        pause();
     }
 
     private void deleteItem()
@@ -262,5 +263,25 @@ public class ItemUI
        Scanner keyboard = new Scanner(System.in);
        System.out.println("Tryk retur for at fortsÃ¦tte");
        keyboard.nextLine();
+    }
+
+
+
+    // WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+
+       private int inputSerialNo()
+    {
+        // creates an object keyboard to read data from the keyboard
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Indtast serienummeret: ");
+        int serialNo = keyboard.nextInt();
+        return serialNo;
+    }
+
+    public void assignSerialNo(int itemID, int serialNo)
+    {
+         itemCtr.assignUnit(serialNo, itemID);
+         System.out.println("Item med id" + itemID +"har fået tilføjet et objekt");
+         pause();
     }
 }
