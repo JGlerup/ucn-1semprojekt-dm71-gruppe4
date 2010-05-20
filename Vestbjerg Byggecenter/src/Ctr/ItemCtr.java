@@ -57,7 +57,7 @@ public class ItemCtr
 
     public boolean checkSupplyLimit(int minInStock, int maxInStock, int itemsInStock)
     {
-        while(minInStock < itemsInStock && maxInStock > itemsInStock)
+        while(minInStock <= itemsInStock && maxInStock >= itemsInStock)
         {
             return false;
         }

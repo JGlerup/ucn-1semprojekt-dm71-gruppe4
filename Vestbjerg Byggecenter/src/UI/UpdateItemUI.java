@@ -30,72 +30,47 @@ public class UpdateItemUI {
 
     public void itemMenu()
     {
-        boolean exit = false;
-        while(!exit)
+        try
         {
-            //show menu and return the user's choice
-            int choice =   writeItemMenu();
-            if (choice == 1)
+            boolean exit = false;
+            while(!exit)
             {
-                updateItemPrice();
-            }
-            else
-            {
-                if(choice == 2)
+                int choice =   writeItemMenu();
+                switch(choice)
                 {
-                   updateDescription();
-                }
-                else
-                {
-                    if(choice == 3)
-                    {
+                    case 1:
+                        updateItemPrice();
+                        break;
+                    case 2:
+                        updateDescription();
+                        break;
+                    case 3:
                         updateMaxInStock();
-                    }
-                    else
-                    {
-                        if(choice == 4)
-                        {
-                             updateMinInStock();
-                        }
-                        else
-                        {
-                            if(choice == 5)
-                            {
-                                updateItemsInStock();
-                            }
-                            else
-                            {
-                                if(choice == 6)
-                                {
-                                    updateType();
-                                }
-                                else
-                                {
-                                    if(choice == 7)
-                                    {
-                                        updateBrand();
-                                    }
-                                    else
-                                    {
-                                        if(choice == 8)
-                                        {
-                                            updatePlace();
-                                        }
-                                        else
-                                        {
-                                            if(choice == 9)
-                                            System.out.println("Hav en god dag");
-                                            exit = true;
-                                        }
-
-                                    }
-                                }
-
-                            }
-                        }
-                    }
+                        break;
+                    case 4:
+                        updateMinInStock();
+                        break;
+                    case 5:
+                        updateItemsInStock();
+                        break;
+                    case 6:
+                        updateType();
+                        break;
+                    case 7:
+                        updateBrand();
+                        break;
+                    case 8:
+                        updateLocation();
+                        break;
+                    case 9:
+                        exit = true;
+                        break;
                 }
             }
+        }
+        catch(Exception e)
+        {
+            start();
         }
     }
 
@@ -236,7 +211,7 @@ public class UpdateItemUI {
         }
     }
 
-    private void updatePlace()
+    private void updateLocation()
     {
         int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
