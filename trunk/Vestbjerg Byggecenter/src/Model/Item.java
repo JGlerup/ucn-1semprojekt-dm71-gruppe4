@@ -54,7 +54,7 @@ public class Item {
         return itemPrice;
     }
 
-    public void setItemPrice(int ItemPrice) {
+    public void setItemPrice(double ItemPrice) {
         this.itemPrice = ItemPrice;
     }
 
