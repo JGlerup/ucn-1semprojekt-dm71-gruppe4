@@ -24,16 +24,16 @@ public class InputUI
 
     public int inputItemID()
     {
-        boolean succed = false;
+        boolean succeed = false;
         int itemID = 0;
-        while(!succed)
+        while(!succeed)
         {
         // makes an object keyboard to have input from the console
            System.out.println("Angiv vareID:  ");
            try
            {
              itemID = keyboard.nextInt();
-             succed = true;
+             succeed = true;
            }
            catch(Exception e)
            {
@@ -48,21 +48,22 @@ public class InputUI
     public String inputDescription()
     {
         // creates an object keyboard to read data from the keyboard
-        System.out.println(" Indtast beskrivelse:  ");
-        String description = keyboard.nextLine();
+        System.out.println("Indtast beskrivelse:  ");
+        String description = keyboard.next();
         return description;
     }
 
     public double inputItemPrice()
     {
-        boolean succed = false;
+        boolean succeed = false;
         double itemPrice = 0;
-        while(!succed)
+        while(!succeed)
         {
             try
             {
                 System.out.println("Angiv varepris:  ");
-                itemPrice = keyboard.nextInt();
+                itemPrice = keyboard.nextDouble();
+                succeed = true;
             }
             catch(Exception e)
             {
@@ -76,14 +77,15 @@ public class InputUI
     public int inputMaxInStock()
     {
         // creates an object keyboard to read data from the keyboard
-        boolean succed = false;
+        boolean succeed = false;
         int maxInStock = 0;
-        while(!succed)
+        while(!succeed)
         {
             try
             {
                System.out.println("Indtast maksimumsbeholdning:  ");
                maxInStock = keyboard.nextInt();
+               succeed = true;
             }
             catch(Exception e)
             {
@@ -114,7 +116,7 @@ public class InputUI
     {
         // creates an object keyboard to read data from the keyboard
         System.out.println("Indtast type: ");
-        String type = keyboard.nextLine();
+        String type = keyboard.next();
         return type;
     }
 
@@ -122,7 +124,7 @@ public class InputUI
     {
         // creates an object keyboard to read data from the keyboard
         System.out.println("Indtast brand: ");
-        String brand = keyboard.nextLine();
+        String brand = keyboard.next();
         return brand;
     }
 
@@ -130,7 +132,7 @@ public class InputUI
     {
         // creates an object keyboard to read data from the keyboard
         System.out.println("Indtast lokation: ");
-        String place = keyboard.nextLine();
+        String place = keyboard.next();
         return place;
     }
 
@@ -142,6 +144,26 @@ public class InputUI
     {
        System.out.println("Tryk retur for at fortsætte");
        keyboard.nextLine();
+    }
+
+    public boolean yesOrNo()
+    {
+        boolean succeed = false;
+        while(!succeed)
+        {
+            System.out.println("Er du sikker? (y/n)");
+            String input = keyboard.next();
+            if(input.equals("y"))
+            {
+                succeed = true;
+
+            }
+            if(input.equals("n"))
+            {
+                succeed = true;
+            }
+        }
+        return succeed;
     }
 
 }

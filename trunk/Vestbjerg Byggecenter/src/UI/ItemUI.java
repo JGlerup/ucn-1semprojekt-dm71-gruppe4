@@ -32,55 +32,42 @@ public class ItemUI
 
     public void itemMenu()
     {
-        boolean exit = false;
-        while(!exit)
+        try
         {
+            boolean exit = false;
+            while(!exit)
+            {
             //show menu and return the user's choice
-            int choice =   writeItemMenu();
-            if (choice == 1)
-            {
-                getItem();
-            }
-            else
-            {
-                if(choice == 2)
+                int choice =   writeItemMenu();
+                switch(choice)
                 {
-                   createItem();
-                }
-                else
-                {
-                    if(choice == 3)
-                    {
+                    case 1:
+                        getItem();
+                        break;
+                    case 2:
+                        createItem();
+                        break;
+                    case 3:
+                        startUpdateMenuUI();
+                        break;
+                    case 4:
+                        assignSerialNo();
+                        break;
+                    case 5:
                         deleteItem();
-                    }
-                    else
-                    {
-                        if(choice == 4)
-                        {
-                             assignSerialNo();
-                        }
-                        else
-                        {
-                            if(choice == 5)
-                            {
-                                listAllItems();
-                            }
-                            else
-                            {
-                                if(choice == 6)
-                                {
-                                    startUpdateMenuUI();
-                                }
-                                else
-                                {
-                                    System.out.println("Hav en god dag");
-                                    exit = true;
-                                }
-                            }
-                        }
-                    }
+                        break;
+                    case 6:
+                        listAllItems();
+                        break;
+                    case 7:
+                        exit = true;
+                        break;
                 }
             }
+        }
+        catch(Exception e)
+        {
+            start();
         }
     }
 
@@ -91,10 +78,11 @@ public class ItemUI
             System.out.println("\f *** Lagerstyring ***");
             System.out.println(" (1) Find vare");
             System.out.println(" (2) Opret vare");
-            System.out.println(" (3) Slet vare");
-            System.out.println(" (4) Tildel serie nummer");
-            System.out.println(" (5) Vis en liste over alle varer");
-            System.out.println(" (6) Return");
+            System.out.println(" (3) Opdater vare");
+            System.out.println(" (4) Tildel serienummer");
+            System.out.println(" (5) Slet vare");
+            System.out.println(" (6) Vis en liste over alle varer");
+            System.out.println(" (7) Return");
             System.out.print("\n Vælg et menupunkt: ");
 
             int choice = keyboard.nextInt();
@@ -149,12 +137,16 @@ public class ItemUI
         int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) == null)
         {
-                System.out.println("En vare med ID'et " + itemID + " findes ikke. Indtast venligst et nyt ID.");
+            System.out.println("ID'et " + itemID + " findes ikke. Indtast venligst et nyt ID.");
         }
         else
         {
+            boolean yesOrNo = inputUI.yesOrNo();
+            if(yesOrNo == true)
+            {
                 itemCtr.deleteItem(itemID);
                 System.out.println("Varen med ID'et " + itemID + " blev slettet.");
+            }
         }
     }
 
