@@ -13,8 +13,8 @@ public class Unit {
 
     private int serialNo;
 
-    public Unit(int serialNo) {
-        this.serialNo = serialNo;
+    public Unit()
+    {
     }
 
     public int getSerialNo() {

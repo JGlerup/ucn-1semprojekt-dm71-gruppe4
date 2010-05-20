@@ -5,6 +5,8 @@
 
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel
@@ -20,7 +22,7 @@ public class Item {
     private String type;
     private String brand;
     private String place;
-    private Unit unit;
+    private ArrayList<Unit> unitList;
     
 
 
@@ -107,21 +109,53 @@ public class Item {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
     /**
-     * JEG LAVER LIGE NOGET UNIT FORSØG
+     * JEG LAVER LIGE NOGET UNIT FORSï¿½G
      */
 
 
-    public Unit getUnit() {
-        return unit;
+    public Unit getUnit(int serialNo)
+    {
+        Unit u = null;
+        for(Unit unit : unitList)
+        {
+            if(serialNo == u.getSerialNo())
+            {
+                u = unit;
+            }
+        }
+        return u;
     }
 
-    public void setUnit(Unit unit) {
-        this.unit = unit;
+    public int addUnit(Unit u)
+    {
+        int serialNo = generateSerialNo(u);
+        unitList.add(u);
+        return serialNo;
+    }
+
+    public int generateSerialNo(Unit u)
+    {
+        int newSerialNo = 1;
+
+        if (u.getSerialNo() == 0)
+        {
+            if(unitList.size() != 0)
+            {
+                int lastIndex = unitList.size() -1;
+                Unit lastUnit = unitList.get(lastIndex);
+                newSerialNo = lastUnit.getSerialNo();
+                newSerialNo += 1;
+            }
+            u.setSerialNo(newSerialNo);
+        }
+
+        return newSerialNo;
     }
 
 

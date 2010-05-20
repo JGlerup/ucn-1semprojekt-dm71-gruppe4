@@ -53,9 +53,7 @@ public class ItemUI
                     {
                         if(choice == 4)
                         {
-                             int itemID = inputItemID();
-                             int serialNo = inputSerialNo();
-                             assignSerialNo(itemID, serialNo);
+                             assignSerialNo();
                         }
                         else
                         {
@@ -278,10 +276,19 @@ public class ItemUI
         return serialNo;
     }
 
-    public void assignSerialNo(int itemID, int serialNo)
+    public void assignSerialNo()
     {
-         itemCtr.assignUnit(serialNo, itemID);
-         System.out.println("Item med id" + itemID +"har fået tilføjet et objekt");
-         pause();
+         int itemID = inputItemID();
+         if(itemCtr.getItem(itemID) != null)
+         {
+              int u = itemCtr.assignUnit(itemID);
+              System.out.println("Et eksemplar med serienummeret " + u +" blev oprettet");
+              pause();
+         }
+         else
+         {
+              System.out.println("ID'et blev ikke fundet");
+              pause();
+         }
     }
 }
