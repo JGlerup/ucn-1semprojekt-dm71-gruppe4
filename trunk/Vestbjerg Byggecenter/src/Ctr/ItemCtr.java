@@ -33,10 +33,8 @@ public class ItemCtr
      * @return
      */
     public Item getItem(int itemID)
-    {
-        Item item = itemCon.getItem(itemID);
-        
-        return item;
+    {  
+        return itemCon.getItem(itemID);
     }
     
     /**
