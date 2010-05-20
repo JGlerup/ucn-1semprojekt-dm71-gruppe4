@@ -226,7 +226,7 @@ public class ItemUI
         else
         {
                 itemCtr.deleteItem(itemID);
-                System.out.println("Varen med ID'et" + itemID + "blev slettet.");
+                System.out.println("Varen med ID'et " + itemID + " blev slettet.");
         }
     }
 

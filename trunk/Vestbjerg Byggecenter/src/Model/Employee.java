@@ -13,10 +13,12 @@ public class Employee extends Person {
 
     private int employeeID;
     private String password;
+   
 
 
 
-    public Employee(String name, String address, int phone, String password) {
+    public Employee(String name, String address, int phone, String password)
+    {
         super(name, address, phone);
         this.password = password;
     }
@@ -37,6 +39,8 @@ public class Employee extends Person {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    
 
 
 

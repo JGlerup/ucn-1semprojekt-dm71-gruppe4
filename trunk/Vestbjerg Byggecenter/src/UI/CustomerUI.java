@@ -94,7 +94,7 @@ public class CustomerUI {
        System.out.println("(3) Opdater kunde");
        System.out.println("(4) Tildel konto");
        System.out.println("(5) Find kunde");
-       System.out.println("(5) Tilbage");
+       System.out.println("(6) Tilbage");
        System.out.print("\n Indtast nummer: ");
        
        int choise = keyboard.nextInt();
@@ -201,7 +201,7 @@ public class CustomerUI {
     public void assignAccount (int customerID, String type, int regNr, int cardNr)
     {
         customerCtr.giveAccount(customerID, type, regNr, cardNr);
-        System.out.println("Kunde med id" +customerID +"har fået tilføjet en konto");
+        System.out.println("Kunde med id " +customerID +" har fået tilføjet en konto");
         pause();
     }
     

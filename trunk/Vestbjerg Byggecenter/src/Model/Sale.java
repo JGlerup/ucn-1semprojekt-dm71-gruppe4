@@ -40,7 +40,7 @@ public class Sale {
         this.price = price;
         sLIList = new ArrayList<SalesLineItem>();
     }
-
+// SKAL DEN HER IKKE HEDDE addSLI ?
     public void createSalesLineItem(SalesLineItem newSalesLineItem)
     {
         sLIList.add(newSalesLineItem);
