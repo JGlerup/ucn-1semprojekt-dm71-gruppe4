@@ -132,5 +132,53 @@ public class ItemCtr
     {
         return serialNo++;
     }
+
+    public void updateItemPrice(int itemID, double itemPrice)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setItemPrice(itemPrice);
+    }
+
+    public void updateDescription(int itemID, String description)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setDescription(description);
+    }
+
+    public void updateMaxInStock(int itemID, int maxInStock)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setMaxInStock(maxInStock);
+    }
+
+    public void updateMinInStock(int itemID, int minInStock)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setMinInStock(minInStock);
+    }
+
+    public void updateItemsInStock(int itemID, int itemsInStock)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setItemsInStock(itemsInStock);
+    }
+
+    public void updateType(int itemID, String type)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setType(type);
+    }
+
+    public void updateBrand(int itemID, String brand)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setBrand(brand);
+    }
+
+    public void updatePlace(int itemID, String place)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setPlace(place);
+    }
 }
 

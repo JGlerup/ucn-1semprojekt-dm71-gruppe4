@@ -14,10 +14,12 @@ import java.util.Scanner;
 public class ItemUI
 {
     private ItemCtr itemCtr;//DVD UI must know the DVD controller
+    private UpdateItemUI updateItemUI;
 
     public ItemUI()
     {
         itemCtr = new ItemCtr();
+        updateItemUI = new UpdateItemUI();
     }
 
     public void start()
@@ -63,8 +65,15 @@ public class ItemUI
                             }
                             else
                             {
-                                System.out.println("Hav en god dag");
-                                exit = true;
+                                if(choice == 6)
+                                {
+                                    startUpdateMenuUI();
+                                }
+                                else
+                                {
+                                    System.out.println("Hav en god dag");
+                                    exit = true;
+                                }
                             }
                         }
                     }
@@ -290,5 +299,10 @@ public class ItemUI
               System.out.println("ID'et blev ikke fundet");
               pause();
          }
+    }
+
+    public void startUpdateMenuUI()
+    {
+        updateItemUI.start();
     }
 }
