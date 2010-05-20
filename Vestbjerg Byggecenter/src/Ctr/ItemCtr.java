@@ -17,6 +17,7 @@ public class ItemCtr
 {
 
     private ItemContainer itemCon;
+    private int serialNo = 1;
     
     /**
      *
@@ -121,8 +122,15 @@ public class ItemCtr
     public int assignUnit(int itemID)
     {
         Item i = itemCon.getItem(itemID);
-        Unit u = new Unit();
-        return i.addUnit(u);
-    }   
+        int lol = generateSerialNo();
+        Unit u = new Unit(lol);
+        i.addUnit(u);
+        return lol;
+    }
+
+    public int generateSerialNo()
+    {
+        return serialNo++;
+    }
 }
 
