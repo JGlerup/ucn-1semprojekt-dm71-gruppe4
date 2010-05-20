@@ -49,4 +49,28 @@ public EmployeeCtr()
     {
         return employeeContainer.listAllEmployees();
     }
+
+    // public void updateName(int employeeID, String name)
+   // {
+   //     Employee c = findEmployee(employeeID);
+   //     c.setName(name);
+   // }
+
+  //  public void updateAddress(int employeeID, String address)
+  //  {
+ //       Employee e = getEmployee(employeeID);
+  //      e.setAddress(address);
+  //  }
+
+  //  public void updateAddress(int employeeID, int phone)
+   // {
+  //      Employee c = getEmployee(employeeID);
+  //      c.setPhone(phone);
+  //  }
+
+//    public void updatePassword(int employeeID, String password)
+ //   {
+ //       Employee c = getEmployee(employeeID);
+  //      c.setPassword(password);
+  //  }
 }
