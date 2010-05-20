@@ -118,14 +118,11 @@ public class ItemCtr
         return itemCon.listAllItem();
     }
 
-    public void assignUnit(int serialNo, int itemID)
+    public int assignUnit(int itemID)
     {
         Item i = itemCon.getItem(itemID);
-        Unit u = new Unit(serialNo);
-        i.setUnit(u);
-    }
-    
-    
-    
+        Unit u = new Unit();
+        return i.addUnit(u);
+    }   
 }
 
