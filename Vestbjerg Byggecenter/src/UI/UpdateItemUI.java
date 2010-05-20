@@ -14,15 +14,17 @@ import java.util.Scanner;
 public class UpdateItemUI {
 
     private ItemCtr itemCtr;//DVD UI must know the DVD controller
+    private InputUI inputUI;
+    private int itemID;
 
     public UpdateItemUI()
     {
         itemCtr = new ItemCtr();
+        inputUI = new InputUI();
     }
 
     public void start()
     {
-
         itemMenu();
     }
 
@@ -117,94 +119,13 @@ public class UpdateItemUI {
             return choice;
     }
 
-    private int inputItemID()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Indtast ID'et på en vare:  ");
-        int itemID = keyboard.nextInt();
-        return itemID;
-    }
-
-    private String inputDescription()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Indtast beskrivelse:  ");
-        String description = keyboard.nextLine();
-        return description;
-    }
-
-    private double inputItemPrice()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Indtast varepris:  ");
-        double itemPrice = keyboard.nextInt();
-        return itemPrice;
-    }
-
-    private int inputMaxInStock()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast maksimumsbeholdning:  ");
-        int maxInStock = keyboard.nextInt();
-        return maxInStock;
-    }
-
-    private int inputMinInStock()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast minimumsbeholdning:  ");
-        int minInStock = keyboard.nextInt();
-        return minInStock;
-    }
-
-    private int inputItemsInStock()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast antal: ");
-        int itemsInStock = keyboard.nextInt();
-        return itemsInStock;
-    }
-
-    private String inputType()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast type: ");
-        String type = keyboard.nextLine();
-        return type;
-    }
-
-    private String inputBrand()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast brand: ");
-        String brand = keyboard.nextLine();
-        return brand;
-    }
-
-    private String inputPlace()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast lokation: ");
-        String place = keyboard.nextLine();
-        return place;
-    }
-
     private void updateItemPrice()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             double oldItemPrice = itemCtr.getItem(itemID).getItemPrice();
-            double itemPrice = inputItemPrice();
+            double itemPrice = inputUI.inputItemPrice();
             itemCtr.updateItemPrice(itemID, itemPrice);
             System.out.println("Prisen er blevet ændret fra " + oldItemPrice + " til " + itemPrice);
 
@@ -217,11 +138,11 @@ public class UpdateItemUI {
 
     private void updateDescription()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             String oldDescription = itemCtr.getItem(itemID).getDescription();
-            String description = inputDescription();
+            String description = inputUI.inputDescription();
             itemCtr.updateDescription(itemID, description);
             System.out.println("Beskrivelsen er blevet ændret fra " + oldDescription + " til " + description);
         }
@@ -233,11 +154,11 @@ public class UpdateItemUI {
 
     private void updateMaxInStock()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             int oldMaxInStock = itemCtr.getItem(itemID).getMaxInStock();
-            int maxInStock = inputMaxInStock();
+            int maxInStock = inputUI.inputMaxInStock();
             itemCtr.updateMaxInStock(itemID, maxInStock);
             System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + "til " + maxInStock);
         }
@@ -250,11 +171,11 @@ public class UpdateItemUI {
 
     private void updateMinInStock()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             int oldMinInStock = itemCtr.getItem(itemID).getMinInStock();
-            int minInStock = inputMinInStock();
+            int minInStock = inputUI.inputMinInStock();
             itemCtr.updateMinInStock(itemID, minInStock);
             System.out.println("Minimumsbeholdningen er blevet ændret fra " + oldMinInStock + " til " + minInStock);
         }
@@ -267,11 +188,11 @@ public class UpdateItemUI {
 
     private void updateItemsInStock()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             int oldItemsInStock = itemCtr.getItem(itemID).getItemsInStock();
-            int itemsInStock = inputItemsInStock();
+            int itemsInStock = inputUI.inputItemsInStock();
             itemCtr.updateMaxInStock(itemID, itemsInStock);
             System.out.println("Antallet er blevet ændret fra " + oldItemsInStock + " til " + itemsInStock);
         }
@@ -284,11 +205,11 @@ public class UpdateItemUI {
 
     private void updateType()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             String oldType = itemCtr.getItem(itemID).getType();
-            String type = inputType();
+            String type = inputUI.inputType();
             itemCtr.updateType(itemID, type);
             System.out.println("Typen er blevet ændret fra " + oldType + "til " + type);
         }
@@ -301,11 +222,11 @@ public class UpdateItemUI {
 
     private void updateBrand()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             String oldBrand = itemCtr.getItem(itemID).getBrand();
-            String brand = inputBrand();
+            String brand = inputUI.inputBrand();
             itemCtr.updateBrand(itemID, brand);
             System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldBrand + " til " + brand);
         }
@@ -317,11 +238,11 @@ public class UpdateItemUI {
 
     private void updatePlace()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             String oldPlace = itemCtr.getItem(itemID).getPlace();
-            String place = inputPlace();
+            String place = inputUI.inputPlace();
             itemCtr.updatePlace(itemID, place);
             System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldPlace + " til " + place);
         }

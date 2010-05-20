@@ -15,11 +15,13 @@ public class ItemUI
 {
     private ItemCtr itemCtr;//DVD UI must know the DVD controller
     private UpdateItemUI updateItemUI;
+    private InputUI inputUI;
 
     public ItemUI()
     {
         itemCtr = new ItemCtr();
         updateItemUI = new UpdateItemUI();
+        inputUI = new InputUI();
     }
 
     public void start()
@@ -99,93 +101,12 @@ public class ItemUI
             return choice;
     }
 
-    private int inputItemID()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Indtast ID'et på en vare:  ");
-        int itemID = keyboard.nextInt();
-        return itemID;
-    }
-
-    private String inputDescription()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Indtast beskrivelse:  ");
-        String description = keyboard.nextLine();
-        return description;
-    }
-
-    private double inputItemPrice()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println(" Indtast varepris:  ");
-        double itemPrice = keyboard.nextInt();
-        return itemPrice;
-    }
-
-    private int inputMaxInStock()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast maksimumsbeholdning:  ");
-        int maxInStock = keyboard.nextInt();
-        return maxInStock;
-    }
-
-    private int inputMinInStock()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast minimumsbeholdning:  ");
-        int minInStock = keyboard.nextInt();
-        return minInStock;
-    }
-
-    private int inputItemsInStock()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast antal: ");
-        int itemsInStock = keyboard.nextInt();
-        return itemsInStock;
-    }
-
-    private String inputType()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast type: ");
-        String type = keyboard.nextLine();
-        return type;
-    }
-
-    private String inputBrand()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast brand: ");
-        String brand = keyboard.nextLine();
-        return brand;
-    }
-
-    private String inputPlace()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast lokation: ");
-        String place = keyboard.nextLine();
-        return place;
-    }
-
     //there is need for more methods to read information about DVDs
     //and methods to display the information
 
     private void getItem()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         //is to be changed when the DVD controller is completed
         if(itemCtr.getItem(itemID) != null)
         {
@@ -205,19 +126,19 @@ public class ItemUI
     }
     private void createItem()
     {
-        double itemPrice = inputItemPrice();
-        String description = inputDescription();
-        int maxInStock = inputMaxInStock();
-        int minInStock = inputMinInStock();
-        int itemsInStock = inputItemsInStock();
+        double itemPrice = inputUI.inputItemPrice();
+        String description = inputUI.inputDescription();        
+        int minInStock = inputUI.inputMinInStock();
+        int maxInStock = inputUI.inputMaxInStock();
+        int itemsInStock = inputUI.inputItemsInStock();
         while(itemCtr.checkSupplyLimit(minInStock, maxInStock, itemsInStock) == true)
         {
             System.out.println("Antallet af varer skal være indenfor minimums-/maksiumsbeholdningen");
-            itemsInStock = inputItemsInStock();
+            itemsInStock = inputUI.inputItemsInStock();
         }
-        String type = inputType();
-        String brand = inputBrand();
-        String place = inputPlace();
+        String type = inputUI.inputType();
+        String brand = inputUI.inputBrand();
+        String place = inputUI.inputPlace();
         int i = itemCtr.createItem(itemPrice, description, maxInStock, minInStock, itemsInStock, type, brand, place);
         System.out.println("Varen er oprettet og har fået ID'et: " + i);
         pause();
@@ -225,7 +146,7 @@ public class ItemUI
 
     private void deleteItem()
     {
-        int itemID = inputItemID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) == null)
         {
                 System.out.println("En vare med ID'et " + itemID + " findes ikke. Indtast venligst et nyt ID.");
@@ -287,7 +208,7 @@ public class ItemUI
 
     public void assignSerialNo()
     {
-         int itemID = inputItemID();
+         int itemID = inputUI.inputItemID();
          if(itemCtr.getItem(itemID) != null)
          {
               int u = itemCtr.assignUnit(itemID);
