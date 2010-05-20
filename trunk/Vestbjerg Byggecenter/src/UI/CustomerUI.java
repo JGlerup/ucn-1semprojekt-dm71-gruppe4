@@ -14,11 +14,13 @@ import java.util.Scanner;
  */
 public class CustomerUI {
     
+    private UpdateCustomerUI updateCustomerUI;
     private CustomerCtr customerCtr;
     
     public CustomerUI()
     {
        customerCtr = new CustomerCtr();
+       updateCustomerUI = new UpdateCustomerUI();
     }
     
     public void start()
@@ -33,7 +35,7 @@ public class CustomerUI {
         {
             int choise = writeCustomerMenu();
             
-            if(choise ==1) //create Customer
+            if(choise == 1) //create Customer
             {
                 String name = inputName();
                 String address = inputAddress();
@@ -53,7 +55,7 @@ public class CustomerUI {
                 {
                     if(choise == 3)
                     {
-                        //update Customer
+                        startUpdateCustomerUI();
                     }
                     else
                     {
@@ -116,7 +118,7 @@ public class CustomerUI {
            }
            catch (Exception e)
             {
-             System.out.println("Fejl. Prøv igen");
+             System.out.println("Fejl. Prï¿½v igen");
              String input = keyboard.nextLine();
            }
         }//end while
@@ -185,7 +187,7 @@ public class CustomerUI {
     private void pause()
     {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("\n Tryk enter for at fortsætte");
+        System.out.println("\n Tryk enter for at fortsï¿½tte");
         String pause = keyboard.nextLine();
     }
 
@@ -201,7 +203,7 @@ public class CustomerUI {
     public void assignAccount (int customerID, String type, int regNr, int cardNr)
     {
         customerCtr.giveAccount(customerID, type, regNr, cardNr);
-        System.out.println("Kunde med id " +customerID +" har fået tilføjet en konto");
+        System.out.println("Kunde med id " +customerID +" har fï¿½et tilfï¿½jet en konto");
         pause();
     }
     
@@ -209,6 +211,17 @@ public class CustomerUI {
     {
       return customerCtr.createCustomer(name, address, phone);
     }
+
+
+    // Starter UpdateCUstomerUI klassen
+    public void startUpdateCustomerUI()
+    {
+        updateCustomerUI.start();
+    }
     
-    
+      public void findCustomer(int customerID)
+    {
+        customerCtr.getCustomer(customerID);
+
+    }
 }

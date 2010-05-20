@@ -70,6 +70,24 @@ public class CustomerCtr {
         return c;
     }
 
+    public void updateName(int customerID, String name)
+    {
+        Customer c = getCustomer(customerID);
+        c.setName(name);
+    }
+
+    public void updateAddress(int customerID, String address)
+    {
+        Customer c = getCustomer(customerID);
+        c.setAddress(address);
+    }
+
+    public void updateAddress(int customerID, int phone)
+    {
+        Customer c = getCustomer(customerID);
+        c.setPhone(phone);
+    }
+
 
 
 }
