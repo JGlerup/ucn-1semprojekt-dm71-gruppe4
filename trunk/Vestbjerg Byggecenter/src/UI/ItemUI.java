@@ -282,7 +282,7 @@ public class ItemUI
          if(itemCtr.getItem(itemID) != null)
          {
               int u = itemCtr.assignUnit(itemID);
-              System.out.println("Et eksemplar med serienummeret " + u +" blev oprettet");
+              System.out.println("Et eksemplar med serienummeret " + u + " blev oprettet");
               pause();
          }
          else

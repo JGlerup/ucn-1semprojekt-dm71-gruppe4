@@ -37,6 +37,7 @@ public class Item {
         this.type = type;
         this.brand = brand;
         this.place = place;
+        unitList = new ArrayList<Unit>();
     }
 
 
@@ -132,31 +133,29 @@ public class Item {
         return u;
     }
 
-    public int addUnit(Unit u)
+    public void addUnit(Unit u)
     {
-        int serialNo = generateSerialNo(u);
         unitList.add(u);
-        return serialNo;
     }
 
-    public int generateSerialNo(Unit u)
-    {
-        int newSerialNo = 1;
-
-        if (u.getSerialNo() == 0)
-        {
-            if(unitList.size() != 0)
-            {
-                int lastIndex = unitList.size() -1;
-                Unit lastUnit = unitList.get(lastIndex);
-                newSerialNo = lastUnit.getSerialNo();
-                newSerialNo += 1;
-            }
-            u.setSerialNo(newSerialNo);
-        }
-
-        return newSerialNo;
-    }
+//    public int generateSerialNo(Unit u)
+//    {
+//        int newSerialNo = 1;
+//
+//        if (u.getSerialNo() == 0)
+//        {
+//            if(unitList.size() != 0)
+//            {
+//                int lastIndex = unitList.size() -1;
+//                Unit lastUnit = unitList.get(lastIndex);
+//                newSerialNo = lastUnit.getSerialNo();
+//                newSerialNo += 1;
+//            }
+//            u.setSerialNo(newSerialNo);
+//        }
+//
+//        return newSerialNo;
+//    }
 
 
 
