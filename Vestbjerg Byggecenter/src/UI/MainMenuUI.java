@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class MainMenuUI 
 {
-//   private SaleUI saleUI;
+   private SaleUI saleUI;
    private ItemUI itemUI;
    private CustomerUI customerUI;
    private EmployeeUI employeeUI;
@@ -20,7 +20,7 @@ public class MainMenuUI
    
    public MainMenuUI()
    {
-//       saleUI = new SaleUI();
+       saleUI = new SaleUI();
        itemUI = new ItemUI();
        customerUI = new CustomerUI();
        employeeUI = new EmployeeUI();
@@ -93,9 +93,7 @@ public class MainMenuUI
     
     private void startSaleUI()
     {
-//        saleUI.start();
-      
-     
+      saleUI.start();
     }
 
     private void startItemUI()
