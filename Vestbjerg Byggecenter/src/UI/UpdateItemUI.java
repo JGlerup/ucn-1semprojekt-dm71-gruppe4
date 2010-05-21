@@ -25,6 +25,7 @@ public class UpdateItemUI {
 
     public void start()
     {
+        selectItem();
         itemMenu();
     }
 
@@ -65,12 +66,15 @@ public class UpdateItemUI {
                     case 9:
                         exit = true;
                         break;
+                    case 10:
+                        selectItem();
+                        break;
                 }
             }
         }
         catch(Exception e)
         {
-            start();
+            itemMenu();
         }
     }
 
@@ -79,6 +83,7 @@ public class UpdateItemUI {
            // creates an object keyboard to read data from the keyboard
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** Opdater vare ***");
+            System.out.println(" Vare: " + itemCtr.getItem(itemID).getItemID());
             System.out.println(" (1) Opdater pris");
             System.out.println(" (2) Opdater beskrivelse");
             System.out.println(" (3) Opdater maksimumsbeholdning");
@@ -88,6 +93,7 @@ public class UpdateItemUI {
             System.out.println(" (7) Opdater brand");
             System.out.println(" (8) Opdater lokation");
             System.out.println(" (9) Tilbage");
+            System.out.println(" (10) Vælg vare");
             System.out.print("\n Vælg et menupunkt: ");
 
             int choice = keyboard.nextInt();
@@ -96,7 +102,6 @@ public class UpdateItemUI {
 
     private void updateItemPrice()
     {
-        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             double oldItemPrice = itemCtr.getItem(itemID).getItemPrice();
@@ -113,7 +118,6 @@ public class UpdateItemUI {
 
     private void updateDescription()
     {
-        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             String oldDescription = itemCtr.getItem(itemID).getDescription();
@@ -129,7 +133,6 @@ public class UpdateItemUI {
 
     private void updateMaxInStock()
     {
-        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             int oldMaxInStock = itemCtr.getItem(itemID).getMaxInStock();
@@ -146,7 +149,6 @@ public class UpdateItemUI {
 
     private void updateMinInStock()
     {
-        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             int oldMinInStock = itemCtr.getItem(itemID).getMinInStock();
@@ -163,7 +165,6 @@ public class UpdateItemUI {
 
     private void updateItemsInStock()
     {
-        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             int oldItemsInStock = itemCtr.getItem(itemID).getItemsInStock();
@@ -180,7 +181,6 @@ public class UpdateItemUI {
 
     private void updateType()
     {
-        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             String oldType = itemCtr.getItem(itemID).getType();
@@ -197,7 +197,6 @@ public class UpdateItemUI {
 
     private void updateBrand()
     {
-        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             String oldBrand = itemCtr.getItem(itemID).getBrand();
@@ -213,7 +212,6 @@ public class UpdateItemUI {
 
     private void updateLocation()
     {
-        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) != null)
         {
             String oldPlace = itemCtr.getItem(itemID).getPlace();
@@ -224,6 +222,16 @@ public class UpdateItemUI {
         else
         {
             System.out.println("ID'et findes ikke");
+        }
+    }
+
+    private void selectItem()
+    {
+        itemID = inputUI.inputItemID();
+        while(itemCtr.getItem(itemID) == null)
+        {
+            System.out.println("ID'et blev ikke fundet");
+            itemID = inputUI.inputItemID();
         }
     }
 }
