@@ -164,4 +164,50 @@ public class InputUI
         return succeed;
     }
 
+     /***************************************
+     * Start - inputUI for Customer
+     ***************************************/
+
+     public String inputName()
+    {
+         // makes an object keyboard to have input from the screen
+         System.out.println(" Indtast Name:  ");
+         String name = keyboard.nextLine();
+         return name;
+    }
+
+     public String inputAddress()
+    {
+         // makes an object keyboard to have input from the screen
+         System.out.println(" Indtast Address:  ");
+         String address = keyboard.nextLine();
+         return address;
+    }
+
+     public int inputPhone()
+    {
+         // makes an object keyboard to have input from the screen
+         System.out.println(" Indtast telefon nummer: ");
+         int phone = keyboard.nextInt();
+         return phone;
+    }
+
+
+     public int inputRegNr()
+    {
+         // makes an object keyboard to have input from the screen
+         System.out.println(" Indtast reg nummeret: ");
+         int regNr = keyboard.nextInt();
+         return regNr;
+    }
+
+
+      public int inputCardNr()
+    {
+         // makes an object keyboard to have input from the screen
+         System.out.println(" indtast kortnummer: ");
+         int cardNr = keyboard.nextInt();
+         return cardNr;
+    }
+
 }

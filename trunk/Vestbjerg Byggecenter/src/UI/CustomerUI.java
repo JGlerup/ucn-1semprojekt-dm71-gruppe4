@@ -16,76 +16,67 @@ public class CustomerUI {
     
     private UpdateCustomerUI updateCustomerUI;
     private CustomerCtr customerCtr;
+    private InputUI inputUI;
     
     public CustomerUI()
     {
        customerCtr = new CustomerCtr();
        updateCustomerUI = new UpdateCustomerUI();
+       inputUI = new InputUI();
     }
     
     public void start()
     {
         customerMenu();
     }
-    
+
     public void customerMenu()
     {
-        boolean exit = false;
-        while (!exit)
+        try
         {
-            int choise = writeCustomerMenu();
-            
-            if(choise == 1) //create Customer
+            boolean exit = false;
+            while(!exit)
             {
-                String name = inputName();
-                String address = inputAddress();
-                int phone = inputPhone();
-                int id = createCustomer(name, address, phone);
-                System.out.println("\nNew customer crated with the ID: " + id);
-                pause();
-            }
-            else
-            {
-                if (choise == 2) //delete customer
+            //show menu and return the user's choice
+                int choice =   writeCustomerMenu();
+                switch(choice)
                 {
-                   deleteCustomer();
+                    case 1:
+                     String name = inputUI.inputName();
+                     String address = inputUI.inputAddress();
+                     int phone = inputUI.inputPhone();
+                     int id = createCustomer(name, address, phone);
+                     System.out.println("\nNy kunde oprettet med id: " + id);
+                        break;
+                    case 2:
+                         deleteCustomer();
+                        break;
+                    case 3:
+                        startUpdateCustomerUI();
+                        break;
+                    case 4:
+                           int customerID = inputCustomerID();
+                           String type = inputUI.inputType();
+                           int regNr = inputUI.inputRegNr();
+                           int cardNr = inputUI.inputCardNr();
+                           assignAccount(customerID, type, regNr, cardNr);
+                        break;
+                    case 5:
+                           //findCustomer
+                        break;
+                    case 6:
+                             exit = true;
+                        break;
 
                 }
-                else
-                {
-                    if(choise == 3)
-                    {
-                        startUpdateCustomerUI();
-                    }
-                    else
-                    {
-                        if (choise == 4) // assign account
-                        {
-                           int customerID = inputCustomerID();
-                           String type = inputType();
-                           int regNr = inputRegNr();
-                           int cardNr = inputCardNr();
-                           assignAccount(customerID, type, regNr, cardNr);
-                          
-                        }
-                        else
-                        {
-                            if (choise == 5)
-                            {
-                                //getCustomer
-                            }
-                            else
-                            {
-                            System.out.println("Goodbye");
-                            exit = true;
-                            }
-                    
-                        }//end else
-                    }//end else
-                }//end else
-            }//end else
-        }//end while
+            }
+        }
+        catch(Exception e)
+        {
+            start();
+        }
     }
+    
 
     public int writeCustomerMenu()
     {   //Userinterface
@@ -124,64 +115,6 @@ public class CustomerUI {
         }//end while
         return id;
      }
-
-     private String inputName()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Indtast Name:  ");
-         String name = keyboard.nextLine();
-         return name;
-    }
-
-     private String inputAddress()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Indtast Address:  ");
-         String address = keyboard.nextLine();
-         return address;
-    }
-
-     private int inputPhone()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Indtast telefon nummer: ");
-         int phone = keyboard.nextInt();
-         return phone;
-    }
-    
-    private String inputType()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Indtast type:  ");
-         String type = keyboard.nextLine();
-         return type;
-    }
-    
-    
-     private int inputRegNr()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Indtast reg nummeret: ");
-         int regNr = keyboard.nextInt();
-         return regNr;
-    }
-    
-    
-      private int inputCardNr()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" indtast kortnummer: ");
-         int cardNr = keyboard.nextInt();
-         return cardNr;
-    }
-
-    
     
     
     private void pause()
@@ -222,6 +155,5 @@ public class CustomerUI {
       public void findCustomer(int customerID)
     {
         customerCtr.getCustomer(customerID);
-
     }
 }
