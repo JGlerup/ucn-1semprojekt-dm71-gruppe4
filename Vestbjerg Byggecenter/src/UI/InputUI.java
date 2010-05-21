@@ -22,14 +22,14 @@ public class InputUI
      * Start - inputUI for item
      ***************************************/
 
-    public int inputItemID()
+    public int inputID()
     {
         boolean succeed = false;
         int itemID = 0;
         while(!succeed)
         {
         // makes an object keyboard to have input from the console
-           System.out.println("Angiv vareID:  ");
+           System.out.println("Angiv ID:  ");
            try
            {
              itemID = keyboard.nextInt();
@@ -38,6 +38,7 @@ public class InputUI
            catch(Exception e)
            {
              System.out.println("Fejl: Et heltal er påkrævet");
+             itemID = keyboard.nextInt();
            }
         }//end while
         
@@ -67,6 +68,7 @@ public class InputUI
             catch(Exception e)
             {
                 System.out.println("Fejl: Et tal er påkrævet");
+                itemPrice = keyboard.nextDouble();
             }
         }
         return itemPrice;
@@ -81,14 +83,14 @@ public class InputUI
         {
             try
             {
-               System.out.println("Indtast maksimumsbeholdning:  ");
-               maxInStock = keyboard.nextInt();
-               succeed = true;
+                System.out.println("Indtast maksimumsbeholdning:  ");
+                maxInStock = keyboard.nextInt();
+                succeed = true;
             }
             catch(Exception e)
             {
                 System.out.println("Fejl: Et heltal er påkrævet");
-                pause();
+                maxInStock = keyboard.nextInt();
             }
         }
         return maxInStock;
