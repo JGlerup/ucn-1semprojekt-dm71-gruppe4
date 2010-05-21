@@ -15,14 +15,18 @@ import java.util.Scanner;
 public class UpdateCustomerUI {
 
     private CustomerCtr customerCtr;
+    private InputUI inputUI;
+    private int customerID;
 
     public UpdateCustomerUI()
     {
         customerCtr = new CustomerCtr();
+        inputUI = new InputUI();
     }
 
      public void start()
     {
+        selectCustomer();
         updateCustomerMenu();
     }
 
@@ -95,40 +99,6 @@ public class UpdateCustomerUI {
         return id;
      }
 
-     private String inputName()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Indtast Name:  ");
-         String name = keyboard.nextLine();
-         return name;
-    }
-
-     private String inputAddress()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Indtast Address:  ");
-         String address = keyboard.nextLine();
-         return address;
-    }
-
-     private int inputPhone()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);
-         System.out.println(" Indtast telefon nummer: ");
-         int phone = keyboard.nextInt();
-         return phone;
-    }
-
-     private void pause()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("\n Tryk enter for at forts�tte");
-        String pause = keyboard.nextLine();
-    }
-
      public void findCustomer()
     {
         int customerID = inputCustomerID();
@@ -139,7 +109,7 @@ public class UpdateCustomerUI {
      public void setName()
      {
          int customerID = inputCustomerID();
-         String name = inputName();
+         String name = inputUI.inputName();
          customerCtr.updateName(customerID, name);
      }
 
@@ -147,14 +117,24 @@ public class UpdateCustomerUI {
           public void setAddress()
      {
          int customerID = inputCustomerID();
-         String address = inputAddress();
+         String address = inputUI.inputAddress();
          customerCtr.updateAddress(customerID, address);
      }
 
            public void setPhone()
      {
          int customerID = inputCustomerID();
-         int phone = inputPhone();
+         int phone = inputUI.inputPhone();
          customerCtr.updatePhone(customerID, phone);
      }
+
+             private void selectCustomer()
+    {
+        customerID = inputUI.inputID();
+        while(customerCtr.getCustomer(customerID) == null)
+        {
+            System.out.println("ID'et blev ikke fundet");
+            customerID = inputUI.inputID();
+        }
+    }
 }
