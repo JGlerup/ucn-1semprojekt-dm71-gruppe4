@@ -10,6 +10,7 @@ import java.util.Scanner;
  *
  * @author Erik M. Gravesen
  */
+import java.util.InputMismatchException;
 public class InputUI
 {
     private Scanner keyboard;
@@ -29,20 +30,37 @@ public class InputUI
         while(!succeed)
         {
         // makes an object keyboard to have input from the console
-           System.out.println("Angiv ID:  ");
+           System.out.println("Indtast ID:  ");
            try
            {
              itemID = keyboard.nextInt();
+             if(itemID < 1)
+             {
+                 throw new IllegalArgumentException("x < 1");
+             }
              succeed = true;
            }
-           catch(Exception e)
+           catch(InputMismatchException e)
            {
-             System.out.println("Fejl: Et heltal er påkrævet");
-             itemID = keyboard.nextInt();
+               System.out.println("Fejl: Et tal er påkrævet");
+               keyboard.nextLine();
+           }
+           catch(IllegalArgumentException e)
+           {
+               System.out.println("Fejl: Indtast et tal, højere end 0");
+               keyboard.nextLine();
            }
         }//end while
         
         return itemID;
+    }
+
+    public int inputSerialNo()
+    {
+        // creates an object keyboard to read data from the keyboard;
+        System.out.println("Indtast serienummer: ");
+        int serialNo = keyboard.nextInt();
+        return serialNo;
     }
 
     public String inputDescription()
@@ -63,13 +81,22 @@ public class InputUI
             {
                 System.out.println("Angiv varepris:  ");
                 itemPrice = keyboard.nextDouble();
+                if(itemPrice <= 0)
+                {
+                    throw new IllegalArgumentException("x <= 0");
+                }
                 succeed = true;
             }
-            catch(Exception e)
+            catch(InputMismatchException e)
             {
                 System.out.println("Fejl: Et tal er påkrævet");
-                itemPrice = keyboard.nextDouble();
+                keyboard.nextLine();
             }
+            catch(IllegalArgumentException e)
+            {
+                System.out.println("Fejl: Prisen skal være over 0");
+            }
+
         }
         return itemPrice;
     }
@@ -85,12 +112,21 @@ public class InputUI
             {
                 System.out.println("Indtast maksimumsbeholdning:  ");
                 maxInStock = keyboard.nextInt();
+                if(maxInStock < 1)
+                {
+                    throw new IllegalArgumentException("x < 1");
+                }
                 succeed = true;
             }
-            catch(Exception e)
+            catch(InputMismatchException e)
             {
                 System.out.println("Fejl: Et heltal er påkrævet");
-                maxInStock = keyboard.nextInt();
+                keyboard.nextLine();
+            }
+            catch(IllegalArgumentException e)
+            {
+                System.out.println("Fejl: Tallet skal mindst være 1");
+                keyboard.nextLine();
             }
         }
         return maxInStock;
@@ -99,16 +135,63 @@ public class InputUI
     public int inputMinInStock()
     {
         // creates an object keyboard to read data from the keyboard
-        System.out.println("Indtast minimumsbeholdning:  ");
-        int minInStock = keyboard.nextInt();
+        boolean succeed = false;
+        int minInStock = 0;
+        while(!succeed)
+        {
+            try
+            {
+                System.out.println("Indtast minimumsbeholdning:  ");
+                minInStock = keyboard.nextInt();
+                if(minInStock < 0)
+                {
+                    throw new IllegalArgumentException("x < 0");
+                }
+                succeed = true;
+            }
+            catch(InputMismatchException e)
+            {
+                System.out.println("Fejl: Et heltal er påkrævet");
+                keyboard.nextLine();
+            }
+            catch(IllegalArgumentException e)
+            {
+                System.out.println("Fejl: Tallet skal mindst være 0");
+                keyboard.nextLine();
+            }
+        }
+
         return minInStock;
     }
 
     public int inputItemsInStock()
     {
         // creates an object keyboard to read data from the keyboard
-        System.out.println("Indtast antal: ");
-        int itemsInStock = keyboard.nextInt();
+        boolean succeed = false;
+        int itemsInStock = 0;
+        while(!succeed)
+        {
+            try
+            {
+                System.out.println("Indtast antal: ");
+                itemsInStock = keyboard.nextInt();
+                if(itemsInStock < 0)
+                {
+                    throw new IllegalArgumentException("x < 0");
+                }
+                succeed = true;
+            }
+            catch(IllegalArgumentException e)
+            {
+                System.out.println("Fejl: Tallet skal være over 0");
+                keyboard.nextLine();
+            }
+            catch(InputMismatchException e)
+            {
+                System.out.println("Fejl: Et heltal er påkrævet");
+                keyboard.nextLine();
+            }
+        }
         return itemsInStock;
     }
 
@@ -140,10 +223,11 @@ public class InputUI
      * End - inputUI for item
      ***************************************/
 
-    private void pause()
+    public void pause()
     {
        System.out.println("Tryk retur for at fortsætte");
-       keyboard.nextLine();
+       keyboard.nextLine(); //Springes over af en eller anden grund
+       keyboard.nextLine(); //Tilføjes, således at det er muligt at reagere
     }
 
     public boolean yesOrNo()

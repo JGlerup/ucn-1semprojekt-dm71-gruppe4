@@ -61,13 +61,17 @@ public class ItemContainer {
 
     public Item getItem(int itemID)
     {
+        int index = 0;
         Item i = null;
-        for(Item item : itemList)
+        boolean found = false;
+        while(!found && index < itemList.size())
         {
-            if(itemID == item.getItemID())
+            if(itemList.get(index).getItemID() == (itemID))
             {
-                i = item;
+                i = itemList.get(index);
+                found = true;
             }
+            index++;
         }
         return i;
     }

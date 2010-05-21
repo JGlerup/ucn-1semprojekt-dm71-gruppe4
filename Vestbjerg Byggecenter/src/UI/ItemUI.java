@@ -41,6 +41,9 @@ public class ItemUI
                 int choice =   writeItemMenu();
                 switch(choice)
                 {
+                    case 0:
+                        exit = true;
+                        break;
                     case 1:
                         getItem();
                         break;
@@ -59,9 +62,7 @@ public class ItemUI
                     case 6:
                         listAllItems();
                         break;
-                    case 7:
-                        exit = true;
-                        break;
+
                 }
             }
         }
@@ -76,13 +77,13 @@ public class ItemUI
            // creates an object keyboard to read data from the keyboard
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** Lagerstyring ***");
+            System.out.println(" (0) Tilbage");
             System.out.println(" (1) Find vare");
             System.out.println(" (2) Opret vare");
             System.out.println(" (3) Opdater vare");
             System.out.println(" (4) Tildel serienummer");
             System.out.println(" (5) Slet vare");
             System.out.println(" (6) Vis en liste over alle varer");
-            System.out.println(" (0) Tilbage");
             System.out.print("\n Vælg et menupunkt: ");
 
             int choice = keyboard.nextInt();
@@ -94,7 +95,7 @@ public class ItemUI
 
     private void getItem()
     {
-        int itemID = inputUI.inputItemID();
+        int itemID = inputUI.inputID();
         //is to be changed when the DVD controller is completed
         if(itemCtr.getItem(itemID) != null)
         {
@@ -108,9 +109,9 @@ public class ItemUI
         }
         else
         {
-            System.out.println("ID'et blev ikke fundet");
+            System.out.println("ID'et blev ikke fundet");     
         }
-        pause();
+        inputUI.pause();
     }
     private void createItem()
     {
@@ -124,9 +125,14 @@ public class ItemUI
             maxInStock = inputUI.inputMaxInStock();
         }
         int itemsInStock = inputUI.inputItemsInStock();
-        while(itemCtr.checkSupplyLimit(minInStock, maxInStock, itemsInStock) == true)
+//        while(itemCtr.checkSupplyLimit(minInStock, maxInStock, itemsInStock) == true)
+//        {
+//            System.out.println("Antallet af varer skal være indenfor minimums-/maksiumsbeholdningen");
+//            itemsInStock = inputUI.inputItemsInStock();
+//        }
+        while(itemsInStock > maxInStock || itemsInStock < minInStock)
         {
-            System.out.println("Antallet af varer skal være indenfor minimums-/maksiumsbeholdningen");
+            System.out.println("Antallet af eksemplarer skal være indenfor minimums-/maksiumsbeholdningen");
             itemsInStock = inputUI.inputItemsInStock();
         }
         String type = inputUI.inputType();
@@ -139,7 +145,7 @@ public class ItemUI
 
     private void deleteItem()
     {
-        int itemID = inputUI.inputItemID();
+        int itemID = inputUI.inputID();
         if(itemCtr.getItem(itemID) == null)
         {
             System.out.println("ID'et " + itemID + " findes ikke. Indtast venligst et nyt ID.");
@@ -161,28 +167,6 @@ public class ItemUI
         pause();
     }
 
-//    private void updateItem()
-//    {
-//        long id = inputDVDID();
-//        itemCtr = new ItemCtr();
-//        if(itemCtr.getItem(id) != null)
-//        {
-//            System.out.println("Enter the following new information");
-//            String title = inputTitle();
-//            String artist = inputArtist();
-//            String releaseDate = inputReleaseDate();
-//            itemCtr.updateItem(id, title, artist, releaseDate);
-//            System.out.println("title: " + title);
-//            System.out.println("artist: " + artist);
-//            System.out.println("release date: " + releaseDate);
-//        }
-//        else
-//        {
-//            System.out.println("ID not found");
-//        }
-//        pause();
-//    }
-
     private void pause()
     {
        Scanner keyboard = new Scanner(System.in);
@@ -190,25 +174,12 @@ public class ItemUI
        keyboard.nextLine();
     }
 
-
-
-    // WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-
-       private int inputSerialNo()
-    {
-        // creates an object keyboard to read data from the keyboard
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Indtast serienummeret: ");
-        int serialNo = keyboard.nextInt();
-        return serialNo;
-    }
-
     public void assignSerialNo()
     {
-         int itemID = inputUI.inputItemID();
-         if(itemCtr.getItem(itemID) != null)
+         int unitSerialNo = inputUI.inputSerialNo();
+         if(itemCtr.getItem(unitSerialNo) != null)
          {
-              int u = itemCtr.assignUnit(itemID);
+              int u = itemCtr.assignUnit(unitSerialNo);
               System.out.println("Et eksemplar med serienummeret " + u + " blev oprettet");
               pause();
          }

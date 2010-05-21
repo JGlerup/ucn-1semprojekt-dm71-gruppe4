@@ -17,6 +17,7 @@ public class CustomerUI {
     private UpdateCustomerUI updateCustomerUI;
     private CustomerCtr customerCtr;
     private InputUI inputUI;
+    private int CustomerID;
     
     public CustomerUI()
     {
@@ -27,7 +28,6 @@ public class CustomerUI {
     
     public void start()
     {
-        selectCustomer();
         customerMenu();
     }
 
@@ -156,15 +156,5 @@ public class CustomerUI {
       public void findCustomer(int customerID)
     {
         customerCtr.getCustomer(customerID);
-    }
-
-       private void selectCustomer()
-    {
-        customerID = inputUI.inputID();
-        while(customerCtr.getCustomer(customerID) == null)
-        {
-            System.out.println("ID'et blev ikke fundet");
-            customerID = inputUI.inputID();
-        }
     }
 }

@@ -26,7 +26,10 @@ public class UpdateItemUI {
     public void start()
     {
         selectItem();
-        itemMenu();
+        if(itemID != 0)
+        {
+            itemMenu();
+        }
     }
 
     public void itemMenu()
@@ -39,6 +42,9 @@ public class UpdateItemUI {
                 int choice =   writeItemMenu();
                 switch(choice)
                 {
+                    case 0:
+                        exit = true;
+                        break;
                     case 1:
                         updateItemPrice();
                         break;
@@ -64,9 +70,6 @@ public class UpdateItemUI {
                         updateLocation();
                         break;
                     case 9:
-                        exit = true;
-                        break;
-                    case 10:
                         selectItem();
                         break;
                 }
@@ -74,6 +77,7 @@ public class UpdateItemUI {
         }
         catch(Exception e)
         {
+            System.out.println("test");
             itemMenu();
         }
     }
@@ -84,6 +88,7 @@ public class UpdateItemUI {
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** Opdater vare ***");
             System.out.println(" Vare: " + itemCtr.getItem(itemID).getItemID());
+            System.out.println(" (0) Tilbage");
             System.out.println(" (1) Opdater pris");
             System.out.println(" (2) Opdater beskrivelse");
             System.out.println(" (3) Opdater maksimumsbeholdning");
@@ -92,8 +97,7 @@ public class UpdateItemUI {
             System.out.println(" (6) Opdater type");
             System.out.println(" (7) Opdater brand");
             System.out.println(" (8) Opdater lokation");
-            System.out.println(" (0) Tilbage");
-            System.out.println(" (10) Vælg vare");
+            System.out.println(" (9) Vælg vare");
             System.out.print("\n Vælg et menupunkt: ");
 
             int choice = keyboard.nextInt();
@@ -228,10 +232,11 @@ public class UpdateItemUI {
     private void selectItem()
     {
         itemID = inputUI.inputID();
-        while(itemCtr.getItem(itemID) == null)
+        if(itemCtr.getItem(itemID) == null)
         {
             System.out.println("ID'et blev ikke fundet");
-            itemID = inputUI.inputID();
+            itemID = 0;
+            inputUI.pause();
         }
     }
 }
