@@ -227,11 +227,11 @@ public class UpdateItemUI {
 
     private void selectItem()
     {
-        itemID = inputUI.inputItemID();
+        itemID = inputUI.inputID();
         while(itemCtr.getItem(itemID) == null)
         {
             System.out.println("ID'et blev ikke fundet");
-            itemID = inputUI.inputItemID();
+            itemID = inputUI.inputID();
         }
     }
 }
