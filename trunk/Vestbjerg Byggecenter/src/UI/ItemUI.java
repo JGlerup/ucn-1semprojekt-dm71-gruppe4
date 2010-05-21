@@ -82,7 +82,7 @@ public class ItemUI
             System.out.println(" (4) Tildel serienummer");
             System.out.println(" (5) Slet vare");
             System.out.println(" (6) Vis en liste over alle varer");
-            System.out.println(" (7) Return");
+            System.out.println(" (0) Tilbage");
             System.out.print("\n Vælg et menupunkt: ");
 
             int choice = keyboard.nextInt();

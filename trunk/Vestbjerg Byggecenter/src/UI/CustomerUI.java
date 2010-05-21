@@ -87,7 +87,7 @@ public class CustomerUI {
        System.out.println("(3) Opdater kunde");
        System.out.println("(4) Tildel konto");
        System.out.println("(5) Find kunde");
-       System.out.println("(6) Tilbage");
+       System.out.println("(0) Tilbage");
        System.out.print("\n Indtast nummer: ");
        
        int choise = keyboard.nextInt();

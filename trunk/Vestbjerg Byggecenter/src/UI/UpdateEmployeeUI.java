@@ -68,7 +68,7 @@ public class UpdateEmployeeUI {
        System.out.println("(3) Opdater Telefon nummer");
        // INDSÆT RESTEN
 
-       System.out.println("(6) Tilbage");
+       System.out.println("(0) Tilbage");
        System.out.print("\n Indtast nummer: ");
 
        int choise = keyboard.nextInt();
