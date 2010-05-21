@@ -118,6 +118,11 @@ public class ItemUI
         String description = inputUI.inputDescription();        
         int minInStock = inputUI.inputMinInStock();
         int maxInStock = inputUI.inputMaxInStock();
+        while(maxInStock < minInStock)
+        {
+            System.out.println("Maksmimumsbeholdningen er mindre end minimumsbeholdningen");
+            maxInStock = inputUI.inputMaxInStock();
+        }
         int itemsInStock = inputUI.inputItemsInStock();
         while(itemCtr.checkSupplyLimit(minInStock, maxInStock, itemsInStock) == true)
         {

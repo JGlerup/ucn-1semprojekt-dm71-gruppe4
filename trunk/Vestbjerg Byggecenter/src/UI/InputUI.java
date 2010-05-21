@@ -38,7 +38,6 @@ public class InputUI
            catch(Exception e)
            {
              System.out.println("Fejl: Et heltal er påkrævet");
-             pause();
            }
         }//end while
         
@@ -68,7 +67,6 @@ public class InputUI
             catch(Exception e)
             {
                 System.out.println("Fejl: Et tal er påkrævet");
-                pause();
             }
         }
         return itemPrice;
