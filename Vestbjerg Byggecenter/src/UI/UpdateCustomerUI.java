@@ -26,46 +26,47 @@ public class UpdateCustomerUI {
         updateCustomerMenu();
     }
 
-    public void updateCustomerMenu()
+      public void updateCustomerMenu()
     {
-        boolean exit = false;
-        while (!exit)
+        try
         {
-            int choise = writeUpdateCustomerMenu();
-
-            if(choise == 1)
+            boolean exit = false;
+            while(!exit)
             {
-                setName();
-            }
-            else
-            {
-                if (choise == 2)
+            //show menu and return the user's choice
+                int choice =   writeUpdateCustomerMenu();
+                switch(choice)
                 {
-                    findCustomer();
+                    case 1:
+                        setName();
+                        break;
+                    case 2:
+                         findCustomer();
+                        break;
+                    case 3:
+                         //update phone
+                        break;
+                    case 0:
+                          exit = true;
+                          break;
                 }
-                else
-                {
-                    if (choise == 3)
-                    {
-                        //update phone
-                    }
-                    else
-                    {
-                        exit = true;
-                    }
-                }//end else
-            }//end else
-        }//end while
+            }
+        }
+        catch(Exception e)
+        {
+            start();
+        }
     }
 
+    
     public int writeUpdateCustomerMenu()
     {
        Scanner keyboard = new Scanner(System.in);
-       System.out.println("\f *** Kunde Menu ***");
+       System.out.println("\f *** Opdater Kunde Menu ***");
        System.out.println("(1) Opdater Navn");
        System.out.println("(2) Opdater Addresse");
        System.out.println("(3) Opdater Telefon nummer");
-       System.out.println("(6) Tilbage");
+       System.out.println("(0) Tilbage");
        System.out.print("\n Indtast nummer: ");
 
        int choise = keyboard.nextInt();
@@ -140,5 +141,20 @@ public class UpdateCustomerUI {
          int customerID = inputCustomerID();
          String name = inputName();
          customerCtr.updateName(customerID, name);
+     }
+
+
+          public void setAddress()
+     {
+         int customerID = inputCustomerID();
+         String address = inputAddress();
+         customerCtr.updateAddress(customerID, address);
+     }
+
+           public void setPhone()
+     {
+         int customerID = inputCustomerID();
+         int phone = inputPhone();
+         customerCtr.updatePhone(customerID, phone);
      }
 }

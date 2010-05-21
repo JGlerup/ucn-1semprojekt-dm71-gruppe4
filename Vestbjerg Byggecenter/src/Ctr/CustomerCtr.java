@@ -82,7 +82,7 @@ public class CustomerCtr {
         c.setAddress(address);
     }
 
-    public void updateAddress(int customerID, int phone)
+    public void updatePhone(int customerID, int phone)
     {
         Customer c = getCustomer(customerID);
         c.setPhone(phone);
