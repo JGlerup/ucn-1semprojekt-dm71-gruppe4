@@ -57,7 +57,7 @@ public class SaleUI {
        System.out.println("\f *** Kunde Menu ***");
        System.out.println("(1) Start salg");
        System.out.println("(2) Find salg");
-       System.out.println("(3) Tilbage");
+       System.out.println("(0) Tilbage");
        System.out.print("\n Indtast nummer: ");
 
        int choise = keyboard.nextInt();
@@ -77,7 +77,7 @@ public class SaleUI {
     private void pause()
     {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("\n Tryk enter for at fortsætte");
+        System.out.println("\n Tryk enter for at fortsï¿½tte");
         String pause = keyboard.nextLine();
     }
 

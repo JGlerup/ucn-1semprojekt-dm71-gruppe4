@@ -67,7 +67,7 @@ public class EmployeeUI {
         System.out.println(" (3) Update employee");
         System.out.println(" (4) Find employee");
         System.out.println(" (5) List all employees");
-        System.out.println(" (6) Tilbage ");
+        System.out.println(" (0) Tilbage ");
         System.out.print("\n Make your choise: ");
 
         int choise = keyboard.nextInt();

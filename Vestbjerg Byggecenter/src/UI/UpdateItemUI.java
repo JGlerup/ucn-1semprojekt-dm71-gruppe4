@@ -92,7 +92,7 @@ public class UpdateItemUI {
             System.out.println(" (6) Opdater type");
             System.out.println(" (7) Opdater brand");
             System.out.println(" (8) Opdater lokation");
-            System.out.println(" (9) Tilbage");
+            System.out.println(" (0) Tilbage");
             System.out.println(" (10) Vælg vare");
             System.out.print("\n Vælg et menupunkt: ");
 
