@@ -18,6 +18,13 @@ public class Sale {
     private boolean order;
     private ArrayList<SalesLineItem> sLIList;
 
+    public Sale(String date, int price)
+    {
+        this.date = date;
+        this.price = price;
+        sLIList = new ArrayList<SalesLineItem>();
+    }
+
     public String getDate() {
         return date;
     }
@@ -34,16 +41,11 @@ public class Sale {
         this.price = price;
     }
 
-    public Sale(String date, int price)
+
+
+    public void addSalesLineItem(SalesLineItem salesLineItem)
     {
-        this.date = date;
-        this.price = price;
-        sLIList = new ArrayList<SalesLineItem>();
-    }
-// SKAL DEN HER IKKE HEDDE addSLI ?
-    public void createSalesLineItem(SalesLineItem newSalesLineItem)
-    {
-        sLIList.add(newSalesLineItem);
+        sLIList.add(salesLineItem);
     }
 
 }

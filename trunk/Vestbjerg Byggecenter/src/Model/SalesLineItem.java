@@ -12,9 +12,16 @@ package Model;
 public class SalesLineItem {
 
     private int quantity;
-    private int totalPrice;
+    private double totalPrice;
     private ItemContainer itemContainer;
     private Item item;
+
+    public SalesLineItem(int quantity, double totalPrice, Item item)
+    {
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.item = item;
+    }
 
     public int getQuantity() {
         return quantity;
@@ -24,19 +31,11 @@ public class SalesLineItem {
         this.quantity = quantity;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public SalesLineItem(int ID, int quantity, int totalPrice)
-    {
-        Item item = itemContainer.getItem(ID);
-        setItem(item);
-        this.quantity = quantity;
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
