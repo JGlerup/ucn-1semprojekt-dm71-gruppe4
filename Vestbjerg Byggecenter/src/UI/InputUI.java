@@ -55,6 +55,13 @@ public class InputUI
         return itemID;
     }
 
+    public String inputItemName()
+    {
+        System.out.println("Indtast navn: ");
+        String itemName = keyboard.next();
+        return itemName;
+    }
+
     public int inputSerialNo()
     {
         // creates an object keyboard to read data from the keyboard;

@@ -46,22 +46,22 @@ public class UpdateItemUI {
                         exit = true;
                         break;
                     case 1:
-                        updateItemPrice();
+                        updateItemName();
                         break;
                     case 2:
-                        updateDescription();
+                        updateItemPrice();
                         break;
                     case 3:
-                        updateMaxInStock();
+                        updateDescription();
                         break;
                     case 4:
-                        updateMinInStock();
+                        updateMaxInStock();
                         break;
                     case 5:
-                        updateItemsInStock();
+                        updateMinInStock();
                         break;
                     case 6:
-                        updateType();
+                        updateItemsInStock();
                         break;
                     case 7:
                         updateBrand();
@@ -89,12 +89,12 @@ public class UpdateItemUI {
             System.out.println("\f *** Opdater vare ***");
             System.out.println(" Vare: " + itemCtr.getItem(itemID).getItemID());
             System.out.println(" (0) Tilbage");
-            System.out.println(" (1) Opdater pris");
-            System.out.println(" (2) Opdater beskrivelse");
-            System.out.println(" (3) Opdater maksimumsbeholdning");
-            System.out.println(" (4) Opdater minimumsbeholdning");
-            System.out.println(" (5) Opdater antal");
-            System.out.println(" (6) Opdater type");
+            System.out.println(" (1) Opdater navn");
+            System.out.println(" (2) Opdater pris");
+            System.out.println(" (3) Opdater beskrivelse");
+            System.out.println(" (4) Opdater maksimumsbeholdning");
+            System.out.println(" (5) Opdater minimumsbeholdning");
+            System.out.println(" (6) Opdater antal");
             System.out.println(" (7) Opdater brand");
             System.out.println(" (8) Opdater lokation");
             System.out.println(" (9) Vælg vare");
@@ -102,6 +102,17 @@ public class UpdateItemUI {
 
             int choice = keyboard.nextInt();
             return choice;
+    }
+
+    private void updateItemName()
+    {
+        if(itemCtr.getItem(itemID) != null)
+        {
+            String oldItemName = itemCtr.getItem(itemID).getItemName();
+            String itemName = inputUI.inputItemName();
+            itemCtr.updateItemName(itemID, itemName);
+            System.out.println("Varenavnet er blevet ændret " + oldItemName + " til " + itemName);
+        }
     }
 
     private void updateItemPrice()
@@ -175,22 +186,6 @@ public class UpdateItemUI {
             int itemsInStock = inputUI.inputItemsInStock();
             itemCtr.updateMaxInStock(itemID, itemsInStock);
             System.out.println("Antallet er blevet ændret fra " + oldItemsInStock + " til " + itemsInStock);
-        }
-        else
-        {
-            System.out.println("ID'et findes ikke");
-        }
-
-    }
-
-    private void updateType()
-    {
-        if(itemCtr.getItem(itemID) != null)
-        {
-            String oldType = itemCtr.getItem(itemID).getType();
-            String type = inputUI.inputType();
-            itemCtr.updateType(itemID, type);
-            System.out.println("Typen er blevet ændret fra " + oldType + "til " + type);
         }
         else
         {

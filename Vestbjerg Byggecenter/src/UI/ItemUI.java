@@ -99,12 +99,12 @@ public class ItemUI
         //is to be changed when the DVD controller is completed
         if(itemCtr.getItem(itemID) != null)
         {
+            System.out.println("Varenavn: " + itemCtr.getItem(itemID).getItemName());
             System.out.println("Pris: " + itemCtr.getItem(itemID).getItemPrice());
             System.out.println("Beskrivelse: " + itemCtr.getItem(itemID).getDescription());
             System.out.println("Maksimumsbeholdning: " + itemCtr.getItem(itemID).getMaxInStock());
             System.out.println("Minimumsbeholdning: " + itemCtr.getItem(itemID).getMinInStock());
             System.out.println("Antal: " + itemCtr.getItem(itemID).getItemsInStock());
-            System.out.println("Type: " + itemCtr.getItem(itemID).getType());
             System.out.println("Brand: " + itemCtr.getItem(itemID).getBrand());
         }
         else
@@ -115,6 +115,7 @@ public class ItemUI
     }
     private void createItem()
     {
+        String itemName = inputUI.inputName();
         double itemPrice = inputUI.inputItemPrice();
         String description = inputUI.inputDescription();        
         int minInStock = inputUI.inputMinInStock();
@@ -135,10 +136,9 @@ public class ItemUI
             System.out.println("Antallet af eksemplarer skal være indenfor minimums-/maksiumsbeholdningen");
             itemsInStock = inputUI.inputItemsInStock();
         }
-        String type = inputUI.inputType();
         String brand = inputUI.inputBrand();
         String place = inputUI.inputPlace();
-        int i = itemCtr.createItem(itemPrice, description, maxInStock, minInStock, itemsInStock, type, brand, place);
+        int i = itemCtr.createItem(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, place);
         System.out.println("Varen er oprettet og har fået ID'et: " + i);
         pause();
     }

@@ -14,27 +14,24 @@ import java.util.ArrayList;
 public class Item {
 
     private int itemID;
+    private String itemName;
     private double itemPrice;
     private String description;
     private int maxInStock;
     private int minInStock;
     private int itemsInStock;
-    private String type;
     private String brand;
     private String place;
     private ArrayList<Unit> unitList;
-    
-
-
-
-    public Item(double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String type, String brand, String place)
+  
+    public Item(String itemName, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String brand, String place)
     {
+        this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.description = description;
         this.maxInStock = maxInStock;
         this.minInStock = minInStock;
         this.itemsInStock = itemsInStock;
-        this.type = type;
         this.brand = brand;
         this.place = place;
         unitList = new ArrayList<Unit>();
@@ -49,6 +46,13 @@ public class Item {
         this.itemID = itemID;
     }
 
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
 
     public double getItemPrice() {
         return itemPrice;
@@ -106,20 +110,6 @@ public class Item {
         this.place = place;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type)
-    {
-        this.type = type;
-    }
-
-    /**
-     * JEG LAVER LIGE NOGET UNIT FORS�G
-     */
-
-
     public Unit getUnit(int serialNo)
     {
         Unit u = null;
@@ -137,29 +127,5 @@ public class Item {
     {
         unitList.add(u);
     }
-
-//    public int generateSerialNo(Unit u)
-//    {
-//        int newSerialNo = 1;
-//
-//        if (u.getSerialNo() == 0)
-//        {
-//            if(unitList.size() != 0)
-//            {
-//                int lastIndex = unitList.size() -1;
-//                Unit lastUnit = unitList.get(lastIndex);
-//                newSerialNo = lastUnit.getSerialNo();
-//                newSerialNo += 1;
-//            }
-//            u.setSerialNo(newSerialNo);
-//        }
-//
-//        return newSerialNo;
-//    }
-
-
-
-
-
 
 }

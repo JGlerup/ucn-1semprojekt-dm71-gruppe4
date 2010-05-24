@@ -49,9 +49,9 @@ public class ItemCtr
      * @param place
      * @return
      */
-    public int createItem(double itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
+    public int createItem(String itemName, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String brand, String place)
     {
-        Item i = new Item(itemPrice, description, maxInStock, minInStock, inStock, type, brand, place);
+        Item i = new Item(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, place);
         return itemCon.addItem(i);
     }
 
@@ -76,40 +76,6 @@ public class ItemCtr
 
     /**
      *
-     * @param itemID
-     * @param itemPrice
-     * @param description
-     * @param maxInStock
-     * @param minInStock
-     * @param inStock
-     * @param type
-     * @param brand
-     * @param place
-     * @return
-     */
-    public boolean updateItem(int itemID, int itemPrice, String description, int maxInStock, int minInStock, int inStock, String type, String brand, String place)
-    {
-        Item i = itemCon.getItem(itemID);
-        if(i != null)
-        {
-            i.setBrand(brand);
-            i.setDescription(description);
-            i.setItemsInStock(inStock);
-            i.setItemPrice(itemPrice);
-            i.setMaxInStock(maxInStock);
-            i.setMinInStock(minInStock);
-            i.setPlace(place);
-            i.setType(type);
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    /**
-     *
      * @return
      */
     public String listAllItems()
@@ -120,15 +86,21 @@ public class ItemCtr
     public int assignUnit(int itemID)
     {
         Item i = itemCon.getItem(itemID);
-        int lol = generateSerialNo();
-        Unit u = new Unit(lol);
+        int unitSerialNo = generateSerialNo();
+        Unit u = new Unit(unitSerialNo);
         i.addUnit(u);
-        return lol;
+        return unitSerialNo;
     }
 
     public int generateSerialNo()
     {
         return serialNo++;
+    }
+
+    public void updateItemName(int itemID, String itemName)
+    {
+        Item i = itemCon.getItem(itemID);
+        i.setItemName(itemName);
     }
 
     public void updateItemPrice(int itemID, double itemPrice)
@@ -159,12 +131,6 @@ public class ItemCtr
     {
         Item i = itemCon.getItem(itemID);
         i.setItemsInStock(itemsInStock);
-    }
-
-    public void updateType(int itemID, String type)
-    {
-        Item i = itemCon.getItem(itemID);
-        i.setType(type);
     }
 
     public void updateBrand(int itemID, String brand)
