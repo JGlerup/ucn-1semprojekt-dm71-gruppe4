@@ -27,7 +27,6 @@ public class UpdateCustomerUI {
      public void start()
     {
         selectCustomer();
-         selectItem();
          if(customerID != 0)
         {
             updateCustomerMenu();

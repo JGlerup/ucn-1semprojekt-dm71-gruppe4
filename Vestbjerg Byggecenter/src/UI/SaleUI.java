@@ -82,19 +82,10 @@ public class SaleUI {
         System.out.println("Antal");
         int saleQuantity = inputUI.inputQuantity();
         int s = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity);
-//        boolean stop = false;
-//        while(!stop)
-//        {
-//            System.out.println("VareID");
-//            itemID = inputUI.inputID();
-//            System.out.println("saleQuantity");
-//            saleQuantity = inputUI.inputQuantity();
-//            saleCtr.addSalesLineItem(s, itemID, saleQuantity);
-//            stop = true;
-//        }
         double price = saleCtr.calculateTotalPrice(s);
         saleCtr.getSale(s).setPrice(price);
-        System.out.println(s);
+        System.out.println("jeg er en abe + " + s);
+        inputUI.pause();
     }
 
     public void getSale()
@@ -119,13 +110,15 @@ public class SaleUI {
         return name;
     }
 
-
-    private void pause()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("\n Tryk enter for at forts�tte");
-        String pause = keyboard.nextLine();
-    }
-
 }
 
+//        boolean stop = false;
+//        while(!stop)
+//        {
+//            System.out.println("VareID");
+//            itemID = inputUI.inputID();
+//            System.out.println("saleQuantity");
+//            saleQuantity = inputUI.inputQuantity();
+//            saleCtr.addSalesLineItem(s, itemID, saleQuantity);
+//            stop = true;
+//        }
