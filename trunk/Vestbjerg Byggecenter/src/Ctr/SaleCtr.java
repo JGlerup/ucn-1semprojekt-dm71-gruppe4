@@ -20,18 +20,19 @@ import Model.ItemContainer;
 public class SaleCtr {
     private SalesContainer salesContainer;
     private Sale sale;
-    private EmployeeContainer employee;
+    private EmployeeContainer employeeContainer;
     private ItemContainer itemContainer;
 
     public SaleCtr()
     {
         salesContainer = SalesContainer.getInstance();
         itemContainer = ItemContainer.getInstance();
+        employeeContainer = EmployeeContainer.getInstance();
     }
 
     public int createSale(int employeeID, int itemID, String saleDate, int saleQuantity)
     {
-        Employee e = employee.findEmployee(employeeID);
+        Employee e = employeeContainer.findEmployee(employeeID);
         Item i = itemContainer.getItem(itemID);
         double saleTotalPrice = i.getItemPrice() * saleQuantity;
         SalesLineItem sli = new SalesLineItem(saleQuantity, saleTotalPrice, i);
