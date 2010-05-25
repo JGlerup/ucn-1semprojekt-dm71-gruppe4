@@ -29,7 +29,7 @@ public class SalesContainer {
         return instance;
     }
 
-    public int createSale(Sale s)
+    public int addSale(Sale s)
     {
         int saleID = generateID(s);
         saleList.add(s);
@@ -51,7 +51,9 @@ public class SalesContainer {
             if(saleList.get(index).getSaleID() == saleID)
             {
                 s = saleList.get(index);
+                found = true;
             }
+            index++;
         }
         return s;
     }
