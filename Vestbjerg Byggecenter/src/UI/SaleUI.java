@@ -15,10 +15,12 @@ import java.util.Scanner;
 public class SaleUI {
 
     private SaleCtr saleCtr;
+    private ItemUI itemUI;
 
     public SaleUI()
     {
         saleCtr = new SaleCtr();
+        itemUI = new ItemUI();
     }
 
     public void start()
@@ -28,30 +30,33 @@ public class SaleUI {
 
      public void saleMenu()
     {
-        boolean exit = false;
-        while (!exit)
+        try
         {
-            int choise = writeSaleMenu();
-
-            if(choise == 1)
+            boolean exit = false;
+            while(!exit)
             {
-                //create Sale
+                int choice = writeSaleMenu();
+                switch(choice)
+                {
+                    case 0:
+                        exit = true;
+                        break;
+                    case 1:
+                        createSale();
+                        break;
+                    case 2:
+//                        getSale();
+//                        break;
+                }
             }
-            else
-            {
-                if (choise == 2)
-                {
-                    //findSale
-                }
-                else
-                {
-                    exit = true;
-                }
-            }//end else
-        }//end while
+        }
+        catch(Exception e)
+        {
+            saleMenu();
+        }
      }
 
-      public int writeSaleMenu()
+    public int writeSaleMenu()
     {   //Userinterface
        Scanner keyboard = new Scanner(System.in);
        System.out.println("\f *** Kunde Menu ***");
@@ -60,12 +65,17 @@ public class SaleUI {
        System.out.println("(0) Tilbage");
        System.out.print("\n Indtast nummer: ");
 
-       int choise = keyboard.nextInt();
-       return choise;
+       int choice = keyboard.nextInt();
+       return choice;
+    }
+
+    public void createSale()
+    {
+
     }
 
 
-       private String inputName()
+    private String inputName()
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("State employee name: ");
@@ -73,7 +83,7 @@ public class SaleUI {
         return name;
     }
 
-      
+
     private void pause()
     {
         Scanner keyboard = new Scanner(System.in);

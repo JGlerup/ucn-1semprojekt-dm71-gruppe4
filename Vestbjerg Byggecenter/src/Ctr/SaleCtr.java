@@ -19,10 +19,10 @@ import Model.ItemContainer;
  */
 public class SaleCtr {
     private SalesContainer salesContainer;
-    private Sale salesLineItemList;
+    private Sale sale;
     private EmployeeContainer employee;
     private ItemContainer itemContainer;
-    
+
     public SaleCtr()
     {
         salesContainer = SalesContainer.getInstance();
@@ -35,13 +35,29 @@ public class SaleCtr {
         Item i = itemContainer.getItem(itemID);
         double saleTotalPrice = i.getItemPrice() * saleQuantity;
         SalesLineItem sli = new SalesLineItem(saleQuantity, saleTotalPrice, i);
-        Sale s = new Sale()
-        
+        Sale s = new Sale(saleDate, saleTotalPrice, e);
+    }
 
+    public double calculateTotalPrice(int saleID)
+    {
+        double totalPrice = 0;
+        for(SalesLineItem sLI : salesContainer.getSale(saleID).getsLIList())
+        {
+            totalPrice =+ sLI.getTotalPrice();
+        }
+        return totalPrice;
+    }
 
+    public void addSalesLineItem(int itemID, int saleQuantity)
+    {
+        Item i = itemContainer.getItem(itemID);
+        double saleTotalPrice = i.getItemPrice() * saleQuantity;
+        SalesLineItem sli = new SalesLineItem(saleQuantity, saleTotalPrice, i);
 
     }
-    
+
+
+
 //    public void createSale(String newDate, int newPrice, int newID, int newQuantity, int newTotalPrice)
 //    {
 //        int index = 0;

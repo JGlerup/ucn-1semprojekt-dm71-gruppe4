@@ -13,15 +13,18 @@ import java.util.ArrayList;
  */
 public class Sale {
 
+    private int saleID;
     private String date;
-    private int price;
+    private double price;
     private boolean order;
     private ArrayList<SalesLineItem> sLIList;
+    private Employee employee;
 
-    public Sale(String date, int price)
+    public Sale(String date, double price, Employee employee)
     {
         this.date = date;
         this.price = price;
+        this.employee = employee;
         sLIList = new ArrayList<SalesLineItem>();
     }
 
@@ -33,7 +36,7 @@ public class Sale {
         this.date = date;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -41,11 +44,25 @@ public class Sale {
         this.price = price;
     }
 
+    public int getSaleID() {
+        return saleID;
+    }
 
+    public void setSaleID(int saleID) {
+        this.saleID = saleID;
+    }
+
+    public ArrayList<SalesLineItem> getsLIList() {
+        return sLIList;
+    }
 
     public void addSalesLineItem(SalesLineItem salesLineItem)
     {
         sLIList.add(salesLineItem);
     }
 
+    public void setEmployee(Employee e)
+    {
+        employee = e;
+    }
 }
