@@ -65,7 +65,7 @@ public class CustomerUI {
                     case 5:
                            //findCustomer
                         break;
-                    case 6:
+                    case 0:
                              exit = true;
                         break;
 
@@ -125,13 +125,22 @@ public class CustomerUI {
         String pause = keyboard.nextLine();
     }
 
-    public void deleteCustomer()
+     private void deleteCustomer()
     {
-        int id = inputCustomerID();
-
-        customerCtr.deleteCustomer(id);
-        System.out.println("Customer deleted");
-        pause();
+        int customerID = inputUI.inputID();
+        if(customerCtr.getCustomer(customerID) == null)
+        {
+            System.out.println("ID'et " + customerID + " findes ikke. Indtast venligst et nyt ID.");
+        }
+        else
+        {
+            boolean yesOrNo = inputUI.yesOrNo();
+            if(yesOrNo == true)
+            {
+                customerCtr.deleteCustomer(customerID);
+                System.out.println("Kunden med ID'et " + customerID + " blev slettet.");
+            }
+        }
     }
     
     public void assignAccount (int customerID, String type, int regNr, int cardNr)

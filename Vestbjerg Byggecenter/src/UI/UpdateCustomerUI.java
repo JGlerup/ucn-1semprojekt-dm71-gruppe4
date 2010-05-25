@@ -27,7 +27,11 @@ public class UpdateCustomerUI {
      public void start()
     {
         selectCustomer();
-        updateCustomerMenu();
+         selectItem();
+         if(customerID != 0)
+        {
+            updateCustomerMenu();
+        }
     }
 
       public void updateCustomerMenu()
@@ -128,13 +132,15 @@ public class UpdateCustomerUI {
          customerCtr.updatePhone(customerID, phone);
      }
 
-             private void selectCustomer()
-    {
+           private void selectCustomer()
+     {
         customerID = inputUI.inputID();
-        while(customerCtr.getCustomer(customerID) == null)
+        if (customerCtr.getCustomer(customerID) == null)
         {
             System.out.println("ID'et blev ikke fundet");
-            customerID = inputUI.inputID();
+            customerID = 0;
+            inputUI.pause();
         }
-    }
+     }
+
 }
