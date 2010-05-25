@@ -303,4 +303,41 @@ public class InputUI
          return cardNr;
     }
 
+    public String inputSaleDate()
+    {
+        System.out.println(" Indtast dato: ");
+        String saleDate = keyboard.next();
+        return saleDate;
+    }
+
+    public int inputQuantity()
+    {
+        // creates an object keyboard to read data from the keyboard
+        boolean succeed = false;
+        int quantity = 0;
+        while(!succeed)
+        {
+            try
+            {
+                System.out.println("Indtast antal: ");
+                quantity = keyboard.nextInt();
+                if(quantity < 0)
+                {
+                    throw new IllegalArgumentException("x < 0");
+                }
+                succeed = true;
+            }
+            catch(IllegalArgumentException e)
+            {
+                System.out.println("Fejl: Tallet skal være over 0");
+                keyboard.nextLine();
+            }
+            catch(InputMismatchException e)
+            {
+                System.out.println("Fejl: Et heltal er påkrævet");
+                keyboard.nextLine();
+            }
+        }
+        return quantity;
+    }
 }

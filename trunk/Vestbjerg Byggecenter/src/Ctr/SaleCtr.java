@@ -29,13 +29,15 @@ public class SaleCtr {
         itemContainer = ItemContainer.getInstance();
     }
 
-    public void createSale(int employeeID, int itemID, String saleDate, double salePrice, int saleQuantity)
+    public int createSale(int employeeID, int itemID, String saleDate, int saleQuantity)
     {
         Employee e = employee.findEmployee(employeeID);
         Item i = itemContainer.getItem(itemID);
         double saleTotalPrice = i.getItemPrice() * saleQuantity;
         SalesLineItem sli = new SalesLineItem(saleQuantity, saleTotalPrice, i);
         Sale s = new Sale(saleDate, saleTotalPrice, e);
+        s.addSalesLineItem(sli);
+        return salesContainer.addSale(s);
     }
 
     public double calculateTotalPrice(int saleID)
@@ -48,12 +50,22 @@ public class SaleCtr {
         return totalPrice;
     }
 
-    public void addSalesLineItem(int itemID, int saleQuantity)
+    public void endSale()
+    {
+
+    }
+
+    public Sale getSale(int saleID)
+    {
+        return salesContainer.getSale(saleID);
+    }
+
+    public void addSalesLineItem(int saleID, int itemID, int saleQuantity)
     {
         Item i = itemContainer.getItem(itemID);
         double saleTotalPrice = i.getItemPrice() * saleQuantity;
         SalesLineItem sli = new SalesLineItem(saleQuantity, saleTotalPrice, i);
-
+        salesContainer.getSale(saleID).addSalesLineItem(sli);
     }
 
 

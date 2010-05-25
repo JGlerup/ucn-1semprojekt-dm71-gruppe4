@@ -16,11 +16,13 @@ public class SaleUI {
 
     private SaleCtr saleCtr;
     private ItemUI itemUI;
+    private InputUI inputUI;
 
     public SaleUI()
     {
         saleCtr = new SaleCtr();
         itemUI = new ItemUI();
+        inputUI = new InputUI();
     }
 
     public void start()
@@ -45,8 +47,8 @@ public class SaleUI {
                         createSale();
                         break;
                     case 2:
-//                        getSale();
-//                        break;
+                        getSale();
+                        break;
                 }
             }
         }
@@ -71,9 +73,43 @@ public class SaleUI {
 
     public void createSale()
     {
-
+        System.out.println("MedarbejderID");
+        int employeeID = inputUI.inputID();
+        System.out.println("VareID");
+        int itemID = inputUI.inputID();
+        System.out.println("Salgsdato");
+        String saleDate = inputUI.inputSaleDate();
+        System.out.println("Antal");
+        int saleQuantity = inputUI.inputQuantity();
+        int s = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity);
+//        boolean stop = false;
+//        while(!stop)
+//        {
+//            System.out.println("VareID");
+//            itemID = inputUI.inputID();
+//            System.out.println("saleQuantity");
+//            saleQuantity = inputUI.inputQuantity();
+//            saleCtr.addSalesLineItem(s, itemID, saleQuantity);
+//            stop = true;
+//        }
+        double price = saleCtr.calculateTotalPrice(s);
+        saleCtr.getSale(s).setPrice(price);
+        System.out.println(s);
     }
 
+    public void getSale()
+    {
+        int saleID = inputUI.inputID();
+        if(saleCtr.getSale(saleID) != null)
+        {
+            System.out.println("Dato: " + saleCtr.getSale(saleID).getDate());
+            System.out.println("Pris: " + saleCtr.getSale(saleID).getPrice());
+        }
+        else
+        {
+            System.out.println("ID'et " + saleID + "blev ikke fundet");
+        }
+    }
 
     private String inputName()
     {
