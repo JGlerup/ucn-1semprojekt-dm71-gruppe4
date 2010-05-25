@@ -30,49 +30,36 @@ public class MainMenuUI
    
    public void mainMenuStart()
    {
-        boolean exit=false;
-        while (!exit) //! means while exit not is true (that is: false)
-        {
-            int choice = writeMainMenu();
-            if(choice == 1)
-            {
-                startSaleUI();
-            }
-            else
-            {
-                    if(choice == 2)
-                    { 
-                        startItemUI();
-                    }
-                    else
-                    {
-                        if(choice == 3)
-                        {
-                            startCustomerUI(); 
-                        }//end if
-                        else
-                        {
-                            if(choice == 4)
-                            {
-                                startEmployeeUI();
-                            }
-                            else
-                            {
-                                if (choice == 5)
-                                {
-                                    //udlejning
-                                }
-                                else
-                                {
-                            writeEnd();
-                            exit = true;
-                            }//end else
-                        }// end else
-                    }//end else
-            }//end while
-        }//end start
+       try
+       {
+           boolean exit = false;
+           while(!exit)
+           {
+               int choice = writeMainMenu();
+               switch(choice)
+               {
+                   case 1:
+                       startSaleUI();
+                       break;
+                   case 2:
+                       startItemUI();
+                       break;
+                   case 3:
+                       startCustomerUI();
+                       break;
+                   case 4:
+                       startEmployeeUI();
+                       break;
+                   case 5:
+                       //startRentUI();
+                       break;
+               }
+           }
+       }
+       catch(Exception e)
+       {
+       }
    }
-}
     
     private int writeMainMenu()
     {
