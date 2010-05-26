@@ -12,6 +12,7 @@ import Model.SalesContainer;
 import Model.SalesLineItem;
 import Model.Item;
 import Model.ItemContainer;
+import java.util.ArrayList;
 
 /**
  *
@@ -44,7 +45,7 @@ public class SaleCtr {
     public double calculateTotalPrice(int saleID)
     {
         double totalPrice = 0;
-        for(SalesLineItem sLI : salesContainer.getSale(saleID).getsLIList())
+        for(SalesLineItem sLI : salesContainer.getSale(saleID).getSLIList())
         {
             totalPrice =+ sLI.getTotalPrice();
         }
@@ -69,6 +70,22 @@ public class SaleCtr {
         salesContainer.getSale(saleID).addSalesLineItem(sli);
     }
 
+    public void removeSalesLineItem(int saleID, int sLIID)
+    {
+        salesContainer.getSale(saleID).removeSalesLineItem(sLIID);
+    }
+
+    public ArrayList<SalesLineItem> getSLIList(int saleID) {
+        return salesContainer.getSale(saleID).getSLIList();
+    }
+
+    public void printContentsSale(int saleID)
+    {
+	for(SalesLineItem sLI : salesContainer.getSale(saleID).getSLIList())
+	{
+            System.out.println("ID: " + sLI.getSLIID() + " Varenavn: " + sLI.getItem().getItemName() + " Mængde: " + sLI.getQuantity());
+	}
+    }
 
 
 //    public void createSale(String newDate, int newPrice, int newID, int newQuantity, int newTotalPrice)

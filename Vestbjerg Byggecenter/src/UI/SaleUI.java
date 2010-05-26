@@ -5,6 +5,7 @@
 
 package UI;
 
+import Ctr.ItemCtr;
 import Ctr.SaleCtr;
 import java.util.Scanner;
 
@@ -15,14 +16,20 @@ import java.util.Scanner;
 public class SaleUI {
 
     private SaleCtr saleCtr;
+    private ItemCtr itemCtr;
     private ItemUI itemUI;
     private InputUI inputUI;
+    private int saleID;
+    private int employeeID;
 
     public SaleUI()
     {
         saleCtr = new SaleCtr();
+        itemCtr = new ItemCtr();
         itemUI = new ItemUI();
         inputUI = new InputUI();
+        saleID = 0;
+        employeeID = 0;
     }
 
     public void start()
@@ -61,10 +68,10 @@ public class SaleUI {
     public int writeSaleMenu()
     {   //Userinterface
        Scanner keyboard = new Scanner(System.in);
-       System.out.println("\f *** Kunde Menu ***");
+       System.out.println("\f *** Salgsmenu ***");
+       System.out.println("(0) Tilbage");
        System.out.println("(1) Start salg");
        System.out.println("(2) Find salg");
-       System.out.println("(0) Tilbage");
        System.out.print("\n Indtast nummer: ");
 
        int choice = keyboard.nextInt();
@@ -73,24 +80,28 @@ public class SaleUI {
 
     public void createSale()
     {
-        System.out.println("MedarbejderID");
-        int employeeID = inputUI.inputID();
-        System.out.println("VareID");
+
+        employeeID = inputUI.inputID();
         int itemID = inputUI.inputID();
-        System.out.println("Salgsdato");
+        int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
         String saleDate = inputUI.inputSaleDate();
-        System.out.println("Antal");
+        System.out.println("Lagerbeholdning: " + itemsInStock);
         int saleQuantity = inputUI.inputQuantity();
-        int s = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity);
-        double price = saleCtr.calculateTotalPrice(s);
-        saleCtr.getSale(s).setPrice(price);
-        System.out.println("jeg er en abe + " + s);
+        while(saleQuantity > itemsInStock)
+        {
+            System.out.println("Den indtastede " + saleQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
+            saleQuantity = inputUI.inputQuantity();
+        }
+        saleID = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity);
+        double price = saleCtr.calculateTotalPrice(saleID);
+        saleCtr.getSale(saleID).setPrice(price);
+        newSaleMenu();
         inputUI.pause();
     }
 
     public void getSale()
     {
-        int saleID = inputUI.inputID();
+        saleID = inputUI.inputID();
         if(saleCtr.getSale(saleID) != null)
         {
             System.out.println("Dato: " + saleCtr.getSale(saleID).getDate());
@@ -102,14 +113,78 @@ public class SaleUI {
         }
     }
 
-    private String inputName()
+    public void addSalesLineItem()
     {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("State employee name: ");
-        String name = keyboard.nextLine();
-        return name;
+
+        int itemID = inputUI.inputID();
+        int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
+        int saleQuantity = inputUI.inputQuantity();
+        while(saleQuantity > itemsInStock)
+        {
+            System.out.println("Den indtastede " + saleQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
+            saleQuantity = inputUI.inputQuantity();
+        }
+        saleCtr.addSalesLineItem(saleID, itemID, saleQuantity);
     }
 
+
+    public void removeSalesLineItem()
+    {
+        int sLIID = inputUI.inputID();
+        saleCtr.removeSalesLineItem(saleID, sLIID);
+    }
+
+    public void newSaleMenu()
+    {
+        try
+        {
+            boolean exit = false;
+            while(!exit)
+            {
+                int choice =   writeNewSaleMenu();
+                switch(choice)
+                {
+                    case 0:
+                        exit = true;
+                        break;
+                    case 1:
+                        addSalesLineItem();
+                        break;
+                    case 2:
+                        removeSalesLineItem();
+                        break;
+                    case 3:
+                        printContentsOfSale();
+                        break;
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("test");
+            newSaleMenu();
+        }
+    }
+
+    public int writeNewSaleMenu()
+    {
+       Scanner keyboard = new Scanner(System.in);
+       System.out.println("\f *** Nyt salg ***");
+       System.out.println("(0) Tilbage");
+       System.out.println("(1) Tilføj vare");
+       System.out.println("(2) Fjern vare");
+       System.out.println("(3) Print salgets indhold");
+       System.out.print("\n Indtast nummer: ");
+
+       int choice = keyboard.nextInt();
+       return choice;
+    }
+
+    public void printContentsOfSale()
+    {
+        saleCtr.printContentsSale(saleID);
+        inputUI.pause();
+    }
 }
 
 //        boolean stop = false;

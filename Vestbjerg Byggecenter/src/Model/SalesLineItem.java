@@ -11,6 +11,7 @@ package Model;
  */
 public class SalesLineItem {
 
+    private int sLIID;
     private int quantity;
     private double totalPrice;
     private ItemContainer itemContainer;
@@ -39,8 +40,22 @@ public class SalesLineItem {
         this.totalPrice = totalPrice;
     }
 
+    public Item getItem() {
+        return item;
+    }
+
+
+
     public void setItem(Item newItem)
     {
         item = newItem;
+    }
+
+    public int getSLIID() {
+        return sLIID;
+    }
+
+    public void setsLIID(int sLIID) {
+        this.sLIID = sLIID;
     }
 }
