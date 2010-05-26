@@ -115,14 +115,14 @@ public class ItemUI
     }
     private void createItem()
     {
-        String itemName = inputUI.inputName();
+        String itemName = inputUI.inputItemName();
         double itemPrice = inputUI.inputItemPrice();
         String description = inputUI.inputDescription();        
         int minInStock = inputUI.inputMinInStock();
         int maxInStock = inputUI.inputMaxInStock();
-        while(maxInStock < minInStock)
+        while(maxInStock <= minInStock)
         {
-            System.out.println("Maksmimumsbeholdningen er mindre end minimumsbeholdningen");
+            System.out.println("Maksmimumsbeholdningen er mindre end eller lig med minimumsbeholdningen");
             maxInStock = inputUI.inputMaxInStock();
         }
         int itemsInStock = inputUI.inputItemsInStock();
