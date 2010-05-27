@@ -14,19 +14,19 @@ import java.util.Scanner;
  * @author Daniel
  */
 public class CustomerUI {
-    
+
     private UpdateCustomerUI updateCustomerUI;
     private CustomerCtr customerCtr;
     private InputUI inputUI;
     private int CustomerID;
-    
+
     public CustomerUI()
     {
        customerCtr = new CustomerCtr();
        updateCustomerUI = new UpdateCustomerUI();
        inputUI = new InputUI();
     }
-    
+
     public void start()
     {
         customerMenu();
@@ -60,7 +60,7 @@ public class CustomerUI {
                            assignAccount(customerID, type, regNr, cardNr);
                         break;
                     case 5:
-                           //findCustomer
+                        getCustomer();
                         break;
                     case 6:
                         printListOfCustomer();
@@ -77,21 +77,21 @@ public class CustomerUI {
             start();
         }
     }
-    
+
 
     public int writeCustomerMenu()
     {   //Userinterface
        Scanner keyboard = new Scanner(System.in);
        System.out.println("\f *** Kunde Menu ***");
+       System.out.println("(0) Tilbage");
        System.out.println("(1) Opret kunde");
        System.out.println("(2) Slet kunde");
        System.out.println("(3) Opdater kunde");
        System.out.println("(4) Tildel konto");
        System.out.println("(5) Find kunde");
        System.out.println("(6) Print liste over kunder");
-       System.out.println("(0) Tilbage");
        System.out.print("\n Indtast nummer: ");
-       
+
        int choise = keyboard.nextInt();
        return choise;
     }
@@ -117,8 +117,8 @@ public class CustomerUI {
         }//end while
         return id;
      }
-    
-    
+
+
     private void pause()
     {
         Scanner keyboard = new Scanner(System.in);
@@ -143,7 +143,7 @@ public class CustomerUI {
             }
         }
     }
-    
+
     public void assignAccount (int customerID, String type, int regNr, int cardNr)
     {
         customerCtr.giveAccount(customerID, type, regNr, cardNr);
@@ -153,14 +153,15 @@ public class CustomerUI {
 
     public void printListOfCustomer()
     {
+        System.out.println("---------------------------------------");
         for(Customer c : customerCtr.getCustomerList())
 	{
-            System.out.println("ID: " + c.getCustomerID());
-            System.out.println("Navn: " + c.getName());
-            System.out.println("Adresse: " + c.getAddress());
-            System.out.println("Telefon: " + c.getPhone());
-            System.out.println("---------------------------");
+            
+            System.out.println("ID: " + c.getCustomerID() + " Navn: " +
+                    c.getName() + " Adresse: " + c.getAddress() +
+                    " Telefon: " + c.getPhone());
 	}
+        System.out.println("---------------------------------------");
         inputUI.pause();
     }
 
@@ -181,7 +182,7 @@ public class CustomerUI {
         }
 
     }
-    
+
     private void createCustomer()
     {
       String name = inputUI.inputName();
@@ -191,15 +192,9 @@ public class CustomerUI {
       System.out.println("\nNy kunde oprettet med id: " + id);
     }
 
-
     // Starter UpdateCUstomerUI klassen
     public void startUpdateCustomerUI()
     {
         updateCustomerUI.start();
-    }
-    
-      public void findCustomer(int customerID)
-    {
-        customerCtr.getCustomer(customerID);
     }
 }
