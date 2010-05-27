@@ -82,8 +82,8 @@ public class SaleUI {
     public void createSale()
     {
 
-        employeeID = inputUI.inputID();
-        int itemID = inputUI.inputID();
+        employeeID = inputUI.inputEmployeeID();
+        int itemID = inputUI.inputItemID();
         int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
         String saleDate = inputUI.inputSaleDate();
         System.out.println("Lagerbeholdning: " + itemsInStock);

@@ -132,16 +132,59 @@ public class UpdateItemUI {
     {
         int oldMaxInStock = itemCtr.getItem(itemID).getMaxInStock();
         int maxInStock = inputUI.inputMaxInStock();
-        itemCtr.updateMaxInStock(itemID, maxInStock);
-        System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + "til " + maxInStock);
+        int minInStock = itemCtr.getItem(itemID).getMinInStock();
+        int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
+        int difference = itemsInStock - maxInStock;
+        if(maxInStock < minInStock)
+        {
+            System.out.println("Maksimumsbeholdningen skal være større end minimumsbeholdningen");
+        }
+        else
+        {
+            if(maxInStock >= oldMaxInStock)
+            {
+                itemCtr.updateMaxInStock(itemID, maxInStock);
+                System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + "til " + maxInStock);
+            }
+            else
+            {
+                if(maxInStock < itemsInStock)
+                {
+                    itemCtr.removeAlotOfUnits(itemID, difference);
+                    itemCtr.updateMaxInStock(itemID, maxInStock);
+                    System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + "til " + maxInStock);
+                }
+                else
+                {
+                    itemCtr.updateMaxInStock(itemID, maxInStock);
+                    System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + "til " + maxInStock + "test");
+                }
+            }
+        }
     }
 
     private void updateMinInStock()
     {
         int oldMinInStock = itemCtr.getItem(itemID).getMinInStock();
         int minInStock = inputUI.inputMinInStock();
-        itemCtr.updateMinInStock(itemID, minInStock);
-        System.out.println("Minimumsbeholdningen er blevet ændret fra " + oldMinInStock + " til " + minInStock);
+        int maxInStock = itemCtr.getItem(itemID).getMaxInStock();
+
+        if(minInStock > maxInStock)
+        {
+            System.out.println("Minimumsbeholdningen er større end maksimumsbeholdningen");
+        }
+        else
+        {
+            if(minInStock <= maxInStock)
+            {
+                itemCtr.updateMinInStock(itemID, minInStock);
+                System.out.println("Minimumsbeholdningen er blevet ændret fra " + oldMinInStock + " til " + minInStock);
+            }
+            else
+            {
+            }
+        }
+        
     }
 
     private void updateItemsInStock()
