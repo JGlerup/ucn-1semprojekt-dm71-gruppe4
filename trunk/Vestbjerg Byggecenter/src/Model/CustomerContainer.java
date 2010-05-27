@@ -90,6 +90,12 @@ public class CustomerContainer {
         customerList.remove(storeIndex);
     }
 
+    public ArrayList<Customer> getCustomerList() {
+        return customerList;
+    }
+
+
+
      
 
 

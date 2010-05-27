@@ -6,6 +6,7 @@
 package UI;
 
 import Ctr.CustomerCtr;
+import Model.Customer;
 import java.util.Scanner;
 
 /**
@@ -43,11 +44,7 @@ public class CustomerUI {
                 switch(choice)
                 {
                     case 1:
-                     String name = inputUI.inputName();
-                     String address = inputUI.inputAddress();
-                     int phone = inputUI.inputPhone();
-                     int id = createCustomer(name, address, phone);
-                     System.out.println("\nNy kunde oprettet med id: " + id);
+                        createCustomer();
                         break;
                     case 2:
                          deleteCustomer();
@@ -64,6 +61,9 @@ public class CustomerUI {
                         break;
                     case 5:
                            //findCustomer
+                        break;
+                    case 6:
+                        printListOfCustomer();
                         break;
                     case 0:
                              exit = true;
@@ -88,6 +88,7 @@ public class CustomerUI {
        System.out.println("(3) Opdater kunde");
        System.out.println("(4) Tildel konto");
        System.out.println("(5) Find kunde");
+       System.out.println("(6) Print liste over kunder");
        System.out.println("(0) Tilbage");
        System.out.print("\n Indtast nummer: ");
        
@@ -149,10 +150,45 @@ public class CustomerUI {
         System.out.println("Kunde med id " +customerID +" har f�et tilf�jet en konto");
         pause();
     }
-    
-    private int createCustomer(String name, String address, int phone)
+
+    public void printListOfCustomer()
     {
-      return customerCtr.createCustomer(name, address, phone);
+        for(Customer c : customerCtr.getCustomerList())
+	{
+            System.out.println("ID: " + c.getCustomerID());
+            System.out.println("Navn: " + c.getName());
+            System.out.println("Adresse: " + c.getAddress());
+            System.out.println("Telefon: " + c.getPhone());
+            System.out.println("---------------------------");
+	}
+        inputUI.pause();
+    }
+
+    private void getCustomer()
+    {
+        int customerID = inputUI.inputID();
+        Customer c = customerCtr.getCustomer(customerID);
+        if(c != null)
+        {
+            System.out.println("ID: " + c.getCustomerID());
+            System.out.println("Navn: " + c.getName());
+            System.out.println("Adresse: " + c.getAddress());
+            System.out.println("Telefon: " + c.getPhone());
+        }
+        else
+        {
+            System.out.println("ID'et " + customerID + " blev ikke fundet");
+        }
+
+    }
+    
+    private void createCustomer()
+    {
+      String name = inputUI.inputName();
+      String address = inputUI.inputAddress();
+      int phone = inputUI.inputPhone();
+      int id = customerCtr.createCustomer(name, address, phone);
+      System.out.println("\nNy kunde oprettet med id: " + id);
     }
 
 
