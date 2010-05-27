@@ -94,6 +94,7 @@ public class SaleUI {
             saleQuantity = inputUI.inputQuantity();
         }
         int newItemsInStock = itemsInStock - saleQuantity;
+        itemCtr.removeAlotOfUnits(itemID, saleQuantity);
         itemCtr.getItem(itemID).setItemsInStock(newItemsInStock);
         saleID = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity);
         double price = saleCtr.calculateTotalPrice(saleID);

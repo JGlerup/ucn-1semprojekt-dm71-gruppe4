@@ -146,4 +146,9 @@ public class Item {
         unitList.add(u);
     }
 
+    public void removeUnit(Unit u)
+    {
+        unitList.remove(u);
+    }
+
 }
