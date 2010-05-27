@@ -38,6 +38,9 @@ public class MainMenuUI
                int choice = writeMainMenu();
                switch(choice)
                {
+                   case 0:
+                       exit = true;
+                       break;
                    case 1:
                        startSaleUI();
                        break;
@@ -71,6 +74,7 @@ public class MainMenuUI
             System.out.println(" (3) Kundehåndtering");
             System.out.println(" (4) Medarbejderhåndtering");
             System.out.println(" (5) Udlejning");
+            System.out.println(" (0) Exit");
             System.out.print("\n Make your choice: ");
             
             int choice = keyboard.nextInt();
