@@ -134,30 +134,26 @@ public class UpdateItemUI {
         int maxInStock = inputUI.inputMaxInStock();
         int minInStock = itemCtr.getItem(itemID).getMinInStock();
         int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
-        int difference = itemsInStock - maxInStock;
         if(maxInStock < minInStock)
         {
             System.out.println("Maksimumsbeholdningen skal være større end minimumsbeholdningen");
         }
         else
         {
-            if(maxInStock >= oldMaxInStock)
+            if(maxInStock >= minInStock && maxInStock >= itemsInStock)
             {
                 itemCtr.updateMaxInStock(itemID, maxInStock);
-                System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + "til " + maxInStock);
+                System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + " til " + maxInStock);
             }
             else
             {
                 if(maxInStock < itemsInStock)
                 {
-                    itemCtr.removeAlotOfUnits(itemID, difference);
-                    itemCtr.updateMaxInStock(itemID, maxInStock);
-                    System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + "til " + maxInStock);
+                    System.out.println("Maksimumsbeholdningen kan ikke være mindre end antallet af varer");
                 }
                 else
                 {
-                    itemCtr.updateMaxInStock(itemID, maxInStock);
-                    System.out.println("Maksimumsbeholdningen er blevet ændret fra " + oldMaxInStock + "til " + maxInStock + "test");
+                    System.out.println("Maksimumsbeholdningen skal være større end minimumsbeholdningen");
                 }
             }
         }
@@ -168,6 +164,7 @@ public class UpdateItemUI {
         int oldMinInStock = itemCtr.getItem(itemID).getMinInStock();
         int minInStock = inputUI.inputMinInStock();
         int maxInStock = itemCtr.getItem(itemID).getMaxInStock();
+        int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
 
         if(minInStock > maxInStock)
         {
@@ -175,13 +172,21 @@ public class UpdateItemUI {
         }
         else
         {
-            if(minInStock <= maxInStock)
+            if(minInStock <= maxInStock && minInStock <= itemsInStock)
             {
                 itemCtr.updateMinInStock(itemID, minInStock);
                 System.out.println("Minimumsbeholdningen er blevet ændret fra " + oldMinInStock + " til " + minInStock);
             }
             else
             {
+                if(minInStock > itemsInStock)
+                {
+                    System.out.println("Minimumsbeholdningen er større end antallet af varer");
+                }
+                else
+                {
+                    System.out.println("Minimumsbeholdninger er større end maksimumsbeholdnigen");
+                }
             }
         }
         
@@ -191,8 +196,25 @@ public class UpdateItemUI {
     {
         int oldItemsInStock = itemCtr.getItem(itemID).getItemsInStock();
         int itemsInStock = inputUI.inputItemsInStock();
-        itemCtr.updateMaxInStock(itemID, itemsInStock);
-        System.out.println("Antallet er blevet ændret fra " + oldItemsInStock + " til " + itemsInStock);
+        int minInStock = itemCtr.getItem(itemID).getMinInStock();
+        int maxInStock = itemCtr.getItem(itemID).getMaxInStock();
+        if(itemsInStock < minInStock)
+        {
+            System.out.println("Antallet er mindre end minimumsbeholdningen");
+        }
+        else
+        {
+            if(itemsInStock > maxInStock)
+            {
+                System.out.println("Antallet er større end maksimumsbeholdningen");
+            }
+            else
+            {
+                itemCtr.updateMaxInStock(itemID, itemsInStock);
+                System.out.println("Antallet er blevet ændret fra " + oldItemsInStock + " til " + itemsInStock);
+            }
+        }
+
     }
 
     private void updateBrand()
