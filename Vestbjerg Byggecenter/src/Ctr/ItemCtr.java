@@ -95,6 +95,8 @@ public class ItemCtr
         return itemCon.listAllItem();
     }
 
+
+    // Creates new units when new units are ordered to the stock
     public void assignNewUnits(int itemID, int antal)
     {
         
@@ -115,7 +117,8 @@ public class ItemCtr
             
         }
     }
-    
+
+    // Creates units for the item when the item is created.l
     public void assignStartUnits(int itemID, int antal)
     {
          
