@@ -140,7 +140,19 @@ public class ItemCtr
         }
     }
         
-    
+    public void removeAlotOfUnits(int itemID, int antal)
+    {
+
+    int numberOfUnits = antal;
+    int index = 0;
+    while(numberOfUnits > index)
+    {
+        Unit u = itemCon.getItem(itemID).getFirstUnit();
+        itemCon.getItem(itemID).removeUnit(u);
+        index++;
+    }
+    }
+
 
     public int generateSerialNo()
     {
