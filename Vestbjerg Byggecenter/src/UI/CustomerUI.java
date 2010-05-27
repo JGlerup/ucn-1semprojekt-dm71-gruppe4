@@ -153,7 +153,6 @@ public class CustomerUI {
 
     public void printListOfCustomer()
     {
-        System.out.println("---------------------------------------");
         for(Customer c : customerCtr.getCustomerList())
 	{
             
@@ -161,7 +160,6 @@ public class CustomerUI {
                     c.getName() + " Adresse: " + c.getAddress() +
                     " Telefon: " + c.getPhone());
 	}
-        System.out.println("---------------------------------------");
         inputUI.pause();
     }
 

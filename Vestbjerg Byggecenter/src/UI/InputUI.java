@@ -19,6 +19,71 @@ public class InputUI
     {
         keyboard = new Scanner(System.in);
     }
+
+
+    public int inputEmployeeID()
+    {
+        boolean succeed = false;
+        int itemID = 0;
+        while(!succeed)
+        {
+        // makes an object keyboard to have input from the console
+           System.out.println("Indtast ID:  ");
+           try
+           {
+             itemID = keyboard.nextInt();
+             if(itemID < 1)
+             {
+                 throw new IllegalArgumentException("x < 1");
+             }
+             succeed = true;
+           }
+           catch(InputMismatchException e)
+           {
+               System.out.println("Fejl: Et tal er påkrævet");
+               keyboard.nextLine();
+           }
+           catch(IllegalArgumentException e)
+           {
+               System.out.println("Fejl: Indtast et tal, højere end 0");
+               keyboard.nextLine();
+           }
+        }//end while
+
+        return itemID;
+    }
+
+    public int inputItemID()
+    {
+        boolean succeed = false;
+        int itemID = 0;
+        while(!succeed)
+        {
+        // makes an object keyboard to have input from the console
+           System.out.println("Indtast ID:  ");
+           try
+           {
+             itemID = keyboard.nextInt();
+             if(itemID < 1)
+             {
+                 throw new IllegalArgumentException("x < 1");
+             }
+             succeed = true;
+           }
+           catch(InputMismatchException e)
+           {
+               System.out.println("Fejl: Et tal er påkrævet");
+               keyboard.nextLine();
+           }
+           catch(IllegalArgumentException e)
+           {
+               System.out.println("Fejl: Indtast et tal, højere end 0");
+               keyboard.nextLine();
+           }
+        }//end while
+
+        return itemID;
+    }
     /***************************************
      * Start - inputUI for item
      ***************************************/
@@ -264,12 +329,36 @@ public class InputUI
      * Start - inputUI for Customer
      ***************************************/
 
-     public String inputName()
+    public String inputName()
     {
-         // makes an object keyboard to have input from the screen
-         System.out.println(" Indtast Name:  ");
-         String name = keyboard.next();
-         return name;
+        boolean succeed = false;
+        String name = "";
+        while(!succeed)
+        {
+             try
+             {
+
+                System.out.println(" Indtast Name:  ");
+                name = keyboard.next();
+
+                if(name.matches("[^a-zA-Z_]+"))
+                {
+                    throw new IllegalArgumentException();
+                    
+                }
+                else
+                {
+                    succeed = true;
+                }
+                
+
+             }
+             catch(IllegalArgumentException e)
+             {
+                 System.out.println("Navnet må kun indeholde bogstaver");
+             }
+        }
+        return name;
     }
 
      public String inputAddress()
@@ -277,6 +366,7 @@ public class InputUI
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast Address:  ");
          String address = keyboard.next();
+         keyboard.next();
          return address;
     }
 
