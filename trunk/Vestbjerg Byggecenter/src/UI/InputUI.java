@@ -239,6 +239,7 @@ public class InputUI
 
     public boolean yesOrNo()
     {
+        boolean isYes = false;
         boolean succeed = false;
         while(!succeed)
         {
@@ -246,15 +247,17 @@ public class InputUI
             String input = keyboard.next();
             if(input.equals("y"))
             {
+                isYes = true;
                 succeed = true;
 
             }
             if(input.equals("n"))
             {
+                isYes = false;
                 succeed = true;
             }
         }
-        return succeed;
+        return isYes;
     }
 
      /***************************************
@@ -273,8 +276,7 @@ public class InputUI
     {
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast Address:  ");
-         String address = keyboard.nextLine();
-         keyboard.nextLine();
+         String address = keyboard.next();
          return address;
     }
 
