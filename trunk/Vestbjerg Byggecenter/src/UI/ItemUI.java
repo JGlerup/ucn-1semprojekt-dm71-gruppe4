@@ -54,7 +54,7 @@ public class ItemUI
                         startUpdateMenuUI();
                         break;
                     case 4:
-                        assignSerialNo();
+                    //    assignSerialNo();
                         break;
                     case 5:
                         deleteItem();
@@ -81,7 +81,7 @@ public class ItemUI
             System.out.println(" (1) Find vare");
             System.out.println(" (2) Opret vare");
             System.out.println(" (3) Opdater vare");
-            System.out.println(" (4) Tildel serienummer");
+           // System.out.println(" (4) Tildel serienummer");
             System.out.println(" (5) Slet vare");
             System.out.println(" (6) Vis en liste over alle varer");
             System.out.print("\n Vælg et menupunkt: ");
@@ -115,11 +115,13 @@ public class ItemUI
     }
     private void createItem()
     {
+        
         String itemName = inputUI.inputItemName();
         double itemPrice = inputUI.inputItemPrice();
         String description = inputUI.inputDescription();        
         int minInStock = inputUI.inputMinInStock();
         int maxInStock = inputUI.inputMaxInStock();
+        boolean isYes = inputUI.yesOrNo();
         while(maxInStock <= minInStock)
         {
             System.out.println("Maksmimumsbeholdningen er mindre end eller lig med minimumsbeholdningen");
@@ -138,7 +140,7 @@ public class ItemUI
         }
         String brand = inputUI.inputBrand();
         String place = inputUI.inputPlace();
-        int i = itemCtr.createItem(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, place);
+        int i = itemCtr.createItem(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, place, isYes);
         System.out.println("Varen er oprettet og har fået ID'et: " + i);
         pause();
     }
@@ -174,21 +176,21 @@ public class ItemUI
        keyboard.nextLine();
     }
 
-    public void assignSerialNo()
-    {
-         int unitSerialNo = inputUI.inputSerialNo();
-         if(itemCtr.getItem(unitSerialNo) != null)
-         {
-              int u = itemCtr.assignUnit(unitSerialNo);
-              System.out.println("Et eksemplar med serienummeret " + u + " blev oprettet");
-              pause();
-         }
-         else
-         {
-              System.out.println("ID'et blev ikke fundet");
-              pause();
-         }
-    }
+  //  public void assignSerialNo()
+  ///  {
+  //       int unitSerialNo = inputUI.inputSerialNo();
+   //      if(itemCtr.getItem(unitSerialNo) != null)
+   //      {
+   //           int u = itemCtr.assignUnit(unitSerialNo);
+   //           System.out.println("Et eksemplar med serienummeret " + u + " blev oprettet");
+  //            pause();
+   //      }
+  //       else
+   //      {
+   //           System.out.println("ID'et blev ikke fundet");
+    //          pause();
+  //       }
+ //   }
 
     public void startUpdateMenuUI()
     {

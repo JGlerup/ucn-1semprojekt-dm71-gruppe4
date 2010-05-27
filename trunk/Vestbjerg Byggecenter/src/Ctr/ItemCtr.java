@@ -49,10 +49,20 @@ public class ItemCtr
      * @param place
      * @return
      */
-    public int createItem(String itemName, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String brand, String place)
+    public int createItem(String itemName, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String brand, String place, boolean isYes)
     {
+        boolean  yesNo = isYes;
         Item i = new Item(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, place);
-        return itemCon.addItem(i);
+        int itemID = itemCon.addItem(i);
+
+        int antal = itemsInStock;
+        
+        if (yesNo == true)
+        {
+        assignUnits(itemID, antal);
+        }
+        
+        return itemID;
     }
 
     public boolean checkSupplyLimit(int minInStock, int maxInStock, int itemsInStock)
@@ -64,14 +74,14 @@ public class ItemCtr
         return true;
     }
 
-	
+    
     /**
      *
      * @param itemID
      */
     public void deleteItem(int itemID)
     {
-    	itemCon.deleteItem(itemID);
+        itemCon.deleteItem(itemID);
     }
 
     /**
@@ -83,13 +93,25 @@ public class ItemCtr
         return itemCon.listAllItem();
     }
 
-    public int assignUnit(int itemID)
+    public void assignUnits(int itemID, int antal)
     {
+        
         Item i = itemCon.getItem(itemID);
-        int unitSerialNo = generateSerialNo();
-        Unit u = new Unit(unitSerialNo);
-        i.addUnit(u);
-        return unitSerialNo;
+        int iNS = i.getItemsInStock();
+        int number = antal;
+        int newINS = antal;
+        
+        i.setItemsInStock(newINS + iNS);
+        
+        while (number > 0)
+        {
+            int unitSerialNo = generateSerialNo();
+            Unit u = new Unit(unitSerialNo);
+            i.addUnit(u);
+            
+            number--;
+            
+        }
     }
 
     public int generateSerialNo()
