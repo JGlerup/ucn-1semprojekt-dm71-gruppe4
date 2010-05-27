@@ -191,5 +191,10 @@ public class ItemCtr
         Item i = itemCon.getItem(itemID);
         i.setPlace(place);
     }
+
+    public Unit getFirstUnit(int itemID)
+    {
+        return itemCon.getItem(itemID).getFirstUnit();
+    }
 }
 

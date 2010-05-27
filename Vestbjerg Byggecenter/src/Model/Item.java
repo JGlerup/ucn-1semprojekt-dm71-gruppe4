@@ -37,6 +37,24 @@ public class Item {
         unitList = new ArrayList<Unit>();
     }
 
+    public Unit getFirstUnit()
+    {
+        int index = 0;
+        Unit u = null;
+        boolean found = false;
+
+        while(!found && index < unitList.size() && u == null)
+        {
+            if(unitList.get(index) != null)
+            {
+                u = unitList.get(index);
+                found = true;
+            }
+            index++;
+        }
+        return u;
+    }
+
 
     public int getItemID() {
         return itemID;
