@@ -1,0 +1,26 @@
+Systemdefinition
+
+BATOFF
+
+Systemet skal avendes til at administrere varer, ordrer, udlejning, kunder, ansatte. Det bruges af ansatte og ledelsen i virksomheden, hvor forudsætningen er at de har basale it-kundskaber. Det bliver i udviklet i java, hvilket betyder at det kan kører både på Linux, Mac eller Windows. Af hardware krav, er en billig pc-platform tilstrækkelig, som kombles til en central server. Java runtime skal installeres før systemet kan afvikles. 
+
+Betingelser:
+Ledelsen, samt medarbejdere med variende it-kundskaber. Udvikles i samarbejde med brugerne. Brugervenligheden prioriteres højest.
+
+//Systemet skal være  brugervenligt så det kan betjenes af alle der har basale it-kundskaber
+
+Anvendelse:
+Støtte til styring og overvågning af vare, ordrer, udlejning, salg, kunder og ansatte
+Medarbejdere, der arbejder med udlejning, salg, administration og lagerstyring.
+
+//Skal bruges i begge afdelinger af vestbjerg byggecenter.
+
+Teknologi:
+PC'er med forbindelse til en central server. På sigt med adgang til specielle funktioner via internettet. Det er påkrævet at java runtime er installeret.
+Objekter:
+Kunde, ansatte, varer, salg, udlejning
+Funktionalitet:
+Registrering af kunder, medarbejder og varer, samt administration og overvågning af ordre, salg og udlejning.
+System skal primært bruges til administration af varer, kunder, ansatte og udlejning
+Filosofi:
+Et administrativt værktøj med overvågningsfunkiton.
