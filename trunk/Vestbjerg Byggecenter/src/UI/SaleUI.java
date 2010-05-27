@@ -93,6 +93,8 @@ public class SaleUI {
             System.out.println("Den indtastede " + saleQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
             saleQuantity = inputUI.inputQuantity();
         }
+        int newItemsInStock = itemsInStock - saleQuantity;
+        itemCtr.getItem(itemID).setItemsInStock(newItemsInStock);
         saleID = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity);
         double price = saleCtr.calculateTotalPrice(saleID);
         saleCtr.getSale(saleID).setPrice(price);
