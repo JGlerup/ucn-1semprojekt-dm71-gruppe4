@@ -59,12 +59,14 @@ public class ItemCtr
         
         if (yesNo == true)
         {
-        assignUnits(itemID, antal);
+        assignStartUnits(itemID, antal);
         }
         
         return itemID;
     }
 
+    
+    
     public boolean checkSupplyLimit(int minInStock, int maxInStock, int itemsInStock)
     {
         while(minInStock <= itemsInStock && maxInStock >= itemsInStock)
@@ -93,7 +95,7 @@ public class ItemCtr
         return itemCon.listAllItem();
     }
 
-    public void assignUnits(int itemID, int antal)
+    public void assignNewUnits(int itemID, int antal)
     {
         
         Item i = itemCon.getItem(itemID);
@@ -113,6 +115,29 @@ public class ItemCtr
             
         }
     }
+    
+    public void assignStartUnits(int itemID, int antal)
+    {
+         
+        Item i = itemCon.getItem(itemID);
+        int iNS = i.getItemsInStock();
+        int number = antal;
+        int newINS = antal;
+        
+        i.setItemsInStock(iNS);
+        
+        while (number > 0)
+        {
+            int unitSerialNo = generateSerialNo();
+            Unit u = new Unit(unitSerialNo);
+            i.addUnit(u);
+            
+            number--;
+            
+        }
+    }
+        
+    
 
     public int generateSerialNo()
     {

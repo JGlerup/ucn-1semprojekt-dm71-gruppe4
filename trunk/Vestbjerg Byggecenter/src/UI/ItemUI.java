@@ -54,12 +54,9 @@ public class ItemUI
                         startUpdateMenuUI();
                         break;
                     case 4:
-                    //    assignSerialNo();
-                        break;
-                    case 5:
                         deleteItem();
                         break;
-                    case 6:
+                    case 5:
                         listAllItems();
                         break;
 
