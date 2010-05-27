@@ -7,6 +7,7 @@ package UI;
 
 import Ctr.ItemCtr;
 import Ctr.SaleCtr;
+import Model.SalesLineItem; // medfører åben arkitektur
 import java.util.Scanner;
 
 /**
@@ -182,7 +183,10 @@ public class SaleUI {
 
     public void printContentsOfSale()
     {
-        saleCtr.printContentsSale(saleID);
+        for(SalesLineItem sLI : saleCtr.getSLIList(saleID))
+	{
+            System.out.println("ID: " + sLI.getSLIID() + " Varenavn: " + sLI.getItem().getItemName() + " Mængde: " + sLI.getQuantity());
+	}
         inputUI.pause();
     }
 }

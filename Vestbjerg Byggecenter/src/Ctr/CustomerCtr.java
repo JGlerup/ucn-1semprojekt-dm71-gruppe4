@@ -8,6 +8,7 @@ package Ctr;
 import Model.Account;
 import Model.Customer;
 import Model.CustomerContainer;
+import java.util.ArrayList;
 
 /**
  *
@@ -88,6 +89,7 @@ public class CustomerCtr {
         c.setPhone(phone);
     }
 
-
-
+        public ArrayList<Customer> getCustomerList() {
+        return customerContainer.getCustomerList();
+    }
 }

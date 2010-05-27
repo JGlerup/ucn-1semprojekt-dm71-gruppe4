@@ -265,7 +265,7 @@ public class InputUI
     {
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast Name:  ");
-         String name = keyboard.nextLine();
+         String name = keyboard.next();
          return name;
     }
 
@@ -274,6 +274,7 @@ public class InputUI
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast Address:  ");
          String address = keyboard.nextLine();
+         keyboard.nextLine();
          return address;
     }
 
