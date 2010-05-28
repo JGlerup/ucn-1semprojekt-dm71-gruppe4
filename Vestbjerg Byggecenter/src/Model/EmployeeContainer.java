@@ -30,25 +30,26 @@ public class EmployeeContainer {
     public int generateID(Employee employee)
     {
         int newID = 1;
-        if(employee.getEmployeeID() == 0)
-        {
+        if (employee.getEmployeeID() == 0)
+        { 
             if(employeeList.size() != 0)
             {
-                int lastIndex = employeeList.size() -1;
+                int lastIndex = employeeList.size() -1;            
                 Employee lastEmployee = employeeList.get(lastIndex);
                 newID = lastEmployee.getEmployeeID();
-                newID = +1;
+                newID += 1;
             }
             employee.setEmployeeID(newID);
         }
+       
         return newID;
     }
 
 
-    public int addEmployee(Employee e)
+    public int addEmployee(Employee employee)
     {
-        int employeeID = generateID(e);
-        employeeList.add(e);
+        int employeeID = generateID(employee);
+        employeeList.add(employee);
         return employeeID;
     }
     

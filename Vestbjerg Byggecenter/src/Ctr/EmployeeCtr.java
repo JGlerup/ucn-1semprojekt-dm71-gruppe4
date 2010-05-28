@@ -12,7 +12,7 @@ import Model.EmployeeContainer;
  * @author KL-DELL
  */
 public class EmployeeCtr {
-    private Employee employee;
+   
     private EmployeeContainer employeeContainer;
 
 public EmployeeCtr()
