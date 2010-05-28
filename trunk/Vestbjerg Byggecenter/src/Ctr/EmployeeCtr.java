@@ -33,6 +33,11 @@ public EmployeeCtr()
         employeeContainer.deleteEmployee(employeeID);
     }
 
+    public Employee getEmployee(int employeeID)
+    {
+        return employeeContainer.getEmployee(employeeID);
+    }
+
     public String findEmployee(int employeeID)
     {
         Employee e = employeeContainer.findEmployee(employeeID);

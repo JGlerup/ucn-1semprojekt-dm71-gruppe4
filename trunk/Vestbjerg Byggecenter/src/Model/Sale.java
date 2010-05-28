@@ -19,6 +19,7 @@ public class Sale {
     private boolean order;
     private ArrayList<SalesLineItem> sLIList;
     private Employee employee;
+    private Customer customer;
 
     public Sale(String date, double price, Employee employee)
     {
@@ -80,11 +81,6 @@ public class Sale {
         sLIList.remove(storeIndex);
     }
 
-    public void setEmployee(Employee e)
-    {
-        employee = e;
-    }
-
     public int generateID(SalesLineItem sLI)
     {
         int newID = 1;
@@ -101,6 +97,22 @@ public class Sale {
             sLI.setsLIID(newID);
         }
         return newID;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
 
