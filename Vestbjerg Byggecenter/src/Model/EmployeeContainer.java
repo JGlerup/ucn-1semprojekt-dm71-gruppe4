@@ -82,6 +82,23 @@ public class EmployeeContainer {
         return e;
     }
 
+    public Employee getEmployee(int employeeID)
+    {
+        int index = 0;
+        Employee e = null;
+        boolean found = false;
+        while(!found && index < employeeList.size())
+        {
+            if(employeeList.get(index).getEmployeeID() == (employeeID))
+            {
+                e = employeeList.get(index);
+                found = true;
+            }
+            index++;
+        }
+        return e;
+    }
+
 
     public boolean updateEmployee(int employeeID, String password, String name, String address, int phone)
     {

@@ -5,6 +5,8 @@
 
 package Ctr;
 
+import Model.Customer;
+import Model.CustomerContainer;
 import Model.EmployeeContainer;
 import Model.Employee;
 import Model.Sale;
@@ -23,12 +25,14 @@ public class SaleCtr {
     private Sale sale;
     private EmployeeContainer employeeContainer;
     private ItemContainer itemContainer;
+    private CustomerContainer customerContainer;
 
     public SaleCtr()
     {
         salesContainer = SalesContainer.getInstance();
         itemContainer = ItemContainer.getInstance();
         employeeContainer = EmployeeContainer.getInstance();
+        customerContainer = CustomerContainer.getInstance();
     }
 
     public int createSale(int employeeID, int itemID, String saleDate, int saleQuantity)
@@ -85,6 +89,17 @@ public class SaleCtr {
 	{
             System.out.println("ID: " + sLI.getSLIID() + " Varenavn: " + sLI.getItem().getItemName() + " Mængde: " + sLI.getQuantity());
 	}
+    }
+
+    public void addCustomerToSale(int saleID, int customerID)
+    {
+        Customer c = customerContainer.findCustomer(customerID);
+        salesContainer.getSale(saleID).setCustomer(c);
+    }
+
+    public void removeCustomerFromSale(int saleID)
+    {
+        salesContainer.getSale(saleID).setCustomer(null);
     }
 
 

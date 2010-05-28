@@ -53,6 +53,38 @@ public class InputUI
         return itemID;
     }
 
+    public int inputCustomerID()
+    {
+        boolean succeed = false;
+        int itemID = 0;
+        while(!succeed)
+        {
+        // makes an object keyboard to have input from the console
+           System.out.println("Indtast kundeID:  ");
+           try
+           {
+             itemID = keyboard.nextInt();
+             if(itemID < 1)
+             {
+                 throw new IllegalArgumentException("x < 1");
+             }
+             succeed = true;
+           }
+           catch(InputMismatchException e)
+           {
+               System.out.println("Fejl: Et tal er påkrævet");
+               keyboard.nextLine();
+           }
+           catch(IllegalArgumentException e)
+           {
+               System.out.println("Fejl: Indtast et tal, højere end 0");
+               keyboard.nextLine();
+           }
+        }//end while
+
+        return itemID;
+    }
+
     public int inputItemID()
     {
         boolean succeed = false;
