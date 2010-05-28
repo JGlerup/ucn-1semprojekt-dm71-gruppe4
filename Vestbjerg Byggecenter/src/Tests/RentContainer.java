@@ -38,7 +38,7 @@ public class RentContainer
         return id;
     }
 
-     public void endLoan(int id)
+     public void deliverItem(int id)
     {
         for (Rent rent : rentContainer)
         {
