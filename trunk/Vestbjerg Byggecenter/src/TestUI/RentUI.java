@@ -35,7 +35,7 @@ public class RentUI
                
             }
             else{if(choice == 2) {
-              //  deliverItem();
+                deliverItem();
             }
                 else{
                     exit = true;
@@ -62,11 +62,11 @@ public class RentUI
          String status = keyboard.nextLine();
          return status;
     } 
-      public int inputItemID()
+      public int inputID()
     {
          // makes an object keyboard to have input from the screen
          Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" Write ItemID:  ");
+         System.out.println(" Write ID:  ");
          int id = keyboard.nextInt();
          return id;
     }
@@ -90,11 +90,17 @@ public class RentUI
         {
             String date = inputDate();
             String status = inputStatus();
-            int itemID = inputItemID();
+            int itemID = inputID();
             int returnID = rentCtr.rentItem(itemID, date, status);
            
             System.out.println("Udlejning oprettet med ID: " + returnID);
             pause();
+        }
+
+        private void deliverItem()
+        {
+            int itemID = inputID();
+            rentCtr.deliverItem(itemID);
         }
         
          public void pause()

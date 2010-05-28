@@ -45,5 +45,10 @@ public class RentCtr {
 
     }
 
+    public void deliverItem(int id)
+    {
+        rentContainer.deliverItem(id);
+    }
+
 
 }
