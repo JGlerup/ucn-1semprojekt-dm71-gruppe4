@@ -60,6 +60,7 @@ public class ItemCtr
         if (yesNo == true)
         {
         assignStartUnits(itemID, antal);
+        i.setContainUnits(true);
         }
         
         return itemID;
@@ -189,10 +190,15 @@ public class ItemCtr
         i.setMinInStock(minInStock);
     }
 
-    public void updateItemsInStock(int itemID, int itemsInStock)
+    public void updateItemsInStock(int itemID, int newItemsInStock, int quantity)
     {
         Item i = itemCon.getItem(itemID);
-        i.setItemsInStock(itemsInStock);
+//        int currentINS = i.getItemsInStock();
+        i.setItemsInStock(newItemsInStock);
+        if(i.getContainUnits() == true)
+        {
+            assignNewUnits(itemID, quantity);
+        }
     }
 
     public void updateBrand(int itemID, String brand)
