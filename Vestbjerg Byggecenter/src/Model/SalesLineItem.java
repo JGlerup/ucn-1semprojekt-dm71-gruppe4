@@ -5,6 +5,8 @@
 
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel
@@ -16,6 +18,7 @@ public class SalesLineItem {
     private double totalPrice;
     private ItemContainer itemContainer;
     private Item item;
+    private ArrayList<Unit> unitList;
 
     public SalesLineItem(int quantity, double totalPrice, Item item)
     {
@@ -57,5 +60,14 @@ public class SalesLineItem {
 
     public void setsLIID(int sLIID) {
         this.sLIID = sLIID;
+    }
+
+    public ArrayList<Unit> getUnitList() {
+        return unitList;
+    }
+
+    public void addUnit(Unit u)
+    {
+        unitList.add(u);
     }
 }

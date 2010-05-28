@@ -108,11 +108,11 @@ public class SaleUI {
                 int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
                 String saleDate = inputUI.inputSaleDate();
                 System.out.println("Lagerbeholdning: " + itemsInStock);
-                int saleQuantity = inputUI.inputQuantity();
+                int saleQuantity = inputUI.inputItemQuantity();
                 while(saleQuantity > itemsInStock)
                 {
                     System.out.println("Den indtastede " + saleQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
-                    saleQuantity = inputUI.inputQuantity();
+                    saleQuantity = inputUI.inputItemQuantity();
                 }
                 int newItemsInStock = itemsInStock - saleQuantity;
                 if(itemCtr.getItem(itemID).getContainUnits() == true)
@@ -150,11 +150,11 @@ public class SaleUI {
 
         int itemID = inputUI.inputID();
         int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
-        int saleQuantity = inputUI.inputQuantity();
+        int saleQuantity = inputUI.inputItemQuantity();
         while(saleQuantity > itemsInStock)
         {
             System.out.println("Den indtastede " + saleQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
-            saleQuantity = inputUI.inputQuantity();
+            saleQuantity = inputUI.inputItemQuantity();
         }
         saleCtr.addSalesLineItem(saleID, itemID, saleQuantity);
         inputUI.pause();

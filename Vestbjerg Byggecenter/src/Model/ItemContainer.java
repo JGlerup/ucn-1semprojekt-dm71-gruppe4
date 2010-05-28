@@ -93,14 +93,8 @@ public class ItemContainer {
         itemList.remove(storeIndex);
     }
 
-    public String listAllItem()
-    {
-        String outputString = " ";
-        for(Item i : itemList)
-        {
-            outputString = outputString + "ID:" + i.getItemID() + " - " + i.getDescription()+ "\n";
-        }
-        return outputString;
+    public ArrayList<Item> getItemList() {
+        return itemList;
     }
 }
 
