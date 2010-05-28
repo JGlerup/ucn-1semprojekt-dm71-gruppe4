@@ -1,39 +1,54 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 package Ctr;
 
-import java.util.ArrayList;
-import Model.*;
+
+import Model.Rent;
+import Model.RentContainer;
+import Model.RentItemContainer;
+import Model.RentableItem;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
- * @author KL-DELL
+ * @author Daniel
  */
 public class RentCtr {
 
     private RentContainer rentContainer;
+    private RentItemContainer rentItemContainer;
 
     public RentCtr()
     {
-        rentContainer = new RentContainer();
+        rentContainer = RentContainer.getInstance();
+        rentItemContainer = RentItemContainer.getInstance();
     }
 
-    public void createRent(int rentID, int serial)
+    public int rentItem(int itemID, String date, String status)
     {
-        rentContainer.createRent(rentID, serial);
+        DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
+        Date currentDate = new Date();
+        if (date == null)
+        date = dt.format(currentDate);
+
+
+        RentableItem item = rentItemContainer.findItem(itemID);
+
+        Rent rent = new Rent (date, status, item);
+
+        return rentContainer.addRent(rent);
+
     }
 
-    public String findRent(int rentID)
+    public void deliverItem(int id)
     {
-        Rent r = rentContainer.findRent(rentID);
-        String outputString = "Rent id: " + r.getRentID() + "\n" + "Rental date: " + r.getRentDate() + "\n" + "Rental return date: " + r.getReturnDate() + "\n" + "Rented unit: " + r.getRentUnit();
-        return outputString;
+        rentContainer.deliverItem(id);
     }
 
-    public void endRent(int rentID)
-    {
-        rentContainer.endRent(rentID);
-    }
 
-    public String listAllRents()
-    {
-        return rentContainer.listAllRents();
-    }
 }

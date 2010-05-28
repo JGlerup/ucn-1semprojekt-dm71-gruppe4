@@ -16,7 +16,8 @@ public class MainMenuUI
    private ItemUI itemUI;
    private CustomerUI customerUI;
    private EmployeeUI employeeUI;
-//   private RentUI rentUI;
+   private RentUI rentUI;
+   private RentItemUI rentItemUI;
    
    public MainMenuUI()
    {
@@ -54,7 +55,10 @@ public class MainMenuUI
                        startEmployeeUI();
                        break;
                    case 5:
-                       //startRentUI();
+                       startRentUI();
+                       break;
+                   case 6:
+                       startRentItemUI();
                        break;
                }
            }
@@ -74,6 +78,7 @@ public class MainMenuUI
             System.out.println(" (3) Kundehåndtering");
             System.out.println(" (4) Medarbejderhåndtering");
             System.out.println(" (5) Udlejning");
+            System.out.println(" (6) Nyt udlejningsudstyr");
             System.out.println(" (0) Exit");
             System.out.print("\n Make your choice: ");
             
@@ -102,11 +107,17 @@ public class MainMenuUI
         employeeUI.start();
     }
    
-//    private void startRentUI()
-//    {
-//        rentUI = new RentUI();
-//        rentUI.start();
-//    }
+    private void startRentUI()
+    {
+        rentUI = new RentUI();
+        rentUI.start();
+    }
+
+    private void startRentItemUI()
+    {
+        rentItemUI = new RentItemUI();
+        rentItemUI.start();
+    }
     
     private void writeEnd()
     {
