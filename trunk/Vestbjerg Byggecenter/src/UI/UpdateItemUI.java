@@ -210,7 +210,7 @@ public class UpdateItemUI {
     private void updateItemsInStock()
     {
         int oldItemsInStock = itemCtr.getItem(itemID).getItemsInStock();
-        int quantity = inputUI.inputQuantity();
+        int quantity = inputUI.inputUpdateItemQuantity();
         int newItemsInStock = quantity + oldItemsInStock;
 //        int minInStock = itemCtr.getItem(itemID).getMinInStock();
         int maxInStock = itemCtr.getItem(itemID).getMaxInStock();

@@ -28,7 +28,7 @@ public class InputUI
         while(!succeed)
         {
         // makes an object keyboard to have input from the console
-           System.out.println("Indtast ID:  ");
+           System.out.println("Indtast medarbejder-ID:  ");
            try
            {
              itemID = keyboard.nextInt();
@@ -60,7 +60,7 @@ public class InputUI
         while(!succeed)
         {
         // makes an object keyboard to have input from the console
-           System.out.println("Indtast kundeID:  ");
+           System.out.println("Indtast kunde-ID:  ");
            try
            {
              itemID = keyboard.nextInt();
@@ -92,7 +92,7 @@ public class InputUI
         while(!succeed)
         {
         // makes an object keyboard to have input from the console
-           System.out.println("Indtast ID:  ");
+           System.out.println("Indtast vare-ID:  ");
            try
            {
              itemID = keyboard.nextInt();
@@ -120,7 +120,38 @@ public class InputUI
      * Start - inputUI for item
      ***************************************/
 
-    public int inputQuantity()
+
+    public int inputItemQuantity()
+    {
+        boolean succeed = false;
+        int quantity = 0;
+        while(!succeed)
+        {
+            try
+            {
+                System.out.println("Indtast antal varer: ");
+                quantity = keyboard.nextInt();
+                if(quantity < 0)
+                {
+                    throw new IllegalArgumentException("x < 0");
+                }
+                succeed = true;
+            }
+            catch(IllegalArgumentException e)
+            {
+                System.out.println("Fejl: Tallet skal være 0 eller mere");
+                keyboard.nextLine();
+            }
+            catch(InputMismatchException e)
+            {
+                System.out.println("Fejl: Et heltal er påkrævet");
+                keyboard.nextLine();
+            }
+        }
+        return quantity;
+    }
+
+    public int inputUpdateItemQuantity()
     {
         boolean succeed = false;
         int quantity = 0;

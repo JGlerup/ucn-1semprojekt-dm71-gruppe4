@@ -6,6 +6,7 @@
 package UI;
 
 import Ctr.ItemCtr;
+import Model.Item;
 import java.util.Scanner;
 /**
  *
@@ -78,9 +79,8 @@ public class ItemUI
             System.out.println(" (1) Find vare");
             System.out.println(" (2) Opret vare");
             System.out.println(" (3) Opdater vare");
-           // System.out.println(" (4) Tildel serienummer");
-            System.out.println(" (5) Slet vare");
-            System.out.println(" (6) Vis en liste over alle varer");
+            System.out.println(" (4) Slet vare");
+            System.out.println(" (5) Vis en liste over alle varer");
             System.out.print("\n Vælg et menupunkt: ");
 
             int choice = keyboard.nextInt();
@@ -144,7 +144,7 @@ public class ItemUI
 
     private void deleteItem()
     {
-        int itemID = inputUI.inputID();
+        int itemID = inputUI.inputItemID();
         if(itemCtr.getItem(itemID) == null)
         {
             System.out.println("ID'et " + itemID + " findes ikke. Indtast venligst et nyt ID.");
@@ -162,8 +162,11 @@ public class ItemUI
 
     private void listAllItems()
     {
-        itemCtr.listAllItems();
-        pause();
+        for(Item i : itemCtr.getItemList())
+	{
+            System.out.println("Vare-ID: " + i.getItemID() + " Varenavn: " + i.getItemName() + " Pris: " + i.getItemPrice() + " Brand: " + i.getBrand() + " Lokation: " + i.getPlace());
+	}
+        inputUI.pause();
     }
 
     private void pause()

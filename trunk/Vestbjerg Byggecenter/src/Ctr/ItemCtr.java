@@ -8,6 +8,7 @@ package Ctr;
 import Model.Item;
 import Model.ItemContainer;
 import Model.Unit;
+import java.util.ArrayList;
 
 /**
  *
@@ -91,11 +92,9 @@ public class ItemCtr
      *
      * @return
      */
-    public String listAllItems()
-    {
-        return itemCon.listAllItem();
+        public ArrayList<Item> getItemList() {
+        return itemCon.getItemList();
     }
-
 
     // Creates new units when new units are ordered to the stock
     public void assignNewUnits(int itemID, int antal)
