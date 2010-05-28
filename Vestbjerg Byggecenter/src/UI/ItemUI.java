@@ -118,7 +118,6 @@ public class ItemUI
         String description = inputUI.inputDescription();        
         int minInStock = inputUI.inputMinInStock();
         int maxInStock = inputUI.inputMaxInStock();
-        boolean isYes = inputUI.yesOrNo();
         while(maxInStock <= minInStock)
         {
             System.out.println("Maksmimumsbeholdningen er mindre end eller lig med minimumsbeholdningen");
@@ -135,6 +134,7 @@ public class ItemUI
             System.out.println("Antallet af eksemplarer skal være indenfor minimums-/maksiumsbeholdningen");
             itemsInStock = inputUI.inputItemsInStock();
         }
+        boolean isYes = inputUI.UnitYesOrNo();
         String brand = inputUI.inputBrand();
         String place = inputUI.inputPlace();
         int i = itemCtr.createItem(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, place, isYes);

@@ -88,6 +88,38 @@ public class InputUI
      * Start - inputUI for item
      ***************************************/
 
+    public int inputQuantity()
+    {
+        boolean succeed = false;
+        int quantity = 0;
+        while(!succeed)
+        {
+            try
+            {
+                System.out.println("Indtast antal varer, som skal tilføjes: ");
+                quantity = keyboard.nextInt();
+                if(quantity < 0)
+                {
+                    throw new IllegalArgumentException("x < 0");
+                }
+                succeed = true;
+            }
+            catch(IllegalArgumentException e)
+            {
+                System.out.println("Fejl: Tallet skal være 0 eller mere");
+                keyboard.nextLine();
+            }
+            catch(InputMismatchException e)
+            {
+                System.out.println("Fejl: Et heltal er påkrævet");
+                keyboard.nextLine();
+            }
+        }
+        return quantity;
+    }
+
+
+
     public int inputID()
     {
         boolean succeed = false;
@@ -325,6 +357,30 @@ public class InputUI
         return isYes;
     }
 
+    public boolean UnitYesOrNo()
+    {
+        boolean isYes = false;
+        boolean succeed = false;
+        while(!succeed)
+        {
+            System.out.println("Er det med serienummer? (y/n)");
+            String input = keyboard.next();
+            if(input.equals("y"))
+            {
+                isYes = true;
+                succeed = true;
+
+            }
+            if(input.equals("n"))
+            {
+                isYes = false;
+                succeed = true;
+            }
+        }
+        return isYes;
+    }
+
+
      /***************************************
      * Start - inputUI for Customer
      ***************************************/
@@ -401,36 +457,5 @@ public class InputUI
         System.out.println(" Indtast dato: ");
         String saleDate = keyboard.next();
         return saleDate;
-    }
-
-    public int inputQuantity()
-    {
-        // creates an object keyboard to read data from the keyboard
-        boolean succeed = false;
-        int quantity = 0;
-        while(!succeed)
-        {
-            try
-            {
-                System.out.println("Indtast antal: ");
-                quantity = keyboard.nextInt();
-                if(quantity < 0)
-                {
-                    throw new IllegalArgumentException("x < 0");
-                }
-                succeed = true;
-            }
-            catch(IllegalArgumentException e)
-            {
-                System.out.println("Fejl: Tallet skal være over 0");
-                keyboard.nextLine();
-            }
-            catch(InputMismatchException e)
-            {
-                System.out.println("Fejl: Et heltal er påkrævet");
-                keyboard.nextLine();
-            }
-        }
-        return quantity;
     }
 }

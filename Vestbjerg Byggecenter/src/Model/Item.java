@@ -22,10 +22,12 @@ public class Item {
     private int itemsInStock;
     private String brand;
     private String place;
+    private boolean containUnits;
     private ArrayList<Unit> unitList;
   
     public Item(String itemName, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String brand, String place)
     {
+        containUnits = false;
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.description = description;
@@ -151,4 +153,11 @@ public class Item {
         unitList.remove(u);
     }
 
+    public boolean getContainUnits() {
+        return containUnits;
+    }
+
+    public void setContainUnits(boolean containUnits) {
+        this.containUnits = containUnits;
+    }
 }
