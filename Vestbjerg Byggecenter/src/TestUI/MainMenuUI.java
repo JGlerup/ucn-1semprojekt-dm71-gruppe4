@@ -1,4 +1,6 @@
 package TestUI;//makes this class a part of the TUILayer package
+import UI.RentItemUI;
+import UI.RentUI;
 import java.util.Scanner;
 import TestCtr.*;//The TUILayer needs to know the ControlLayer
 /**

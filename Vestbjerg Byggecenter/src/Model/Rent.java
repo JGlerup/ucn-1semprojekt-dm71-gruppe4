@@ -1,59 +1,73 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 package Model;
-import java.util.Date;
-import javax.management.timer.Timer;
+
+
+import Model.Customer;
 
 /**
  *
- * @author KL-DELL
+ * @author Daniel
  */
-public class Rent
-{
-    private int rentID;
-    private Date rentDate;
-    private Date returnDate;
-    private int rentUnit;
+public class Rent {
 
-    public Rent(int rentID, int rentUnit)
-    {
-        this.rentID = rentID;
-        this.rentUnit = rentUnit;
-        this.rentDate = new Date();
-        this.returnDate = new Date(rentDate.getTime() + 14L * Timer.ONE_DAY);
+    private int id;
+    private String date;
+    private String status;
+    private Customer customer;
+    private RentableItem rentableItem;
+
+    public Rent(String date, String status, RentableItem rentableItem) {
+        this.date = date;
+        this.status = status;
+        this.rentableItem = rentableItem;
     }
 
-    public Date getRentDate() {
-        return rentDate.toString();
+    public Rent()
+    { }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setRentDate(Date rentDate) {
-        this.rentDate = new Date();
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public int getRentID() {
-        return rentID;
+    public String getDate() {
+        return date;
     }
 
-    public void setRentID(int rentID) {
-        this.rentID = rentID;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public int getRentUnit() {
-        return rentUnit;
+    public int getID() {
+        return id;
     }
 
-    public void setRentUnit(int rentUnit) {
-        this.rentUnit = rentUnit;
+    public void setID(int id) {
+        this.id = id;
     }
 
-    public Date getReturnDate() {
-        return returnDate.toString();
+    public RentableItem getRentableItem() {
+        return rentableItem;
     }
 
-    public void setReturnDate(Date returnDate) {
-        this.returnDate = new Date(rentDate.getTime() + 14L * Timer.ONE_DAY);
+    public void setRentableItem(RentableItem rentableItem) {
+        this.rentableItem = rentableItem;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
 
 
