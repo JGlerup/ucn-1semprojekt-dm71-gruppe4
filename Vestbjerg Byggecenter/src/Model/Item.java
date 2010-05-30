@@ -148,6 +148,11 @@ public class Item {
         unitList.add(u);
     }
 
+    public void addUnitList(ArrayList<Unit> u)
+    {
+        unitList.addAll(0, u);
+    }
+
     public void removeUnit(Unit u)
     {
         unitList.remove(u);
