@@ -21,10 +21,10 @@ public class Sale {
     private Employee employee;
     private Customer customer;
 
-    public Sale(String date, double price, Employee employee)
+    public Sale(String date, Employee employee)
     {
         this.date = date;
-        this.price = price;
+        price = 0;
         this.employee = employee;
         sLIList = new ArrayList<SalesLineItem>();
     }
@@ -62,6 +62,23 @@ public class Sale {
         int sLIID = generateID(sLI);
         sLIList.add(sLI);
         return sLIID;
+    }
+
+    public SalesLineItem getSalesLineItem(int sLIID)
+    {
+        int index = 0;
+        SalesLineItem sLI = null;
+        boolean found = false;
+        while(!found && index < sLIList.size())
+        {
+            if(sLIList.get(index).getSLIID() == sLIID)
+            {
+                sLI = sLIList.get(index);
+                found = true;
+            }
+            index++;
+        }
+        return sLI;
     }
 
     public void removeSalesLineItem(int sLIID)

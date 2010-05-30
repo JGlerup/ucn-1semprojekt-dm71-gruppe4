@@ -25,6 +25,7 @@ public class SalesLineItem {
         this.quantity = quantity;
         this.totalPrice = totalPrice;
         this.item = item;
+        unitList = new ArrayList<Unit>();
     }
 
     public int getQuantity() {

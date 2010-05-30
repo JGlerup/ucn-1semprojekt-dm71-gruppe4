@@ -11,20 +11,20 @@ import java.util.ArrayList;
  *
  * @author Glerup
  */
-public class SalesContainer {
-    private static SalesContainer instance;
+public class SaleContainer {
+    private static SaleContainer instance;
     private ArrayList<Sale> saleList;
 
-    public SalesContainer()
+    public SaleContainer()
     {
         saleList = new ArrayList<Sale>();
     }
 
-    public static SalesContainer getInstance()
+    public static SaleContainer getInstance()
     {
         if(instance == null)
         {
-            instance = new SalesContainer();
+            instance = new SaleContainer();
         }
         return instance;
     }
@@ -56,6 +56,23 @@ public class SalesContainer {
             index++;
         }
         return s;
+    }
+
+    public void deleteSale(int saleID)
+    {
+        int index = 0;
+        int storeIndex = 0;
+        boolean found = false;
+        while(!found && index < saleList.size())
+        {
+            if(saleList.get(index).getSaleID() == saleID)
+            {
+                storeIndex = index;
+                found = true;
+            }
+            index++;
+        }
+        saleList.remove(storeIndex);
     }
 
     public int generateID(Sale s)

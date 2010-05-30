@@ -10,6 +10,7 @@ import Ctr.EmployeeCtr;
 import Ctr.ItemCtr;
 import Ctr.SaleCtr;
 import Model.SalesLineItem; // medfører åben arkitektur
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -114,15 +115,11 @@ public class SaleUI {
                     System.out.println("Den indtastede " + saleQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
                     saleQuantity = inputUI.inputItemQuantity();
                 }
-                int newItemsInStock = itemsInStock - saleQuantity;
-                if(itemCtr.getItem(itemID).getContainUnits() == true)
-                {
-                    itemCtr.removeAlotOfUnits(itemID, saleQuantity);
-                }
-                itemCtr.getItem(itemID).setItemsInStock(newItemsInStock);
-                saleID = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity);
-                double price = saleCtr.calculateTotalPrice(saleID);
-                saleCtr.getSale(saleID).setPrice(price);
+//                if(itemCtr.getItem(itemID).getContainUnits() == true)
+//                {
+//                    itemCtr.removeAlotOfUnits(itemID, saleQuantity);
+//                }
+                saleID = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity, itemsInStock);
                 newSaleMenu();
                 inputUI.pause();
             }
@@ -167,6 +164,12 @@ public class SaleUI {
         saleCtr.removeSalesLineItem(saleID, sLIID);
     }
 
+    public void cancelSale()
+    {
+        saleCtr.cancelSale(saleID);
+        System.out.println("Salget med ID " + saleID + " er anulleret");
+    }
+
     public void newSaleMenu()
     {
         try
@@ -192,6 +195,13 @@ public class SaleUI {
                     case 4:
                         addCustomerToSale();
                         break;
+                    case 5:
+                        removeCustomerFromSale();
+                        break;
+                    case 6:
+                        cancelSale();
+                        exit = true;
+                        break;
                 }
             }
         }
@@ -210,6 +220,9 @@ public class SaleUI {
        System.out.println("(1) Tilføj vare");
        System.out.println("(2) Fjern vare");
        System.out.println("(3) Print salgets indhold");
+       System.out.println("(4) Associer kunde");
+       System.out.println("(5) Fjern kunde");
+       System.out.println("(6) Annuller salg");
        System.out.print("\n Indtast nummer: ");
 
        int choice = keyboard.nextInt();
@@ -252,6 +265,8 @@ public class SaleUI {
         }
         inputUI.pause();
     }
+
+
 }
 
 //        boolean stop = false;

@@ -10,10 +10,11 @@ import Model.CustomerContainer;
 import Model.EmployeeContainer;
 import Model.Employee;
 import Model.Sale;
-import Model.SalesContainer;
+import Model.SaleContainer;
 import Model.SalesLineItem;
 import Model.Item;
 import Model.ItemContainer;
+import Model.Unit;
 import java.util.ArrayList;
 
 /**
@@ -21,7 +22,7 @@ import java.util.ArrayList;
  * @author Daniel
  */
 public class SaleCtr {
-    private SalesContainer salesContainer;
+    private SaleContainer saleContainer;
     private Sale sale;
     private EmployeeContainer employeeContainer;
     private ItemContainer itemContainer;
@@ -29,31 +30,29 @@ public class SaleCtr {
 
     public SaleCtr()
     {
-        salesContainer = SalesContainer.getInstance();
+        saleContainer = SaleContainer.getInstance();
         itemContainer = ItemContainer.getInstance();
         employeeContainer = EmployeeContainer.getInstance();
         customerContainer = CustomerContainer.getInstance();
     }
 
-    public int createSale(int employeeID, int itemID, String saleDate, int saleQuantity)
+    public int createSale(int employeeID, int itemID, String saleDate, int itemQuantity, int itemsInStock)
     {
         Employee e = employeeContainer.findEmployee(employeeID);
-        Item i = itemContainer.getItem(itemID);
-        double saleTotalPrice = i.getItemPrice() * saleQuantity;
-        SalesLineItem sli = new SalesLineItem(saleQuantity, saleTotalPrice, i);
-        Sale s = new Sale(saleDate, saleTotalPrice, e);
-        s.addSalesLineItem(sli);
-        return salesContainer.addSale(s);
+        Sale s = new Sale(saleDate, e);
+        int saleID = saleContainer.addSale(s);
+        addSalesLineItem(saleID, itemID, itemQuantity);
+        return saleID;
     }
 
-    public double calculateTotalPrice(int saleID)
+    public void setSaleTotalPrice(int saleID)
     {
         double totalPrice = 0;
-        for(SalesLineItem sLI : salesContainer.getSale(saleID).getSLIList())
+        for(SalesLineItem sLI : saleContainer.getSale(saleID).getSLIList())
         {
             totalPrice =+ sLI.getTotalPrice();
         }
-        return totalPrice;
+        saleContainer.getSale(saleID).setPrice(totalPrice);
     }
 
     public void endSale()
@@ -63,29 +62,59 @@ public class SaleCtr {
 
     public Sale getSale(int saleID)
     {
-        return salesContainer.getSale(saleID);
+        return saleContainer.getSale(saleID);
     }
 
-    public void addSalesLineItem(int saleID, int itemID, int saleQuantity)
+    public void deleteSale(int saleID)
+    {
+        saleContainer.deleteSale(saleID);
+    }
+
+    public void addSalesLineItem(int saleID, int itemID, int itemQuantity)
     {
         Item i = itemContainer.getItem(itemID);
-        double saleTotalPrice = i.getItemPrice() * saleQuantity;
-        SalesLineItem sli = new SalesLineItem(saleQuantity, saleTotalPrice, i);
-        salesContainer.getSale(saleID).addSalesLineItem(sli);
+        double saleTotalPrice = i.getItemPrice() * itemQuantity;
+        int currentINS = i.getItemsInStock();
+        SalesLineItem sli = new SalesLineItem(itemQuantity, saleTotalPrice, i);
+        saleContainer.getSale(saleID).addSalesLineItem(sli);
+        i.setItemsInStock(currentINS - itemQuantity);
+        setSaleTotalPrice(saleID);
+        if(i.getContainUnits() == true)
+        {
+            int index = 0;
+            while(itemQuantity > index)
+            {
+                Unit u = i.getFirstUnit();
+                sli.addUnit(u);
+                i.removeUnit(u);
+                index++;
+            }
+        }
     }
 
     public void removeSalesLineItem(int saleID, int sLIID)
     {
-        salesContainer.getSale(saleID).removeSalesLineItem(sLIID);
+        SalesLineItem sLI = saleContainer.getSale(saleID).getSalesLineItem(sLIID);
+        Item i = sLI.getItem();
+        int itemQuantity = sLI.getQuantity();
+        int currentINS = i.getItemsInStock();
+        i.setItemsInStock(currentINS + itemQuantity);
+        if(i.getContainUnits() == true)
+        {
+            ArrayList<Unit> unitList = sLI.getUnitList();
+            i.addUnitList(unitList);
+        }
+        saleContainer.getSale(saleID).removeSalesLineItem(sLIID);
+        setSaleTotalPrice(saleID);
     }
 
     public ArrayList<SalesLineItem> getSLIList(int saleID) {
-        return salesContainer.getSale(saleID).getSLIList();
+        return saleContainer.getSale(saleID).getSLIList();
     }
 
     public void printContentsSale(int saleID)
     {
-	for(SalesLineItem sLI : salesContainer.getSale(saleID).getSLIList())
+	for(SalesLineItem sLI : saleContainer.getSale(saleID).getSLIList())
 	{
             System.out.println("ID: " + sLI.getSLIID() + " Varenavn: " + sLI.getItem().getItemName() + " Mængde: " + sLI.getQuantity());
 	}
@@ -94,12 +123,25 @@ public class SaleCtr {
     public void addCustomerToSale(int saleID, int customerID)
     {
         Customer c = customerContainer.findCustomer(customerID);
-        salesContainer.getSale(saleID).setCustomer(c);
+        saleContainer.getSale(saleID).setCustomer(c);
     }
 
     public void removeCustomerFromSale(int saleID)
     {
-        salesContainer.getSale(saleID).setCustomer(null);
+        saleContainer.getSale(saleID).setCustomer(null);
+    }
+
+    public void cancelSale(int saleID)
+    {
+        int index = 0;
+        ArrayList<SalesLineItem> sLIList = getSLIList(saleID);
+        while(sLIList.size() > index)
+	{
+            int sLID = sLIList.get(index).getSLIID();
+            removeSalesLineItem(saleID, sLID);
+            index++;
+	}
+        deleteSale(saleID);
     }
 
 
@@ -108,9 +150,9 @@ public class SaleCtr {
 //        int index = 0;
 //        index = employee.listEmployee().size() -1;
 //        Sale saleObjekt = new Sale(newDate, newPrice);
-//        salesContainer.createSale(saleObjekt);
+//        saleContainer.createSale(saleObjekt);
 //        SalesLineItem sLIObjekt = new SalesLineItem(newID, newQuantity, newTotalPrice);
-//        index = salesContainer.listSales().size() -1;
+//        index = saleContainer.listSales().size() -1;
 //        salesLineItemList.createSalesLineItem(sLIObjekt);
 //    }
 //
@@ -118,7 +160,7 @@ public class SaleCtr {
 //    {
 //        int index = 0;
 //        SalesLineItem sLIObjekt = new SalesLineItem(newID, newQuantity, newTotalPrice);
-//        index = salesContainer.listSales().size() -1;
+//        index = saleContainer.listSales().size() -1;
 //        salesLineItemList.createSalesLineItem(sLIObjekt);
 //    }
 }
