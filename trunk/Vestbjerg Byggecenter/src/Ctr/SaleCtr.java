@@ -44,6 +44,8 @@ public class SaleCtr {
     {
         Employee e = employeeContainer.findEmployee(employeeID);
         Sale s = new Sale(saleDate, e);
+        Discount d = new Discount();
+        s.setDiscount(d);
         int saleID = saleContainer.addSale(s);
         addSalesLineItem(saleID, itemID, itemQuantity);
         return saleID;
