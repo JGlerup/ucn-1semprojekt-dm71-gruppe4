@@ -6,12 +6,12 @@ import Ctr.RentCtr;
 /**
  * Write a description of class RentUI here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel)
  */
 public class RentUI
 {
    private RentCtr  rentCtr;
+   private InputUI inputUI;
    
    public RentUI()
    {
@@ -88,10 +88,11 @@ public class RentUI
         
         private void rentItem()
         {
-            String date = inputDate();
+            int customerID = inputID();
+            String date = inputUI.inputDate();
             String status = inputStatus();
             int itemID = inputID();
-            int returnID = rentCtr.rentItem(itemID, date, status);
+            int returnID = rentCtr.rentItem(itemID, date, status, customerID);
            
             System.out.println("Udlejning oprettet med ID: " + returnID);
             pause();
