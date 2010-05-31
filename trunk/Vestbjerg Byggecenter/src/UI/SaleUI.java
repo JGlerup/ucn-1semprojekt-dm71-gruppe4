@@ -9,8 +9,8 @@ import Ctr.CustomerCtr;
 import Ctr.EmployeeCtr;
 import Ctr.ItemCtr;
 import Ctr.SaleCtr;
+import Model.Customer;
 import Model.SalesLineItem; // medfører åben arkitektur
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -181,6 +181,7 @@ public class SaleUI {
                 switch(choice)
                 {
                     case 0:
+                        endSale();
                         exit = true;
                         break;
                     case 1:
@@ -267,15 +268,33 @@ public class SaleUI {
     }
 
 
-}
 
-//        boolean stop = false;
-//        while(!stop)
-//        {
-//            System.out.println("VareID");
-//            itemID = inputUI.inputID();
-//            System.out.println("saleQuantity");
-//            saleQuantity = inputUI.inputQuantity();
-//            saleCtr.addSalesLineItem(s, itemID, saleQuantity);
-//            stop = true;
-//        }
+    // bruger åben arkitektur, kender klassen Customer i modellaget
+    public double addDiscount()
+    {
+        Customer customer = saleCtr.getSale(saleID).getCustomer();
+        double discount = 1;
+
+        if(customer.getAccount() != null)
+        {
+            discount = 0.9;
+        }
+
+        return discount;
+    }
+
+    public void endSale()
+    {
+        double discount = addDiscount();
+        if (discount < 0.8)
+        {
+            discount = 0.8;
+        }
+        double price = saleCtr.getSale(saleID).getPrice();
+        price = price * discount;
+
+        saleCtr.getSale(saleID).setPrice(price);
+    }
+
+
+}
