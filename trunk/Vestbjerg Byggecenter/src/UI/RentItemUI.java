@@ -51,26 +51,24 @@ public class RentItemUI
             // creates a keyboard object to read input
             Scanner keyboard = new Scanner(System.in);
             System.out.println("\f *** MainMenu ***");
-            System.out.println(" (1)nyt item ");
-            System.out.println(" (2) intet");
-            System.out.println(" (3) intet");
-            System.out.println(" (4) Luk");
-            System.out.print("\n NUMMER !: ");
+            System.out.println(" (1) Nyt item ");
+            System.out.println(" (2) Fjern Item");
+            System.out.println(" (3) Luk");
+            System.out.print("\n vaelg et nummer: ");
             
             int choise = keyboard.nextInt();
             
             return choise;
     }
-
-       private void newRentableItem()
-       {
-           String name = inputUI.inputName();
-           int id = rentableItemCtr.createItem(name);
-           
-           System.out.println("\nDvd has been created with the ID: " + id);
-           pause();
-       }
-
+    private void newRentableItem()
+    {
+        String name = inputUI.inputName();
+        int id = rentableItemCtr.createItem(name);
+        System.out.println("/n " + name + " er blevet oprettet med id:" + id);
+                
+                
+    }
+ 
        private void removeItem()
        {
          int id =  inputUI.inputID();
