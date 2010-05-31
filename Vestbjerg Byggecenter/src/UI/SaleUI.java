@@ -10,6 +10,7 @@ import Ctr.EmployeeCtr;
 import Ctr.ItemCtr;
 import Ctr.SaleCtr;
 import Model.Customer;
+import Model.Discount;
 import Model.SalesLineItem; // medfører åben arkitektur
 import java.util.Scanner;
 
@@ -212,7 +213,7 @@ public class SaleUI {
         }
         catch(Exception e)
         {
-            System.out.println("test");
+            System.out.println("test " + e.getMessage());
             newSaleMenu();
         }
     }
@@ -296,7 +297,7 @@ public class SaleUI {
         }
         catch(Exception e)
         {
-            saleMenu();
+            discountMenu();
         }
      }
 
@@ -331,14 +332,14 @@ public class SaleUI {
     public void endSale()
     {
         double discount = 1;
-        
-        if (saleCtr.getSale(saleID).getDiscount() != null)
+        Discount d = saleCtr.getSale(saleID).getDiscount();
+        if (saleCtr.getSale(saleID).getCustomer() != null)
         {
-             discount = addDiscount() - 1 + getQuntityDiscount() - 1 + getPickupDiscount(); 
+             discount = addDiscount() - 1 + d.getQuantityDiscount() - 1 + d.getPickupDiscount();
         }
-        else {
-             discount = addDiscount();
-        }
+//        else {
+//             discount = addDiscount();
+//        }
 
         if (discount < 0.8)
         {
@@ -370,14 +371,14 @@ public class SaleUI {
     {
         double newDiscount = inputUI.inputDiscount();
         double discount = 1 - (newDiscount / 100);
-        saleCtr.setQuntityDiscount(discount);
+        saleCtr.getSale(saleID).getDiscount().setQuantityDiscount(discount);
     }
 
      public void addPickupDiscount()
     {
         double newDiscount = inputUI.inputDiscount();
          double discount = 1 - (newDiscount / 100);
-        saleCtr.setPickupDiscount(discount);
+        saleCtr.getSale(saleID).getDiscount().setPickupDiscount(discount);
     }
 
 
