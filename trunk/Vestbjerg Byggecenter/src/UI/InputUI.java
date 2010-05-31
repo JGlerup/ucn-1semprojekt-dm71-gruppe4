@@ -521,4 +521,18 @@ public class InputUI
         String saleDate = keyboard.next();
         return saleDate;
     }
+
+     public String inputDate()
+    {
+        System.out.println(" Indtast dato: ");
+        String Date = keyboard.next();
+        return Date;
+    }
+
+     public String inputStatus()
+    {
+        System.out.println(" Indtast Status: ");
+        String Date = keyboard.next();
+        return Date;
+    }
 }
