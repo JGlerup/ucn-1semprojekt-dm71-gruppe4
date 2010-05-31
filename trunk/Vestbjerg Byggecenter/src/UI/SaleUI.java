@@ -203,6 +203,10 @@ public class SaleUI {
                         cancelSale();
                         exit = true;
                         break;
+                    case 7:
+                        discountMenu();
+                        break;
+                        
                 }
             }
         }
@@ -224,6 +228,7 @@ public class SaleUI {
        System.out.println("(4) Associer kunde");
        System.out.println("(5) Fjern kunde");
        System.out.println("(6) Annuller salg");
+       System.out.println("(7) Giv Rabat");
        System.out.print("\n Indtast nummer: ");
 
        int choice = keyboard.nextInt();
@@ -233,9 +238,9 @@ public class SaleUI {
     public void printContentsOfSale()
     {
         for(SalesLineItem sLI : saleCtr.getSLIList(saleID))
-	{
+    {
             System.out.println("ID: " + sLI.getSLIID() + " Varenavn: " + sLI.getItem().getItemName() + " Mængde: " + sLI.getQuantity());
-	}
+    }
         inputUI.pause();
     }
 
@@ -325,7 +330,16 @@ public class SaleUI {
 
     public void endSale()
     {
-        double discount = addDiscount() - 1 + getQuntityDiscount() - 1 + getPickupDiscount();
+        double discount = 1;
+        
+        if (saleCtr.getSale(saleID).getDiscount() != null)
+        {
+             discount = addDiscount() - 1 + getQuntityDiscount() - 1 + getPickupDiscount(); 
+        }
+        else {
+             discount = addDiscount();
+        }
+
         if (discount < 0.8)
         {
             discount = 0.8;
