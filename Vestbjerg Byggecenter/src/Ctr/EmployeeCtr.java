@@ -22,7 +22,7 @@ public EmployeeCtr()
 
 
 
-    public int createEmployee(String name, String address, int phone, String password)
+    public int createEmployee(String name, String address, String phone, String password)
     {
         Employee e = new Employee(name, address, phone, password);
         return employeeContainer.addEmployee(e);
@@ -45,7 +45,7 @@ public EmployeeCtr()
         return outputString;
     }
 
-    public void updateEmployee(int employeeID, String password, String name, String address, int phone)
+    public void updateEmployee(int employeeID, String password, String name, String address, String phone)
     {
         employeeContainer.updateEmployee(employeeID, password, name, address, phone);
     }

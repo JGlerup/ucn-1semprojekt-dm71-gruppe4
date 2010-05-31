@@ -101,7 +101,7 @@ public class EmployeeContainer {
     }
 
 
-    public boolean updateEmployee(int employeeID, String password, String name, String address, int phone)
+    public boolean updateEmployee(int employeeID, String password, String name, String address, String phone)
     {
         Employee e = findEmployee(employeeID);
         if(e != null)

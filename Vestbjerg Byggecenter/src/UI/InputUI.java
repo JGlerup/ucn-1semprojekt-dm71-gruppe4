@@ -493,15 +493,14 @@ public class InputUI
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast Address:  ");
          String address = keyboard.next();
-         keyboard.next();
          return address;
     }
 
-     public int inputPhone()
+     public String inputPhone()
     {
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast telefon nummer: ");
-         int phone = keyboard.nextInt();
+         String phone = keyboard.next();
          return phone;
     }
 

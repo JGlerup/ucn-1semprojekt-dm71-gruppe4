@@ -25,7 +25,7 @@ public class CustomerCtr {
         customerContainer = CustomerContainer.getInstance();
     }
 
-    public int createCustomer(String name, String address, int phone)
+    public int createCustomer(String name, String address, String phone)
 {
 
     Customer c = new Customer(name, address, phone);
@@ -38,7 +38,7 @@ public class CustomerCtr {
         customerContainer.deleteCustomer(CustomerID);
     }
 
-    public boolean updateCustomer(int customerID, String name, String address,int phone)
+    public boolean updateCustomer(int customerID, String name, String address, String phone)
     {
         Customer c = customerContainer.findCustomer(customerID);
         if(c != null)
@@ -83,7 +83,7 @@ public class CustomerCtr {
         c.setAddress(address);
     }
 
-    public void updatePhone(int customerID, int phone)
+    public void updatePhone(int customerID, String phone)
     {
         Customer c = getCustomer(customerID);
         c.setPhone(phone);

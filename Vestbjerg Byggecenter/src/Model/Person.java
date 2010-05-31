@@ -13,9 +13,9 @@ public class Person {
 
     private String name;
     private String address;
-    private int phone;
+    private String phone;
 
-    public Person(String name, String address, int phone) {
+    public Person(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -37,11 +37,11 @@ public class Person {
         this.name = name;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

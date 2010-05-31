@@ -127,7 +127,7 @@ public class UpdateCustomerUI {
            public void setPhone()
      {
          int customerID = inputCustomerID();
-         int phone = inputUI.inputPhone();
+         String phone = inputUI.inputPhone();
          customerCtr.updatePhone(customerID, phone);
      }
 
