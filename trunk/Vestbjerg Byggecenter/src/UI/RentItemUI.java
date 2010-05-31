@@ -6,12 +6,12 @@ import Ctr.RentableItemCtr;
 /**
  * Write a description of class RentUI here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Daniel)
  */
 public class RentItemUI
 {
    private RentableItemCtr  rentableItemCtr;
+   private InputUI inputUI;
    
    public RentItemUI()
    {
@@ -35,7 +35,7 @@ public class RentItemUI
                
             }
             else{if(choice == 2) {
-              //  deliverItem();
+               removeItem();
             }
                 else{
                     exit = true;
@@ -61,36 +61,18 @@ public class RentItemUI
             return choise;
     }
 
-
-  public String inputName()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" Write date:  ");
-         String name = keyboard.nextLine();
-         return name;
-    } 
-  
-   
-         private int writeRentMenu()
-            {
-            Scanner keyboard = new Scanner(System.in);
-            System.out.println("\f *** Rent Menu ***");
-            System.out.println(" (1) Udlej Item");
-            System.out.println(" (2) Aflever Item");
-            System.out.println(" (3) Tilbage");
-            System.out.print("\n Tryk et nummer: ");
-            
-            int choice = keyboard.nextInt();
-            return choice;
-        }
-        
        private void newRentableItem()
        {
-           int id = rentableItemCtr.createItem(inputName());
+           int id = rentableItemCtr.createItem(inputUI.inputName());
            
            System.out.println("\nDvd has been created with the ID: " + id);
            pause();
+       }
+
+       private void removeItem()
+       {
+         int id =  inputUI.inputID();
+         rentableItemCtr.deleteRentableItem(id);
        }
        
         public void pause()

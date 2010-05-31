@@ -20,10 +20,11 @@ public class Rent {
     private Customer customer;
     private RentableItem rentableItem;
 
-    public Rent(String date, String status, RentableItem rentableItem) {
+    public Rent(String date, String status, RentableItem rentableItem, Customer customer) {
         this.date = date;
         this.status = status;
         this.rentableItem = rentableItem;
+        this.customer = customer;
     }
 
     public Rent()
