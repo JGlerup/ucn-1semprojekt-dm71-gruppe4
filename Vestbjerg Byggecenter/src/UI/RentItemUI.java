@@ -63,7 +63,8 @@ public class RentItemUI
 
        private void newRentableItem()
        {
-           int id = rentableItemCtr.createItem(inputUI.inputName());
+           String name = inputUI.inputName();
+           int id = rentableItemCtr.createItem(name);
            
            System.out.println("\nDvd has been created with the ID: " + id);
            pause();
