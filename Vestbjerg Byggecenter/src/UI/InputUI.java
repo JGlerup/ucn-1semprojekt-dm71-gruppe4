@@ -230,6 +230,14 @@ public class InputUI
         return serialNo;
     }
 
+    public double inputDiscount()
+    {
+        // creates an object keyboard to read data from the keyboard;
+        System.out.println("Indtast Discount: ");
+        double discount = keyboard.nextDouble();
+        return discount;
+    }
+
     public String inputDescription()
     {
         // creates an object keyboard to read data from the keyboard

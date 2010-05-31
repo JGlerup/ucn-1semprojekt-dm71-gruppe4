@@ -267,9 +267,49 @@ public class SaleUI {
         inputUI.pause();
     }
 
+     public void discountMenu()
+    {
+        try
+        {
+            boolean exit = false;
+            while(!exit)
+            {
+                int choice = writeDiscountMenu();
+                switch(choice)
+                {
+                    case 0:
+                        exit = true;
+                        break;
+                    case 1:
+                         addPickupDiscount();
+                        break;
+                    case 2:
+                        addQuntityDiscount();
+                        break;
+                }
+            }
+        }
+        catch(Exception e)
+        {
+            saleMenu();
+        }
+     }
+
+    public int writeDiscountMenu()
+    {   //Userinterface
+       Scanner keyboard = new Scanner(System.in);
+       System.out.println("\f *** Salgsmenu ***");
+       System.out.println("(0) Tilbage");
+       System.out.println("(1) Giv Afhentningsrabat");
+       System.out.println("(2) Giv Maengderabat");
+       System.out.print("\n Indtast nummer: ");
+
+       int choice = keyboard.nextInt();
+       return choice;
+    }
 
 
-    // bruger åben arkitektur, kender klassen Customer i modellaget
+     // bruger åben arkitektur, kender klassen Customer i modellaget
     public double addDiscount()
     {
         Customer customer = saleCtr.getSale(saleID).getCustomer();
@@ -285,7 +325,7 @@ public class SaleUI {
 
     public void endSale()
     {
-        double discount = addDiscount();
+        double discount = addDiscount() - 1 + getQuntityDiscount() - 1 + getPickupDiscount();
         if (discount < 0.8)
         {
             discount = 0.8;
@@ -295,6 +335,38 @@ public class SaleUI {
 
         saleCtr.getSale(saleID).setPrice(price);
     }
+
+    public double getQuntityDiscount()
+    {
+       double discount = saleCtr.getQuntityDiscount();
+
+       return discount;
+    }
+
+     public double getPickupDiscount()
+    {
+       double discount = saleCtr.getPickupDiscount();
+
+       return discount;
+    }
+
+
+
+    public void addQuntityDiscount()
+    {
+        double newDiscount = inputUI.inputDiscount();
+        double discount = 1 - (newDiscount / 100);
+        saleCtr.setQuntityDiscount(discount);
+    }
+
+     public void addPickupDiscount()
+    {
+        double newDiscount = inputUI.inputDiscount();
+         double discount = 1 - (newDiscount / 100);
+        saleCtr.setPickupDiscount(discount);
+    }
+
+
 
 
 }

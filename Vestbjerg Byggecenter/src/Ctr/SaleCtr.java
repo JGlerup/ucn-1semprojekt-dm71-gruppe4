@@ -7,6 +7,7 @@ package Ctr;
 
 import Model.Customer;
 import Model.CustomerContainer;
+import Model.Discount;
 import Model.EmployeeContainer;
 import Model.Employee;
 import Model.Sale;
@@ -27,6 +28,9 @@ public class SaleCtr {
     private EmployeeContainer employeeContainer;
     private ItemContainer itemContainer;
     private CustomerContainer customerContainer;
+    private Discount discount;
+
+
 
     public SaleCtr()
     {
@@ -55,10 +59,6 @@ public class SaleCtr {
         saleContainer.getSale(saleID).setPrice(totalPrice);
     }
 
-    public void endSale()
-    {
-
-    }
 
     public Sale getSale(int saleID)
     {
@@ -144,23 +144,27 @@ public class SaleCtr {
         deleteSale(saleID);
     }
 
+    public double getQuntityDiscount()
+    {
+        double quntityDiscount = discount.getQuantityDiscount();
 
-//    public void createSale(String newDate, int newPrice, int newID, int newQuantity, int newTotalPrice)
-//    {
-//        int index = 0;
-//        index = employee.listEmployee().size() -1;
-//        Sale saleObjekt = new Sale(newDate, newPrice);
-//        saleContainer.createSale(saleObjekt);
-//        SalesLineItem sLIObjekt = new SalesLineItem(newID, newQuantity, newTotalPrice);
-//        index = saleContainer.listSales().size() -1;
-//        salesLineItemList.createSalesLineItem(sLIObjekt);
-//    }
-//
-//    public void createSalesLineItem(int newID, int newQuantity, int newTotalPrice)
-//    {
-//        int index = 0;
-//        SalesLineItem sLIObjekt = new SalesLineItem(newID, newQuantity, newTotalPrice);
-//        index = saleContainer.listSales().size() -1;
-//        salesLineItemList.createSalesLineItem(sLIObjekt);
-//    }
+        return quntityDiscount;
+    }
+
+    public void setQuntityDiscount(double newDiscount)
+    {
+        discount.setQuantityDiscount(newDiscount);
+    }
+
+    public double getPickupDiscount()
+    {
+        double pickupDiscount = discount.getPickupDiscount();
+
+        return pickupDiscount;
+    }
+
+    public void setPickupDiscount(double newDiscount)
+    {
+        discount.setPickupDiscount(newDiscount);
+    }
 }
