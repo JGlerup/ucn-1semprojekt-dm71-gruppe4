@@ -20,6 +20,8 @@ public class Sale {
     private ArrayList<SalesLineItem> sLIList;
     private Employee employee;
     private Customer customer;
+    private Discount discount;
+    
 
     public Sale(String date, Employee employee)
     {
@@ -51,6 +53,14 @@ public class Sale {
 
     public void setSaleID(int saleID) {
         this.saleID = saleID;
+    }
+    
+    public Discount getDiscount() {
+        return discount;
+    }
+    
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
     }
 
     public ArrayList<SalesLineItem> getSLIList() {
