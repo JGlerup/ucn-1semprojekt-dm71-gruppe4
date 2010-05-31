@@ -23,55 +23,36 @@ public class RentUI
        rentMenu();
    }
    
-   public void rentMenu()
-   {
-        boolean exit = false;
-        while(!exit)//that is: while exit is false
+    public void rentMenu()
+    {
+        try
         {
-            int choice = writeRentMenu();
-            if (choice == 1)
+            boolean exit = false;
+            while(!exit)
             {
-               rentItem();
-               
-            }
-            else{if(choice == 2) {
-                deliverItem();
-            }
-                else{
-                    exit = true;
-                    }
-                    
+            //show menu and return the user's choice
+                int choice =   writeRentMenu();
+                switch(choice)
+                {
+                    case 0:
+                        exit = true;
+                        break;
+                    case 1:
+                        rentItem();
+                        break;
+                    case 2:
+                        deliverItem();
+                        break;
+
                 }
-}
-}
-
-  public String inputDate()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" Write date:  ");
-         String date = keyboard.nextLine();
-         return date;
-    } 
-    
-      public String inputStatus()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" WriteType:  ");
-         String status = keyboard.nextLine();
-         return status;
-    } 
-      public int inputID()
-    {
-         // makes an object keyboard to have input from the screen
-         Scanner keyboard = new Scanner(System.in);  
-         System.out.println(" Write ID:  ");
-         int id = keyboard.nextInt();
-         return id;
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("sidj" + e.getMessage());
+            start();
+        }
     }
-   
-
 
          private int writeRentMenu()
             {
@@ -85,31 +66,27 @@ public class RentUI
             int choice = keyboard.nextInt();
             return choice;
         }
+
+         private void rentItem()
+         {
+             int customerID = inputUI.inputID();
+             String date = inputUI.inputDate();
+             String status = inputUI.inputStatus();
+             int itemID = inputUI.inputItemID();
+             int returnID = rentCtr.rentItem(itemID, date, status, customerID);
+
+             System.out.println("Udlejning oprettet med ID: " + returnID);
+             inputUI.pause();
+         }
         
-        private void rentItem()
-        {
-            int customerID = inputID();
-            String date = inputUI.inputDate();
-            String status = inputStatus();
-            int itemID = inputID();
-            int returnID = rentCtr.rentItem(itemID, date, status, customerID);
-           
-            System.out.println("Udlejning oprettet med ID: " + returnID);
-            pause();
-        }
+
 
         private void deliverItem()
         {
-            int itemID = inputID();
+            int itemID = inputUI.inputID();
             rentCtr.deliverItem(itemID);
         }
         
-         public void pause()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("\nPress return to continue");
-        String address = keyboard.nextLine();
-    }
 
    
 }
