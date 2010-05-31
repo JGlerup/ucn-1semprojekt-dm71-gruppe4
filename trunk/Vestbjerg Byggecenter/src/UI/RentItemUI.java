@@ -16,6 +16,7 @@ public class RentItemUI
    public RentItemUI()
    {
        rentableItemCtr = new RentableItemCtr();
+       inputUI = new InputUI();
    }
    
    public void start()
