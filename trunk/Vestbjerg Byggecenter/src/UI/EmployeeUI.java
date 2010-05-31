@@ -90,11 +90,11 @@ public class EmployeeUI {
         return address;
     }
 
-    private int inputPhone()
+    private String inputPhone()
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("State employee phone no.: ");
-        int phone = keyboard.nextInt();
+        String phone = keyboard.next();
         return phone;
     }
 

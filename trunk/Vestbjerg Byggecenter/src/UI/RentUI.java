@@ -1,4 +1,5 @@
 package UI;
+import Ctr.CustomerCtr;
 import java.util.Scanner;
 import Ctr.RentCtr;
 
@@ -12,10 +13,13 @@ public class RentUI
 {
    private RentCtr  rentCtr;
    private InputUI inputUI;
+   private CustomerCtr customerCtr;
    
    public RentUI()
    {
        rentCtr = new RentCtr();
+       inputUI = new InputUI();
+       customerCtr = new CustomerCtr();
    }
    
    public void start()
@@ -49,7 +53,8 @@ public class RentUI
         }
         catch(Exception e)
         {
-            System.out.println("sidj" + e.getMessage());
+            System.out.println(e.getMessage());
+            e.getCause();
             start();
         }
     }
@@ -70,12 +75,16 @@ public class RentUI
          private void rentItem()
          {
              int customerID = inputUI.inputID();
-             String date = inputUI.inputDate();
-             String status = inputUI.inputStatus();
-             int itemID = inputUI.inputItemID();
-             int returnID = rentCtr.rentItem(itemID, date, status, customerID);
+             if(customerCtr.getCustomer(customerID) != null)
+             {
+                 String date = inputUI.inputDate();
+                 String status = inputUI.inputStatus();
+                 int itemID = inputUI.inputItemID();
+                 int returnID = rentCtr.rentItem(itemID, date, status, customerID);
 
-             System.out.println("Udlejning oprettet med ID: " + returnID);
+                 System.out.println("Udlejning oprettet med ID: " + returnID);
+             }
+             System.out.println("ID'et findes ikke");
              inputUI.pause();
          }
         

@@ -185,7 +185,7 @@ public class CustomerUI {
     {
       String name = inputUI.inputName();
       String address = inputUI.inputAddress();
-      int phone = inputUI.inputPhone();
+      String phone = inputUI.inputPhone();
       int id = customerCtr.createCustomer(name, address, phone);
       System.out.println("\nNy kunde oprettet med id: " + id);
     }
