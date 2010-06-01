@@ -349,6 +349,8 @@ public class SaleUI {
         price = price * discount;
 
         saleCtr.getSale(saleID).setPrice(price);
+        double trade = saleCtr.getSale(saleID).getEmployee().getTrade();
+        saleCtr.getSale(saleID).getEmployee().setTrade(trade + price);
     }
 
     public double getQuntityDiscount()
