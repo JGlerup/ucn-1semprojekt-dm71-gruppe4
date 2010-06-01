@@ -13,6 +13,7 @@ public class Employee extends Person {
 
     private int employeeID;
     private String password;
+    private double trade;
    
 
 
@@ -38,6 +39,14 @@ public class Employee extends Person {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public double getTrade() {
+        return trade;
+    }
+
+    public void setTrade(double trade) {
+        this.trade = trade;
     }
     
     
