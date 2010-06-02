@@ -17,8 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- *
- * @author Daniel
+ * Controller-klassen for Rent
  */
 public class RentCtr {
 
@@ -27,7 +26,8 @@ public class RentCtr {
     private CustomerContainer customerContainer;
 
     /**
-     *
+     * Konstruktør
+     * Initialiserer felterne rentContainer og rentItemContainer
      */
     public RentCtr()
     {
@@ -36,12 +36,12 @@ public class RentCtr {
     }
 
     /**
-     *
-     * @param itemID
+     * En metode, der udlejer et objekt af klassen rentItem.
+     * @param itemID Søgeværdi
      * @param date
      * @param status
-     * @param customerID
-     * @return
+     * @param customerID Søgeværdi
+     * @return Et udlejnings-ID Søgeværdi
      */
     public int rentItem(int itemID, String date, String status, int customerID)
     {
@@ -60,8 +60,8 @@ public class RentCtr {
     }
 
     /**
-     *
-     * @param id
+     * En metode, der kalder metoden deliverItem
+     * @param id Søgeværdi
      */
     public void deliverItem(int id)
     {

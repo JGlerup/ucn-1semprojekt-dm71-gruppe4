@@ -2,27 +2,23 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
 
 /**
  *
  * @author Daniel
  */
-public class RentableItem
-{
+public class RentableItem {
+
     private int id;
     private String name;
     private boolean isRented;
-
-
 
     /**
      *
      * @param name
      */
-    public RentableItem(String name)
-    {
+    public RentableItem(String name) {
         this.name = name;
     }
 
@@ -62,20 +58,17 @@ public class RentableItem
      *
      * @return
      */
-    public boolean getIsRented()
-     {
-         return this.isRented;
-     }
+    public boolean getIsRented() {
+        return this.isRented;
+    }
 
     /**
      *
      * @param isRented
      */
-    public void setIsRented(boolean isRented)
-     {
-         this.isRented = isRented;
-     }
-
+    public void setIsRented(boolean isRented) {
+        this.isRented = isRented;
+    }
 }
 
 

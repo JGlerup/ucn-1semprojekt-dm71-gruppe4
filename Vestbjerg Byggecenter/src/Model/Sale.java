@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
 
 import java.util.ArrayList;
@@ -21,15 +20,13 @@ public class Sale {
     private Employee employee;
     private Customer customer;
     private Discount discount;
-    
 
     /**
      *
      * @param date
      * @param employee
      */
-    public Sale(String date, Employee employee)
-    {
+    public Sale(String date, Employee employee) {
         this.date = date;
         price = 0;
         this.employee = employee;
@@ -83,7 +80,7 @@ public class Sale {
     public void setSaleID(int saleID) {
         this.saleID = saleID;
     }
-    
+
     /**
      *
      * @return
@@ -91,7 +88,7 @@ public class Sale {
     public Discount getDiscount() {
         return discount;
     }
-    
+
     /**
      *
      * @param discount
@@ -113,8 +110,7 @@ public class Sale {
      * @param sLI
      * @return
      */
-    public int addSalesLineItem(SalesLineItem sLI)
-    {
+    public int addSalesLineItem(SalesLineItem sLI) {
         int sLIID = generateID(sLI);
         sLIList.add(sLI);
         return sLIID;
@@ -125,15 +121,12 @@ public class Sale {
      * @param sLIID
      * @return
      */
-    public SalesLineItem getSalesLineItem(int sLIID)
-    {
+    public SalesLineItem getSalesLineItem(int sLIID) {
         int index = 0;
         SalesLineItem sLI = null;
         boolean found = false;
-        while(!found && index < sLIList.size())
-        {
-            if(sLIList.get(index).getSLIID() == sLIID)
-            {
+        while (!found && index < sLIList.size()) {
+            if (sLIList.get(index).getSLIID() == sLIID) {
                 sLI = sLIList.get(index);
                 found = true;
             }
@@ -146,15 +139,12 @@ public class Sale {
      *
      * @param sLIID
      */
-    public void removeSalesLineItem(int sLIID)
-    {
+    public void removeSalesLineItem(int sLIID) {
         int index = 0;
         int storeIndex = 0;
         boolean found = false;
-        while(!found && index < sLIList.size())
-        {
-            if(sLIList.get(index).getSLIID() == sLIID)
-            {
+        while (!found && index < sLIList.size()) {
+            if (sLIList.get(index).getSLIID() == sLIID) {
                 storeIndex = index;
                 found = true;
             }
@@ -168,15 +158,12 @@ public class Sale {
      * @param sLI
      * @return
      */
-    public int generateID(SalesLineItem sLI)
-    {
+    public int generateID(SalesLineItem sLI) {
         int newID = 1;
 
-        if (sLI.getSLIID() == 0)
-        {
-            if(sLIList.size() != 0)
-            {
-                int lastIndex = sLIList.size() -1;
+        if (sLI.getSLIID() == 0) {
+            if (sLIList.size() != 0) {
+                int lastIndex = sLIList.size() - 1;
                 SalesLineItem lastSLI = sLIList.get(lastIndex);
                 newID = lastSLI.getSLIID();
                 newID += 1;
@@ -217,6 +204,4 @@ public class Sale {
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-
-
 }

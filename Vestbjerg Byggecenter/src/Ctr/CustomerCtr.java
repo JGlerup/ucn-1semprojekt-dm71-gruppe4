@@ -10,8 +10,7 @@ import Model.CustomerContainer;
 import java.util.ArrayList;
 
 /**
- *
- * @author Daniel
+ * Controller-klassen for Customer
  */
 public class CustomerCtr {
 
@@ -19,18 +18,19 @@ public class CustomerCtr {
     private Account account;
 
     /**
-     * 
+     * Konstruktør
+     * Initialiserer feltet customerContainer
      */
     public CustomerCtr() {
         customerContainer = CustomerContainer.getInstance();
     }
 
     /**
-     * 
+     * En metode, der laver et objekt af klassen Customer
      * @param name
      * @param address
      * @param phone
-     * @return
+     * @return Kunde-ID
      */
     public int createCustomer(String name, String address, String phone) {
 
@@ -39,7 +39,7 @@ public class CustomerCtr {
     }
 
     /**
-     * 
+     * En metode, der kalder metoden deleteCustomer
      * @param CustomerID
      */
     public void deleteCustomer(int CustomerID) {
@@ -47,28 +47,7 @@ public class CustomerCtr {
     }
 
     /**
-     * 
-     * @param customerID
-     * @param name
-     * @param address
-     * @param phone
-     * @return
-     */
-    public boolean updateCustomer(int customerID, String name, String address, String phone) {
-        Customer c = customerContainer.findCustomer(customerID);
-        if (c != null) {
-            c.setCustomerID(customerID);
-            c.setName(name);
-            c.setAddress(address);
-            c.setPhone(phone);
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * 
+     * En metode, der tildeler en konto til et kundeobjekt
      * @param customerID
      * @param type
      * @param regNr
@@ -81,9 +60,9 @@ public class CustomerCtr {
     }
 
     /**
-     * 
+     * En metode, der kalder metoden findCustomer
      * @param customerID
-     * @return
+     * @return Et objekt af klassen Customer
      */
     public Customer getCustomer(int customerID) {
 
@@ -92,7 +71,7 @@ public class CustomerCtr {
     }
 
     /**
-     * Denne metode opdaterer navnet på kunden
+     * En metoder, der opdaterer kundes navn
      * @param customerID
      * @param name
      */
@@ -102,7 +81,7 @@ public class CustomerCtr {
     }
 
     /**
-     * 
+     * En metode, der opdaterer en kundes telefonnummer
      * @param customerID
      * @param address
      */
@@ -112,7 +91,7 @@ public class CustomerCtr {
     }
 
     /**
-     * 
+     * En metode, der opdaterer en kundes telefonnummer
      * @param customerID
      * @param phone
      */
@@ -122,8 +101,7 @@ public class CustomerCtr {
     }
 
     /**
-     *
-     * @return En
+     * @return En ArrayList over objekter af typen Customer
      */
     public ArrayList<Customer> getCustomerList() {
         return customerContainer.getCustomerList();
