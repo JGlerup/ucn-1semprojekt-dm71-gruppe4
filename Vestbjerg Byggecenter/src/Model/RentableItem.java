@@ -5,8 +5,8 @@
 package Model;
 
 /**
- *
- * @author Daniel
+ * Klassen repræsenterer et rentableItem-objekt.
+ * Informationer om udlejningsvaren bliver gemt og kan hentes.
  */
 public class RentableItem {
 
@@ -15,7 +15,8 @@ public class RentableItem {
     private boolean isRented;
 
     /**
-     *
+     * Konstruktør
+     * Initialiserer feltet name
      * @param name
      */
     public RentableItem(String name) {

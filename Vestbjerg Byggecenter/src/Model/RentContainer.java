@@ -7,13 +7,21 @@ package Model;
 import java.util.ArrayList;
 
 /**
- *
- * @author Daniel
+ * Klassen RentContainer repræsenterer en container for rent-objekter.
+ * Den fungerer som en datase, hvor det er muligt
+ * at gemme, slette og finde udlejninger.
  */
 public class RentContainer {
 
     private static RentContainer instance;
     private ArrayList<Rent> rentContainer;
+
+    /**
+     *
+     */
+    public RentContainer() {
+        rentContainer = new ArrayList<Rent>();
+    }
 
     /**
      *
@@ -24,13 +32,6 @@ public class RentContainer {
             instance = new RentContainer();
         }
         return instance;
-    }
-
-    /**
-     *
-     */
-    public RentContainer() {
-        rentContainer = new ArrayList<Rent>();
     }
 
     /**

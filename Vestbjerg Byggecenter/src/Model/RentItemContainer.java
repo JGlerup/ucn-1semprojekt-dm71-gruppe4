@@ -7,13 +7,22 @@ package Model;
 import java.util.ArrayList;
 
 /**
- *
- * @author Daniel
+ * Klassen RentItemContainer repræsenterer en container for
+ * rentableItem-objekter.
+ * Den fungerer som en datase, hvor det er muligt
+ * at gemme, slette og finde udlejningsvarer.
  */
 public class RentItemContainer {
 
     private static RentItemContainer instance;
     private ArrayList<RentableItem> rentItems;
+
+    /**
+     *
+     */
+    public RentItemContainer() {
+        rentItems = new ArrayList<RentableItem>();
+    }
 
     /**
      *
@@ -24,13 +33,6 @@ public class RentItemContainer {
             instance = new RentItemContainer();
         }
         return instance;
-    }
-
-    /**
-     *
-     */
-    public RentItemContainer() {
-        rentItems = new ArrayList<RentableItem>();
     }
 
     /**

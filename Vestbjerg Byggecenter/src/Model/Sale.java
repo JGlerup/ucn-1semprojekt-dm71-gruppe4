@@ -7,8 +7,8 @@ package Model;
 import java.util.ArrayList;
 
 /**
- *
- * @author Daniel
+ * Klassen repræsenterer et salgs-objekt.
+ * Informationer om salget bliver gemt og kan hentes.
  */
 public class Sale {
 
@@ -22,7 +22,8 @@ public class Sale {
     private Discount discount;
 
     /**
-     *
+     * Konstruktør
+     * Initialiserer en tom database(sLIList), samt felterne date og employee
      * @param date
      * @param employee
      */
@@ -33,82 +34,46 @@ public class Sale {
         sLIList = new ArrayList<SalesLineItem>();
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDate() {
         return date;
     }
 
-    /**
-     *
-     * @param date
-     */
     public void setDate(String date) {
         this.date = date;
     }
 
-    /**
-     *
-     * @return
-     */
     public double getPrice() {
         return price;
     }
 
-    /**
-     *
-     * @param price
-     */
     public void setPrice(double price) {
         this.price = price;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getSaleID() {
         return saleID;
     }
 
-    /**
-     *
-     * @param saleID
-     */
     public void setSaleID(int saleID) {
         this.saleID = saleID;
     }
 
-    /**
-     *
-     * @return
-     */
     public Discount getDiscount() {
         return discount;
     }
 
-    /**
-     *
-     * @param discount
-     */
     public void setDiscount(Discount discount) {
         this.discount = discount;
     }
 
-    /**
-     *
-     * @return
-     */
     public ArrayList<SalesLineItem> getSLIList() {
         return sLIList;
     }
 
     /**
-     *
+     * En metode, der tilføjer et salesLineItem til salget
      * @param sLI
-     * @return
+     * @return Salgslinje-ID
      */
     public int addSalesLineItem(SalesLineItem sLI) {
         int sLIID = generateID(sLI);
@@ -117,9 +82,8 @@ public class Sale {
     }
 
     /**
-     *
      * @param sLIID
-     * @return
+     * @return Et objekt af klassen SalesLineItem
      */
     public SalesLineItem getSalesLineItem(int sLIID) {
         int index = 0;
@@ -136,7 +100,6 @@ public class Sale {
     }
 
     /**
-     *
      * @param sLIID
      */
     public void removeSalesLineItem(int sLIID) {
@@ -154,9 +117,8 @@ public class Sale {
     }
 
     /**
-     *
      * @param sLI
-     * @return
+     * @return ID
      */
     public int generateID(SalesLineItem sLI) {
         int newID = 1;
@@ -173,34 +135,18 @@ public class Sale {
         return newID;
     }
 
-    /**
-     *
-     * @return
-     */
     public Customer getCustomer() {
         return customer;
     }
 
-    /**
-     *
-     * @param customer
-     */
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
-    /**
-     *
-     * @return
-     */
     public Employee getEmployee() {
         return employee;
     }
 
-    /**
-     *
-     * @param employee
-     */
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }

@@ -5,8 +5,8 @@
 package Model;
 
 /**
- * Klassen repræsenterer et customer-objekt. Informationer om kunden bliver gemt
- * og kan hentes.
+ * Klassen repræsenterer et customer-objekt arver fra klassen Person.
+ * Informationer om kunden bliver gemt og kan hentes.
  */
 public class Customer extends Person {
 

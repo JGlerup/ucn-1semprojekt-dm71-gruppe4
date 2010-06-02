@@ -35,11 +35,6 @@ public class EmployeeContainer {
         return instance;
     }
 
-    /**
-     *
-     * @param employee
-     * @return
-     */
     public int generateID(Employee employee) {
         int newID = 1;
         if (employee.getEmployeeID() == 0) {
@@ -55,21 +50,12 @@ public class EmployeeContainer {
         return newID;
     }
 
-    /**
-     *
-     * @param employee
-     * @return
-     */
     public int addEmployee(Employee employee) {
         int employeeID = generateID(employee);
         employeeList.add(employee);
         return employeeID;
     }
 
-    /**
-     *
-     * @param employeeID
-     */
     public void deleteEmployee(int employeeID) {
         int index = 0;
         int storeIndex = 0;
@@ -84,11 +70,6 @@ public class EmployeeContainer {
         employeeList.remove(storeIndex);
     }
 
-    /**
-     *
-     * @param employeeID
-     * @return
-     */
     public Employee findEmployee(int employeeID) {
         Employee e = null;
         for (Employee employee : employeeList) {
@@ -99,11 +80,6 @@ public class EmployeeContainer {
         return e;
     }
 
-    /**
-     *
-     * @param employeeID
-     * @return
-     */
     public Employee getEmployee(int employeeID) {
         int index = 0;
         Employee e = null;
@@ -118,15 +94,6 @@ public class EmployeeContainer {
         return e;
     }
 
-    /**
-     *
-     * @param employeeID
-     * @param password
-     * @param name
-     * @param address
-     * @param phone
-     * @return
-     */
     public boolean updateEmployee(int employeeID, String password, String name, String address, String phone) {
         Employee e = findEmployee(employeeID);
         if (e != null) {
@@ -140,10 +107,6 @@ public class EmployeeContainer {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public String listAllEmployees() {
         String outputString = " ";
         for (Employee e : employeeList) {
@@ -152,13 +115,10 @@ public class EmployeeContainer {
         return outputString;
     }
 
-    /**
-     *
-     * @return
-     */
     public ArrayList<Employee> listEmployee() {
         return employeeList;
     }
+
 }
 
   

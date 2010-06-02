@@ -5,8 +5,8 @@
 package Model;
 
 /**
- *
- * @author Daniel
+ * Klassen repræsenterer et rent-objekt. Informationer om udlejningen
+ * bliver gemt og kan hentes.
  */
 public class Rent {
 
