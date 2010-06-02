@@ -29,6 +29,9 @@ public class SaleUI {
     private int saleID;
     private int employeeID;
 
+    /**
+     *
+     */
     public SaleUI()
     {
         saleCtr = new SaleCtr();
@@ -41,12 +44,18 @@ public class SaleUI {
         employeeID = 0;
     }
 
+    /**
+     *
+     */
     public void start()
     {
         saleMenu();
     }
 
-     public void saleMenu()
+    /**
+     *
+     */
+    public void saleMenu()
     {
         try
         {
@@ -74,7 +83,11 @@ public class SaleUI {
         }
      }
 
-    public int writeSaleMenu()
+     /**
+      *
+      * @return
+      */
+     public int writeSaleMenu()
     {   //Userinterface
        Scanner keyboard = new Scanner(System.in);
        System.out.println("\f *** Salgsmenu ***");
@@ -87,7 +100,10 @@ public class SaleUI {
        return choice;
     }
 
-    public void createSale()
+     /**
+      *
+      */
+     public void createSale()
     {
 
         int employeeID = inputUI.inputEmployeeID();
@@ -127,6 +143,9 @@ public class SaleUI {
         }
     }
 
+    /**
+     *
+     */
     public void getSale()
     {
         saleID = inputUI.inputID();
@@ -143,6 +162,9 @@ public class SaleUI {
         }
     }
 
+    /**
+     *
+     */
     public void addSalesLineItem()
     {
 
@@ -159,18 +181,27 @@ public class SaleUI {
     }
 
 
+    /**
+     *
+     */
     public void removeSalesLineItem()
     {
         int sLIID = inputUI.inputID();
         saleCtr.removeSalesLineItem(saleID, sLIID);
     }
 
+    /**
+     *
+     */
     public void cancelSale()
     {
         saleCtr.cancelSale(saleID);
         System.out.println("Salget med ID " + saleID + " er anulleret");
     }
 
+    /**
+     *
+     */
     public void newSaleMenu()
     {
         try
@@ -218,6 +249,10 @@ public class SaleUI {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public int writeNewSaleMenu()
     {
        Scanner keyboard = new Scanner(System.in);
@@ -236,6 +271,9 @@ public class SaleUI {
        return choice;
     }
 
+    /**
+     *
+     */
     public void printContentsOfSale()
     {
         for(SalesLineItem sLI : saleCtr.getSLIList(saleID))
@@ -245,6 +283,9 @@ public class SaleUI {
         inputUI.pause();
     }
 
+    /**
+     *
+     */
     public void addCustomerToSale()
     {
         int customerID = inputUI.inputCustomerID();
@@ -261,6 +302,9 @@ public class SaleUI {
         }
     }
 
+    /**
+     *
+     */
     public void removeCustomerFromSale()
     {
         boolean yesOrNo = inputUI.yesOrNo();
@@ -273,7 +317,10 @@ public class SaleUI {
         inputUI.pause();
     }
 
-     public void discountMenu()
+    /**
+     *
+     */
+    public void discountMenu()
     {
         try
         {
@@ -301,6 +348,10 @@ public class SaleUI {
         }
      }
 
+    /**
+     *
+     * @return
+     */
     public int writeDiscountMenu()
     {   //Userinterface
        Scanner keyboard = new Scanner(System.in);
@@ -316,6 +367,10 @@ public class SaleUI {
 
 
      // bruger åben arkitektur, kender klassen Customer i modellaget
+    /**
+     *
+     * @return
+     */
     public double addDiscount()
     {
         Customer customer = saleCtr.getSale(saleID).getCustomer();
@@ -329,6 +384,9 @@ public class SaleUI {
         return discount;
     }
 
+    /**
+     *
+     */
     public void endSale()
     {
         double discount = 1;
@@ -353,6 +411,10 @@ public class SaleUI {
         saleCtr.getSale(saleID).getEmployee().setTrade(trade + price);
     }
 
+    /**
+     *
+     * @return
+     */
     public double getQuntityDiscount()
     {
        double discount = saleCtr.getQuntityDiscount();
@@ -360,7 +422,11 @@ public class SaleUI {
        return discount;
     }
 
-     public double getPickupDiscount()
+    /**
+     *
+     * @return
+     */
+    public double getPickupDiscount()
     {
        double discount = saleCtr.getPickupDiscount();
 
@@ -369,14 +435,20 @@ public class SaleUI {
 
 
 
-    public void addQuntityDiscount()
+     /**
+      *
+      */
+     public void addQuntityDiscount()
     {
         double newDiscount = inputUI.inputDiscount();
         double discount = 1 - (newDiscount / 100);
         saleCtr.getSale(saleID).getDiscount().setQuantityDiscount(discount);
     }
 
-     public void addPickupDiscount()
+    /**
+     *
+     */
+    public void addPickupDiscount()
     {
         double newDiscount = inputUI.inputDiscount();
          double discount = 1 - (newDiscount / 100);

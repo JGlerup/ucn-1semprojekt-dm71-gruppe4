@@ -15,29 +15,54 @@ public class EmployeeCtr {
    
     private EmployeeContainer employeeContainer;
 
-public EmployeeCtr()
+    /**
+     *
+     */
+    public EmployeeCtr()
 {
     employeeContainer = EmployeeContainer.getInstance();
 }
 
 
 
+    /**
+     *
+     * @param name
+     * @param address
+     * @param phone
+     * @param password
+     * @return
+     */
     public int createEmployee(String name, String address, String phone, String password)
     {
         Employee e = new Employee(name, address, phone, password);
         return employeeContainer.addEmployee(e);
     }
 
+    /**
+     *
+     * @param employeeID
+     */
     public void deleteEmployee(int employeeID)
     {
         employeeContainer.deleteEmployee(employeeID);
     }
 
+    /**
+     *
+     * @param employeeID
+     * @return
+     */
     public Employee getEmployee(int employeeID)
     {
         return employeeContainer.getEmployee(employeeID);
     }
 
+    /**
+     *
+     * @param employeeID
+     * @return
+     */
     public String findEmployee(int employeeID)
     {
         Employee e = employeeContainer.findEmployee(employeeID);
@@ -45,11 +70,23 @@ public EmployeeCtr()
         return outputString;
     }
 
+    /**
+     *
+     * @param employeeID
+     * @param password
+     * @param name
+     * @param address
+     * @param phone
+     */
     public void updateEmployee(int employeeID, String password, String name, String address, String phone)
     {
         employeeContainer.updateEmployee(employeeID, password, name, address, phone);
     }
 
+    /**
+     *
+     * @return
+     */
     public String ListAllEmployees()
     {
         return employeeContainer.listAllEmployees();

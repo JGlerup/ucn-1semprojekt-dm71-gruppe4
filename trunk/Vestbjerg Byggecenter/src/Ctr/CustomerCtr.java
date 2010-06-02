@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Ctr;
 
 import Model.Account;
@@ -15,81 +14,118 @@ import java.util.ArrayList;
  * @author Daniel
  */
 public class CustomerCtr {
-    
-    
+
     private CustomerContainer customerContainer;
     private Account account;
 
-    public CustomerCtr()
-    {
+    /**
+     * 
+     */
+    public CustomerCtr() {
         customerContainer = CustomerContainer.getInstance();
     }
 
-    public int createCustomer(String name, String address, String phone)
-{
+    /**
+     * 
+     * @param name
+     * @param address
+     * @param phone
+     * @return
+     */
+    public int createCustomer(String name, String address, String phone) {
 
-    Customer c = new Customer(name, address, phone);
-    return customerContainer.addCustomer(c);
-}
+        Customer c = new Customer(name, address, phone);
+        return customerContainer.addCustomer(c);
+    }
 
-
-    public void deleteCustomer(int CustomerID)
-    {
+    /**
+     * 
+     * @param CustomerID
+     */
+    public void deleteCustomer(int CustomerID) {
         customerContainer.deleteCustomer(CustomerID);
     }
 
-    public boolean updateCustomer(int customerID, String name, String address, String phone)
-    {
+    /**
+     * 
+     * @param customerID
+     * @param name
+     * @param address
+     * @param phone
+     * @return
+     */
+    public boolean updateCustomer(int customerID, String name, String address, String phone) {
         Customer c = customerContainer.findCustomer(customerID);
-        if(c != null)
-        {
+        if (c != null) {
             c.setCustomerID(customerID);
             c.setName(name);
             c.setAddress(address);
             c.setPhone(phone);
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
 
-
-    
-    public void giveAccount(int customerID, String type, int regNr, int cardNr)
-    {
+    /**
+     * 
+     * @param customerID
+     * @param type
+     * @param regNr
+     * @param cardNr
+     */
+    public void giveAccount(int customerID, String type, int regNr, int cardNr) {
         Customer c = getCustomer(customerID);
         Account a = new Account(type, regNr, cardNr);
         c.setAccount(a);
     }
 
-    public Customer getCustomer(int customerID)
-    {
+    /**
+     * 
+     * @param customerID
+     * @return
+     */
+    public Customer getCustomer(int customerID) {
 
         Customer c = customerContainer.findCustomer(customerID);
         return c;
     }
 
-    public void updateName(int customerID, String name)
-    {
+    /**
+     * Denne metode opdaterer navnet på kunden
+     * @param customerID
+     * @param name
+     */
+    public void updateName(int customerID, String name) {
         Customer c = getCustomer(customerID);
         c.setName(name);
     }
 
-    public void updateAddress(int customerID, String address)
-    {
+    /**
+     * 
+     * @param customerID
+     * @param address
+     */
+    public void updateAddress(int customerID, String address) {
         Customer c = getCustomer(customerID);
         c.setAddress(address);
     }
 
-    public void updatePhone(int customerID, String phone)
-    {
+    /**
+     * 
+     * @param customerID
+     * @param phone
+     */
+    public void updatePhone(int customerID, String phone) {
         Customer c = getCustomer(customerID);
         c.setPhone(phone);
     }
 
-        public ArrayList<Customer> getCustomerList() {
+    /**
+     *
+     * @return En
+     */
+    public ArrayList<Customer> getCustomerList() {
         return customerContainer.getCustomerList();
     }
 }

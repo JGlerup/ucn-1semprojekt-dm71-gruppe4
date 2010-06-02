@@ -11,16 +11,27 @@ import java.util.Scanner;
  * @author Erik M. Gravesen
  */
 import java.util.InputMismatchException;
+/**
+ *
+ * @author Erik
+ */
 public class InputUI
 {
     private Scanner keyboard;
 
+    /**
+     *
+     */
     public InputUI()
     {
         keyboard = new Scanner(System.in);
     }
 
 
+    /**
+     *
+     * @return
+     */
     public int inputEmployeeID()
     {
         boolean succeed = false;
@@ -53,6 +64,10 @@ public class InputUI
         return itemID;
     }
 
+    /**
+     *
+     * @return
+     */
     public int inputCustomerID()
     {
         boolean succeed = false;
@@ -85,6 +100,10 @@ public class InputUI
         return itemID;
     }
 
+    /**
+     *
+     * @return
+     */
     public int inputItemID()
     {
         boolean succeed = false;
@@ -118,7 +137,9 @@ public class InputUI
     }
     /***************************************
      * Start - inputUI for item
-     ***************************************/
+     **************************************
+     * @return
+     */
 
 
     public int inputItemQuantity()
@@ -151,6 +172,10 @@ public class InputUI
         return quantity;
     }
 
+    /**
+     *
+     * @return
+     */
     public int inputUpdateItemQuantity()
     {
         boolean succeed = false;
@@ -183,6 +208,10 @@ public class InputUI
 
 
 
+    /**
+     *
+     * @return
+     */
     public int inputID()
     {
         boolean succeed = false;
@@ -215,6 +244,10 @@ public class InputUI
         return itemID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String inputItemName()
     {
         System.out.println("Indtast navn: ");
@@ -222,6 +255,10 @@ public class InputUI
         return itemName;
     }
 
+    /**
+     *
+     * @return
+     */
     public int inputSerialNo()
     {
         // creates an object keyboard to read data from the keyboard;
@@ -230,6 +267,10 @@ public class InputUI
         return serialNo;
     }
 
+    /**
+     *
+     * @return
+     */
     public double inputDiscount()
     {
         // creates an object keyboard to read data from the keyboard;
@@ -238,6 +279,10 @@ public class InputUI
         return discount;
     }
 
+    /**
+     *
+     * @return
+     */
     public String inputDescription()
     {
         // creates an object keyboard to read data from the keyboard
@@ -246,6 +291,10 @@ public class InputUI
         return description;
     }
 
+    /**
+     *
+     * @return
+     */
     public double inputItemPrice()
     {
         boolean succeed = false;
@@ -276,6 +325,10 @@ public class InputUI
         return itemPrice;
     }
 
+    /**
+     *
+     * @return
+     */
     public int inputMaxInStock()
     {
         // creates an object keyboard to read data from the keyboard
@@ -307,6 +360,10 @@ public class InputUI
         return maxInStock;
     }
 
+    /**
+     *
+     * @return
+     */
     public int inputMinInStock()
     {
         // creates an object keyboard to read data from the keyboard
@@ -339,6 +396,10 @@ public class InputUI
         return minInStock;
     }
 
+    /**
+     *
+     * @return
+     */
     public int inputItemsInStock()
     {
         // creates an object keyboard to read data from the keyboard
@@ -370,6 +431,10 @@ public class InputUI
         return itemsInStock;
     }
 
+    /**
+     *
+     * @return
+     */
     public String inputType()
     {
         // creates an object keyboard to read data from the keyboard
@@ -378,6 +443,10 @@ public class InputUI
         return type;
     }
 
+    /**
+     *
+     * @return
+     */
     public String inputBrand()
     {
         // creates an object keyboard to read data from the keyboard
@@ -386,6 +455,10 @@ public class InputUI
         return brand;
     }
 
+    /**
+     *
+     * @return
+     */
     public String inputPlace()
     {
         // creates an object keyboard to read data from the keyboard
@@ -405,6 +478,10 @@ public class InputUI
        keyboard.nextLine(); //Tilføjes, således at det er muligt at reagere
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean yesOrNo()
     {
         boolean isYes = false;
@@ -428,6 +505,10 @@ public class InputUI
         return isYes;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean UnitYesOrNo()
     {
         boolean isYes = false;
@@ -454,7 +535,9 @@ public class InputUI
 
      /***************************************
      * Start - inputUI for Customer
-     ***************************************/
+      **************************************
+      * @return
+      */
 
     public String inputName()
     {
@@ -488,7 +571,11 @@ public class InputUI
         return name;
     }
 
-     public String inputAddress()
+    /**
+     *
+     * @return
+     */
+    public String inputAddress()
     {
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast Address:  ");
@@ -496,7 +583,11 @@ public class InputUI
          return address;
     }
 
-     public String inputPhone()
+    /**
+     *
+     * @return
+     */
+    public String inputPhone()
     {
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast telefon nummer: ");
@@ -505,6 +596,10 @@ public class InputUI
     }
 
 
+     /**
+      *
+      * @return
+      */
      public int inputRegNr()
     {
          // makes an object keyboard to have input from the screen
@@ -514,7 +609,11 @@ public class InputUI
     }
 
 
-      public int inputCardNr()
+     /**
+      *
+      * @return
+      */
+     public int inputCardNr()
     {
          // makes an object keyboard to have input from the screen
          System.out.println(" indtast kortnummer: ");
@@ -522,21 +621,33 @@ public class InputUI
          return cardNr;
     }
 
-    public String inputSaleDate()
+     /**
+      *
+      * @return
+      */
+     public String inputSaleDate()
     {
         System.out.println(" Indtast dato: ");
         String saleDate = keyboard.next();
         return saleDate;
     }
 
-     public String inputDate()
+    /**
+     *
+     * @return
+     */
+    public String inputDate()
     {
         System.out.println(" Indtast dato: ");
         String Date = keyboard.next();
         return Date;
     }
 
-     public String inputStatus()
+    /**
+     *
+     * @return
+     */
+    public String inputStatus()
     {
         System.out.println(" Indtast Status: ");
         String Date = keyboard.next();

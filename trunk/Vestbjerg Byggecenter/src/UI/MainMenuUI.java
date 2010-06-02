@@ -19,6 +19,9 @@ public class MainMenuUI
    private RentUI rentUI;
    private RentItemUI rentItemUI;
    
+   /**
+    *
+    */
    public MainMenuUI()
    {
        saleUI = new SaleUI();
@@ -29,6 +32,9 @@ public class MainMenuUI
        mainMenuStart();
    }
    
+   /**
+    *
+    */
    public void mainMenuStart()
    {
        try

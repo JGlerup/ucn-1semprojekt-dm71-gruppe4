@@ -32,6 +32,9 @@ public class SaleCtr {
 
 
 
+    /**
+     *
+     */
     public SaleCtr()
     {
         saleContainer = SaleContainer.getInstance();
@@ -40,6 +43,15 @@ public class SaleCtr {
         customerContainer = CustomerContainer.getInstance();
     }
 
+    /**
+     *
+     * @param employeeID
+     * @param itemID
+     * @param saleDate
+     * @param itemQuantity
+     * @param itemsInStock
+     * @return
+     */
     public int createSale(int employeeID, int itemID, String saleDate, int itemQuantity, int itemsInStock)
     {
         Employee e = employeeContainer.findEmployee(employeeID);
@@ -51,6 +63,10 @@ public class SaleCtr {
         return saleID;
     }
 
+    /**
+     *
+     * @param saleID
+     */
     public void setSaleTotalPrice(int saleID)
     {
         double totalPrice = 0;
@@ -62,16 +78,31 @@ public class SaleCtr {
     }
 
 
+    /**
+     *
+     * @param saleID
+     * @return
+     */
     public Sale getSale(int saleID)
     {
         return saleContainer.getSale(saleID);
     }
 
+    /**
+     *
+     * @param saleID
+     */
     public void deleteSale(int saleID)
     {
         saleContainer.deleteSale(saleID);
     }
 
+    /**
+     *
+     * @param saleID
+     * @param itemID
+     * @param itemQuantity
+     */
     public void addSalesLineItem(int saleID, int itemID, int itemQuantity)
     {
         Item i = itemContainer.getItem(itemID);
@@ -94,6 +125,11 @@ public class SaleCtr {
         }
     }
 
+    /**
+     *
+     * @param saleID
+     * @param sLIID
+     */
     public void removeSalesLineItem(int saleID, int sLIID)
     {
         SalesLineItem sLI = saleContainer.getSale(saleID).getSalesLineItem(sLIID);
@@ -110,10 +146,19 @@ public class SaleCtr {
         setSaleTotalPrice(saleID);
     }
 
+    /**
+     *
+     * @param saleID
+     * @return
+     */
     public ArrayList<SalesLineItem> getSLIList(int saleID) {
         return saleContainer.getSale(saleID).getSLIList();
     }
 
+    /**
+     *
+     * @param saleID
+     */
     public void printContentsSale(int saleID)
     {
 	for(SalesLineItem sLI : saleContainer.getSale(saleID).getSLIList())
@@ -122,17 +167,30 @@ public class SaleCtr {
 	}
     }
 
+    /**
+     *
+     * @param saleID
+     * @param customerID
+     */
     public void addCustomerToSale(int saleID, int customerID)
     {
         Customer c = customerContainer.findCustomer(customerID);
         saleContainer.getSale(saleID).setCustomer(c);
     }
 
+    /**
+     *
+     * @param saleID
+     */
     public void removeCustomerFromSale(int saleID)
     {
         saleContainer.getSale(saleID).setCustomer(null);
     }
 
+    /**
+     *
+     * @param saleID
+     */
     public void cancelSale(int saleID)
     {
         int index = 0;
@@ -146,6 +204,10 @@ public class SaleCtr {
         deleteSale(saleID);
     }
 
+    /**
+     *
+     * @return
+     */
     public double getQuntityDiscount()
     {
         double quntityDiscount = discount.getQuantityDiscount();
@@ -153,11 +215,19 @@ public class SaleCtr {
         return quntityDiscount;
     }
 
+    /**
+     *
+     * @param newDiscount
+     */
     public void setQuntityDiscount(double newDiscount)
     {
         discount.setQuantityDiscount(newDiscount);
     }
 
+    /**
+     *
+     * @return
+     */
     public double getPickupDiscount()
     {
         double pickupDiscount = discount.getPickupDiscount();
@@ -165,6 +235,10 @@ public class SaleCtr {
         return pickupDiscount;
     }
 
+    /**
+     *
+     * @param newDiscount
+     */
     public void setPickupDiscount(double newDiscount)
     {
         discount.setPickupDiscount(newDiscount);

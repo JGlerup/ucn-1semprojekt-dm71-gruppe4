@@ -18,13 +18,19 @@ public class UpdateCustomerUI {
     private InputUI inputUI;
     private int customerID;
 
+    /**
+     *
+     */
     public UpdateCustomerUI()
     {
         customerCtr = new CustomerCtr();
         inputUI = new InputUI();
     }
 
-     public void start()
+    /**
+     *
+     */
+    public void start()
     {
         selectCustomer();
          if(customerID != 0)
@@ -33,7 +39,10 @@ public class UpdateCustomerUI {
         }
     }
 
-      public void updateCustomerMenu()
+    /**
+     *
+     */
+    public void updateCustomerMenu()
     {
         try
         {
@@ -66,6 +75,10 @@ public class UpdateCustomerUI {
     }
 
     
+    /**
+     *
+     * @return
+     */
     public int writeUpdateCustomerMenu()
     {
        Scanner keyboard = new Scanner(System.in);
@@ -102,14 +115,20 @@ public class UpdateCustomerUI {
         return id;
      }
 
-     public void findCustomer()
+    /**
+     *
+     */
+    public void findCustomer()
     {
         int customerID = inputCustomerID();
         customerCtr.getCustomer(customerID);
     }
      
 
-     public void setName()
+    /**
+     *
+     */
+    public void setName()
      {
          int customerID = inputCustomerID();
          String name = inputUI.inputName();
@@ -117,14 +136,20 @@ public class UpdateCustomerUI {
      }
 
 
-          public void setAddress()
+     /**
+      *
+      */
+     public void setAddress()
      {
          int customerID = inputCustomerID();
          String address = inputUI.inputAddress();
          customerCtr.updateAddress(customerID, address);
      }
 
-           public void setPhone()
+          /**
+           *
+           */
+          public void setPhone()
      {
          int customerID = inputCustomerID();
          String phone = inputUI.inputPhone();

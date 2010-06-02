@@ -18,6 +18,13 @@ public class Employee extends Person {
 
 
 
+    /**
+     *
+     * @param name
+     * @param address
+     * @param phone
+     * @param password
+     */
     public Employee(String name, String address, String phone, String password)
     {
         super(name, address, phone);
@@ -25,26 +32,50 @@ public class Employee extends Person {
     }
 
 
+    /**
+     *
+     * @return
+     */
     public int getEmployeeID() {
         return employeeID;
     }
 
+    /**
+     *
+     * @param employeeID
+     */
     public void setEmployeeID(int employeeID) {
         this.employeeID = employeeID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     *
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getTrade() {
         return trade;
     }
 
+    /**
+     *
+     * @param trade
+     */
     public void setTrade(double trade) {
         this.trade = trade;
     }

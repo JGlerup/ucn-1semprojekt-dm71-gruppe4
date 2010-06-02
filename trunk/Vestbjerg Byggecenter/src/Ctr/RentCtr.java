@@ -26,12 +26,23 @@ public class RentCtr {
     private RentItemContainer rentItemContainer;
     private CustomerContainer customerContainer;
 
+    /**
+     *
+     */
     public RentCtr()
     {
         rentContainer = RentContainer.getInstance();
         rentItemContainer = RentItemContainer.getInstance();
     }
 
+    /**
+     *
+     * @param itemID
+     * @param date
+     * @param status
+     * @param customerID
+     * @return
+     */
     public int rentItem(int itemID, String date, String status, int customerID)
     {
         DateFormat dt = new SimpleDateFormat("dd/MM/yyyy");
@@ -48,6 +59,10 @@ public class RentCtr {
 
     }
 
+    /**
+     *
+     * @param id
+     */
     public void deliverItem(int id)
     {
         rentContainer.deliverItem(id);

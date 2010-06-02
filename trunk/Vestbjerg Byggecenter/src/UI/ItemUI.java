@@ -18,6 +18,9 @@ public class ItemUI
     private UpdateItemUI updateItemUI;
     private InputUI inputUI;
 
+    /**
+     *
+     */
     public ItemUI()
     {
         itemCtr = new ItemCtr();
@@ -25,12 +28,18 @@ public class ItemUI
         inputUI = new InputUI();
     }
 
+    /**
+     *
+     */
     public void start()
     {
 
         itemMenu();
     }
 
+    /**
+     *
+     */
     public void itemMenu()
     {
         try
@@ -192,6 +201,9 @@ public class ItemUI
   //       }
  //   }
 
+    /**
+     *
+     */
     public void startUpdateMenuUI()
     {
         updateItemUI.start();

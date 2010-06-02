@@ -16,6 +16,10 @@ public class CustomerContainer {
     private ArrayList<Customer> customerList;
     private static CustomerContainer instance;
 
+    /**
+     *
+     * @return
+     */
     public static CustomerContainer getInstance()
     {
         if (instance == null)
@@ -26,12 +30,20 @@ public class CustomerContainer {
     }
 
 
+    /**
+     *
+     */
     public CustomerContainer()
     {
         customerList= new ArrayList<Customer>();
     }
 
      
+    /**
+     *
+     * @param customerID
+     * @return
+     */
     public Customer findCustomer(int customerID)
     {
         Customer c = null;
@@ -46,6 +58,11 @@ public class CustomerContainer {
     }
 
 
+    /**
+     *
+     * @param customer
+     * @return
+     */
     public int generateID(Customer customer)
     {
         int newID = 1;
@@ -66,6 +83,11 @@ public class CustomerContainer {
     }
 
 
+    /**
+     *
+     * @param customer
+     * @return
+     */
     public int addCustomer(Customer customer)
     {
         int id = generateID(customer);
@@ -73,6 +95,10 @@ public class CustomerContainer {
         return id;
     }
 
+    /**
+     *
+     * @param customerID
+     */
     public void deleteCustomer(int customerID)
     {
         int index = 0;
@@ -90,6 +116,10 @@ public class CustomerContainer {
         customerList.remove(storeIndex);
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Customer> getCustomerList() {
         return customerList;
     }

@@ -15,11 +15,18 @@ public class SaleContainer {
     private static SaleContainer instance;
     private ArrayList<Sale> saleList;
 
+    /**
+     *
+     */
     public SaleContainer()
     {
         saleList = new ArrayList<Sale>();
     }
 
+    /**
+     *
+     * @return
+     */
     public static SaleContainer getInstance()
     {
         if(instance == null)
@@ -29,6 +36,11 @@ public class SaleContainer {
         return instance;
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public int addSale(Sale s)
     {
         int saleID = generateID(s);
@@ -36,11 +48,20 @@ public class SaleContainer {
         return saleID;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Sale> listSales()
     {
         return saleList;
     }
 
+    /**
+     *
+     * @param saleID
+     * @return
+     */
     public Sale getSale(int saleID)
     {
         int index = 0;
@@ -58,6 +79,10 @@ public class SaleContainer {
         return s;
     }
 
+    /**
+     *
+     * @param saleID
+     */
     public void deleteSale(int saleID)
     {
         int index = 0;
@@ -75,6 +100,11 @@ public class SaleContainer {
         saleList.remove(storeIndex);
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public int generateID(Sale s)
     {
         int newID = 1;

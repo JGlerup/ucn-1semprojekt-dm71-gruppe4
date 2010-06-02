@@ -25,6 +25,17 @@ public class Item {
     private boolean containUnits;
     private ArrayList<Unit> unitList;
   
+    /**
+     *
+     * @param itemName
+     * @param itemPrice
+     * @param description
+     * @param maxInStock
+     * @param minInStock
+     * @param itemsInStock
+     * @param brand
+     * @param place
+     */
     public Item(String itemName, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String brand, String place)
     {
         containUnits = false;
@@ -39,6 +50,10 @@ public class Item {
         unitList = new ArrayList<Unit>();
     }
 
+    /**
+     *
+     * @return
+     */
     public Unit getFirstUnit()
     {
         int index = 0;
@@ -58,78 +73,155 @@ public class Item {
     }
 
 
+    /**
+     *
+     * @return
+     */
     public int getItemID() {
         return itemID;
     }
 
+    /**
+     *
+     * @param itemID
+     */
     public void setItemID(int itemID) {
         this.itemID = itemID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getItemName() {
         return itemName;
     }
 
+    /**
+     *
+     * @param itemName
+     */
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
 
+    /**
+     *
+     * @return
+     */
     public double getItemPrice() {
         return itemPrice;
     }
 
+    /**
+     *
+     * @param ItemPrice
+     */
     public void setItemPrice(double ItemPrice) {
         this.itemPrice = ItemPrice;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getBrand() {
         return brand;
     }
 
+    /**
+     *
+     * @param brand
+     */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     *
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getItemsInStock() {
         return itemsInStock;
     }
 
+    /**
+     *
+     * @param itemsInStock
+     */
     public void setItemsInStock(int itemsInStock) {
         this.itemsInStock = itemsInStock;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getMaxInStock() {
         return maxInStock;
     }
 
+    /**
+     *
+     * @param maxInStock
+     */
     public void setMaxInStock(int maxInStock) {
         this.maxInStock = maxInStock;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getMinInStock() {
         return minInStock;
     }
 
+    /**
+     *
+     * @param minInStock
+     */
     public void setMinInStock(int minInStock) {
         this.minInStock = minInStock;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPlace() {
         return place;
     }
 
+    /**
+     *
+     * @param place
+     */
     public void setPlace(String place) {
         this.place = place;
     }
 
+    /**
+     *
+     * @param serialNo
+     * @return
+     */
     public Unit getUnit(int serialNo)
     {
         Unit u = null;
@@ -143,25 +235,45 @@ public class Item {
         return u;
     }
 
+    /**
+     *
+     * @param u
+     */
     public void addUnit(Unit u)
     {
         unitList.add(u);
     }
 
+    /**
+     *
+     * @param u
+     */
     public void addUnitList(ArrayList<Unit> u)
     {
         unitList.addAll(0, u);
     }
 
+    /**
+     *
+     * @param u
+     */
     public void removeUnit(Unit u)
     {
         unitList.remove(u);
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean getContainUnits() {
         return containUnits;
     }
 
+    /**
+     *
+     * @param containUnits
+     */
     public void setContainUnits(boolean containUnits) {
         this.containUnits = containUnits;
     }

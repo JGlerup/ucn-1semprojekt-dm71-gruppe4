@@ -17,17 +17,26 @@ public class UpdateEmployeeUI {
 
     private EmployeeCtr employeeCtr;
 
+    /**
+     *
+     */
     public UpdateEmployeeUI()
     {
         employeeCtr = new EmployeeCtr();
     }
 
-     public void start()
+    /**
+     *
+     */
+    public void start()
     {
         employeeMenu();
     }
 
-    public void employeeMenu()
+     /**
+      *
+      */
+     public void employeeMenu()
     {
         boolean exit = false;
         while (!exit)
@@ -59,7 +68,11 @@ public class UpdateEmployeeUI {
         }//end while
     }
 
-    public int writeUpdateEmployeeMenu()
+     /**
+      *
+      * @return
+      */
+     public int writeUpdateEmployeeMenu()
     {
        Scanner keyboard = new Scanner(System.in);
        System.out.println("\f *** Medarbejder Menu ***");
