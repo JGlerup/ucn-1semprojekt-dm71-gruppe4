@@ -109,7 +109,7 @@ public class EmployeeUI {
         System.out.println("Employee found");
         System.out.println("\n" + employeeCtr.findEmployee(ID));
         System.out.println("Do you want to delete this employee? [Y/N]");
-        Boolean delete = inputUI.inputYesNo();
+        Boolean delete = inputUI.yesOrNo();
         if(delete == true)
         {
             employeeCtr.deleteEmployee(ID);
