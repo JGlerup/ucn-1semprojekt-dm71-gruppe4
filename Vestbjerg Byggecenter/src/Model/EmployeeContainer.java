@@ -7,11 +7,19 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Erik
+ */
 public class EmployeeContainer {
 
     private ArrayList<Employee> employeeList;
     private static EmployeeContainer instance;
 
+    /**
+     *
+     * @return
+     */
     public static EmployeeContainer getInstance()
     {
         if (instance == null)
@@ -22,11 +30,19 @@ public class EmployeeContainer {
     }
 
 
+    /**
+     *
+     */
     public EmployeeContainer()
     {
         employeeList = new ArrayList<Employee>();
     }
 
+    /**
+     *
+     * @param employee
+     * @return
+     */
     public int generateID(Employee employee)
     {
         int newID = 1;
@@ -46,6 +62,11 @@ public class EmployeeContainer {
     }
 
 
+    /**
+     *
+     * @param employee
+     * @return
+     */
     public int addEmployee(Employee employee)
     {
         int employeeID = generateID(employee);
@@ -53,6 +74,10 @@ public class EmployeeContainer {
         return employeeID;
     }
     
+    /**
+     *
+     * @param employeeID
+     */
     public void deleteEmployee(int employeeID)
     {
         int index = 0;
@@ -70,6 +95,11 @@ public class EmployeeContainer {
         employeeList.remove(storeIndex);
     }
 
+    /**
+     *
+     * @param employeeID
+     * @return
+     */
     public Employee findEmployee(int employeeID)
     {
         Employee e = null;
@@ -83,6 +113,11 @@ public class EmployeeContainer {
         return e;
     }
 
+    /**
+     *
+     * @param employeeID
+     * @return
+     */
     public Employee getEmployee(int employeeID)
     {
         int index = 0;
@@ -101,6 +136,15 @@ public class EmployeeContainer {
     }
 
 
+    /**
+     *
+     * @param employeeID
+     * @param password
+     * @param name
+     * @param address
+     * @param phone
+     * @return
+     */
     public boolean updateEmployee(int employeeID, String password, String name, String address, String phone)
     {
         Employee e = findEmployee(employeeID);
@@ -118,6 +162,10 @@ public class EmployeeContainer {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public String listAllEmployees()
     {
         String outputString = " ";
@@ -128,6 +176,10 @@ public class EmployeeContainer {
         return outputString;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Employee> listEmployee()
     {
         return employeeList;

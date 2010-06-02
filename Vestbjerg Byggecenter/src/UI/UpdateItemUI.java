@@ -17,12 +17,18 @@ public class UpdateItemUI {
     private InputUI inputUI;
     private int itemID;
 
+    /**
+     *
+     */
     public UpdateItemUI()
     {
         itemCtr = new ItemCtr();
         inputUI = new InputUI();
     }
 
+    /**
+     *
+     */
     public void start()
     {
         selectItem();
@@ -32,6 +38,9 @@ public class UpdateItemUI {
         }
     }
 
+    /**
+     *
+     */
     public void itemMenu()
     {
         try

@@ -13,15 +13,27 @@ public class Unit {
 
     private int serialNo;
 
+    /**
+     *
+     * @param serialNo
+     */
     public Unit(int serialNo)
     {
         this.serialNo = serialNo;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getSerialNo() {
         return serialNo;
     }
 
+    /**
+     *
+     * @param serialNo
+     */
     public void setSerialNo(int serialNo) {
         this.serialNo = serialNo;
     }

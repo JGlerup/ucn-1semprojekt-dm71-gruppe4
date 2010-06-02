@@ -40,14 +40,15 @@ public class ItemCtr
     
     /**
      *
+     * @param itemName
      * @param itemPrice
      * @param description
      * @param maxInStock
      * @param minInStock
-     * @param inStock
-     * @param type
+     * @param itemsInStock
      * @param brand
      * @param place
+     * @param isYes
      * @return
      */
     public int createItem(String itemName, double itemPrice, String description, int maxInStock, int minInStock, int itemsInStock, String brand, String place, boolean isYes)
@@ -69,6 +70,13 @@ public class ItemCtr
 
     
     
+    /**
+     *
+     * @param minInStock
+     * @param maxInStock
+     * @param itemsInStock
+     * @return
+     */
     public boolean checkSupplyLimit(int minInStock, int maxInStock, int itemsInStock)
     {
         while(minInStock <= itemsInStock && maxInStock >= itemsInStock)
@@ -97,7 +105,12 @@ public class ItemCtr
     }
 
     // Creates new units when new units are ordered to the stock
-    public void assignNewUnits(int itemID, int antal)
+        /**
+         *
+         * @param itemID
+         * @param antal
+         */
+        public void assignNewUnits(int itemID, int antal)
     {
         
         Item i = itemCon.getItem(itemID);
@@ -119,7 +132,12 @@ public class ItemCtr
     }
 
     // Creates units for the item when the item is created.l
-    public void assignStartUnits(int itemID, int antal)
+        /**
+         *
+         * @param itemID
+         * @param antal
+         */
+        public void assignStartUnits(int itemID, int antal)
     {
          
         Item i = itemCon.getItem(itemID);
@@ -140,6 +158,11 @@ public class ItemCtr
         }
     }
         
+    /**
+     *
+     * @param itemID
+     * @param antal
+     */
     public void removeAlotOfUnits(int itemID, int antal)
     {
 
@@ -154,41 +177,76 @@ public class ItemCtr
     }
 
 
+    /**
+     *
+     * @return
+     */
     public int generateSerialNo()
     {
         return serialNo++;
     }
 
+    /**
+     *
+     * @param itemID
+     * @param itemName
+     */
     public void updateItemName(int itemID, String itemName)
     {
         Item i = itemCon.getItem(itemID);
         i.setItemName(itemName);
     }
 
+    /**
+     *
+     * @param itemID
+     * @param itemPrice
+     */
     public void updateItemPrice(int itemID, double itemPrice)
     {
         Item i = itemCon.getItem(itemID);
         i.setItemPrice(itemPrice);
     }
 
+    /**
+     *
+     * @param itemID
+     * @param description
+     */
     public void updateDescription(int itemID, String description)
     {
         Item i = itemCon.getItem(itemID);
         i.setDescription(description);
     }
 
+    /**
+     *
+     * @param itemID
+     * @param maxInStock
+     */
     public void updateMaxInStock(int itemID, int maxInStock)
     {
         Item i = itemCon.getItem(itemID);
         i.setMaxInStock(maxInStock);
     }
 
+    /**
+     *
+     * @param itemID
+     * @param minInStock
+     */
     public void updateMinInStock(int itemID, int minInStock)
     {
         Item i = itemCon.getItem(itemID);
         i.setMinInStock(minInStock);
     }
 
+    /**
+     *
+     * @param itemID
+     * @param newItemsInStock
+     * @param quantity
+     */
     public void updateItemsInStock(int itemID, int newItemsInStock, int quantity)
     {
         Item i = itemCon.getItem(itemID);
@@ -200,18 +258,33 @@ public class ItemCtr
         }
     }
 
+    /**
+     *
+     * @param itemID
+     * @param brand
+     */
     public void updateBrand(int itemID, String brand)
     {
         Item i = itemCon.getItem(itemID);
         i.setBrand(brand);
     }
 
+    /**
+     *
+     * @param itemID
+     * @param place
+     */
     public void updatePlace(int itemID, String place)
     {
         Item i = itemCon.getItem(itemID);
         i.setPlace(place);
     }
 
+    /**
+     *
+     * @param itemID
+     * @return
+     */
     public Unit getFirstUnit(int itemID)
     {
         return itemCon.getItem(itemID).getFirstUnit();

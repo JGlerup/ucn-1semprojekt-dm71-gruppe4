@@ -16,11 +16,19 @@ public class RentableItemCtr {
 
     private RentItemContainer itemContainer;
 
+    /**
+     *
+     */
     public RentableItemCtr()
     {
         itemContainer = RentItemContainer.getInstance();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public RentableItem getItem(int id)
     {
         RentableItem item = itemContainer.getRentableItem(id);
@@ -28,6 +36,11 @@ public class RentableItemCtr {
         return item;
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public int createItem(String name)
     {
         RentableItem item = new RentableItem(name);
@@ -35,6 +48,10 @@ public class RentableItemCtr {
         return itemContainer.addRentableItem(item);
     }
 
+    /**
+     *
+     * @param id
+     */
     public void deleteRentableItem(int id)
     {
         itemContainer.deleteItem(id);

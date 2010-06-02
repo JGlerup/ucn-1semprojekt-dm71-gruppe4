@@ -12,16 +12,25 @@ public class EmployeeUI {
 
     private EmployeeCtr employeeCtr;
 
+    /**
+     *
+     */
     public EmployeeUI()
     {
         employeeCtr = new EmployeeCtr();
     }
 
+    /**
+     *
+     */
     public void start()
     {
         employeeMenu();
     }
 
+    /**
+     *
+     */
     public void employeeMenu()
     {
         boolean exit = false;
@@ -159,6 +168,9 @@ public class EmployeeUI {
         
     }
     
+    /**
+     *
+     */
     public void updateEmployee()
     {
         int ID = inputID();
@@ -171,6 +183,9 @@ public class EmployeeUI {
         pause();
     }
     
+    /**
+     *
+     */
     public void findEmployee()
     {
         Scanner keyboard = new Scanner(System.in);
@@ -182,6 +197,9 @@ public class EmployeeUI {
         pause();
     }
     
+    /**
+     *
+     */
     public void listAllEmployees()
     {
         System.out.println("\n" + employeeCtr.ListAllEmployees());

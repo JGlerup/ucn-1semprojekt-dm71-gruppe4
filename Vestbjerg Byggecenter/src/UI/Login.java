@@ -11,9 +11,19 @@ import java.io.*;
  */
 public class Login
 {
+    /**
+     *
+     */
     public static Scanner reader = new Scanner(System.in);
+    /**
+     *
+     */
     public static ArrayList<User> users = new ArrayList<User>();
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String [] args)
     {
 

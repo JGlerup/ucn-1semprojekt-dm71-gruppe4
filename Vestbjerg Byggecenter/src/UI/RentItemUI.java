@@ -13,17 +13,26 @@ public class RentItemUI
    private RentableItemCtr  rentableItemCtr;
    private InputUI inputUI;
    
+   /**
+    *
+    */
    public RentItemUI()
    {
        rentableItemCtr = new RentableItemCtr();
        inputUI = new InputUI();
    }
    
+   /**
+    *
+    */
    public void start()
    {
        rentableItemMenu();
    }
    
+   /**
+    *
+    */
    public void rentableItemMenu()
    {
         boolean exit = false;
@@ -75,7 +84,10 @@ public class RentItemUI
          rentableItemCtr.deleteRentableItem(id);
        }
        
-        public void pause()
+       /**
+        *
+        */
+       public void pause()
     {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("\nPress return to continue");

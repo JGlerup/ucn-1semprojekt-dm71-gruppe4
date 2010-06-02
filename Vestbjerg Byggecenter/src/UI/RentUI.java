@@ -15,6 +15,9 @@ public class RentUI
    private InputUI inputUI;
    private CustomerCtr customerCtr;
    
+   /**
+    *
+    */
    public RentUI()
    {
        rentCtr = new RentCtr();
@@ -22,12 +25,18 @@ public class RentUI
        customerCtr = new CustomerCtr();
    }
    
+   /**
+    *
+    */
    public void start()
    {
        rentMenu();
    }
    
-    public void rentMenu()
+   /**
+    *
+    */
+   public void rentMenu()
     {
         try
         {

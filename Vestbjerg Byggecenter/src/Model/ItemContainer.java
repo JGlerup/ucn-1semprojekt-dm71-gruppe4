@@ -17,7 +17,11 @@ public class ItemContainer {
     private static ItemContainer instance;
 
 
-     public static ItemContainer getInstance()
+    /**
+     *
+     * @return
+     */
+    public static ItemContainer getInstance()
     {
         if (instance == null)
         {
@@ -27,18 +31,31 @@ public class ItemContainer {
     }
 
 
-    public ItemContainer()
+     /**
+      *
+      */
+     public ItemContainer()
     {
         itemList = new ArrayList<Item>();
     }
 
-    public int addItem(Item item)
+     /**
+      *
+      * @param item
+      * @return
+      */
+     public int addItem(Item item)
     {
         int id = generateID(item);
         itemList.add(item);
         return id;
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     */
     public int generateID(Item item)
     {
         int newID = 1;
@@ -59,6 +76,11 @@ public class ItemContainer {
     }
 
 
+    /**
+     *
+     * @param itemID
+     * @return
+     */
     public Item getItem(int itemID)
     {
         int index = 0;
@@ -76,6 +98,10 @@ public class ItemContainer {
         return i;
     }
 
+    /**
+     *
+     * @param itemID
+     */
     public void deleteItem(int itemID)
     {
         int index = 0;
@@ -93,6 +119,10 @@ public class ItemContainer {
         itemList.remove(storeIndex);
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Item> getItemList() {
         return itemList;
     }

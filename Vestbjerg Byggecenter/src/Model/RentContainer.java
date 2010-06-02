@@ -18,6 +18,10 @@ public class RentContainer
     private static RentContainer instance;
     private ArrayList<Rent> rentContainer;
 
+    /**
+     *
+     * @return
+     */
     public static RentContainer getInstance()
     {
         if (instance == null)
@@ -27,11 +31,19 @@ public class RentContainer
         return instance;
     }
 
+    /**
+     *
+     */
     public RentContainer()
     {
         rentContainer = new ArrayList<Rent>();
     }
 
+    /**
+     *
+     * @param rent
+     * @return
+     */
     public int addRent(Rent rent)
     {
         int id = generateID(rent);
@@ -40,7 +52,11 @@ public class RentContainer
         return id;
     }
 
-     public void deliverItem(int id)
+    /**
+     *
+     * @param id
+     */
+    public void deliverItem(int id)
     {
         for (Rent rent : rentContainer)
         {
@@ -54,6 +70,10 @@ public class RentContainer
         }
      }
      
+     /**
+      *
+      * @param rent
+      */
      public void setRented(Rent rent)
         {
             RentableItem item = rent.getRentableItem();
@@ -65,6 +85,11 @@ public class RentContainer
 
 
 
+     /**
+      *
+      * @param rent
+      * @return
+      */
      public int generateID(Rent rent)
     {
         int newID = 1;
