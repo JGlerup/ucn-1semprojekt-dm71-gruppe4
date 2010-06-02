@@ -5,8 +5,8 @@
 package Model;
 
 /**
- * Klassen repræsenterer et employee-objekt. Informationer om medarbejderen
- * bliver gemt og kan hentes.
+ * Klassen repræsenterer et employee-objekt, som arver fra klassen Person
+ * Informationer om medarbejderen bliver gemt og kan hentes.
  */
 public class Employee extends Person {
 

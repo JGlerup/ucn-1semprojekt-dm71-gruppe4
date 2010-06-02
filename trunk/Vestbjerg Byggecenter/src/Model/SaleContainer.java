@@ -7,9 +7,9 @@ package Model;
 import java.util.ArrayList;
 
 /**
- * Klassen CustomerContainer repræsenterer en container for customer-objekter.
+ * Klassen SaleContainer repræsenterer en container for salgs-objekter.
  * Den fungerer som en datase, hvor det er muligt
- * at gemme, slette og finde kunde
+ * at gemme, slette og finde salg
  */
 public class SaleContainer {
 

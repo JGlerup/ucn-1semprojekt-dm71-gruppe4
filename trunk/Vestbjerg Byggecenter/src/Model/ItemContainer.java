@@ -7,18 +7,19 @@ package Model;
 import java.util.ArrayList;
 
 /**
- *
- * @author Daniel
+ * Klassen ItemContainer repræsenterer en container for item-objekter.
+ * Den fungerer som en datase, hvor det er muligt
+ * at gemme, slette og finde varer.
  */
 public class ItemContainer {
 
     private ArrayList<Item> itemList;
     private static ItemContainer instance;
 
-    /**
-     *
-     * @return
-     */
+    public ItemContainer() {
+        itemList = new ArrayList<Item>();
+    }
+
     public static ItemContainer getInstance() {
         if (instance == null) {
             instance = new ItemContainer();
@@ -26,29 +27,12 @@ public class ItemContainer {
         return instance;
     }
 
-    /**
-     *
-     */
-    public ItemContainer() {
-        itemList = new ArrayList<Item>();
-    }
-
-    /**
-     *
-     * @param item
-     * @return
-     */
     public int addItem(Item item) {
         int id = generateID(item);
         itemList.add(item);
         return id;
     }
 
-    /**
-     *
-     * @param item
-     * @return
-     */
     public int generateID(Item item) {
         int newID = 1;
 
@@ -65,11 +49,6 @@ public class ItemContainer {
         return newID;
     }
 
-    /**
-     *
-     * @param itemID
-     * @return
-     */
     public Item getItem(int itemID) {
         int index = 0;
         Item i = null;
@@ -84,10 +63,6 @@ public class ItemContainer {
         return i;
     }
 
-    /**
-     *
-     * @param itemID
-     */
     public void deleteItem(int itemID) {
         int index = 0;
         int storeIndex = 0;
@@ -102,10 +77,6 @@ public class ItemContainer {
         itemList.remove(storeIndex);
     }
 
-    /**
-     *
-     * @return
-     */
     public ArrayList<Item> getItemList() {
         return itemList;
     }

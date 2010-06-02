@@ -5,8 +5,8 @@
 package Model;
 
 /**
- *
- * @author Daniel
+ * Klassen repræsenterer et person-objekt. Informationer om medarbejderen
+ * bliver gemt og kan hentes.
  */
 public class Person {
 
