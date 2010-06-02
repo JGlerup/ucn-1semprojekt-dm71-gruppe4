@@ -19,7 +19,7 @@ public class ItemUI
     private InputUI inputUI;
 
     /**
-     *
+     *konstruktør til ItemUI
      */
     public ItemUI()
     {
@@ -29,7 +29,7 @@ public class ItemUI
     }
 
     /**
-     *
+     * starter en itemMenu
      */
     public void start()
     {
@@ -38,7 +38,7 @@ public class ItemUI
     }
 
     /**
-     *
+     *Denne metode gør brugeren kan vælge de forskellige menupunkter fra metoden herunder
      */
     public void itemMenu()
     {
@@ -79,6 +79,11 @@ public class ItemUI
         }
     }
 
+    /**
+     * Giver et visuelt billede af menuen
+     * @return
+     */
+
     private int writeItemMenu()
     {
            // creates an object keyboard to read data from the keyboard
@@ -99,6 +104,10 @@ public class ItemUI
     //there is need for more methods to read information about DVDs
     //and methods to display the information
 
+
+    /**
+     * finder et bestemt item baseret på et ID
+     */
     private void getItem()
     {
         int itemID = inputUI.inputID();
@@ -119,6 +128,10 @@ public class ItemUI
         }
         inputUI.pause();
     }
+
+    /**
+     * opretter et nyt item
+     */
     private void createItem()
     {
         
@@ -148,8 +161,12 @@ public class ItemUI
         String place = inputUI.inputPlace();
         int i = itemCtr.createItem(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, place, isYes);
         System.out.println("Varen er oprettet og har fået ID'et: " + i);
-        pause();
+        inputUI.pause();
     }
+
+    /**
+     * sletter et item udfra et ID
+     */
 
     private void deleteItem()
     {
@@ -169,6 +186,10 @@ public class ItemUI
         }
     }
 
+    /**
+     * Laver en liste af Items
+     */
+
     private void listAllItems()
     {
         for(Item i : itemCtr.getItemList())
@@ -178,31 +199,9 @@ public class ItemUI
         inputUI.pause();
     }
 
-    private void pause()
-    {
-       Scanner keyboard = new Scanner(System.in);
-       System.out.println("Tryk retur for at fortsætte");
-       keyboard.nextLine();
-    }
-
-  //  public void assignSerialNo()
-  ///  {
-  //       int unitSerialNo = inputUI.inputSerialNo();
-   //      if(itemCtr.getItem(unitSerialNo) != null)
-   //      {
-   //           int u = itemCtr.assignUnit(unitSerialNo);
-   //           System.out.println("Et eksemplar med serienummeret " + u + " blev oprettet");
-  //            pause();
-   //      }
-  //       else
-   //      {
-   //           System.out.println("ID'et blev ikke fundet");
-    //          pause();
-  //       }
- //   }
-
+   
     /**
-     *
+     *starter update menuen
      */
     public void startUpdateMenuUI()
     {

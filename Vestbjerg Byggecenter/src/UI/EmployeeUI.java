@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class EmployeeUI {
 
     private EmployeeCtr employeeCtr;
+    private InputUI inputUI;
 
     /**
      *
@@ -21,7 +22,7 @@ public class EmployeeUI {
     }
 
     /**
-     *
+     *starter medarbejder menuen
      */
     public void start()
     {
@@ -29,7 +30,7 @@ public class EmployeeUI {
     }
 
     /**
-     *
+     *Denne metode gør brugeren kan vælge de forskellige menupunkter fra metoden herunder
      */
     public void employeeMenu()
     {
@@ -67,6 +68,11 @@ public class EmployeeUI {
         }
     }
 
+    /**
+     * Printer de punkter der kan vælges i ovenstående metode
+     * @return
+     */
+
     private int writeEmployeeMenu()
     {
         Scanner keyboard = new Scanner(System.in);
@@ -83,104 +89,56 @@ public class EmployeeUI {
         return choise;
     }
 
-    private String inputName()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("State employee name: ");
-        String name = keyboard.nextLine();
-        return name;
-    }
-
-    private String inputAddress()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("State employee address: ");
-        String address = keyboard.nextLine();
-        return address;
-    }
-
-    private String inputPhone()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("State employee phone no.: ");
-        String phone = keyboard.next();
-        return phone;
-    }
-
-    private String inputPassword()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Choose a password: ");
-        String password = keyboard.nextLine();
-        return password;
-    }
-
-    private int inputID()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("State employee ID: ");
-        int employeeID = keyboard.nextInt();
-        return employeeID;
-    }
-
-    private boolean inputYesNo()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        String inputYesNo = keyboard.next();
-        if(inputYesNo.equalsIgnoreCase("Y"))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
+    /**
+     * Laver en ny employee
+     */
     private void createEmployee()
     {
-        int employeeID = employeeCtr.createEmployee(inputName(), inputAddress(), inputPhone(), inputPassword());
+        int employeeID = employeeCtr.createEmployee(inputUI.inputName(), inputUI.inputAddress(), inputUI.inputPhone(), inputUI.inputPassword());
         System.out.println("Employee successfully created" + "\n" + "Employee ID is: " + employeeID);
         System.out.print("\nPress Enter to return to menu");
-        pause();
+        inputUI.pause();
     }
-    
+
+    /**
+     * sletter en employee
+     */
     private void deleteEmployee()
     {
-        int ID = inputID();
+        int ID = inputUI.inputID();
         System.out.println("Employee found");
         System.out.println("\n" + employeeCtr.findEmployee(ID));
         System.out.println("Do you want to delete this employee? [Y/N]");
-        Boolean delete = inputYesNo();
+        Boolean delete = inputUI.inputYesNo();
         if(delete == true)
         {
             employeeCtr.deleteEmployee(ID);
             System.out.println("Employee deleted!");
             System.out.print("\nPress Enter to return to menu");
-            pause();
+            inputUI.pause();
         }
         else
         {
             System.out.println("Delete cancelled");
             System.out.print("\nPress Enter to return to menu");
-            pause();
+            inputUI.pause();
         }
         
     }
     
     /**
-     *
+     *opdatere en employee
      */
     public void updateEmployee()
     {
-        int ID = inputID();
+        int ID = inputUI.inputID();
         System.out.println("Employee found");
         System.out.println("\n" + employeeCtr.findEmployee(ID));
         System.out.println("\n State new information");
-        employeeCtr.updateEmployee(inputID(), inputPassword(), inputName(), inputAddress(), inputPhone());
+        employeeCtr.updateEmployee(inputUI.inputID(), inputUI.inputPassword(), inputUI.inputName(), inputUI.inputAddress(), inputUI.inputPhone());
         System.out.println("Employee successfully updated");
         System.out.print("\nPress Enter to return to menu");
-        pause();
+        inputUI.pause();
     }
     
     /**
@@ -194,7 +152,7 @@ public class EmployeeUI {
         String outputString = employeeCtr.findEmployee(employeeID);
         System.out.println("\n" + outputString);
         System.out.print("\nPress Enter to return to menu");
-        pause();
+        inputUI.pause();
     }
     
     /**
@@ -204,14 +162,10 @@ public class EmployeeUI {
     {
         System.out.println("\n" + employeeCtr.ListAllEmployees());
         System.out.print("\nPress Enter to return to menu");
-        pause();
+        inputUI.pause();
     }
 
 
 
-    private void pause()
-    {
-        Scanner keyboard = new Scanner(System.in);
-        String keyPress = keyboard.nextLine();
-    }
+   
 }
