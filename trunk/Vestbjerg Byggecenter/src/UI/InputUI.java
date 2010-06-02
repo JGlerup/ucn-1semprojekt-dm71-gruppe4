@@ -653,4 +653,12 @@ public class InputUI
         String Date = keyboard.next();
         return Date;
     }
+
+    public String inputPassword()
+    {
+        System.out.println("Indtast password: ");
+        String password = keyboard.next();
+        return password;
+    }
+
 }

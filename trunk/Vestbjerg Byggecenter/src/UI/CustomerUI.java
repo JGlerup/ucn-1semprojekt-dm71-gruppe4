@@ -17,7 +17,7 @@ public class CustomerUI {
     private UpdateCustomerUI updateCustomerUI;
     private CustomerCtr customerCtr;
     private InputUI inputUI;
-    private int CustomerID;
+   
 
     /**
      *
@@ -29,14 +29,14 @@ public class CustomerUI {
     }
 
     /**
-     *
+     *Starter menuen
      */
     public void start() {
         customerMenu();
     }
 
     /**
-     *
+     *Denne metode gør brugeren kan vælge de forskellige menupunkter fra metoden herunder
      */
     public void customerMenu() {
         try {
@@ -55,7 +55,7 @@ public class CustomerUI {
                         startUpdateCustomerUI();
                         break;
                     case 4:
-                        int customerID = inputCustomerID();
+                        int customerID = inputUI.inputCustomerID();
                         String type = inputUI.inputType();
                         int regNr = inputUI.inputRegNr();
                         int cardNr = inputUI.inputCardNr();
@@ -79,7 +79,7 @@ public class CustomerUI {
     }
 
     /**
-     *
+     *Giver et visuelt billede af menuen
      * @return
      */
     public int writeCustomerMenu() {   //Userinterface
@@ -98,29 +98,9 @@ public class CustomerUI {
         return choise;
     }
 
-    private int inputCustomerID() {
-        boolean succed = false;
-        int id = 0;
-        while (!succed) {
-            // makes an object keyboard to have input from the console
-            Scanner keyboard = new Scanner(System.in);
-            System.out.println(" Angiv kundeID:  ");
-            try {
-                id = keyboard.nextInt();
-                succed = true;
-            } catch (Exception e) {
-                System.out.println("Fejl. Pr�v igen");
-                String input = keyboard.nextLine();
-            }
-        }//end while
-        return id;
-    }
-
-    private void pause() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("\n Tryk enter for at forts�tte");
-        String pause = keyboard.nextLine();
-    }
+    /**
+     * Sletter en kunde fra systemet
+     */
 
     private void deleteCustomer() {
         int customerID = inputUI.inputID();
@@ -136,7 +116,7 @@ public class CustomerUI {
     }
 
     /**
-     *
+     *Opretter en account og tildeler accounten til en kunde
      * @param customerID
      * @param type
      * @param regNr
@@ -145,11 +125,11 @@ public class CustomerUI {
     public void assignAccount(int customerID, String type, int regNr, int cardNr) {
         customerCtr.giveAccount(customerID, type, regNr, cardNr);
         System.out.println("Kunde med id " + customerID + " har f�et tilf�jet en konto");
-        pause();
+        inputUI.pause();
     }
 
     /**
-     *
+     *Printer en liste over alle kunderne
      */
     public void printListOfCustomer() {
         for (Customer c : customerCtr.getCustomerList()) {
@@ -160,6 +140,10 @@ public class CustomerUI {
         }
         inputUI.pause();
     }
+
+    /**
+     * Finder en kunde efter man indtaster et KundeID
+     */
 
     private void getCustomer() {
         int customerID = inputUI.inputID();
@@ -175,6 +159,9 @@ public class CustomerUI {
 
     }
 
+    /**
+     * Opretter et nyt kundeobjekt
+     */
     private void createCustomer() {
         String name = inputUI.inputName();
         String address = inputUI.inputAddress();
