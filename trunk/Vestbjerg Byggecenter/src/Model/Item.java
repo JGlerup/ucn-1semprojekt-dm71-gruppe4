@@ -8,8 +8,8 @@ package Model;
 import java.util.ArrayList;
 
 /**
- *
- * @author Daniel
+ * Klassen repræsenterer et item-objekt. Informationer om varen
+ * bliver gemt og kan hentes.
  */
 public class Item {
 
@@ -26,7 +26,8 @@ public class Item {
     private ArrayList<Unit> unitList;
   
     /**
-     *
+     * Konstruktør
+     * Initialiserer varen
      * @param itemName
      * @param itemPrice
      * @param description
@@ -51,8 +52,9 @@ public class Item {
     }
 
     /**
-     *
-     * @return
+     * En metode, der søger efter det første unit-objekt i en ArrayList over
+     * unit-objekter
+     * @return Et objekt af klassen Unit
      */
     public Unit getFirstUnit()
     {
@@ -73,26 +75,15 @@ public class Item {
     }
 
 
-    /**
-     *
-     * @return
-     */
     public int getItemID() {
         return itemID;
     }
 
-    /**
-     *
-     * @param itemID
-     */
+
     public void setItemID(int itemID) {
         this.itemID = itemID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getItemName() {
         return itemName;
     }

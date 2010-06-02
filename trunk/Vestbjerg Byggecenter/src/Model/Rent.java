@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
 
 /**
@@ -34,8 +33,8 @@ public class Rent {
     /**
      *
      */
-    public Rent()
-    { }
+    public Rent() {
+    }
 
     /**
      *
@@ -116,9 +115,4 @@ public class Rent {
     public void setStatus(String status) {
         this.status = status;
     }
-
-
-
-
-
 }

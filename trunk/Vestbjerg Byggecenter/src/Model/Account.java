@@ -2,12 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
 
 /**
- *
- * @author Daniel
+ * Klassen repræsenterer et account-objekt. Informationer om kontoen bliver gemt
+ * og kan hentes.
  */
 public class Account {
 
@@ -15,9 +14,9 @@ public class Account {
     private int regNr;
     private int cardNr;
 
-
     /**
-     *
+     * Konstruktør
+     * Initialiserer kontoen
      * @param type
      * @param regNr
      * @param cardNr
@@ -28,54 +27,27 @@ public class Account {
         this.cardNr = cardNr;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getCardNr() {
         return cardNr;
     }
 
-    /**
-     *
-     * @param cardNr
-     */
     public void setCardNr(int cardNr) {
         this.cardNr = cardNr;
     }
 
-    /**
-     *
-     * @return
-     */
     public int getRegNr() {
         return regNr;
     }
 
-    /**
-     *
-     * @param regNr
-     */
     public void setRegNr(int regNr) {
         this.regNr = regNr;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getType() {
         return type;
     }
 
-    /**
-     *
-     * @param type
-     */
     public void setType(String type) {
         this.type = type;
     }
-
-
-
 }

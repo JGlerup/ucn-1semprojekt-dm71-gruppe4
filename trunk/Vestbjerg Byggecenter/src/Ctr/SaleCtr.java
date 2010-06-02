@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Ctr;
 
 import Model.Customer;
@@ -19,10 +18,10 @@ import Model.Unit;
 import java.util.ArrayList;
 
 /**
- *
- * @author Daniel
+ * Controller-klassen for Sale
  */
 public class SaleCtr {
+
     private SaleContainer saleContainer;
     private Sale sale;
     private EmployeeContainer employeeContainer;
@@ -30,13 +29,12 @@ public class SaleCtr {
     private CustomerContainer customerContainer;
     private Discount discount;
 
-
-
     /**
-     *
+     * Konstruktør
+     * Initialiserer felterne saleContainer, itemContainer, employeeContainer,
+     * og customerContainer
      */
-    public SaleCtr()
-    {
+    public SaleCtr() {
         saleContainer = SaleContainer.getInstance();
         itemContainer = ItemContainer.getInstance();
         employeeContainer = EmployeeContainer.getInstance();
@@ -44,16 +42,15 @@ public class SaleCtr {
     }
 
     /**
-     *
+     * En metode, der laver et objekt af klassen Salg
      * @param employeeID
      * @param itemID
      * @param saleDate
      * @param itemQuantity
      * @param itemsInStock
-     * @return
+     * @return Et salgs-ID
      */
-    public int createSale(int employeeID, int itemID, String saleDate, int itemQuantity, int itemsInStock)
-    {
+    public int createSale(int employeeID, int itemID, String saleDate, int itemQuantity, int itemsInStock) {
         Employee e = employeeContainer.findEmployee(employeeID);
         Sale s = new Sale(saleDate, e);
         Discount d = new Discount();
@@ -64,47 +61,43 @@ public class SaleCtr {
     }
 
     /**
-     *
-     * @param saleID
+     * En metode, der beregner den totale pris for et salg
+     * ved at gennemgå en ArrayList af SalesLineItem-objekter
+     * @param saleID Søgeværdi
      */
-    public void setSaleTotalPrice(int saleID)
-    {
+    public void setSaleTotalPrice(int saleID) {
         double totalPrice = 0;
-        for(SalesLineItem sLI : saleContainer.getSale(saleID).getSLIList())
-        {
-            totalPrice =+ sLI.getTotalPrice();
+        for (SalesLineItem sLI : saleContainer.getSale(saleID).getSLIList()) {
+            totalPrice = +sLI.getTotalPrice();
         }
         saleContainer.getSale(saleID).setPrice(totalPrice);
     }
 
-
     /**
-     *
-     * @param saleID
-     * @return
+     * En metode, der kalder getSale. Den finder et salgs-objekt
+     * @param saleID Søgeværdi
+     * @return Et objekt af klassen Salg
      */
-    public Sale getSale(int saleID)
-    {
+    public Sale getSale(int saleID) {
         return saleContainer.getSale(saleID);
     }
 
     /**
-     *
-     * @param saleID
+     * En metode, der kalder deleteSale. Den sletter et salgs-objekt
+     * @param saleID Søgeværdi
      */
-    public void deleteSale(int saleID)
-    {
+    public void deleteSale(int saleID) {
         saleContainer.deleteSale(saleID);
     }
 
     /**
-     *
-     * @param saleID
-     * @param itemID
-     * @param itemQuantity
+     * En metode, der tilføjer et objekt af klassen SalesLineItem til et objekt
+     * af klassen Salg
+     * @param saleID Søgeværdi
+     * @param itemID Søgeværdi
+     * @param itemQuantity Mængden af eksemplarer
      */
-    public void addSalesLineItem(int saleID, int itemID, int itemQuantity)
-    {
+    public void addSalesLineItem(int saleID, int itemID, int itemQuantity) {
         Item i = itemContainer.getItem(itemID);
         double saleTotalPrice = i.getItemPrice() * itemQuantity;
         int currentINS = i.getItemsInStock();
@@ -112,11 +105,9 @@ public class SaleCtr {
         saleContainer.getSale(saleID).addSalesLineItem(sli);
         i.setItemsInStock(currentINS - itemQuantity);
         setSaleTotalPrice(saleID);
-        if(i.getContainUnits() == true)
-        {
+        if (i.getContainUnits() == true) {
             int index = 0;
-            while(itemQuantity > index)
-            {
+            while (itemQuantity > index) {
                 Unit u = i.getFirstUnit();
                 sli.addUnit(u);
                 i.removeUnit(u);
@@ -126,19 +117,18 @@ public class SaleCtr {
     }
 
     /**
-     *
-     * @param saleID
-     * @param sLIID
+     * En metode, der fjerner et objekt af klassen SalesLineItem, samt opdaterer
+     * lagerbeholdningen for et objekt klassen Item
+     * @param saleID Søgeværdi
+     * @param sLIID Søgeværdi
      */
-    public void removeSalesLineItem(int saleID, int sLIID)
-    {
+    public void removeSalesLineItem(int saleID, int sLIID) {
         SalesLineItem sLI = saleContainer.getSale(saleID).getSalesLineItem(sLIID);
         Item i = sLI.getItem();
         int itemQuantity = sLI.getQuantity();
         int currentINS = i.getItemsInStock();
         i.setItemsInStock(currentINS + itemQuantity);
-        if(i.getContainUnits() == true)
-        {
+        if (i.getContainUnits() == true) {
             ArrayList<Unit> unitList = sLI.getUnitList();
             i.addUnitList(unitList);
         }
@@ -147,100 +137,75 @@ public class SaleCtr {
     }
 
     /**
-     *
-     * @param saleID
-     * @return
+     * @param saleID Søgeværdi
+     * @return En ArrayList over salesLineItem-objekter
      */
     public ArrayList<SalesLineItem> getSLIList(int saleID) {
         return saleContainer.getSale(saleID).getSLIList();
     }
 
     /**
-     *
-     * @param saleID
+     * En metode, der tilføjer et kunde-objekt til et salgs-objekt
+     * @param saleID Søgeværdi
+     * @param customerID Søgeværdi
      */
-    public void printContentsSale(int saleID)
-    {
-	for(SalesLineItem sLI : saleContainer.getSale(saleID).getSLIList())
-	{
-            System.out.println("ID: " + sLI.getSLIID() + " Varenavn: " + sLI.getItem().getItemName() + " Mængde: " + sLI.getQuantity());
-	}
-    }
-
-    /**
-     *
-     * @param saleID
-     * @param customerID
-     */
-    public void addCustomerToSale(int saleID, int customerID)
-    {
+    public void addCustomerToSale(int saleID, int customerID) {
         Customer c = customerContainer.findCustomer(customerID);
         saleContainer.getSale(saleID).setCustomer(c);
     }
 
     /**
-     *
-     * @param saleID
+     * En metode, der fjerner et kunde-objekt fra et salgs-objekt
+     * @param saleID Søgeværdi
      */
-    public void removeCustomerFromSale(int saleID)
-    {
+    public void removeCustomerFromSale(int saleID) {
         saleContainer.getSale(saleID).setCustomer(null);
     }
 
     /**
-     *
-     * @param saleID
+     * En metode, der annullerer salget
+     * @param saleID Søgeværdi
      */
-    public void cancelSale(int saleID)
-    {
+    public void cancelSale(int saleID) {
         int index = 0;
         ArrayList<SalesLineItem> sLIList = getSLIList(saleID);
-        while(sLIList.size() > index)
-	{
+        while (sLIList.size() > index) {
             int sLID = sLIList.get(index).getSLIID();
             removeSalesLineItem(saleID, sLID);
             index++;
-	}
+        }
         deleteSale(saleID);
     }
 
     /**
-     *
-     * @return
+     * @return Mængderabat
      */
-    public double getQuntityDiscount()
-    {
+    public double getQuntityDiscount() {
         double quntityDiscount = discount.getQuantityDiscount();
 
         return quntityDiscount;
     }
 
     /**
-     *
      * @param newDiscount
      */
-    public void setQuntityDiscount(double newDiscount)
-    {
+    public void setQuntityDiscount(double newDiscount) {
         discount.setQuantityDiscount(newDiscount);
     }
 
     /**
-     *
-     * @return
+     * @return Afhetningsrabat
      */
-    public double getPickupDiscount()
-    {
+    public double getPickupDiscount() {
         double pickupDiscount = discount.getPickupDiscount();
 
         return pickupDiscount;
     }
 
     /**
-     *
      * @param newDiscount
      */
-    public void setPickupDiscount(double newDiscount)
-    {
+    public void setPickupDiscount(double newDiscount) {
         discount.setPickupDiscount(newDiscount);
     }
 }

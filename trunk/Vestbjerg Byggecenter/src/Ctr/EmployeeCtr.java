@@ -8,15 +8,15 @@ import Model.Employee;
 import Model.EmployeeContainer;
 
 /**
- *
- * @author KL-DELL
+ * Controller-klassen for Employee
  */
 public class EmployeeCtr {
    
     private EmployeeContainer employeeContainer;
 
     /**
-     *
+     * Konstruktør
+     * Initialiserer feltet employeeContainer
      */
     public EmployeeCtr()
 {
@@ -26,12 +26,12 @@ public class EmployeeCtr {
 
 
     /**
-     *
+     * En metode, der laver et objekt af klassen Employee
      * @param name
      * @param address
      * @param phone
      * @param password
-     * @return
+     * @return Et medarbejder-ID
      */
     public int createEmployee(String name, String address, String phone, String password)
     {
@@ -40,7 +40,7 @@ public class EmployeeCtr {
     }
 
     /**
-     *
+     * En metode, der kalder metoden deleteEmployee
      * @param employeeID
      */
     public void deleteEmployee(int employeeID)
@@ -49,9 +49,10 @@ public class EmployeeCtr {
     }
 
     /**
-     *
+     * En metode, der kalder metoden getEmployee. Den søger efter et objekt af
+     * klassen Employee.
      * @param employeeID
-     * @return
+     * @return Et objekt af klassen Employee
      */
     public Employee getEmployee(int employeeID)
     {
@@ -84,35 +85,41 @@ public class EmployeeCtr {
     }
 
     /**
-     *
-     * @return
+     * @return En ArrayList over objekter af klassen Employee
      */
     public String ListAllEmployees()
     {
         return employeeContainer.listAllEmployees();
     }
 
+    /**
+     * En metode, der opdaterer medarbejderens navn
+     * @param itemID
+     * @param itemName
+     */
     // public void updateName(int employeeID, String name)
    // {
    //     Employee c = findEmployee(employeeID);
    //     c.setName(name);
    // }
-
+    /**
+     * En metode, der opdaterer medarbejderens adresse
+     * @param itemID
+     * @param itemName
+     */
   //  public void updateAddress(int employeeID, String address)
   //  {
  //       Employee e = getEmployee(employeeID);
   //      e.setAddress(address);
   //  }
-
-  //  public void updateAddress(int employeeID, int phone)
+    /**
+     * En metode, der opdaterer medarbejderens telefonnummer
+     * @param itemID
+     * @param itemName
+     */
+  //  public void updatePhone(int employeeID, int phone)
    // {
   //      Employee c = getEmployee(employeeID);
   //      c.setPhone(phone);
-  //  }
-
-//    public void updatePassword(int employeeID, String password)
- //   {
- //       Employee c = getEmployee(employeeID);
-  //      c.setPassword(password);
   //  }
 }
