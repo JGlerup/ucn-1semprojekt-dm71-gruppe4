@@ -170,4 +170,8 @@ public class Item {
     public void setContainUnits(boolean containUnits) {
         this.containUnits = containUnits;
     }
+
+    public ArrayList<Unit> getUnitList() {
+        return unitList;
+    }
 }

@@ -105,7 +105,7 @@ public class ItemCtr {
         int number = antal;
         int newINS = antal;
 
-        i.setItemsInStock(newINS + iNS);
+//        i.setItemsInStock(newINS + iNS);
 
         while (number > 0) {
             int unitSerialNo = generateSerialNo();
