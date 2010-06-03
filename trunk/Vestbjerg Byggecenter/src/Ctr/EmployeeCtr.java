@@ -67,7 +67,7 @@ public class EmployeeCtr {
     public String findEmployee(int employeeID)
     {
         Employee e = employeeContainer.findEmployee(employeeID);
-        String outputString = "ID: " + e.getEmployeeID() + "\n" + "Name: " + e.getName() + "\n" + "Address: " + e.getAddress();
+        String outputString = "ID: " + e.getEmployeeID() + "\n" + "Name: " + e.getName() + "\n" + "Address: " + e.getAddress() + "\n" + "Trade: " + e.getTrade();
         return outputString;
     }
 
