@@ -97,7 +97,6 @@ public class EmployeeUI {
     {
         int employeeID = employeeCtr.createEmployee(inputUI.inputName(), inputUI.inputAddress(), inputUI.inputPhone());
         System.out.println("Employee successfully created" + "\n" + "Employee ID is: " + employeeID);
-        System.out.print("\nPress Enter to return to menu");
         inputUI.pause();
     }
 

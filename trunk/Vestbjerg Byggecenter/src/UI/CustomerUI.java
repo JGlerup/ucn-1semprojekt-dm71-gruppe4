@@ -156,7 +156,7 @@ public class CustomerUI {
         } else {
             System.out.println("ID'et " + customerID + " blev ikke fundet");
         }
-
+        inputUI.pause();
     }
 
     /**
@@ -168,6 +168,7 @@ public class CustomerUI {
         String phone = inputUI.inputPhone();
         int id = customerCtr.createCustomer(name, address, phone);
         System.out.println("\nNy kunde oprettet med id: " + id);
+        inputUI.pause();
     }
 
     // Starter UpdateCUstomerUI klassen
