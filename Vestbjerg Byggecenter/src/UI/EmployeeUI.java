@@ -108,19 +108,16 @@ public class EmployeeUI {
         int ID = inputUI.inputID();
         System.out.println("Employee found");
         System.out.println("\n" + employeeCtr.findEmployee(ID));
-        System.out.println("Do you want to delete this employee? [Y/N]");
         Boolean delete = inputUI.yesOrNo();
         if(delete == true)
         {
             employeeCtr.deleteEmployee(ID);
             System.out.println("Employee deleted!");
-            System.out.print("\nPress Enter to return to menu");
             inputUI.pause();
         }
         else
         {
             System.out.println("Delete cancelled");
-            System.out.print("\nPress Enter to return to menu");
             inputUI.pause();
         }
         
@@ -137,7 +134,6 @@ public class EmployeeUI {
         System.out.println("\n State new information");
         employeeCtr.updateEmployee(inputUI.inputID(), inputUI.inputName(), inputUI.inputAddress(), inputUI.inputPhone());
         System.out.println("Employee successfully updated");
-        System.out.print("\nPress Enter to return to menu");
         inputUI.pause();
     }
     
@@ -151,7 +147,6 @@ public class EmployeeUI {
         int employeeID = keyboard.nextInt();
         String outputString = employeeCtr.findEmployee(employeeID);
         System.out.println("\n" + outputString);
-        System.out.print("\nPress Enter to return to menu");
         inputUI.pause();
     }
     
@@ -161,7 +156,6 @@ public class EmployeeUI {
     public void listAllEmployees()
     {
         System.out.println("\n" + employeeCtr.ListAllEmployees());
-        System.out.print("\nPress Enter to return to menu");
         inputUI.pause();
     }
 
