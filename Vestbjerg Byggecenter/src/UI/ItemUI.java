@@ -10,7 +10,6 @@ import Model.Item;
 import java.util.Scanner;
 /**
  *
- * @author Erik
  */
 public class ItemUI
 {
@@ -194,7 +193,10 @@ public class ItemUI
     {
         for(Item i : itemCtr.getItemList())
 	{
-            System.out.println("Vare-ID: " + i.getItemID() + " Varenavn: " + i.getItemName() + " Pris: " + i.getItemPrice() + " Brand: " + i.getBrand() + " Lokation: " + i.getPlace());
+            System.out.println("Vare-ID: " + i.getItemID() + " Varenavn: " +
+                    i.getItemName() + " Pris: " + i.getItemPrice() + 
+                    " Antal: " + i.getItemsInStock() + " Brand: " +
+                    i.getBrand() + " Lokation: " + i.getPlace());
 	}
         inputUI.pause();
     }

@@ -9,7 +9,6 @@ import Ctr.ItemCtr;
 import java.util.Scanner;
 /**
  *
- * @author Erik
  */
 public class UpdateItemUI {
 

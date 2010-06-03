@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 /**
  *
- * @author KL-DELL
  */
 
 public class EmployeeUI {

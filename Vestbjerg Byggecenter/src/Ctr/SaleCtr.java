@@ -68,7 +68,7 @@ public class SaleCtr {
     public void setSaleTotalPrice(int saleID) {
         double totalPrice = 0;
         for (SalesLineItem sLI : saleContainer.getSale(saleID).getSLIList()) {
-            totalPrice = +sLI.getTotalPrice();
+            totalPrice = totalPrice += sLI.getTotalPrice();
         }
         saleContainer.getSale(saleID).setPrice(totalPrice);
     }
