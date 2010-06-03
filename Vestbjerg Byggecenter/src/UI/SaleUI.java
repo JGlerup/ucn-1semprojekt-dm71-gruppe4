@@ -267,12 +267,19 @@ public class SaleUI {
      */
     public void removeCustomerFromSale() {
         boolean yesOrNo = inputUI.yesOrNo();
-        int customerID = saleCtr.getSale(saleID).getCustomer().getCustomerID();
-        if (yesOrNo == true) {
+        if (saleCtr.getSale(saleID).getCustomer() != null && yesOrNo == true) {
+            int customerID = saleCtr.getSale(saleID).getCustomer().getCustomerID();
             saleCtr.removeCustomerFromSale(saleID);
             System.out.println("En kunde med ID'et " + customerID + " er ikke længere tilknyttet til salget");
+            inputUI.pause();
+        } else {
+            if(saleCtr.getSale(saleID).getCustomer() == null && yesOrNo == true)
+            {
+            System.out.println("Der er ikke tilknyttet en kunde til salget");
+            inputUI.pause();
+            }
         }
-        inputUI.pause();
+        
     }
 
     /**

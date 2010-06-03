@@ -73,7 +73,7 @@ public class RentUI {
     }
 
     private void rentItem() {
-        int customerID = inputUI.inputID();
+        int customerID = inputUI.inputCustomerID();
         if (customerCtr.getCustomer(customerID) != null) {
             String date = inputUI.inputDate();
             String status = inputUI.inputStatus();

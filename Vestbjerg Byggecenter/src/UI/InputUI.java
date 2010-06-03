@@ -43,6 +43,7 @@ public class InputUI
            try
            {
              itemID = keyboard.nextInt();
+             keyboard.nextLine();
              if(itemID < 1)
              {
                  throw new IllegalArgumentException("x < 1");
@@ -79,6 +80,7 @@ public class InputUI
            try
            {
              itemID = keyboard.nextInt();
+             keyboard.nextLine();
              if(itemID < 1)
              {
                  throw new IllegalArgumentException("x < 1");
@@ -115,6 +117,7 @@ public class InputUI
            try
            {
              itemID = keyboard.nextInt();
+             keyboard.nextLine();
              if(itemID < 1)
              {
                  throw new IllegalArgumentException("x < 1");
@@ -135,11 +138,6 @@ public class InputUI
 
         return itemID;
     }
-    /***************************************
-     * Start - inputUI for item
-     **************************************
-     * @return
-     */
 
 
     public int inputItemQuantity()
@@ -152,6 +150,7 @@ public class InputUI
             {
                 System.out.println("Indtast antal varer: ");
                 quantity = keyboard.nextInt();
+                keyboard.nextLine();
                 if(quantity < 0)
                 {
                     throw new IllegalArgumentException("x < 0");
@@ -186,6 +185,7 @@ public class InputUI
             {
                 System.out.println("Indtast antal varer, som skal tilføjes: ");
                 quantity = keyboard.nextInt();
+                keyboard.nextLine();
                 if(quantity < 0)
                 {
                     throw new IllegalArgumentException("x < 0");
@@ -223,6 +223,7 @@ public class InputUI
            try
            {
              itemID = keyboard.nextInt();
+             keyboard.nextLine();
              if(itemID < 1)
              {
                  throw new IllegalArgumentException("x < 1");
@@ -251,7 +252,7 @@ public class InputUI
     public String inputItemName()
     {
         System.out.println("Indtast navn: ");
-        String itemName = keyboard.next();
+        String itemName = keyboard.nextLine();
         return itemName;
     }
 
@@ -264,6 +265,7 @@ public class InputUI
         // creates an object keyboard to read data from the keyboard;
         System.out.println("Indtast serienummer: ");
         int serialNo = keyboard.nextInt();
+        keyboard.nextLine();
         return serialNo;
     }
 
@@ -287,7 +289,7 @@ public class InputUI
     {
         // creates an object keyboard to read data from the keyboard
         System.out.println("Indtast beskrivelse:  ");
-        String description = keyboard.next();
+        String description = keyboard.nextLine();
         return description;
     }
 
@@ -305,6 +307,7 @@ public class InputUI
             {
                 System.out.println("Angiv varepris:  ");
                 itemPrice = keyboard.nextDouble();
+                keyboard.nextLine();
                 if(itemPrice <= 0)
                 {
                     throw new IllegalArgumentException("x <= 0");
@@ -340,6 +343,7 @@ public class InputUI
             {
                 System.out.println("Indtast maksimumsbeholdning:  ");
                 maxInStock = keyboard.nextInt();
+                keyboard.nextLine();
                 if(maxInStock < 1)
                 {
                     throw new IllegalArgumentException("x < 1");
@@ -375,6 +379,7 @@ public class InputUI
             {
                 System.out.println("Indtast minimumsbeholdning:  ");
                 minInStock = keyboard.nextInt();
+                keyboard.nextLine();
                 if(minInStock < 0)
                 {
                     throw new IllegalArgumentException("x < 0");
@@ -411,6 +416,7 @@ public class InputUI
             {
                 System.out.println("Indtast antal: ");
                 itemsInStock = keyboard.nextInt();
+                keyboard.nextLine();
                 if(itemsInStock < 0)
                 {
                     throw new IllegalArgumentException("x < 0");
@@ -439,7 +445,7 @@ public class InputUI
     {
         // creates an object keyboard to read data from the keyboard
         System.out.println("Indtast type: ");
-        String type = keyboard.next();
+        String type = keyboard.nextLine();
         return type;
     }
 
@@ -451,7 +457,7 @@ public class InputUI
     {
         // creates an object keyboard to read data from the keyboard
         System.out.println("Indtast brand: ");
-        String brand = keyboard.next();
+        String brand = keyboard.nextLine();
         return brand;
     }
 
@@ -463,19 +469,16 @@ public class InputUI
     {
         // creates an object keyboard to read data from the keyboard
         System.out.println("Indtast lokation: ");
-        String place = keyboard.next();
+        String place = keyboard.nextLine();
         return place;
     }
 
-    /***************************************
-     * End - inputUI for item
-     ***************************************/
 
     public void pause()
     {
        System.out.println("Tryk retur for at fortsætte");
-       keyboard.nextLine(); //Springes over af en eller anden grund
-       keyboard.nextLine(); //Tilføjes, således at det er muligt at reagere
+       keyboard.nextLine();
+//       keyboard.nextLine(); //Tilføjet, da den forrige nogle gange springes over
     }
 
     /**
@@ -489,7 +492,7 @@ public class InputUI
         while(!succeed)
         {
             System.out.println("Er du sikker? (y/n)");
-            String input = keyboard.next();
+            String input = keyboard.nextLine();
             if(input.equals("y"))
             {
                 isYes = true;
@@ -516,7 +519,7 @@ public class InputUI
         while(!succeed)
         {
             System.out.println("Er det med serienummer? (y/n)");
-            String input = keyboard.next();
+            String input = keyboard.nextLine();
             if(input.equals("y"))
             {
                 isYes = true;
@@ -533,11 +536,6 @@ public class InputUI
     }
 
 
-     /***************************************
-     * Start - inputUI for Customer
-      **************************************
-      * @return
-      */
 
     public String inputName()
     {
@@ -549,7 +547,7 @@ public class InputUI
              {
 
                 System.out.println(" Indtast Name:  ");
-                name = keyboard.next();
+                name = keyboard.nextLine();
 
                 if(name.matches("[^a-zA-Z_]+"))
                 {
@@ -579,7 +577,7 @@ public class InputUI
     {
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast Address:  ");
-         String address = keyboard.next();
+         String address = keyboard.nextLine();
          return address;
     }
 
@@ -591,7 +589,7 @@ public class InputUI
     {
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast telefon nummer: ");
-         String phone = keyboard.next();
+         String phone = keyboard.nextLine();
          return phone;
     }
 
@@ -605,6 +603,7 @@ public class InputUI
          // makes an object keyboard to have input from the screen
          System.out.println(" Indtast reg nummeret: ");
          int regNr = keyboard.nextInt();
+         keyboard.nextLine();
          return regNr;
     }
 
@@ -618,6 +617,7 @@ public class InputUI
          // makes an object keyboard to have input from the screen
          System.out.println(" indtast kortnummer: ");
          int cardNr = keyboard.nextInt();
+         keyboard.nextLine();
          return cardNr;
     }
 
@@ -627,8 +627,8 @@ public class InputUI
       */
      public String inputSaleDate()
     {
-        System.out.println(" Indtast dato: ");
-        String saleDate = keyboard.next();
+        System.out.println("Indtast dato: ");
+        String saleDate = keyboard.nextLine();
         return saleDate;
     }
 
@@ -639,7 +639,7 @@ public class InputUI
     public String inputDate()
     {
         System.out.println(" Indtast dato: ");
-        String Date = keyboard.next();
+        String Date = keyboard.nextLine();
         return Date;
     }
 
@@ -650,15 +650,7 @@ public class InputUI
     public String inputStatus()
     {
         System.out.println(" Indtast Status: ");
-        String Date = keyboard.next();
+        String Date = keyboard.nextLine();
         return Date;
     }
-
-    public String inputPassword()
-    {
-        System.out.println("Indtast password: ");
-        String password = keyboard.next();
-        return password;
-    }
-
 }
