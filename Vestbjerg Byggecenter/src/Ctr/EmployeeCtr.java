@@ -33,9 +33,9 @@ public class EmployeeCtr {
      * @param password
      * @return Et medarbejder-ID
      */
-    public int createEmployee(String name, String address, String phone, String password)
+    public int createEmployee(String name, String address, String phone)
     {
-        Employee e = new Employee(name, address, phone, password);
+        Employee e = new Employee(name, address, phone);
         return employeeContainer.addEmployee(e);
     }
 
@@ -79,9 +79,9 @@ public class EmployeeCtr {
      * @param address
      * @param phone
      */
-    public void updateEmployee(int employeeID, String password, String name, String address, String phone)
+    public void updateEmployee(int employeeID, String name, String address, String phone)
     {
-        employeeContainer.updateEmployee(employeeID, password, name, address, phone);
+        employeeContainer.updateEmployee(employeeID, name, address, phone);
     }
 
     /**

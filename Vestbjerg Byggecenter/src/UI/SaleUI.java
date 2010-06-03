@@ -136,7 +136,7 @@ public class SaleUI {
 //                {
 //                    itemCtr.removeAlotOfUnits(itemID, saleQuantity);
 //                }
-                saleID = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity, itemsInStock);
+                saleID = saleCtr.createSale(employeeID, itemID, saleDate, saleQuantity);
                 newSaleMenu();
                 inputUI.pause();
             }
