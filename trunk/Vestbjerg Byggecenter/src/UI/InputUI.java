@@ -6,15 +6,8 @@
 package UI;
 
 import java.util.Scanner;
-/**
- *
- * @author Erik M. Gravesen
- */
 import java.util.InputMismatchException;
-/**
- *
- * @author Erik
- */
+
 public class InputUI
 {
     private Scanner keyboard;

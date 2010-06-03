@@ -8,7 +8,6 @@ package UI;
 import java.util.Scanner;
 /**
  *
- * @author Daniel
  */
 public class MainMenuUI 
 {

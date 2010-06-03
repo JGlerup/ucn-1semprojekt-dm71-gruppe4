@@ -6,7 +6,6 @@ import Ctr.RentableItemCtr;
 /**
  * Write a description of class RentUI here.
  * 
- * @author (Daniel)
  */
 public class RentItemUI {
 

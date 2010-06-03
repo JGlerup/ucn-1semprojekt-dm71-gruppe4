@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 /**
  *
- * @author Daniel
  */
 public class UpdateEmployeeUI {
 
