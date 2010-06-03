@@ -50,7 +50,7 @@ public class SaleCtr {
      * @param itemsInStock
      * @return Et salgs-ID
      */
-    public int createSale(int employeeID, int itemID, String saleDate, int itemQuantity, int itemsInStock) {
+    public int createSale(int employeeID, int itemID, String saleDate, int itemQuantity) {
         Employee e = employeeContainer.findEmployee(employeeID);
         Sale s = new Sale(saleDate, e);
         Discount d = new Discount();

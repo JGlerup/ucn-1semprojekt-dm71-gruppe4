@@ -11,7 +11,6 @@ package Model;
 public class Employee extends Person {
 
     private int employeeID;
-    private String password;
     private double trade;
 
     /**
@@ -22,9 +21,8 @@ public class Employee extends Person {
      * @param phone
      * @param password
      */
-    public Employee(String name, String address, String phone, String password) {
+    public Employee(String name, String address, String phone) {
         super(name, address, phone);
-        this.password = password;
     }
 
     public int getEmployeeID() {
@@ -33,14 +31,6 @@ public class Employee extends Person {
 
     public void setEmployeeID(int employeeID) {
         this.employeeID = employeeID;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public double getTrade() {

@@ -94,7 +94,7 @@ public class EmployeeUI {
      */
     private void createEmployee()
     {
-        int employeeID = employeeCtr.createEmployee(inputUI.inputName(), inputUI.inputAddress(), inputUI.inputPhone(), inputUI.inputPassword());
+        int employeeID = employeeCtr.createEmployee(inputUI.inputName(), inputUI.inputAddress(), inputUI.inputPhone());
         System.out.println("Employee successfully created" + "\n" + "Employee ID is: " + employeeID);
         System.out.print("\nPress Enter to return to menu");
         inputUI.pause();
@@ -135,7 +135,7 @@ public class EmployeeUI {
         System.out.println("Employee found");
         System.out.println("\n" + employeeCtr.findEmployee(ID));
         System.out.println("\n State new information");
-        employeeCtr.updateEmployee(inputUI.inputID(), inputUI.inputPassword(), inputUI.inputName(), inputUI.inputAddress(), inputUI.inputPhone());
+        employeeCtr.updateEmployee(inputUI.inputID(), inputUI.inputName(), inputUI.inputAddress(), inputUI.inputPhone());
         System.out.println("Employee successfully updated");
         System.out.print("\nPress Enter to return to menu");
         inputUI.pause();
