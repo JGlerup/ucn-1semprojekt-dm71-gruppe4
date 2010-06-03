@@ -19,6 +19,7 @@ public class EmployeeUI {
     public EmployeeUI()
     {
         employeeCtr = new EmployeeCtr();
+        inputUI = new InputUI();
     }
 
     /**
