@@ -28,7 +28,7 @@ public class TableItem extends DefaultTableModel {
 
     @Override
     public int getColumnCount() {
-        return 8;
+        return 9;
     }
 
     @Override
@@ -48,24 +48,27 @@ public class TableItem extends DefaultTableModel {
                 columnName = "Vare-ID";
                 break;
             case 1:
-                columnName = "Pris";
+                columnName = "Varenavn";
                 break;
             case 2:
-                columnName = "Beskrivelse";
+                columnName = "Pris";
                 break;
             case 3:
-                columnName = "Antal";
+                columnName = "Beskrivelse";
                 break;
             case 4:
-                columnName = "Min.";
+                columnName = "Antal";
                 break;
             case 5:
-                columnName = "Maks.";
+                columnName = "Min.";
                 break;
             case 6:
-                columnName = "Brand";
+                columnName = "Maks.";
                 break;
             case 7:
+                columnName = "Brand";
+                break;
+            case 8:
                 columnName = "Lokation";
                 break;
 
@@ -81,24 +84,27 @@ public class TableItem extends DefaultTableModel {
                 value = data.get(row).getItemID();
                 break;
             case 1:
-                value = data.get(row).getItemPrice();
+                value = data.get(row).getItemName();
                 break;
             case 2:
-                value = data.get(row).getDescription();
+                value = data.get(row).getItemPrice();
                 break;
             case 3:
-                value = data.get(row).getItemsInStock();
+                value = data.get(row).getDescription();
                 break;
             case 4:
-                value = data.get(row).getMinInStock();
+                value = data.get(row).getItemsInStock();
                 break;
             case 5:
-                value = data.get(row).getMaxInStock();
+                value = data.get(row).getMinInStock();
                 break;
             case 6:
-                value = data.get(row).getBrand();
+                value = data.get(row).getMaxInStock();
                 break;
             case 7:
+                value = data.get(row).getBrand();
+                break;
+            case 8:
                 value = data.get(row).getPlace();
                 break;
         }
