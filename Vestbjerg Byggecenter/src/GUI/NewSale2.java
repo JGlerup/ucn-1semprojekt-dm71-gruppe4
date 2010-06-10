@@ -4,47 +4,22 @@
  */
 
 /*
- * NewSale.java
+ * NewSale2.java
  *
- * Created on 09-06-2010, 12:43:03
+ * Created on 10-06-2010, 10:12:26
  */
 
 package GUI;
-
-import Ctr.CustomerCtr;
-import Ctr.SaleCtr;
-import Model.Customer;
-import Model.SalesLineItem;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Glerup
  */
-public class NewSale extends javax.swing.JFrame {
-    private SaleCtr saleCtr;
-    private CustomerCtr customerCtr;
-    private int saleID;
-    private GUISale guiSale;
-    private TableNewSale tblNewSale;
+public class NewSale2 extends javax.swing.JPanel {
 
-    /** Creates new form NewSale */
-    public NewSale() {
+    /** Creates new form NewSale2 */
+    public NewSale2() {
         initComponents();
-        saleID = 0;
-        customerCtr = new CustomerCtr();
-        saleCtr = new SaleCtr();
-        guiSale = new GUISale();
-        tblNewSale = new TableNewSale();
-    }
-
-    public void updateSliList()
-    {
-        ArrayList<SalesLineItem> sliList = saleCtr.getSLIList(saleID);
-        tblNewSale.setData(sliList);
-        tblNewSaleList.setModel(tblNewSale);
-        this.setVisible(true);
     }
 
     /** This method is called from within the constructor to
@@ -87,8 +62,6 @@ public class NewSale extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nyt Salg", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
 
@@ -404,20 +377,20 @@ public class NewSale extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1410, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 802, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -504,21 +477,6 @@ public class NewSale extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_jButton13ActionPerformed
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewSale().setVisible(true);
-            }
-        });
-    }
-
-    public void setSaleID(int saleID) {
-        this.saleID = saleID;
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

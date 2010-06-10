@@ -208,4 +208,40 @@ public class SaleCtr {
     public void setPickupDiscount(double newDiscount) {
         discount.setPickupDiscount(newDiscount);
     }
+
+    public void endSale(int saleID) {
+        double discount = 1;
+        Discount d = getSale(saleID).getDiscount();
+        if (getSale(saleID).getCustomer() != null) {
+            discount = addDiscount(saleID) - 1 + d.getQuantityDiscount() - 1 + d.getPickupDiscount();
+        } else {
+            discount = d.getQuantityDiscount() - 1 + d.getPickupDiscount();
+        }
+
+        if (discount < 0.8) {
+            discount = 0.8;
+        }
+        double price = getSale(saleID).getPrice();
+        price = price * discount;
+
+        getSale(saleID).setPrice(price);
+        double trade = getSale(saleID).getEmployee().getTrade();
+        getSale(saleID).getEmployee().setTrade(trade + price);
+    }
+
+    public double addDiscount(int saleID) {
+        Customer customer = getSale(saleID).getCustomer();
+        double discount = 1;
+
+        if (customer.getAccount() != null) {
+            discount = 0.9;
+        }
+
+        return discount;
+    }
+
+    public ArrayList<Sale> getSaleList()
+    {
+        return saleContainer.listSales();
+    }
 }
