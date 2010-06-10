@@ -2,7 +2,7 @@ package GUI;
 
 import javax.swing.table.*;
 import java.util.ArrayList;
-import Model.*;
+import Model.Item;
 
 public class TableItem extends DefaultTableModel {
 

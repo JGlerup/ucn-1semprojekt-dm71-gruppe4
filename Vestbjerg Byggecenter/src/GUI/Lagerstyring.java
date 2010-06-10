@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  */
 public class Lagerstyring extends javax.swing.JPanel {
 
-    private TableItem tabItem;
+    private TableItem tblItem;
     private ItemCtr itemCtr;
     private int itemIDUpdate;
 
@@ -30,14 +30,14 @@ public class Lagerstyring extends javax.swing.JPanel {
     public Lagerstyring() {
         initComponents();
         itemCtr = new ItemCtr();
-        tabItem = new TableItem();
+        tblItem = new TableItem();
         itemIDUpdate = 0;
     }
 
     public void updateItemList() {
         ArrayList<Item> itemList = itemCtr.getItemList();
-        tabItem.setData(itemList);
-        tblItemList.setModel(tabItem);
+        tblItem.setData(itemList);
+        tblItemList.setModel(tblItem);
         this.setVisible(true);
     }
 
