@@ -8,18 +8,19 @@
  *
  * Created on 10-06-2010, 10:14:58
  */
-
 package GUI;
 
 import javax.swing.JOptionPane;
 import Ctr.SaleCtr;
 import java.util.ArrayList;
 import Model.Sale;
+
 /**
  *
  * @author Glerup
  */
 public class GUISale extends javax.swing.JPanel {
+
     private SaleCtr saleCtr;
     private TableSale tblSale;
 
@@ -30,8 +31,7 @@ public class GUISale extends javax.swing.JPanel {
         tblSale = new TableSale();
     }
 
-    public void updateSaleList()
-    {
+    public void updateSaleList() {
         ArrayList<Sale> saleList = saleCtr.getSaleList();
         tblSale.setData(saleList);
         tblSaleList.setModel(tblSale);
@@ -252,10 +252,10 @@ public class GUISale extends javax.swing.JPanel {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             int itemID = Integer.parseInt(jTextField5.getText());
             saleCtr.getSale(itemID);
-        } catch(Exception e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vare ID findes ikke");
         }
 }//GEN-LAST:event_jButton6ActionPerformed
@@ -266,22 +266,21 @@ public class GUISale extends javax.swing.JPanel {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        try{
+        try {
             int itemID = Integer.parseInt(jTextField1.getText());
             int employeeID = Integer.parseInt(jTextField2.getText());
-            int date = Integer.parseInt(jTextField3.getText());
-            int saleID = saleCtr.createSale(itemID, employeeID, jTextField4.getText(), date);
+            String date = jTextField3.getText();
+            int quantity = Integer.parseInt(jTextField4.getText());
+            int saleID = saleCtr.createSale(employeeID, itemID, date, quantity);
             NewSale newSale = new NewSale();
             newSale.setSaleID(1);
             newSale.setVisible(true);
 
 
-        } catch(Exception e) {
-            JOptionPane.showMessageDialog(this, "Vare ID eller Medarbejder ID findes ikke");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "lol" + e.getMessage());
         }
     }//GEN-LAST:event_jButton5ActionPerformed
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -301,5 +300,4 @@ public class GUISale extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tblSaleList;
     // End of variables declaration//GEN-END:variables
-
 }
