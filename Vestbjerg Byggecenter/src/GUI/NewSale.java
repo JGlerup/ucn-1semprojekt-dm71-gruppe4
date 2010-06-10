@@ -6,37 +6,35 @@
 /*
  * NewSale.java
  *
- * Created on 09-06-2010, 12:43:03
+ * Created on 10-06-2010, 10:12:26
  */
 
 package GUI;
-
-import Ctr.CustomerCtr;
-import Ctr.SaleCtr;
 import Model.Customer;
+import Ctr.SaleCtr;
+import javax.swing.JOptionPane;
+import Ctr.CustomerCtr;
 import Model.SalesLineItem;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Glerup
  */
-public class NewSale extends javax.swing.JFrame {
+public class NewSale extends javax.swing.JPanel {
     private SaleCtr saleCtr;
     private CustomerCtr customerCtr;
     private int saleID;
-    private GUISale guiSale;
     private TableNewSale tblNewSale;
+    private GUISale guiSale;
 
     /** Creates new form NewSale */
     public NewSale() {
         initComponents();
-        saleID = 0;
-        customerCtr = new CustomerCtr();
         saleCtr = new SaleCtr();
-        guiSale = new GUISale();
+        customerCtr = new CustomerCtr();
+        saleID = 0;
         tblNewSale = new TableNewSale();
+        guiSale = new GUISale();
     }
 
     public void updateSliList()
@@ -45,6 +43,11 @@ public class NewSale extends javax.swing.JFrame {
         tblNewSale.setData(sliList);
         tblNewSaleList.setModel(tblNewSale);
         this.setVisible(true);
+    }
+
+    public void setSaleID(int saleID) {
+        this.saleID = saleID;
+
     }
 
     /** This method is called from within the constructor to
@@ -87,8 +90,6 @@ public class NewSale extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nyt Salg", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
 
@@ -404,8 +405,8 @@ public class NewSale extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -416,8 +417,6 @@ public class NewSale extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -504,21 +503,6 @@ public class NewSale extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_jButton13ActionPerformed
 
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewSale().setVisible(true);
-            }
-        });
-    }
-
-    public void setSaleID(int saleID) {
-        this.saleID = saleID;
-
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
