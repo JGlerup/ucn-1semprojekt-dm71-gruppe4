@@ -16,10 +16,12 @@ package GUI;
  * @author Erik
  */
 public class Hovedmenu extends javax.swing.JFrame {
+    private CreateItem createItem;
 
     /** Creates new form Hovedmenu */
     public Hovedmenu() {
         initComponents();
+        createItem = new CreateItem();
     }
 
     /** This method is called from within the constructor to
@@ -157,6 +159,7 @@ public class Hovedmenu extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
+        createItem.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed

@@ -39,6 +39,7 @@ public class Lagerstyring extends javax.swing.JPanel {
         tblItem.setData(itemList);
         tblItemList.setModel(tblItem);
         this.setVisible(true);
+
     }
 
     public void resetFields(JTextField[] textFields) {

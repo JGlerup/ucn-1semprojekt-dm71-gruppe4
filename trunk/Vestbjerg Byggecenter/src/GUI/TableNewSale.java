@@ -48,13 +48,13 @@ public class TableNewSale extends DefaultTableModel {
                 columnName = "Salgs vare-ID";
                 break;
             case 1:
-                columnName = "Antal";
+                columnName = "Vare ID";
                 break;
             case 2:
-                columnName = "Total pris";
+                columnName = "Antal";
                 break;
             case 3:
-                columnName = "Vare ID";
+                columnName = "Samlet pris";
                 break;
         }
         return columnName;
@@ -68,13 +68,13 @@ public class TableNewSale extends DefaultTableModel {
                 value = data.get(row).getSLIID();
                 break;
             case 1:
-                value = data.get(row).getQuantity();
+                value = data.get(row).getItem().getItemID();
                 break;
             case 2:
-                value = data.get(row).getTotalPrice();
+                value = data.get(row).getQuantity();
                 break;
             case 3:
-                value = data.get(row).getItem().getItemID();
+                value = data.get(row).getTotalPrice();
                 break;
         }
 

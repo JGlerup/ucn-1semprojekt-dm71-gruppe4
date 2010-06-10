@@ -35,12 +35,14 @@ public class MainMenu extends javax.swing.JFrame {
         lagerstyring1 = new GUI.Lagerstyring();
         medarbejderhaandtering1 = new GUI.Medarbejderhaandtering();
         kundehaandtering1 = new GUI.Kundehaandtering();
+        gUISale1 = new GUI.GUISale();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.addTab("tab1", lagerstyring1);
         jTabbedPane1.addTab("tab2", medarbejderhaandtering1);
         jTabbedPane1.addTab("tab3", kundehaandtering1);
+        jTabbedPane1.addTab("tab4", gUISale1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,6 +70,7 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private GUI.GUISale gUISale1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private GUI.Kundehaandtering kundehaandtering1;
     private GUI.Lagerstyring lagerstyring1;
