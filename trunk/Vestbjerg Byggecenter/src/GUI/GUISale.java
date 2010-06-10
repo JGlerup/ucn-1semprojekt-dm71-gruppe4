@@ -6,21 +6,20 @@
 /*
  * GUISale.java
  *
- * Created on 08-06-2010, 09:54:52
+ * Created on 10-06-2010, 10:14:58
  */
 
 package GUI;
 
-import Ctr.SaleCtr;
-import Model.Sale;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
+import Ctr.SaleCtr;
+import java.util.ArrayList;
+import Model.Sale;
 /**
  *
  * @author Glerup
  */
-public class GUISale extends javax.swing.JFrame {
+public class GUISale extends javax.swing.JPanel {
     private SaleCtr saleCtr;
     private TableSale tblSale;
 
@@ -65,8 +64,6 @@ public class GUISale extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Salg", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 399));
@@ -235,8 +232,8 @@ public class GUISale extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -251,58 +248,39 @@ public class GUISale extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-1098)/2, (screenSize.height-574)/2, 1098, 574);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        try{
+            int itemID = Integer.parseInt(jTextField5.getText());
+            saleCtr.getSale(itemID);
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Vare ID findes ikke");
+        }
+}//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         try{
-        int itemID = Integer.parseInt(jTextField1.getText());
-        int employeeID = Integer.parseInt(jTextField2.getText());
-        int date = Integer.parseInt(jTextField3.getText());
-        int saleID = saleCtr.createSale(itemID, employeeID, jTextField4.getText(), date);
-        NewSale newSale = new NewSale();
-        newSale.setSaleID(1);
-        newSale.setVisible(rootPaneCheckingEnabled);
+            int itemID = Integer.parseInt(jTextField1.getText());
+            int employeeID = Integer.parseInt(jTextField2.getText());
+            int date = Integer.parseInt(jTextField3.getText());
+            int saleID = saleCtr.createSale(itemID, employeeID, jTextField4.getText(), date);
+            NewSale newSale = new NewSale();
+            newSale.setSaleID(1);
+            newSale.setVisible(true);
 
 
-        }
-        catch(Exception e)
-        {
+        } catch(Exception e) {
             JOptionPane.showMessageDialog(this, "Vare ID eller Medarbejder ID findes ikke");
         }
-        
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        try{
-        int itemID = Integer.parseInt(jTextField5.getText());
-        saleCtr.getSale(itemID);
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "Vare ID findes ikke");
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    /**
-    * @param args the command line arguments
-    */
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GUISale().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton5;
