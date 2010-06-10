@@ -6,6 +6,7 @@
 package Ctr;
 import Model.Employee;
 import Model.EmployeeContainer;
+import java.util.ArrayList;
 
 /**
  * Controller-klassen for Employee
@@ -90,6 +91,11 @@ public class EmployeeCtr {
     public String ListAllEmployees()
     {
         return employeeContainer.listAllEmployees();
+    }
+
+    public ArrayList<Employee> getEmployeeList()
+    {
+        return employeeContainer.listEmployee();
     }
 
     /**
