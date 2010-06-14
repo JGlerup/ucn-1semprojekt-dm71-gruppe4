@@ -23,6 +23,9 @@ public class RentableItem {
         this.name = name;
     }
 
+    public RentableItem() {
+    }
+
     /**
      *
      * @return

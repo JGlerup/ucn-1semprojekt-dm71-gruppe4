@@ -35,6 +35,10 @@ public class RentItemContainer {
         return instance;
     }
 
+    public ArrayList<RentableItem> getRentItems() {
+        return rentItems;
+    }
+
     /**
      *
      * @param ID

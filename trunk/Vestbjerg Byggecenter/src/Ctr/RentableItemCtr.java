@@ -6,6 +6,7 @@ package Ctr;
 
 import Model.RentItemContainer;
 import Model.RentableItem;
+import java.util.ArrayList;
 
 /**
  * Controller-klassen for Rent
@@ -53,5 +54,10 @@ public class RentableItemCtr {
     public void deleteRentableItem(int id) {
         itemContainer.deleteItem(id);
 
+    }
+
+    public ArrayList<RentableItem> rentableItemList()
+    {
+        return itemContainer.getRentItems();
     }
 }
