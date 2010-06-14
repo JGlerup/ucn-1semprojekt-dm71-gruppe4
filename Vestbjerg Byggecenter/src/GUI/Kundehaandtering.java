@@ -14,6 +14,7 @@ import Ctr.CustomerCtr;
 import Model.Customer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -38,6 +39,9 @@ public class Kundehaandtering extends javax.swing.JPanel {
         tblCustomer.setData(customerList);
         tblCustomerList.setModel(tblCustomer);
         this.setVisible(true);
+        tblCustomerList.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        tblCustomerList.getColumnModel().getColumn(0).setPreferredWidth(2);
+
     }
 
     public void resetFields(JTextField[] textFields) {
@@ -440,8 +444,8 @@ public class Kundehaandtering extends javax.swing.JPanel {
             } else {
                 int customerID = customerCtr.createCustomer(customerName, customerAddress, customerPhone);
                 updateCustomerList();
-                resetFields(txtFields);
-                JOptionPane.showMessageDialog(this, "En medarbejder med ID'et " + customerID);
+                //resetFields(txtFields);
+                JOptionPane.showMessageDialog(this, "En kunde med ID'et " + customerID);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Fejl: " + e.getMessage());

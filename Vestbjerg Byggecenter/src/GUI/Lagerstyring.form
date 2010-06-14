@@ -131,7 +131,6 @@
                 <Property name="text" type="java.lang.String" value="Indtast vare-ID"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtItemSearchActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtItemSearchFocusGained"/>
               </Events>
             </Component>
