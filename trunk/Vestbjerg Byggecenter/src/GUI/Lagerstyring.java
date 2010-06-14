@@ -143,11 +143,6 @@ public class Lagerstyring extends javax.swing.JPanel {
         });
 
         txtItemSearch.setText("Indtast vare-ID");
-        txtItemSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtItemSearchActionPerformed(evt);
-            }
-        });
         txtItemSearch.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtItemSearchFocusGained(evt);
@@ -566,9 +561,10 @@ public class Lagerstyring extends javax.swing.JPanel {
                             stringArray.toString().trim().isEmpty();
                             JOptionPane.showMessageDialog(this, "Udfyld venligst alle felterne");
                         } else {
-                            itemCtr.createItem(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, location, containsSerialNo);
+                            int itemID = itemCtr.createItem(itemName, itemPrice, description, maxInStock, minInStock, itemsInStock, brand, location, containsSerialNo);
                             updateItemList();
                             resetFields(txtFields);
+                            JOptionPane.showMessageDialog(this, "En vare med ID'et " + itemID + " er blevet oprettet");
                         }
                     }
                 }
@@ -639,19 +635,10 @@ public class Lagerstyring extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "ID'et " + itemID + " blev ikke fundet");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Tja, en fejl");
+            JOptionPane.showMessageDialog(this, "Fejl: Skal være et heltal");
             txtItemSearch.setText("");
         }
     }//GEN-LAST:event_btnItemSeachActionPerformed
-
-    private void txtItemSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemSearchActionPerformed
-        // TODO add your handling code here:
-        txtItemSearch.setText("");
-    }//GEN-LAST:event_txtItemSearchActionPerformed
-
-    private void txtUpdateItemGetItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateItemGetItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUpdateItemGetItemActionPerformed
 
     private void btnUpdateItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateItemActionPerformed
         // TODO add your handling code here:
@@ -734,6 +721,11 @@ public class Lagerstyring extends javax.swing.JPanel {
         // TODO add your handling code here:
         txtUpdateItemGetItem.setText("");
     }//GEN-LAST:event_txtUpdateItemGetItemFocusGained
+
+    private void txtUpdateItemGetItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateItemGetItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdateItemGetItemActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteItem;
     private javax.swing.JButton btnItemCreateItem;

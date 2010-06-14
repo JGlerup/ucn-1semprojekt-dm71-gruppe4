@@ -8,15 +8,16 @@
  *
  * Created on 10-06-2010, 12:09:09
  */
-
 package GUI;
 
 import Model.Customer;
 import Ctr.SaleCtr;
 import javax.swing.JOptionPane;
 import Ctr.CustomerCtr;
+import Ctr.ItemCtr;
 import Model.SalesLineItem;
 import java.util.ArrayList;
+import javax.swing.JTextField;
 
 /**
  *
@@ -29,6 +30,7 @@ public class NewSale extends javax.swing.JFrame {
     private int saleID;
     private TableNewSale tblNewSale;
     private GUISale guiSale;
+    private ItemCtr itemCtr;
 
     /** Creates new form NewSale */
     public NewSale() {
@@ -37,7 +39,11 @@ public class NewSale extends javax.swing.JFrame {
         customerCtr = new CustomerCtr();
         saleID = 0;
         tblNewSale = new TableNewSale();
-        guiSale = new GUISale();
+        itemCtr = new ItemCtr();
+    }
+
+    public void setGuiSale(GUISale guiSale) {
+        this.guiSale = guiSale;
     }
 
     public void updateSliList() {
@@ -51,6 +57,13 @@ public class NewSale extends javax.swing.JFrame {
         this.saleID = saleID;
 
     }
+
+    public void resetFields(JTextField[] textFields) {
+        for (JTextField txtField : textFields) {
+            txtField.setText("");
+        }
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -102,6 +115,16 @@ public class NewSale extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         pNewSale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nyt Salg", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
         pNewSale.setPreferredSize(new java.awt.Dimension(1024, 768));
@@ -203,9 +226,9 @@ public class NewSale extends javax.swing.JFrame {
         pAddOrRemoveCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tilføj/fjern kunde", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
 
         txtAddOrRemoveCustomerID.setText("Indtast ID");
-        txtAddOrRemoveCustomerID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddOrRemoveCustomerIDActionPerformed(evt);
+        txtAddOrRemoveCustomerID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAddOrRemoveCustomerIDFocusGained(evt);
             }
         });
 
@@ -217,6 +240,7 @@ public class NewSale extends javax.swing.JFrame {
         });
 
         btnRemoveCustomer.setText("Fjern");
+        btnRemoveCustomer.setEnabled(false);
         btnRemoveCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveCustomerActionPerformed(evt);
@@ -233,7 +257,7 @@ public class NewSale extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnAddCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRemoveCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRemoveCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pAddOrRemoveCustomerLayout.setVerticalGroup(
@@ -251,9 +275,9 @@ public class NewSale extends javax.swing.JFrame {
         pAddItem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tilføj salgsvare", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
 
         txtItemID.setText("Indtast ID");
-        txtItemID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtItemIDActionPerformed(evt);
+        txtItemID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtItemIDFocusGained(evt);
             }
         });
 
@@ -269,9 +293,9 @@ public class NewSale extends javax.swing.JFrame {
         lblItemQuantity.setText("Antal");
 
         txtItemQuantity.setText("Hele tal");
-        txtItemQuantity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtItemQuantityActionPerformed(evt);
+        txtItemQuantity.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtItemQuantityFocusGained(evt);
             }
         });
 
@@ -282,20 +306,12 @@ public class NewSale extends javax.swing.JFrame {
             .addGroup(pAddItemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pAddItemLayout.createSequentialGroup()
-                        .addComponent(lblItemID)
-                        .addContainerGap(125, Short.MAX_VALUE))
-                    .addGroup(pAddItemLayout.createSequentialGroup()
-                        .addComponent(lblItemQuantity)
-                        .addContainerGap(137, Short.MAX_VALUE))
-                    .addGroup(pAddItemLayout.createSequentialGroup()
-                        .addComponent(btnAddSLI, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(55, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pAddItemLayout.createSequentialGroup()
-                        .addGroup(pAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtItemID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                            .addComponent(txtItemQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
-                        .addContainerGap())))
+                    .addComponent(lblItemID)
+                    .addComponent(lblItemQuantity)
+                    .addComponent(btnAddSLI, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtItemID, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                    .addComponent(txtItemQuantity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pAddItemLayout.setVerticalGroup(
             pAddItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,9 +331,9 @@ public class NewSale extends javax.swing.JFrame {
         pAddDiscount.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rabat (i procent)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
 
         txtAddQuantityDiscount.setText("Indtast % i hel tal");
-        txtAddQuantityDiscount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAddQuantityDiscountActionPerformed(evt);
+        txtAddQuantityDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAddQuantityDiscountFocusGained(evt);
             }
         });
 
@@ -336,9 +352,9 @@ public class NewSale extends javax.swing.JFrame {
         });
 
         txtPickupDiscount.setText("Indtast % i hel tal");
-        txtPickupDiscount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPickupDiscountActionPerformed(evt);
+        txtPickupDiscount.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPickupDiscountFocusGained(evt);
             }
         });
 
@@ -349,7 +365,7 @@ public class NewSale extends javax.swing.JFrame {
             }
         });
 
-        btnResetPickupDiscount.setText("Fjern");
+        btnResetPickupDiscount.setText("Nulstil");
         btnResetPickupDiscount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetPickupDiscountActionPerformed(evt);
@@ -425,9 +441,9 @@ public class NewSale extends javax.swing.JFrame {
         pRemoveItem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fjern salgsvare", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
 
         txtRemoveSLIID.setText("Indtast ID");
-        txtRemoveSLIID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRemoveSLIIDActionPerformed(evt);
+        txtRemoveSLIID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtRemoveSLIIDFocusGained(evt);
             }
         });
 
@@ -471,7 +487,7 @@ public class NewSale extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pContentsOfSale, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pNewSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pNewSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pNewSaleLayout.createSequentialGroup()
                         .addGroup(pNewSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pAddItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -480,8 +496,8 @@ public class NewSale extends javax.swing.JFrame {
                         .addGroup(pNewSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pRemoveItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancelSale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(pAddOrRemoveCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pAddDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pAddDiscount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pAddOrRemoveCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pNewSaleLayout.setVerticalGroup(
@@ -520,19 +536,22 @@ public class NewSale extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAddOrRemoveCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddOrRemoveCustomerIDActionPerformed
-        // TODO add your handling code here:
-        txtAddOrRemoveCustomerID.setText("");
-}//GEN-LAST:event_txtAddOrRemoveCustomerIDActionPerformed
-
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
         // TODO add your handling code here:
         try {
             int customerID = Integer.parseInt(txtAddOrRemoveCustomerID.getText());
-            Customer customer = customerCtr.getCustomer(customerID);
-            if (customer != null) {
+            Customer c = customerCtr.getCustomer(customerID);
+            if (c != null) {
                 saleCtr.addCustomerToSale(saleID, customerID);
-                txtAddOrRemoveCustomerID.setText(customer.getName());
+
+                btnAddCustomer.setEnabled(false);
+                btnRemoveCustomer.setEnabled(true);
+                txtCustomerID.setText(Integer.toString(customerID));
+                txtCustomerName.setText(c.getName());
+                txtCustomerAddress.setText(c.getAddress());
+                txtCustomerPhone.setText(c.getPhone());
+            } else {
+                JOptionPane.showMessageDialog(this, "ID'et " + customerID + " blev ikke fundet");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Kunde ID findes ikke");
@@ -543,6 +562,11 @@ public class NewSale extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             saleCtr.removeCustomerFromSale(saleID);
+            btnAddCustomer.setEnabled(true);
+            btnRemoveCustomer.setEnabled(false);
+            JTextField[] txtFields = {txtCustomerID, txtCustomerName,
+                txtCustomerAddress, txtCustomerPhone};
+            resetFields(txtFields);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Kunde ID findes ikke");
         }
@@ -553,8 +577,16 @@ public class NewSale extends javax.swing.JFrame {
         try {
             int itemQuantity = Integer.parseInt(txtItemQuantity.getText());
             int itemID = Integer.parseInt(txtItemID.getText());
-            saleCtr.addSalesLineItem(saleID, itemID, itemQuantity);
-            updateSliList();
+            int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
+            if (itemsInStock < itemQuantity) {
+                JOptionPane.showMessageDialog(this, "Den indtastede " + itemQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
+            } else {
+                saleCtr.addSalesLineItem(saleID, itemID, itemQuantity);
+                txtItemID.setText("");
+                txtItemQuantity.setText("");
+                updateSliList();
+            }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Vare ID findes ikke");
         }
@@ -563,29 +595,35 @@ public class NewSale extends javax.swing.JFrame {
     private void btnAddQuantityDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddQuantityDiscountActionPerformed
         // TODO add your handling code here:
         int discount = Integer.parseInt(txtAddQuantityDiscount.getText());
-        saleCtr.setQuntityDiscount(discount);
+        saleCtr.getSale(saleID).getDiscount().setQuantityDiscount(discount);
+        txtAddQuantityDiscount.setText("");
 }//GEN-LAST:event_btnAddQuantityDiscountActionPerformed
 
     private void btnResetQuantityDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetQuantityDiscountActionPerformed
         // TODO add your handling code here:
         saleCtr.setQuntityDiscount(1);
+        txtAddQuantityDiscount.setText("");
 }//GEN-LAST:event_btnResetQuantityDiscountActionPerformed
 
     private void btnAddPickDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPickDiscountActionPerformed
         // TODO add your handling code here:
         int discount = Integer.parseInt(txtPickupDiscount.getText());
         saleCtr.setPickupDiscount(discount);
+        txtPickupDiscount.setText("");
 }//GEN-LAST:event_btnAddPickDiscountActionPerformed
 
     private void btnResetPickupDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPickupDiscountActionPerformed
         // TODO add your handling code here:
         saleCtr.setPickupDiscount(1);
+        txtPickupDiscount.setText("");
 }//GEN-LAST:event_btnResetPickupDiscountActionPerformed
 
     private void btnEndSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndSaleActionPerformed
         // TODO add your handling code here:
         saleCtr.endSale(saleID);
         guiSale.updateSaleList();
+        dispose();
+        //setVisible(false);
 }//GEN-LAST:event_btnEndSaleActionPerformed
 
     private void btnCancelSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelSaleActionPerformed
@@ -604,42 +642,57 @@ public class NewSale extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_btnRemoveSLIActionPerformed
 
-    private void txtItemIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemIDActionPerformed
+    private void txtAddOrRemoveCustomerIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddOrRemoveCustomerIDFocusGained
+        // TODO add your handling code here:
+        txtAddOrRemoveCustomerID.setText("");
+    }//GEN-LAST:event_txtAddOrRemoveCustomerIDFocusGained
+
+    private void txtItemIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtItemIDFocusGained
         // TODO add your handling code here:
         txtItemID.setText("");
-    }//GEN-LAST:event_txtItemIDActionPerformed
+    }//GEN-LAST:event_txtItemIDFocusGained
 
-    private void txtItemQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemQuantityActionPerformed
+    private void txtItemQuantityFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtItemQuantityFocusGained
         // TODO add your handling code here:
         txtItemQuantity.setText("");
-    }//GEN-LAST:event_txtItemQuantityActionPerformed
+    }//GEN-LAST:event_txtItemQuantityFocusGained
 
-    private void txtRemoveSLIIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRemoveSLIIDActionPerformed
+    private void txtRemoveSLIIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRemoveSLIIDFocusGained
         // TODO add your handling code here:
         txtRemoveSLIID.setText("");
-    }//GEN-LAST:event_txtRemoveSLIIDActionPerformed
+    }//GEN-LAST:event_txtRemoveSLIIDFocusGained
 
-    private void txtAddQuantityDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddQuantityDiscountActionPerformed
+    private void txtAddQuantityDiscountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAddQuantityDiscountFocusGained
         // TODO add your handling code here:
         txtAddQuantityDiscount.setText("");
-    }//GEN-LAST:event_txtAddQuantityDiscountActionPerformed
+    }//GEN-LAST:event_txtAddQuantityDiscountFocusGained
 
-    private void txtPickupDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPickupDiscountActionPerformed
+    private void txtPickupDiscountFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPickupDiscountFocusGained
         // TODO add your handling code here:
         txtPickupDiscount.setText("");
-    }//GEN-LAST:event_txtPickupDiscountActionPerformed
+    }//GEN-LAST:event_txtPickupDiscountFocusGained
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        updateSliList();
+    }//GEN-LAST:event_formComponentShown
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        saleCtr.cancelSale(saleID);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new NewSale().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCustomer;
     private javax.swing.JButton btnAddPickDiscount;
@@ -681,5 +734,4 @@ public class NewSale extends javax.swing.JFrame {
     private javax.swing.JTextField txtPickupDiscount;
     private javax.swing.JTextField txtRemoveSLIID;
     // End of variables declaration//GEN-END:variables
-
 }

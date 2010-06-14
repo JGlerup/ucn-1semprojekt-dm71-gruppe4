@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="resizable" type="boolean" value="false"/>
@@ -8,6 +8,10 @@
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosed"/>
+    <EventHandler event="componentShown" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentShown"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -57,7 +61,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="pContentsOfSale" min="-2" pref="603" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="pAddItem" min="-2" max="-2" attributes="0"/>
@@ -69,8 +73,8 @@
                               <Component id="btnCancelSale" alignment="1" min="-2" pref="113" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="pAddOrRemoveCustomer" alignment="0" min="-2" pref="326" max="-2" attributes="1"/>
-                      <Component id="pAddDiscount" min="-2" max="-2" attributes="1"/>
+                      <Component id="pAddDiscount" alignment="0" max="32767" attributes="1"/>
+                      <Component id="pAddOrRemoveCustomer" alignment="0" max="32767" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -303,7 +307,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnAddCustomer" min="-2" pref="107" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnRemoveCustomer" max="32767" attributes="0"/>
+                      <Component id="btnRemoveCustomer" pref="61" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -330,7 +334,7 @@
                 <Property name="text" type="java.lang.String" value="Indtast ID"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAddOrRemoveCustomerIDActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtAddOrRemoveCustomerIDFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAddCustomer">
@@ -344,6 +348,7 @@
             <Component class="javax.swing.JButton" name="btnRemoveCustomer">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fjern"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveCustomerActionPerformed"/>
@@ -368,26 +373,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblItemID" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="125" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblItemQuantity" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="137" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnAddSLI" min="-2" pref="107" max="-2" attributes="0"/>
-                              <EmptySpace pref="55" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txtItemID" alignment="0" pref="152" max="32767" attributes="1"/>
-                                  <Component id="txtItemQuantity" alignment="1" pref="152" max="32767" attributes="1"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblItemID" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblItemQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAddSLI" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
+                          <Component id="txtItemID" alignment="0" pref="152" max="32767" attributes="1"/>
+                          <Component id="txtItemQuantity" alignment="1" pref="152" max="32767" attributes="1"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -414,7 +406,7 @@
                 <Property name="text" type="java.lang.String" value="Indtast ID"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtItemIDActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtItemIDFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAddSLI">
@@ -440,7 +432,7 @@
                 <Property name="text" type="java.lang.String" value="Hele tal"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtItemQuantityActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtItemQuantityFocusGained"/>
               </Events>
             </Component>
           </SubComponents>
@@ -518,7 +510,7 @@
                 <Property name="text" type="java.lang.String" value="Indtast % i hel tal"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAddQuantityDiscountActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtAddQuantityDiscountFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAddQuantityDiscount">
@@ -542,7 +534,7 @@
                 <Property name="text" type="java.lang.String" value="Indtast % i hel tal"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPickupDiscountActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtPickupDiscountFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnAddPickDiscount">
@@ -555,7 +547,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnResetPickupDiscount">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fjern"/>
+                <Property name="text" type="java.lang.String" value="Nulstil"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResetPickupDiscountActionPerformed"/>
@@ -638,7 +630,7 @@
                 <Property name="text" type="java.lang.String" value="Indtast ID"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRemoveSLIIDActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtRemoveSLIIDFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRemoveSLI">

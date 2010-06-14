@@ -28,7 +28,7 @@ public class TableSale extends DefaultTableModel {
 
     @Override
     public int getColumnCount() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -56,6 +56,9 @@ public class TableSale extends DefaultTableModel {
             case 2:
                 columnName = "Pris";
                 break;
+            case 3:
+                columnName = "Medarbejder-ID";
+                break;
         }
         return columnName;
     }
@@ -76,6 +79,8 @@ public class TableSale extends DefaultTableModel {
             case 2:
                 value = data.get(row).getPrice();
                 break;
+            case 3:
+                value = data.get(row).getEmployee().getEmployeeID();
         }
 
         return value;

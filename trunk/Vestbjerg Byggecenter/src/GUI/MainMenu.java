@@ -8,8 +8,19 @@
  *
  * Created on 09-06-2010, 10:44:05
  */
-
 package GUI;
+
+import java.awt.KeyboardFocusManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.util.HashSet;
+import java.util.Set;
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -20,8 +31,36 @@ public class MainMenu extends javax.swing.JFrame {
     /** Creates new form MainMenu */
     public MainMenu() {
         initComponents();
+        setupKeyboardshortcuts();
+
+
     }
 
+    public void setupKeyboardshortcuts()
+    {
+        InputMap im = jTabbedPane1.getInputMap(jTabbedPane1.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        KeyStroke controlTab = KeyStroke.getKeyStroke("control TAB");
+        im.put(controlTab, "navigateRight");
+        System.out.println(jTabbedPane1.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        Set newForwardKeys = new HashSet();
+        newForwardKeys.add(KeyStroke.getKeyStroke("TAB"));
+        jTabbedPane1.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, newForwardKeys);
+        System.out.println(jTabbedPane1.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+
+        KeyStroke controlTab2 = KeyStroke.getKeyStroke("control shift TAB");
+        im.put(controlTab2, "navigateLeft");
+//        System.out.println(jTabbedPane1.getFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS));
+        Set newBackwardKeys = new HashSet();
+        newBackwardKeys.add(KeyStroke.getKeyStroke("shift TAB"));
+        jTabbedPane1.setFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, newBackwardKeys);
+    }
+
+//    public void setupKeyboardshortcuts()
+//    {
+//        KeyStroke ksNextTab = KeyStroke.getKeyStroke(KeyEvent.VK_TAB, java.awt.event.InputEvent.CTRL_MASK);
+//        InputMap iMap = new InputMap();
+//        iMap.put(ksNextTab, "Next Tab");
+//    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -36,45 +75,60 @@ public class MainMenu extends javax.swing.JFrame {
         medarbejderhaandtering1 = new GUI.Medarbejderhaandtering();
         kundehaandtering1 = new GUI.Kundehaandtering();
         gUISale1 = new GUI.GUISale();
+        testMenu1 = new GUI.TestMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.addTab("tab1", lagerstyring1);
-        jTabbedPane1.addTab("tab2", medarbejderhaandtering1);
-        jTabbedPane1.addTab("tab3", kundehaandtering1);
-        jTabbedPane1.addTab("tab4", gUISale1);
+        jTabbedPane1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTabbedPane1KeyPressed(evt);
+            }
+        });
+        jTabbedPane1.addTab("Lagerstyring", lagerstyring1);
+        jTabbedPane1.addTab("Medarbejderhåndtering", medarbejderhaandtering1);
+        jTabbedPane1.addTab("Kundehåndtering", kundehaandtering1);
+        jTabbedPane1.addTab("Salg", gUISale1);
+        jTabbedPane1.addTab("Test", testMenu1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1057, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPane1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTabbedPane1KeyPressed
+
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new MainMenu().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private GUI.GUISale gUISale1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private GUI.Kundehaandtering kundehaandtering1;
     private GUI.Lagerstyring lagerstyring1;
     private GUI.Medarbejderhaandtering medarbejderhaandtering1;
+    private GUI.TestMenu testMenu1;
     // End of variables declaration//GEN-END:variables
-
 }
