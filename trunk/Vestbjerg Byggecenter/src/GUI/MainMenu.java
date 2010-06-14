@@ -76,6 +76,7 @@ public class MainMenu extends javax.swing.JFrame {
         kundehaandtering1 = new GUI.Kundehaandtering();
         gUISale1 = new GUI.GUISale();
         testMenu1 = new GUI.TestMenu();
+        udlejning1 = new GUI.Udlejning();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +90,7 @@ public class MainMenu extends javax.swing.JFrame {
         jTabbedPane1.addTab("Kundehåndtering", kundehaandtering1);
         jTabbedPane1.addTab("Salg", gUISale1);
         jTabbedPane1.addTab("Test", testMenu1);
+        jTabbedPane1.addTab("tab6", udlejning1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,7 +104,7 @@ public class MainMenu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,5 +132,6 @@ public class MainMenu extends javax.swing.JFrame {
     private GUI.Lagerstyring lagerstyring1;
     private GUI.Medarbejderhaandtering medarbejderhaandtering1;
     private GUI.TestMenu testMenu1;
+    private GUI.Udlejning udlejning1;
     // End of variables declaration//GEN-END:variables
 }
