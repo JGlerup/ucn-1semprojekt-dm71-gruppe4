@@ -127,11 +127,6 @@ public class Lagerstyring extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Lagerstyring"));
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
-        jPanel1.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel1ComponentShown(evt);
-            }
-        });
 
         pSearchItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Søg vare"));
 
@@ -707,10 +702,6 @@ public class Lagerstyring extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Skal være et heltal");
         }
     }//GEN-LAST:event_btnUpdateItemGetItemActionPerformed
-
-    private void jPanel1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel1ComponentShown
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel1ComponentShown
 
     private void txtItemSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtItemSearchFocusGained
         // TODO add your handling code here:

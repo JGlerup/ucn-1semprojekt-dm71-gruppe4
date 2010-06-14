@@ -23,6 +23,8 @@ public class TestMenu extends javax.swing.JPanel {
     private ItemCtr itemCtr;
     private EmployeeCtr employeeCtr;
     private CustomerCtr customerCtr;
+    private Lagerstyring lagerstyring;
+//    private Kundehaandtering kundehaandtering;
 
     /** Creates new form testMenu */
     public TestMenu() {
@@ -30,6 +32,7 @@ public class TestMenu extends javax.swing.JPanel {
         itemCtr = new ItemCtr();
         employeeCtr = new EmployeeCtr();
         customerCtr = new CustomerCtr();
+        lagerstyring = new Lagerstyring();
     }
 
     /** This method is called from within the constructor to
@@ -159,6 +162,7 @@ public class TestMenu extends javax.swing.JPanel {
         phone = "98352012";
         customerCtr.createCustomer(name, address, phone);
     }
+
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
