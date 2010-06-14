@@ -128,9 +128,9 @@ public class GUISale extends javax.swing.JPanel {
             .addGroup(pFindSaleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSaleSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(txtSeachSaleID, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSeachSaleID, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pFindSaleLayout.setVerticalGroup(
             pFindSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,13 +164,8 @@ public class GUISale extends javax.swing.JPanel {
                 txtSaleEmployeeIDFocusGained(evt);
             }
         });
-        txtSaleEmployeeID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtSaleEmployeeIDKeyTyped(evt);
-            }
-        });
 
-        txtSaleItemQuantity.setText("Hele tal");
+        txtSaleItemQuantity.setText("Heltal");
         txtSaleItemQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSaleItemQuantityActionPerformed(evt);
@@ -213,8 +208,7 @@ public class GUISale extends javax.swing.JPanel {
                             .addComponent(txtSaleDate)
                             .addComponent(txtSaleItemQuantity)
                             .addComponent(txtSaleItemID)
-                            .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
                     .addGroup(pCreateSaleLayout.createSequentialGroup()
                         .addComponent(btnCreateSale, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                         .addGap(116, 116, 116)))
@@ -292,6 +286,9 @@ public class GUISale extends javax.swing.JPanel {
         try {
             int saleID = Integer.parseInt(txtSeachSaleID.getText());
             if (saleCtr.getSale(saleID) != null) {
+                SaleContents saleContents = new SaleContents();
+                saleContents.setVisible(true);
+                saleContents.setSaleID(saleID);
             } else {
                 JOptionPane.showMessageDialog(this, "ID'et " + saleID + " blev ikke fundet");
             }
@@ -306,6 +303,7 @@ public class GUISale extends javax.swing.JPanel {
             int itemID = Integer.parseInt(txtSaleItemID.getText());
             int employeeID = Integer.parseInt(txtSaleEmployeeID.getText());
             int quantity = Integer.parseInt(txtSaleItemQuantity.getText());
+            String date = txtSaleDate.getText();
             Item i = itemCtr.getItem(itemID);
             Employee e = employeeCtr.getEmployee(employeeID);
             if (i == null && e == null) {
@@ -321,19 +319,26 @@ public class GUISale extends javax.swing.JPanel {
                         if (quantity > i.getItemsInStock()) {
                             JOptionPane.showMessageDialog(this, "Fejl: Antallet overskrider lagerbeholdningen, som er på " + i.getItemsInStock());
                         } else {
-                            String date = txtSaleItemQuantity.getText();
-                            int saleID = saleCtr.createSale(employeeID, itemID, date, quantity);
-                            updateSaleList();
-                            NewSale newSale = new NewSale();
-                            newSale.setVisible(true);
-                            newSale.setSaleID(saleID);
-                            newSale.setGuiSale(this);
+                            if (quantity < 1) {
+                                JOptionPane.showMessageDialog(this, "Fejl: Antallet skal være over 0");
+                            } else {
+                                if (txtSaleDate.getText().trim().isEmpty()) {
+                                    JOptionPane.showMessageDialog(this, "Udfyld venligst alle felter");
+                                } else {
+                                    int saleID = saleCtr.createSale(employeeID, itemID, date, quantity);
+                                    updateSaleList();
+                                    NewSale newSale = new NewSale();
+                                    newSale.setVisible(true);
+                                    newSale.setSaleID(saleID);
+                                    newSale.setGuiSale(this);
+                                }
+                            }
                         }
                     }
                 }
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Fejl: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Følgende felter skal indeholde et heltal: Medarbejder/Vare/Antal");
         }
     }//GEN-LAST:event_btnCreateSaleActionPerformed
 
@@ -361,11 +366,6 @@ public class GUISale extends javax.swing.JPanel {
         // TODO add your handling code here:
         txtSeachSaleID.setText("");
     }//GEN-LAST:event_txtSeachSaleIDFocusGained
-
-    private void txtSaleEmployeeIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaleEmployeeIDKeyTyped
-        // TODO add your handling code here:
-        txtSaleDate.setText("Test");
-    }//GEN-LAST:event_txtSaleEmployeeIDKeyTyped
 
     private void txtSaleItemQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaleItemQuantityActionPerformed
         // TODO add your handling code here:

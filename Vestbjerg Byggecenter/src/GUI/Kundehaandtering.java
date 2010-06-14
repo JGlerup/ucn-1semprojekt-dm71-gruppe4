@@ -102,11 +102,6 @@ public class Kundehaandtering extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Kundehåndtering"));
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
-        jPanel1.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel1ComponentShown(evt);
-            }
-        });
 
         pSearchCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder("Søg kunde"));
 
@@ -536,9 +531,6 @@ public class Kundehaandtering extends javax.swing.JPanel {
         txtUpdateCustomerGetCustomer.setText("");
 }//GEN-LAST:event_txtUpdateCustomerGetCustomerFocusGained
 
-    private void jPanel1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel1ComponentShown
-        // TODO add your handling code here:
-}//GEN-LAST:event_jPanel1ComponentShown
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomerCreateCustomer;
     private javax.swing.JButton btnCustomerSeach;

@@ -534,6 +534,7 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
 
     private void jPanel1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel1ComponentShown
         // TODO add your handling code here:
+        updateEmployeeList();
 }//GEN-LAST:event_jPanel1ComponentShown
 
 

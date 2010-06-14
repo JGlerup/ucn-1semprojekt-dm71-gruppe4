@@ -15,6 +15,7 @@ import Ctr.SaleCtr;
 import javax.swing.JOptionPane;
 import Ctr.CustomerCtr;
 import Ctr.ItemCtr;
+import Model.Item;
 import Model.SalesLineItem;
 import java.util.ArrayList;
 import javax.swing.JTextField;
@@ -578,43 +579,49 @@ public class NewSale extends javax.swing.JFrame {
             int itemQuantity = Integer.parseInt(txtItemQuantity.getText());
             int itemID = Integer.parseInt(txtItemID.getText());
             int itemsInStock = itemCtr.getItem(itemID).getItemsInStock();
-            if (itemsInStock < itemQuantity) {
-                JOptionPane.showMessageDialog(this, "Den indtastede " + itemQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
+            Item i = itemCtr.getItem(itemID);
+            if (i == null) {
+                JOptionPane.showMessageDialog(this, "ID'et " + itemID + " findes ikke");
             } else {
-                saleCtr.addSalesLineItem(saleID, itemID, itemQuantity);
-                txtItemID.setText("");
-                txtItemQuantity.setText("");
-                updateSliList();
+                if (itemsInStock < itemQuantity) {
+                    JOptionPane.showMessageDialog(this, "Den indtastede " + itemQuantity + " overskrider lagerbeholdningen, som er på " + itemsInStock);
+                } else {
+                    saleCtr.addSalesLineItem(saleID, itemID, itemQuantity);
+                    txtItemID.setText("");
+                    txtItemQuantity.setText("");
+                    updateSliList();
+                }
             }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Vare ID findes ikke");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Følgende felter skal indeholde et heltal: Antal/vare-ID");
         }
 }//GEN-LAST:event_btnAddSLIActionPerformed
 
     private void btnAddQuantityDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddQuantityDiscountActionPerformed
         // TODO add your handling code here:
-        int discount = Integer.parseInt(txtAddQuantityDiscount.getText());
+        double newDiscount = Double.parseDouble(txtAddQuantityDiscount.getText());
+        double discount = 1 - (newDiscount / 100);
         saleCtr.getSale(saleID).getDiscount().setQuantityDiscount(discount);
         txtAddQuantityDiscount.setText("");
 }//GEN-LAST:event_btnAddQuantityDiscountActionPerformed
 
     private void btnResetQuantityDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetQuantityDiscountActionPerformed
         // TODO add your handling code here:
-        saleCtr.setQuntityDiscount(1);
+        saleCtr.getSale(saleID).getDiscount().setPickupDiscount(1);
         txtAddQuantityDiscount.setText("");
 }//GEN-LAST:event_btnResetQuantityDiscountActionPerformed
 
     private void btnAddPickDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPickDiscountActionPerformed
         // TODO add your handling code here:
-        int discount = Integer.parseInt(txtPickupDiscount.getText());
+        double newDiscount = Double.parseDouble(txtPickupDiscount.getText());
+        double discount = 1 - (newDiscount / 100);
         saleCtr.setPickupDiscount(discount);
         txtPickupDiscount.setText("");
 }//GEN-LAST:event_btnAddPickDiscountActionPerformed
 
     private void btnResetPickupDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetPickupDiscountActionPerformed
         // TODO add your handling code here:
-        saleCtr.setPickupDiscount(1);
+        saleCtr.getSale(saleID).getDiscount().setPickupDiscount(1);
         txtPickupDiscount.setText("");
 }//GEN-LAST:event_btnResetPickupDiscountActionPerformed
 
@@ -622,23 +629,30 @@ public class NewSale extends javax.swing.JFrame {
         // TODO add your handling code here:
         saleCtr.endSale(saleID);
         guiSale.updateSaleList();
-        dispose();
-        //setVisible(false);
+        //dispose();
+        setVisible(false);
 }//GEN-LAST:event_btnEndSaleActionPerformed
 
     private void btnCancelSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelSaleActionPerformed
         // TODO add your handling code here:
         saleCtr.cancelSale(saleID);
+        guiSale.updateSaleList();
+        setVisible(false);
 }//GEN-LAST:event_btnCancelSaleActionPerformed
 
     private void btnRemoveSLIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveSLIActionPerformed
         // TODO add your handling code here:
         try {
             int sLIID = Integer.parseInt(txtRemoveSLIID.getText());
-            saleCtr.removeSalesLineItem(saleID, sLIID);
+            if(saleCtr.getSale(saleID) != null) {
+                            saleCtr.removeSalesLineItem(saleID, sLIID);
             updateSliList();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Salgs vare ID findes ikke");
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "ID'et " + sLIID + " blev ikke fundet");
+            }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(this, "Feltet skal indeholde et heltal");
         }
 }//GEN-LAST:event_btnRemoveSLIActionPerformed
 

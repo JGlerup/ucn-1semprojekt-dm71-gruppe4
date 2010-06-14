@@ -179,9 +179,9 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnSaleSearch" min="-2" pref="89" max="-2" attributes="1"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="txtSeachSaleID" min="-2" pref="107" max="-2" attributes="1"/>
-                      <EmptySpace pref="310" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtSeachSaleID" pref="453" max="32767" attributes="1"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -247,7 +247,6 @@
                                   <Component id="txtSaleItemID" alignment="0" max="32767" attributes="1"/>
                                   <Component id="txtSaleEmployeeID" alignment="0" pref="127" max="32767" attributes="1"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnCreateSale" pref="140" max="32767" attributes="1"/>
@@ -323,12 +322,11 @@
               </Properties>
               <Events>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSaleEmployeeIDFocusGained"/>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSaleEmployeeIDKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtSaleItemQuantity">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Hele tal"/>
+                <Property name="text" type="java.lang.String" value="Heltal"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSaleItemQuantityActionPerformed"/>
