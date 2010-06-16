@@ -14,13 +14,13 @@ import java.util.ArrayList;
 public class RentContainer {
 
     private static RentContainer instance;
-    private ArrayList<Rent> rentContainer;
+    private ArrayList<Rent> rentList;
 
     /**
      *
      */
     public RentContainer() {
-        rentContainer = new ArrayList<Rent>();
+        rentList = new ArrayList<Rent>();
     }
 
     /**
@@ -42,7 +42,7 @@ public class RentContainer {
     public int addRent(Rent rent) {
         int id = generateID(rent);
         setRented(rent);
-        rentContainer.add(rent);
+        rentList.add(rent);
         return id;
     }
 
@@ -51,11 +51,11 @@ public class RentContainer {
      * @param id
      */
     public void deliverItem(int id) {
-        for (Rent rent : rentContainer) {
+        for (Rent rent : rentList) {
             if (rent.getID() == id) {
                 RentableItem item = rent.getRentableItem();
                 item.setIsRented(false);
-                rentContainer.remove(rent);
+                rentList.remove(rent);
                 return;
             }
         }
@@ -82,9 +82,9 @@ public class RentContainer {
 
 
         if (rent.getID() == 0) {
-            if (rentContainer.size() != 0) {
-                int lastIndex = rentContainer.size() - 1;
-                Rent lastRent = rentContainer.get(lastIndex);
+            if (rentList.size() != 0) {
+                int lastIndex = rentList.size() - 1;
+                Rent lastRent = rentList.get(lastIndex);
                 newID = lastRent.getID();
                 newID += 1;
             }
@@ -93,6 +93,20 @@ public class RentContainer {
 
 
         return newID;
+    }
+
+    public ArrayList<Rent> getRentContainer() {
+        return rentList;
+    }
+
+    public Rent findRent(int ID) {
+        Rent rent = null;
+        for (Rent r : rentList) {
+            if (ID == r.getID()) {
+                rent = r;
+            }
+        }
+        return rent;
     }
 }
 

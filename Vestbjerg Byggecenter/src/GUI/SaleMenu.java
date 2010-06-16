@@ -24,7 +24,7 @@ import javax.swing.JTextField;
  *
  * @author Glerup
  */
-public class GUISale extends javax.swing.JPanel {
+public class SaleMenu extends javax.swing.JPanel {
 
     private SaleCtr saleCtr;
     private TableSale tblSale;
@@ -32,7 +32,7 @@ public class GUISale extends javax.swing.JPanel {
     private EmployeeCtr employeeCtr;
 
     /** Creates new form GUISale */
-    public GUISale() {
+    public SaleMenu() {
         initComponents();
         saleCtr = new SaleCtr();
         tblSale = new TableSale();

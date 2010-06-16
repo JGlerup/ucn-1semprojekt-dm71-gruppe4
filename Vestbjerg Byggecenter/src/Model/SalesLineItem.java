@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -41,7 +42,12 @@ public class SalesLineItem {
     }
 
     public double getTotalPrice() {
-        return totalPrice;
+//        return totalPrice;
+//        DecimalFormat twoDForm = new DecimalFormat("#.##");
+//        return Double.valueOf(twoDForm.format(totalPrice));
+//                double x = totalPrice;
+//        x = (Math.rint(x*100.0)) / 100.0;
+        return Math.rint(totalPrice*100.0) / 100.0;
     }
 
     public void setTotalPrice(double totalPrice) {

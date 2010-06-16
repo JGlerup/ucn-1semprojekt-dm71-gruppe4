@@ -38,21 +38,21 @@ public class MainMenu extends javax.swing.JFrame {
 
     public void setupKeyboardshortcuts()
     {
-        InputMap im = jTabbedPane1.getInputMap(jTabbedPane1.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+        InputMap im = jTabbedPaneMainMenu.getInputMap(jTabbedPaneMainMenu.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         KeyStroke controlTab = KeyStroke.getKeyStroke("control TAB");
         im.put(controlTab, "navigateRight");
-        System.out.println(jTabbedPane1.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        System.out.println(jTabbedPaneMainMenu.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         Set newForwardKeys = new HashSet();
         newForwardKeys.add(KeyStroke.getKeyStroke("TAB"));
-        jTabbedPane1.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, newForwardKeys);
-        System.out.println(jTabbedPane1.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+        jTabbedPaneMainMenu.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, newForwardKeys);
+        System.out.println(jTabbedPaneMainMenu.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
 
         KeyStroke controlTab2 = KeyStroke.getKeyStroke("control shift TAB");
         im.put(controlTab2, "navigateLeft");
 //        System.out.println(jTabbedPane1.getFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS));
         Set newBackwardKeys = new HashSet();
         newBackwardKeys.add(KeyStroke.getKeyStroke("shift TAB"));
-        jTabbedPane1.setFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, newBackwardKeys);
+        jTabbedPaneMainMenu.setFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, newBackwardKeys);
     }
 
 //    public void setupKeyboardshortcuts()
@@ -70,49 +70,50 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPaneMainMenu = new javax.swing.JTabbedPane();
         lagerstyring1 = new GUI.Lagerstyring();
-        medarbejderhaandtering1 = new GUI.Medarbejderhaandtering();
         kundehaandtering1 = new GUI.Kundehaandtering();
-        gUISale1 = new GUI.GUISale();
-        testMenu1 = new GUI.TestMenu();
+        medarbejderhaandtering1 = new GUI.Medarbejderhaandtering();
+        gUISale1 = new GUI.SaleMenu();
         udlejning1 = new GUI.Udlejning();
+        testMenu1 = new GUI.TestMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTabbedPaneMainMenu.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTabbedPane1KeyPressed(evt);
+                jTabbedPaneMainMenuKeyPressed(evt);
             }
         });
-        jTabbedPane1.addTab("Lagerstyring", lagerstyring1);
-        jTabbedPane1.addTab("Medarbejderhåndtering", medarbejderhaandtering1);
-        jTabbedPane1.addTab("Kundehåndtering", kundehaandtering1);
-        jTabbedPane1.addTab("Salg", gUISale1);
-        jTabbedPane1.addTab("Test", testMenu1);
-        jTabbedPane1.addTab("tab6", udlejning1);
+        jTabbedPaneMainMenu.addTab("Lagerstyring", lagerstyring1);
+        jTabbedPaneMainMenu.addTab("Kundehåndtering", kundehaandtering1);
+        jTabbedPaneMainMenu.addTab("Medarbejderhåndtering", medarbejderhaandtering1);
+        jTabbedPaneMainMenu.addTab("Salg", gUISale1);
+        jTabbedPaneMainMenu.addTab("Udlejning", udlejning1);
+        jTabbedPaneMainMenu.addTab("Test", testMenu1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1057, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPaneMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addComponent(jTabbedPaneMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTabbedPane1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPane1KeyPressed
+    private void jTabbedPaneMainMenuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPaneMainMenuKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTabbedPane1KeyPressed
+    }//GEN-LAST:event_jTabbedPaneMainMenuKeyPressed
 
     /**
      * @param args the command line arguments
@@ -126,8 +127,8 @@ public class MainMenu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private GUI.GUISale gUISale1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private GUI.SaleMenu gUISale1;
+    private javax.swing.JTabbedPane jTabbedPaneMainMenu;
     private GUI.Kundehaandtering kundehaandtering1;
     private GUI.Lagerstyring lagerstyring1;
     private GUI.Medarbejderhaandtering medarbejderhaandtering1;

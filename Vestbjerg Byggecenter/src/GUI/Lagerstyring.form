@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.1" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
@@ -26,7 +26,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" min="-2" pref="734" max="-2" attributes="0"/>
+          <Component id="jPanel1" min="-2" pref="776" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -54,9 +54,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="pUpdateItem" max="32767" attributes="1"/>
-                      <Component id="pCreateItem" max="32767" attributes="1"/>
-                      <Component id="pDeleteItem" alignment="1" max="32767" attributes="1"/>
+                      <Component id="pUpdateItem" min="-2" max="-2" attributes="1"/>
+                      <Component id="pCreateItem" min="-2" max="-2" attributes="1"/>
+                      <Component id="pDeleteItem" alignment="1" min="-2" max="-2" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -445,8 +445,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Component id="btnDeleteItem" min="-2" max="-2" attributes="1"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtDeleteItem" pref="230" max="32767" attributes="1"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="txtDeleteItem" pref="222" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -491,17 +491,34 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnUpdateItem" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblUpdateItemItemsInStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblUpdateItemMinInStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblUpdateItemDescription" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="lblUpdateItemName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblUpdateItemPrice" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnUpdateItemGetItem" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblUpdateItemItemsInStock" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblUpdateItemMinInStock" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblUpdateItemDescription" alignment="0" max="32767" attributes="1"/>
+                                              <Component id="lblUpdateItemName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblUpdateItemPrice" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnUpdateItemGetItem" alignment="0" min="-2" max="-2" attributes="1"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="lblUpdateItemBrand" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblUpdateItemLocation" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtUpdateItemLocation" alignment="0" pref="220" max="32767" attributes="1"/>
+                                  <Component id="txtUpdateItemBrand" alignment="0" pref="220" max="32767" attributes="1"/>
                                   <Component id="txtUpdateItemGetItem" pref="220" max="32767" attributes="1"/>
                                   <Component id="txtUpdateItemPrice" alignment="0" pref="220" max="32767" attributes="0"/>
                                   <Component id="txtUpdateItemDescription" alignment="0" pref="220" max="32767" attributes="0"/>
@@ -516,17 +533,6 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblUpdateItemBrand" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Component id="txtUpdateItemBrand" pref="217" max="32767" attributes="1"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblUpdateItemLocation" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txtUpdateItemLocation" pref="217" max="32767" attributes="1"/>
-                          </Group>
-                          <Component id="btnUpdateItem" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -568,8 +574,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txtUpdateItemBrand" min="-2" max="-2" attributes="0"/>
                           <Component id="lblUpdateItemBrand" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUpdateItemBrand" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">

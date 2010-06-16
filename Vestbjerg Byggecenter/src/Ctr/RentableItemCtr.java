@@ -56,7 +56,7 @@ public class RentableItemCtr {
 
     }
 
-    public ArrayList<RentableItem> rentableItemList()
+    public ArrayList<RentableItem> getRentableItemList()
     {
         return itemContainer.getRentItems();
     }

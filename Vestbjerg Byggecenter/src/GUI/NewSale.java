@@ -30,7 +30,7 @@ public class NewSale extends javax.swing.JFrame {
     private CustomerCtr customerCtr;
     private int saleID;
     private TableNewSale tblNewSale;
-    private GUISale guiSale;
+    private SaleMenu guiSale;
     private ItemCtr itemCtr;
 
     /** Creates new form NewSale */
@@ -43,7 +43,7 @@ public class NewSale extends javax.swing.JFrame {
         itemCtr = new ItemCtr();
     }
 
-    public void setGuiSale(GUISale guiSale) {
+    public void setGuiSale(SaleMenu guiSale) {
         this.guiSale = guiSale;
     }
 
@@ -62,6 +62,20 @@ public class NewSale extends javax.swing.JFrame {
     public void resetFields(JTextField[] textFields) {
         for (JTextField txtField : textFields) {
             txtField.setText("");
+        }
+    }
+
+    public void calculateTotalDiscount(double discount) {
+        if (txtTotalDiscount.getText().isEmpty()) {
+            txtTotalDiscount.setText(Double.toString(discount));
+        } else {
+            double currentDiscount = Double.parseDouble(txtTotalDiscount.getText());
+            double totalDiscount = currentDiscount + discount;
+            if (totalDiscount > 20) {
+                txtTotalDiscount.setText("20");
+            } else {
+                txtTotalDiscount.setText(Double.toString(totalDiscount));
+            }
         }
     }
 
@@ -107,6 +121,7 @@ public class NewSale extends javax.swing.JFrame {
         lblQuantityDiscount = new javax.swing.JLabel();
         lblPickupDiscount = new javax.swing.JLabel();
         lblTotalDiscount = new javax.swing.JLabel();
+        txtTotalDiscount = new javax.swing.JTextField();
         btnEndSale = new javax.swing.JButton();
         btnCancelSale = new javax.swing.JButton();
         pRemoveItem = new javax.swing.JPanel();
@@ -221,7 +236,7 @@ public class NewSale extends javax.swing.JFrame {
                 .addGroup(pContentsOfSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pAddOrRemoveCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tilføj/fjern kunde", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
@@ -379,6 +394,8 @@ public class NewSale extends javax.swing.JFrame {
 
         lblTotalDiscount.setText("Total rabat:");
 
+        txtTotalDiscount.setEditable(false);
+
         javax.swing.GroupLayout pAddDiscountLayout = new javax.swing.GroupLayout(pAddDiscount);
         pAddDiscount.setLayout(pAddDiscountLayout);
         pAddDiscountLayout.setHorizontalGroup(
@@ -400,7 +417,10 @@ public class NewSale extends javax.swing.JFrame {
                         .addComponent(btnAddPickDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnResetPickupDiscount, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
-                    .addComponent(lblTotalDiscount))
+                    .addGroup(pAddDiscountLayout.createSequentialGroup()
+                        .addComponent(lblTotalDiscount)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotalDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         pAddDiscountLayout.setVerticalGroup(
@@ -422,7 +442,9 @@ public class NewSale extends javax.swing.JFrame {
                         .addComponent(btnResetPickupDiscount))
                     .addComponent(txtPickupDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(lblTotalDiscount))
+                .addGroup(pAddDiscountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTotalDiscount)
+                    .addComponent(txtTotalDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         btnEndSale.setText("Afslut salg");
@@ -505,7 +527,7 @@ public class NewSale extends javax.swing.JFrame {
             pNewSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pNewSaleLayout.createSequentialGroup()
                 .addGroup(pNewSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(pContentsOfSale, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+                    .addComponent(pContentsOfSale, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pNewSaleLayout.createSequentialGroup()
                         .addComponent(pAddOrRemoveCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -602,7 +624,10 @@ public class NewSale extends javax.swing.JFrame {
         double newDiscount = Double.parseDouble(txtAddQuantityDiscount.getText());
         double discount = 1 - (newDiscount / 100);
         saleCtr.getSale(saleID).getDiscount().setQuantityDiscount(discount);
+        calculateTotalDiscount(newDiscount);
         txtAddQuantityDiscount.setText("");
+
+
 }//GEN-LAST:event_btnAddQuantityDiscountActionPerformed
 
     private void btnResetQuantityDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetQuantityDiscountActionPerformed
@@ -615,7 +640,8 @@ public class NewSale extends javax.swing.JFrame {
         // TODO add your handling code here:
         double newDiscount = Double.parseDouble(txtPickupDiscount.getText());
         double discount = 1 - (newDiscount / 100);
-        saleCtr.setPickupDiscount(discount);
+        saleCtr.getSale(saleID).getDiscount().setPickupDiscount(discount);
+        calculateTotalDiscount(newDiscount);
         txtPickupDiscount.setText("");
 }//GEN-LAST:event_btnAddPickDiscountActionPerformed
 
@@ -623,6 +649,7 @@ public class NewSale extends javax.swing.JFrame {
         // TODO add your handling code here:
         saleCtr.getSale(saleID).getDiscount().setPickupDiscount(1);
         txtPickupDiscount.setText("");
+        txtTotalDiscount.setText("");
 }//GEN-LAST:event_btnResetPickupDiscountActionPerformed
 
     private void btnEndSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndSaleActionPerformed
@@ -644,11 +671,10 @@ public class NewSale extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             int sLIID = Integer.parseInt(txtRemoveSLIID.getText());
-            if(saleCtr.getSale(saleID) != null) {
-                            saleCtr.removeSalesLineItem(saleID, sLIID);
-            updateSliList();
-            }
-            else {
+            if (saleCtr.getSale(saleID) != null) {
+                saleCtr.removeSalesLineItem(saleID, sLIID);
+                updateSliList();
+            } else {
                 JOptionPane.showMessageDialog(this, "ID'et " + sLIID + " blev ikke fundet");
             }
         } catch (NumberFormatException nfe) {
@@ -747,5 +773,6 @@ public class NewSale extends javax.swing.JFrame {
     private javax.swing.JTextField txtItemQuantity;
     private javax.swing.JTextField txtPickupDiscount;
     private javax.swing.JTextField txtRemoveSLIID;
+    private javax.swing.JTextField txtTotalDiscount;
     // End of variables declaration//GEN-END:variables
 }

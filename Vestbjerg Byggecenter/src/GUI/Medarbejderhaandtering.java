@@ -8,7 +8,6 @@
  *
  * Created on 10-06-2010, 10:13:25
  */
-
 package GUI;
 
 import Ctr.EmployeeCtr;
@@ -16,16 +15,17 @@ import Model.Employee;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
  * @author Erik
  */
 public class Medarbejderhaandtering extends javax.swing.JPanel {
+
     private EmployeeCtr employeeCtr;
     private TableEmployee tblEmployee;
     private int employeeIDUpdate;
-
 
     /** Creates new form Medarbejderhaandtering */
     public Medarbejderhaandtering() {
@@ -35,7 +35,7 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         employeeIDUpdate = 0;
     }
 
-        public void updateEmployeeList() {
+    public void updateEmployeeList() {
         ArrayList<Employee> employeeList = employeeCtr.getEmployeeList();
         tblEmployee.setData(employeeList);
         tblEmployeeList.setModel(tblEmployee);
@@ -60,6 +60,17 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         }
     }
 
+    protected MaskFormatter createFormatter(String s) {
+        MaskFormatter formatter = null;
+        try {
+            formatter = new MaskFormatter(s);
+        } catch (java.text.ParseException exc) {
+            System.err.println("formatter is bad: " + exc.getMessage());
+            System.exit(-1);
+        }
+        return formatter;
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -69,13 +80,14 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        pSearchEmployee = new javax.swing.JPanel();
-        btnEmployeeSeach = new javax.swing.JButton();
-        txtEmployeeSearch = new javax.swing.JTextField();
+        pDeleteEmployee = new javax.swing.JPanel();
+        txtDeleteEmployee = new javax.swing.JTextField();
+        btnDeleteEmployee = new javax.swing.JButton();
         pEmployeeList = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployeeList = new javax.swing.JTable();
+        btnEmployeeSeach = new javax.swing.JButton();
+        txtEmployeeSearch = new javax.swing.JTextField();
         pCreateEmployee = new javax.swing.JPanel();
         lblEmployeeName = new java.awt.Label();
         txtCreateEmployeeName = new javax.swing.JTextField();
@@ -84,9 +96,6 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         lblCreateEmployeePhone = new java.awt.Label();
         txtCreateEmployeePhone = new javax.swing.JTextField();
         btnEmployeeCreateEmployee = new javax.swing.JButton();
-        pDeleteEmployee = new javax.swing.JPanel();
-        txtDeleteEmployee = new javax.swing.JTextField();
-        btnDeleteEmployee = new javax.swing.JButton();
         pUpdateEmployee = new javax.swing.JPanel();
         lblUpdateEmployeeName = new java.awt.Label();
         txtUpdateEmployeeName = new javax.swing.JTextField();
@@ -98,50 +107,35 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         btnUpdateEmployeeGetEmployee = new javax.swing.JButton();
         txtUpdateEmployeeGetEmployee = new javax.swing.JTextField();
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Medarbejderhåndtering"));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
-        jPanel1.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                jPanel1ComponentShown(evt);
-            }
-        });
+        setMaximumSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1024, 768));
 
-        pSearchEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Søg medarbejder"));
+        pDeleteEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Slet medarbejder"));
 
-        btnEmployeeSeach.setText("Søg");
-        btnEmployeeSeach.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteEmployee.setText("Slet");
+        btnDeleteEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmployeeSeachActionPerformed(evt);
+                btnDeleteEmployeeActionPerformed(evt);
             }
         });
 
-        txtEmployeeSearch.setText("Indtast medarbejder-ID");
-        txtEmployeeSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmployeeSearchActionPerformed(evt);
-            }
-        });
-        txtEmployeeSearch.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtEmployeeSearchFocusGained(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pSearchEmployeeLayout = new javax.swing.GroupLayout(pSearchEmployee);
-        pSearchEmployee.setLayout(pSearchEmployeeLayout);
-        pSearchEmployeeLayout.setHorizontalGroup(
-            pSearchEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSearchEmployeeLayout.createSequentialGroup()
-                .addComponent(btnEmployeeSeach)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout pDeleteEmployeeLayout = new javax.swing.GroupLayout(pDeleteEmployee);
+        pDeleteEmployee.setLayout(pDeleteEmployeeLayout);
+        pDeleteEmployeeLayout.setHorizontalGroup(
+            pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDeleteEmployeeLayout.createSequentialGroup()
+                .addComponent(btnDeleteEmployee)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(txtDeleteEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
-        pSearchEmployeeLayout.setVerticalGroup(
-            pSearchEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSearchEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnEmployeeSeach)
-                .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        pDeleteEmployeeLayout.setVerticalGroup(
+            pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDeleteEmployeeLayout.createSequentialGroup()
+                .addGroup(pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDeleteEmployee)
+                    .addComponent(txtDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pEmployeeList.setBorder(javax.swing.BorderFactory.createTitledBorder("Medarbejderliste"));
@@ -164,20 +158,38 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblEmployeeList);
 
+        btnEmployeeSeach.setText("Søg");
+        btnEmployeeSeach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmployeeSeachActionPerformed(evt);
+            }
+        });
+
+        txtEmployeeSearch.setText("Indtast ID");
+        txtEmployeeSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmployeeSearchFocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout pEmployeeListLayout = new javax.swing.GroupLayout(pEmployeeList);
         pEmployeeList.setLayout(pEmployeeListLayout);
         pEmployeeListLayout.setHorizontalGroup(
             pEmployeeListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEmployeeListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(pEmployeeListLayout.createSequentialGroup()
+                .addComponent(btnEmployeeSeach)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
         );
         pEmployeeListLayout.setVerticalGroup(
             pEmployeeListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pEmployeeListLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addGroup(pEmployeeListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEmployeeSeach))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
         );
 
         pCreateEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Opret medarbejder"));
@@ -207,17 +219,18 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
                             .addComponent(lblCreateEmployeePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEmployeeAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(pCreateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCreateEmployeeName, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                            .addComponent(txtCreateEmployeeAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                            .addComponent(txtCreateEmployeePhone, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pCreateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCreateEmployeeAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                            .addComponent(txtCreateEmployeePhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                            .addComponent(txtCreateEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnEmployeeCreateEmployee, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         pCreateEmployeeLayout.setVerticalGroup(
             pCreateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCreateEmployeeLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pCreateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCreateEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -227,40 +240,11 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
                     .addComponent(txtCreateEmployeeAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pCreateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtCreateEmployeePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreateEmployeePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblCreateEmployeePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCreateEmployeePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEmployeeCreateEmployee)
                 .addContainerGap())
-        );
-
-        pDeleteEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Slet medarbejder"));
-
-        btnDeleteEmployee.setText("Slet");
-        btnDeleteEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteEmployeeActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pDeleteEmployeeLayout = new javax.swing.GroupLayout(pDeleteEmployee);
-        pDeleteEmployee.setLayout(pDeleteEmployeeLayout);
-        pDeleteEmployeeLayout.setHorizontalGroup(
-            pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pDeleteEmployeeLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(btnDeleteEmployee)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtDeleteEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pDeleteEmployeeLayout.setVerticalGroup(
-            pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDeleteEmployeeLayout.createSequentialGroup()
-                .addGroup(pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeleteEmployee))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pUpdateEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Opdater medarbejder"));
@@ -308,21 +292,18 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         pUpdateEmployeeLayout.setHorizontalGroup(
             pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pUpdateEmployeeLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pUpdateEmployeeLayout.createSequentialGroup()
-                        .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUpdateEmployeePhone, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                            .addComponent(lblUpdateEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUpdateEmployeeAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnUpdateEmployeeGetEmployee))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUpdateEmployeeGetEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(txtUpdateEmployeeAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(txtUpdateEmployeePhone, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(txtUpdateEmployeeName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)))
-                    .addComponent(btnUpdateEmployee, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btnUpdateEmployeeGetEmployee)
+                    .addComponent(lblUpdateEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdateEmployeeAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdateEmployeePhone, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnUpdateEmployee, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtUpdateEmployeeAddress, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtUpdateEmployeeName, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtUpdateEmployeeGetEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(txtUpdateEmployeePhone, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         pUpdateEmployeeLayout.setVerticalGroup(
@@ -332,64 +313,48 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
                     .addComponent(txtUpdateEmployeeGetEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdateEmployeeGetEmployee))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUpdateEmployeeName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUpdateEmployeeName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUpdateEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUpdateEmployeeAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUpdateEmployeeAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateEmployeeAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUpdateEmployeeAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUpdateEmployeePhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUpdateEmployeePhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pUpdateEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateEmployeePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUpdateEmployeePhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnUpdateEmployee)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pEmployeeList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pSearchEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pUpdateEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pCreateEmployee, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pDeleteEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pSearchEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pEmployeeList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pCreateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pUpdateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                .addComponent(btnUpdateEmployee))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pCreateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pUpdateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pEmployeeList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pCreateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pUpdateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -419,16 +384,6 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         }
 }//GEN-LAST:event_btnEmployeeSeachActionPerformed
 
-    private void txtEmployeeSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmployeeSearchActionPerformed
-        // TODO add your handling code here:
-        txtEmployeeSearch.setText("");
-}//GEN-LAST:event_txtEmployeeSearchActionPerformed
-
-    private void txtEmployeeSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmployeeSearchFocusGained
-        // TODO add your handling code here:
-        txtEmployeeSearch.setText("");
-}//GEN-LAST:event_txtEmployeeSearchFocusGained
-
     private void btnEmployeeCreateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeCreateEmployeeActionPerformed
         // TODO add your handling code here:
         try {
@@ -436,14 +391,14 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
             String employeeAddress = txtCreateEmployeeAddress.getText();
             String employeePhone = txtCreateEmployeePhone.getText();
             JTextField[] txtFields = {txtCreateEmployeeName,
-            txtCreateEmployeeAddress, txtCreateEmployeePhone};
-                        if (employeeName.trim().isEmpty() || employeeAddress.trim().isEmpty() || employeePhone.trim().isEmpty()){
-                            JOptionPane.showMessageDialog(this, "Udfyld venligst alle felterne");
-                        } else {
-                            int employeeID = employeeCtr.createEmployee(employeeName, employeeAddress, employeePhone);
-                            updateEmployeeList();
-                            resetFields(txtFields);
-                            JOptionPane.showMessageDialog(this, "En medarbejder med ID'et " + employeeID);
+                txtCreateEmployeeAddress, txtCreateEmployeePhone};
+            if (employeeName.trim().isEmpty() || employeeAddress.trim().isEmpty() || employeePhone.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Udfyld venligst alle felterne");
+            } else {
+                int employeeID = employeeCtr.createEmployee(employeeName, employeeAddress, employeePhone);
+                updateEmployeeList();
+                resetFields(txtFields);
+                JOptionPane.showMessageDialog(this, "En medarbejder med ID'et " + employeeID);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Fejl: " + e.getMessage());
@@ -463,7 +418,7 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
                 //Dette forhindrer brugeren at opdaterer en vare,
                 //som ikke eksisterer.
                 JTextField[] txtFields = {txtUpdateEmployeeName, txtUpdateEmployeeAddress,
-                txtUpdateEmployeePhone};
+                    txtUpdateEmployeePhone};
                 resetFields(txtFields);
                 disableFields(txtFields);
                 txtUpdateEmployeeGetEmployee.setText("");
@@ -492,7 +447,7 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
             String employeePhone = txtUpdateEmployeePhone.getText();
             employeeCtr.updateEmployee(employeeIDUpdate, employeeName, employeeAddress, employeePhone);
             JTextField[] txtFields = {txtUpdateEmployeeName, txtUpdateEmployeeAddress,
-            txtUpdateEmployeePhone};
+                txtUpdateEmployeePhone};
             updateEmployeeList();
             resetFields(txtFields);
             disableFields(txtFields);
@@ -510,7 +465,7 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
             if (employeeCtr.getEmployee(employeeID) != null) {
                 employeeIDUpdate = employeeID;
                 JTextField[] txtFields = {txtUpdateEmployeeName, txtUpdateEmployeeAddress,
-                txtUpdateEmployeePhone};
+                    txtUpdateEmployeePhone};
                 enableFields(txtFields);
                 txtUpdateEmployeeName.setText(employeeCtr.getEmployee(employeeID).getName());
                 txtUpdateEmployeeAddress.setText(employeeCtr.getEmployee(employeeID).getAddress());
@@ -532,11 +487,10 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         txtUpdateEmployeeGetEmployee.setText("");
 }//GEN-LAST:event_txtUpdateEmployeeGetEmployeeFocusGained
 
-    private void jPanel1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel1ComponentShown
+    private void txtEmployeeSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmployeeSearchFocusGained
         // TODO add your handling code here:
-        updateEmployeeList();
-}//GEN-LAST:event_jPanel1ComponentShown
-
+        txtEmployeeSearch.setText("");
+    }//GEN-LAST:event_txtEmployeeSearchFocusGained
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteEmployee;
@@ -544,7 +498,6 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
     private javax.swing.JButton btnEmployeeSeach;
     private javax.swing.JButton btnUpdateEmployee;
     private javax.swing.JButton btnUpdateEmployeeGetEmployee;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private java.awt.Label lblCreateEmployeePhone;
     private java.awt.Label lblEmployeeAddress;
@@ -555,7 +508,6 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
     private javax.swing.JPanel pCreateEmployee;
     private javax.swing.JPanel pDeleteEmployee;
     private javax.swing.JPanel pEmployeeList;
-    private javax.swing.JPanel pSearchEmployee;
     private javax.swing.JPanel pUpdateEmployee;
     private javax.swing.JTable tblEmployeeList;
     private javax.swing.JTextField txtCreateEmployeeAddress;
@@ -568,5 +520,4 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
     private javax.swing.JTextField txtUpdateEmployeeName;
     private javax.swing.JTextField txtUpdateEmployeePhone;
     // End of variables declaration//GEN-END:variables
-
 }

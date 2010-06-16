@@ -4,12 +4,12 @@ import javax.swing.table.*;
 import java.util.ArrayList;
 import Model.*;
 
-public class TableRent extends DefaultTableModel {
+public class TableRentableItem extends DefaultTableModel {
 
-    private ArrayList<Rent> data;
+    private ArrayList<RentableItem> data;
 
-    public TableRent() {
-        data = new ArrayList<Rent>();
+    public TableRentableItem() {
+        data = new ArrayList<RentableItem>();
     }
 
     @Override
@@ -17,18 +17,18 @@ public class TableRent extends DefaultTableModel {
         return false;
     }
 
-    public void setData(ArrayList<Rent> data) {
+    public void setData(ArrayList<RentableItem> data) {
         this.data = data;
         fireTableDataChanged();
     }
 
-    public ArrayList<Rent> getData() {
+    public ArrayList<RentableItem> getData() {
         return data;
     }
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 3;
     }
 
     @Override
@@ -45,19 +45,13 @@ public class TableRent extends DefaultTableModel {
         String columnName = "";
         switch (column) {
             case 0:
-                columnName = "Lån - ID";
+                columnName = "Udlejnings vare-ID";
                 break;
             case 1:
-                columnName = "Dato";
+                columnName = "Navn";
                 break;
             case 2:
                 columnName = "Status";
-                break;
-            case 3:
-                columnName = "Kunde";
-                break;
-            case 4:
-                columnName = "Udlejningsvare-ID";
                 break;
         }
         return columnName;
@@ -71,16 +65,10 @@ public class TableRent extends DefaultTableModel {
                 value = data.get(row).getID();
                 break;
             case 1:
-                value = data.get(row).getDate();
+                value = data.get(row).getName();
                 break;
             case 2:
-                value = data.get(row).getStatus();
-                break;
-            case 3:
-                value = data.get(row).getCustomer().getCustomerID();
-                break;
-            case 4:
-                value = data.get(row).getRentableItem().getID();
+                value = data.get(row).getIsRented();
                 break;
         }
 
