@@ -634,6 +634,7 @@ public class NewSale extends javax.swing.JFrame {
         // TODO add your handling code here:
         saleCtr.getSale(saleID).getDiscount().setPickupDiscount(1);
         txtAddQuantityDiscount.setText("");
+        txtTotalDiscount.setText("");
 }//GEN-LAST:event_btnResetQuantityDiscountActionPerformed
 
     private void btnAddPickDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPickDiscountActionPerformed
