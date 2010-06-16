@@ -11,16 +11,11 @@
 package GUI;
 
 import java.awt.KeyboardFocusManager;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
-import javax.swing.AbstractAction;
-import javax.swing.ActionMap;
 import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+import javax.swing.UIManager;
 
 /**
  *
@@ -96,10 +91,10 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPaneMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPaneMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +117,16 @@ public class MainMenu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
+                try{
+                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+//                    UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+//                    UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+//                javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.ge);
                 new MainMenu().setVisible(true);
+                }
+                catch(Exception e) {
+                    System.out.println(e);
+                }
             }
         });
     }

@@ -168,7 +168,7 @@ public class TestMenu extends javax.swing.JPanel {
         // TODO add your handling code here:
         createItems();
         createEmployees();
-        createCustomer();
+        createCustomer();        
     }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

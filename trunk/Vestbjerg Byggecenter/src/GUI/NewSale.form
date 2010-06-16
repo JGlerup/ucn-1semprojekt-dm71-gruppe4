@@ -2,7 +2,6 @@
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -73,8 +72,8 @@
                               <Component id="btnCancelSale" alignment="1" min="-2" pref="113" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="pAddDiscount" alignment="0" max="32767" attributes="1"/>
-                      <Component id="pAddOrRemoveCustomer" alignment="0" max="32767" attributes="1"/>
+                      <Component id="pAddDiscount" alignment="0" min="-2" max="-2" attributes="1"/>
+                      <Component id="pAddOrRemoveCustomer" alignment="0" min="-2" max="-2" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -84,12 +83,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="pContentsOfSale" alignment="0" pref="462" max="32767" attributes="0"/>
+                      <Component id="pContentsOfSale" alignment="0" min="-2" pref="455" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="pAddOrRemoveCustomer" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="pAddItem" max="32767" attributes="1"/>
+                              <Component id="pAddItem" min="-2" max="-2" attributes="1"/>
                               <Component id="pRemoveItem" min="-2" max="-2" attributes="1"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -139,7 +138,7 @@
                           <Component id="pCustomer" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" min="-2" pref="409" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -323,7 +322,7 @@
                           </Group>
                           <Component id="txtAddOrRemoveCustomerID" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
