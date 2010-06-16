@@ -80,14 +80,14 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pDeleteEmployee = new javax.swing.JPanel();
-        txtDeleteEmployee = new javax.swing.JTextField();
-        btnDeleteEmployee = new javax.swing.JButton();
         pEmployeeList = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmployeeList = new javax.swing.JTable();
         btnEmployeeSeach = new javax.swing.JButton();
         txtEmployeeSearch = new javax.swing.JTextField();
+        pDeleteEmployee = new javax.swing.JPanel();
+        txtDeleteEmployee = new javax.swing.JTextField();
+        btnDeleteEmployee = new javax.swing.JButton();
         pCreateEmployee = new javax.swing.JPanel();
         lblEmployeeName = new java.awt.Label();
         txtCreateEmployeeName = new javax.swing.JTextField();
@@ -109,34 +109,6 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setPreferredSize(new java.awt.Dimension(1024, 768));
-
-        pDeleteEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Slet medarbejder"));
-
-        btnDeleteEmployee.setText("Slet");
-        btnDeleteEmployee.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteEmployeeActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pDeleteEmployeeLayout = new javax.swing.GroupLayout(pDeleteEmployee);
-        pDeleteEmployee.setLayout(pDeleteEmployeeLayout);
-        pDeleteEmployeeLayout.setHorizontalGroup(
-            pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pDeleteEmployeeLayout.createSequentialGroup()
-                .addComponent(btnDeleteEmployee)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(txtDeleteEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
-        );
-        pDeleteEmployeeLayout.setVerticalGroup(
-            pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDeleteEmployeeLayout.createSequentialGroup()
-                .addGroup(pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeleteEmployee)
-                    .addComponent(txtDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         pEmployeeList.setBorder(javax.swing.BorderFactory.createTitledBorder("Medarbejderliste"));
 
@@ -179,8 +151,8 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
             .addGroup(pEmployeeListLayout.createSequentialGroup()
                 .addComponent(btnEmployeeSeach)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 644, Short.MAX_VALUE)
+                .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
         );
         pEmployeeListLayout.setVerticalGroup(
             pEmployeeListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +161,35 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
                     .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEmployeeSeach))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE))
+        );
+
+        pDeleteEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Slet medarbejder"));
+
+        btnDeleteEmployee.setText("Slet");
+        btnDeleteEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteEmployeeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pDeleteEmployeeLayout = new javax.swing.GroupLayout(pDeleteEmployee);
+        pDeleteEmployee.setLayout(pDeleteEmployeeLayout);
+        pDeleteEmployeeLayout.setHorizontalGroup(
+            pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDeleteEmployeeLayout.createSequentialGroup()
+                .addComponent(btnDeleteEmployee)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(txtDeleteEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
+        );
+        pDeleteEmployeeLayout.setVerticalGroup(
+            pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDeleteEmployeeLayout.createSequentialGroup()
+                .addGroup(pDeleteEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDeleteEmployee)
+                    .addComponent(txtDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pCreateEmployee.setBorder(javax.swing.BorderFactory.createTitledBorder("Opret medarbejder"));
@@ -332,8 +332,7 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(pEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,14 +346,14 @@ public class Medarbejderhaandtering extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pEmployeeList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pCreateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pDeleteEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pUpdateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(pUpdateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pEmployeeList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

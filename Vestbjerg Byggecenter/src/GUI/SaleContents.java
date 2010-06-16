@@ -65,6 +65,8 @@ public class SaleContents extends javax.swing.JFrame {
         txtSaleEmployeeID = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSaleContentsList = new javax.swing.JTable();
+        lblSaleCustomerID = new javax.swing.JLabel();
+        txtSaleCustomerID = new javax.swing.JTextField();
         btnSaleContents = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -114,6 +116,15 @@ public class SaleContents extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblSaleContentsList);
         tblSaleContentsList.getColumnModel().getColumn(2).setResizable(false);
 
+        lblSaleCustomerID.setText("Kunde-ID");
+
+        txtSaleCustomerID.setEditable(false);
+        txtSaleCustomerID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSaleCustomerIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pSaleContentsLayout = new javax.swing.GroupLayout(pSaleContents);
         pSaleContents.setLayout(pSaleContentsLayout);
         pSaleContentsLayout.setHorizontalGroup(
@@ -129,7 +140,10 @@ public class SaleContents extends javax.swing.JFrame {
                         .addComponent(txtSaleDate, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtSaleTotalPrice, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblSaleTotalPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblSaleCustomerID)
+                    .addGroup(pSaleContentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtSaleCustomerID, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -154,7 +168,11 @@ public class SaleContents extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblSaleEmployeeID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSaleCustomerID)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSaleCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -201,12 +219,18 @@ public class SaleContents extends javax.swing.JFrame {
         String toStringDate = saleCtr.getSale(saleID).getDate();
         String toStringPrice = Double.toString(saleCtr.getSale(saleID).getPrice());
         String toStringEmployeeID = Integer.toString(saleCtr.getSale(saleID).getEmployee().getEmployeeID());
+        String toStringCustomerID = Integer.toString(saleCtr.getSale(saleID).getCustomer().getCustomerID());
         txtSaleID.setText(toStringSaleID);
         txtSaleDate.setText(toStringDate);
         txtSaleEmployeeID.setText(toStringEmployeeID);
         txtSaleTotalPrice.setText(toStringPrice);
+        txtSaleCustomerID.setText(toStringCustomerID);
         updateSliList();
     }//GEN-LAST:event_formComponentShown
+
+    private void txtSaleCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaleCustomerIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSaleCustomerIDActionPerformed
 
     /**
     * @param args the command line arguments
@@ -222,12 +246,14 @@ public class SaleContents extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaleContents;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSaleCustomerID;
     private javax.swing.JLabel lblSaleDate;
     private javax.swing.JLabel lblSaleEmployeeID;
     private javax.swing.JLabel lblSaleID;
     private javax.swing.JLabel lblSaleTotalPrice;
     private javax.swing.JPanel pSaleContents;
     private javax.swing.JTable tblSaleContentsList;
+    private javax.swing.JTextField txtSaleCustomerID;
     private javax.swing.JTextField txtSaleDate;
     private javax.swing.JTextField txtSaleEmployeeID;
     private javax.swing.JTextField txtSaleID;

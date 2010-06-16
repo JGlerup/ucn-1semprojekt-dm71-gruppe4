@@ -12,6 +12,7 @@ public class Customer extends Person {
 
     private int customerID;
     private Account account;
+    private Rent rent;
 
     /**
      * Konstruktør

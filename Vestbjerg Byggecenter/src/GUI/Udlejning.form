@@ -24,12 +24,12 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="pCreateRentableItem" alignment="0" pref="258" max="32767" attributes="1"/>
-                  <Component id="pRemoveRentableItem" alignment="0" max="32767" attributes="1"/>
-                  <Component id="pRentRentableItem" alignment="0" max="32767" attributes="1"/>
-                  <Component id="pDeliverRentableItem" alignment="0" max="32767" attributes="1"/>
+                  <Component id="pCreateRentableItem" alignment="0" min="-2" pref="303" max="-2" attributes="1"/>
+                  <Component id="pRemoveRentableItem" alignment="0" min="-2" max="-2" attributes="1"/>
+                  <Component id="pRentRentableItem" alignment="0" min="-2" max="-2" attributes="1"/>
+                  <Component id="pDeliverRentableItem" alignment="0" min="-2" max="-2" attributes="1"/>
               </Group>
-              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -175,8 +175,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="lblpCreateRentableItemName" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtOpretUdlejningsvareNavn" pref="183" max="32767" attributes="0"/>
+                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                          <Component id="txtOpretUdlejningsvareNavn" min="-2" pref="207" max="-2" attributes="0"/>
                       </Group>
                       <Component id="btnOpretUdlejningsvare" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -236,8 +236,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblDeliverRentableItemID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="36" max="32767" attributes="0"/>
-                          <Component id="txtDeliverRentableItemID" min="-2" pref="179" max="-2" attributes="0"/>
+                          <EmptySpace pref="53" max="32767" attributes="0"/>
+                          <Component id="txtDeliverRentableItemID" min="-2" pref="207" max="-2" attributes="0"/>
                       </Group>
                       <Component id="btnDeliverRentableItem" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -294,25 +294,22 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblRentRentableItemCustomerID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtRentRentableItemCustomerID" pref="177" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnRentRentableItem" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblRentRentableItemStatus" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblRentRentableItemDate" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblRentRentableItemID" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblRentRentableItemCustomerID" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtRentRentableItemID" alignment="0" pref="177" max="32767" attributes="0"/>
-                              <Component id="txtRentRentableItemDate" alignment="0" pref="177" max="32767" attributes="0"/>
-                              <Component id="txtRentRentableItemStatus" alignment="0" pref="177" max="32767" attributes="0"/>
+                              <Component id="txtRentRentableItemCustomerID" alignment="0" pref="208" max="32767" attributes="0"/>
+                              <Component id="txtRentRentableItemID" alignment="0" pref="208" max="32767" attributes="0"/>
+                              <Component id="txtRentRentableItemDate" alignment="0" pref="208" max="32767" attributes="0"/>
+                              <Component id="txtRentRentableItemStatus" alignment="0" pref="208" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="btnRentRentableItem" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -377,7 +374,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblRentRentableItemDate">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Dato"/>
+            <Property name="text" type="java.lang.String" value="Afl. dato"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRentRentableItemDate">
@@ -414,8 +411,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblRemoveRentableItemID" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="36" max="32767" attributes="0"/>
-                          <Component id="txtRemoveRentableItemID" min="-2" pref="179" max="-2" attributes="0"/>
+                          <EmptySpace pref="52" max="32767" attributes="0"/>
+                          <Component id="txtRemoveRentableItemID" min="-2" pref="208" max="-2" attributes="0"/>
                       </Group>
                       <Component id="btnRemoveRentableItem" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -473,8 +470,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="btnRentSearch" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtRentSearch" pref="455" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="txtRentSearch" pref="465" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

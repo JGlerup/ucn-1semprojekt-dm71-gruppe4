@@ -11,6 +11,7 @@
 package GUI;
 
 import Ctr.CustomerCtr;
+import Ctr.RentCtr;
 import Model.Customer;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -24,6 +25,7 @@ import javax.swing.JTextField;
 public class Kundehaandtering extends javax.swing.JPanel {
 
     private CustomerCtr customerCtr;
+    private RentCtr rentCtr;
     private TableCustomer tblCustomer;
     private int customerIDUpdate;
 
@@ -31,6 +33,7 @@ public class Kundehaandtering extends javax.swing.JPanel {
     public Kundehaandtering() {
         initComponents();
         customerCtr = new CustomerCtr();
+        rentCtr = new RentCtr();
         tblCustomer = new TableCustomer();
     }
 
@@ -102,6 +105,11 @@ public class Kundehaandtering extends javax.swing.JPanel {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Kundehåndtering"));
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
+        jPanel1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel1FocusGained(evt);
+            }
+        });
 
         pSearchCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder("Søg kunde"));
 
@@ -174,7 +182,7 @@ public class Kundehaandtering extends javax.swing.JPanel {
             pCustomerListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCustomerListLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         pCreateCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder("Opret kunde"));
@@ -356,9 +364,9 @@ public class Kundehaandtering extends javax.swing.JPanel {
                     .addComponent(pCustomerList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pCreateCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pDeleteCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pUpdateCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pCreateCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pUpdateCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -382,11 +390,11 @@ public class Kundehaandtering extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 959, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -452,7 +460,7 @@ public class Kundehaandtering extends javax.swing.JPanel {
         int customerID = 0;
         try {
             customerID = Integer.parseInt(txtDeleteCustomer.getText());
-            if (customerCtr.getCustomer(customerID) != null) {
+            if (customerCtr.getCustomer(customerID) == null) {
                 customerCtr.deleteCustomer(customerID);
                 updateCustomerList();
                 txtDeleteCustomer.setText("");
@@ -530,6 +538,11 @@ public class Kundehaandtering extends javax.swing.JPanel {
         // TODO add your handling code here:
         txtUpdateCustomerGetCustomer.setText("");
 }//GEN-LAST:event_txtUpdateCustomerGetCustomerFocusGained
+
+    private void jPanel1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel1FocusGained
+        // TODO add your handling code here:
+        updateCustomerList();
+    }//GEN-LAST:event_jPanel1FocusGained
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomerCreateCustomer;
