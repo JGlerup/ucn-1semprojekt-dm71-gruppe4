@@ -4,6 +4,7 @@
  */
 package Model;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -86,7 +87,11 @@ public class Item {
     }
 
     public double getItemPrice() {
-        return itemPrice;
+//        return itemPrice;
+//        double x = itemPrice;
+//        x = (Math.rint(x*100.0)) / 100.0;
+//        return x;
+        return Math.rint(itemPrice * 100.0) / 100.0;
     }
 
     public void setItemPrice(double ItemPrice) {

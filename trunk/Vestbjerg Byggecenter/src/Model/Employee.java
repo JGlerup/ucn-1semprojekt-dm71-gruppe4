@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.text.DecimalFormat;
+
 /**
  * Klassen repræsenterer et employee-objekt, som arver fra klassen Person
  * Informationer om medarbejderen bliver gemt og kan hentes.
@@ -34,7 +36,12 @@ public class Employee extends Person {
     }
 
     public double getTrade() {
-        return trade;
+//        return trade;
+//        DecimalFormat twoDForm = new DecimalFormat("#.##");
+//        return Double.valueOf(twoDForm.format(trade));
+//                double x = trade;
+//        x = (Math.rint(x*100.0)) / 100.0;
+        return Math.rint(trade*100.0) / 100.0;
     }
 
     public void setTrade(double trade) {
