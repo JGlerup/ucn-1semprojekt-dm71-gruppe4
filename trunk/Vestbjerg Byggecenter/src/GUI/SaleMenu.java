@@ -110,10 +110,10 @@ public class SaleMenu extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pSaleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
-                    .addGroup(pSaleListLayout.createSequentialGroup()
-                        .addComponent(btnEmployeeSeach)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSaleListLayout.createSequentialGroup()
+                        .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
+                        .addComponent(btnEmployeeSeach)))
                 .addContainerGap())
         );
         pSaleListLayout.setVerticalGroup(
