@@ -13,9 +13,10 @@ package GUI;
 import Ctr.CustomerCtr;
 import Ctr.RentCtr;
 import Model.Customer;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
@@ -41,9 +42,10 @@ public class Kundehaandtering extends javax.swing.JPanel {
         ArrayList<Customer> customerList = customerCtr.getCustomerList();
         tblCustomer.setData(customerList);
         tblCustomerList.setModel(tblCustomer);
-        this.setVisible(true);
-        tblCustomerList.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        tblCustomerList.getColumnModel().getColumn(0).setPreferredWidth(2);
+        tblCustomerList.setAutoCreateRowSorter(true);
+//        this.setVisible(true);
+//        tblCustomerList.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+//        tblCustomerList.getColumnModel().getColumn(0).setPreferredWidth(2);
 
     }
 
@@ -74,82 +76,35 @@ public class Kundehaandtering extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        pSearchCustomer = new javax.swing.JPanel();
-        btnCustomerSeach = new javax.swing.JButton();
-        txtCustomerSearch = new javax.swing.JTextField();
         pCustomerList = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCustomerList = new javax.swing.JTable();
+        btnCustomerSeach = new javax.swing.JButton();
+        txtCustomerSearch = new javax.swing.JTextField();
         pCreateCustomer = new javax.swing.JPanel();
-        lblCustomerName = new java.awt.Label();
         txtCreateCustomerName = new javax.swing.JTextField();
-        lblCustomerAddress = new java.awt.Label();
         txtCreateCustomerAddress = new javax.swing.JTextField();
-        lblCreateCustomerPhone = new java.awt.Label();
         txtCreateCustomerPhone = new javax.swing.JTextField();
         btnCustomerCreateCustomer = new javax.swing.JButton();
+        lblCustomerName = new javax.swing.JLabel();
+        lblCustomerAddress = new javax.swing.JLabel();
+        lblCreateCustomerPhone = new javax.swing.JLabel();
         pDeleteCustomer = new javax.swing.JPanel();
         txtDeleteCustomer = new javax.swing.JTextField();
         btnDeleteCustomer = new javax.swing.JButton();
         pUpdateCustomer = new javax.swing.JPanel();
-        lblUpdateCustomerName = new java.awt.Label();
         txtUpdateCustomerName = new javax.swing.JTextField();
-        lblUpdateCustomerAddress = new java.awt.Label();
         txtUpdateCustomerAddress = new javax.swing.JTextField();
-        lblUpdateCustomerPhone = new java.awt.Label();
         txtUpdateCustomerPhone = new javax.swing.JTextField();
         btnUpdateCustomer = new javax.swing.JButton();
         btnUpdateCustomerGetCustomer = new javax.swing.JButton();
         txtUpdateCustomerGetCustomer = new javax.swing.JTextField();
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Kundehåndtering"));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
-        jPanel1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jPanel1FocusGained(evt);
-            }
-        });
-
-        pSearchCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder("Søg kunde"));
-
-        btnCustomerSeach.setText("Søg");
-        btnCustomerSeach.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCustomerSeachActionPerformed(evt);
-            }
-        });
-
-        txtCustomerSearch.setText("Indtast kunde-ID");
-        txtCustomerSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCustomerSearchActionPerformed(evt);
-            }
-        });
-        txtCustomerSearch.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtCustomerSearchFocusGained(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pSearchCustomerLayout = new javax.swing.GroupLayout(pSearchCustomer);
-        pSearchCustomer.setLayout(pSearchCustomerLayout);
-        pSearchCustomerLayout.setHorizontalGroup(
-            pSearchCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSearchCustomerLayout.createSequentialGroup()
-                .addComponent(btnCustomerSeach)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtCustomerSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pSearchCustomerLayout.setVerticalGroup(
-            pSearchCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSearchCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnCustomerSeach)
-                .addComponent(txtCustomerSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        lblUpdateCustomerName = new javax.swing.JLabel();
+        lblUpdateCustomerAddress = new javax.swing.JLabel();
+        lblUpdateCustomerPhone = new javax.swing.JLabel();
 
         pCustomerList.setBorder(javax.swing.BorderFactory.createTitledBorder("Kundeliste"));
+        pCustomerList.setPreferredSize(new java.awt.Dimension(603, 641));
 
         tblCustomerList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -169,29 +124,59 @@ public class Kundehaandtering extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCustomerList);
 
+        btnCustomerSeach.setText("Søg");
+        btnCustomerSeach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomerSeachActionPerformed(evt);
+            }
+        });
+
+        txtCustomerSearch.setText("Indtast kunde-ID");
+        txtCustomerSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerSearchActionPerformed(evt);
+            }
+        });
+        txtCustomerSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCustomerSearchFocusGained(evt);
+            }
+        });
+        txtCustomerSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCustomerSearchKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerSearchKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout pCustomerListLayout = new javax.swing.GroupLayout(pCustomerList);
         pCustomerList.setLayout(pCustomerListLayout);
         pCustomerListLayout.setHorizontalGroup(
             pCustomerListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCustomerListLayout.createSequentialGroup()
+            .addGroup(pCustomerListLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 610, Short.MAX_VALUE)
+                .addGroup(pCustomerListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                    .addGroup(pCustomerListLayout.createSequentialGroup()
+                        .addComponent(btnCustomerSeach)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCustomerSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pCustomerListLayout.setVerticalGroup(
             pCustomerListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCustomerListLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addGroup(pCustomerListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCustomerSeach)
+                    .addComponent(txtCustomerSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pCreateCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder("Opret kunde"));
-
-        lblCustomerName.setText("Navn");
-
-        lblCustomerAddress.setText("Adresse");
-
-        lblCreateCustomerPhone.setText("Tlfnr.");
 
         btnCustomerCreateCustomer.setText("Opret");
         btnCustomerCreateCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -200,6 +185,12 @@ public class Kundehaandtering extends javax.swing.JPanel {
             }
         });
 
+        lblCustomerName.setText("Navn:");
+
+        lblCustomerAddress.setText("Adresse:");
+
+        lblCreateCustomerPhone.setText("Tlfnr.:");
+
         javax.swing.GroupLayout pCreateCustomerLayout = new javax.swing.GroupLayout(pCreateCustomer);
         pCreateCustomer.setLayout(pCreateCustomerLayout);
         pCreateCustomerLayout.setHorizontalGroup(
@@ -207,36 +198,36 @@ public class Kundehaandtering extends javax.swing.JPanel {
             .addGroup(pCreateCustomerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pCreateCustomerLayout.createSequentialGroup()
-                        .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCreateCustomerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCreateCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(txtCreateCustomerAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
-                            .addComponent(txtCreateCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCreateCustomerLayout.createSequentialGroup()
+                        .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCreateCustomerPhone)
+                            .addComponent(lblCustomerAddress)
+                            .addComponent(lblCustomerName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCreateCustomerAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                            .addComponent(txtCreateCustomerName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                            .addComponent(txtCreateCustomerPhone, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)))
                     .addComponent(btnCustomerCreateCustomer, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         pCreateCustomerLayout.setVerticalGroup(
             pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCreateCustomerLayout.createSequentialGroup()
-                .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCreateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCreateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCustomerName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCreateCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCreateCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCustomerAddress))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pCreateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCreateCustomerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreateCustomerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCreateCustomerPhone))
                 .addGap(18, 18, 18)
                 .addComponent(btnCustomerCreateCustomer)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pDeleteCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder("Slet kunde"));
@@ -254,31 +245,23 @@ public class Kundehaandtering extends javax.swing.JPanel {
             pDeleteCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pDeleteCustomerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnDeleteCustomer)
-                .addGap(18, 18, 18)
-                .addComponent(txtDeleteCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addComponent(btnDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDeleteCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pDeleteCustomerLayout.setVerticalGroup(
             pDeleteCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDeleteCustomerLayout.createSequentialGroup()
-                .addGroup(pDeleteCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDeleteCustomer))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pDeleteCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(txtDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeleteCustomer))
         );
 
         pUpdateCustomer.setBorder(javax.swing.BorderFactory.createTitledBorder("Opdater kunde"));
 
-        lblUpdateCustomerName.setText("Navn");
-
         txtUpdateCustomerName.setEnabled(false);
 
-        lblUpdateCustomerAddress.setText("Adresse");
-
         txtUpdateCustomerAddress.setEnabled(false);
-
-        lblUpdateCustomerPhone.setText("Tlfnr.");
 
         txtUpdateCustomerPhone.setEnabled(false);
 
@@ -308,6 +291,12 @@ public class Kundehaandtering extends javax.swing.JPanel {
             }
         });
 
+        lblUpdateCustomerName.setText("Navn:");
+
+        lblUpdateCustomerAddress.setText("Adresse:");
+
+        lblUpdateCustomerPhone.setText("Tlfnr.:");
+
         javax.swing.GroupLayout pUpdateCustomerLayout = new javax.swing.GroupLayout(pUpdateCustomer);
         pUpdateCustomer.setLayout(pUpdateCustomerLayout);
         pUpdateCustomerLayout.setHorizontalGroup(
@@ -317,17 +306,18 @@ public class Kundehaandtering extends javax.swing.JPanel {
                 .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUpdateCustomer, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pUpdateCustomerLayout.createSequentialGroup()
-                        .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnUpdateCustomerGetCustomer)
-                            .addComponent(lblUpdateCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                            .addComponent(lblUpdateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUpdateCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblUpdateCustomerAddress)
+                            .addComponent(lblUpdateCustomerName)
+                            .addComponent(lblUpdateCustomerPhone)
+                            .addComponent(btnUpdateCustomerGetCustomer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUpdateCustomerAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                            .addComponent(txtUpdateCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                            .addComponent(txtUpdateCustomerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                            .addComponent(txtUpdateCustomerGetCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))))
+                        .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtUpdateCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                            .addComponent(txtUpdateCustomerAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                            .addComponent(txtUpdateCustomerName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                            .addComponent(txtUpdateCustomerGetCustomer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pUpdateCustomerLayout.setVerticalGroup(
@@ -337,64 +327,49 @@ public class Kundehaandtering extends javax.swing.JPanel {
                     .addComponent(txtUpdateCustomerGetCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdateCustomerGetCustomer))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblUpdateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUpdateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUpdateCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdateCustomerName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUpdateCustomerAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUpdateCustomerAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUpdateCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdateCustomerAddress))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUpdateCustomerPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUpdateCustomerPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pUpdateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUpdateCustomerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdateCustomerPhone))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnUpdateCustomer)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pSearchCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pCustomerList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pCreateCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pUpdateCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pSearchCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pCustomerList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(pCreateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pUpdateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pCustomerList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pCreateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pUpdateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pCustomerList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pCreateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pDeleteCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pUpdateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -449,6 +424,7 @@ public class Kundehaandtering extends javax.swing.JPanel {
                 updateCustomerList();
                 //resetFields(txtFields);
                 JOptionPane.showMessageDialog(this, "En kunde med ID'et " + customerID);
+                txtCreateCustomerName.requestFocus();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Fejl: " + e.getMessage());
@@ -458,31 +434,36 @@ public class Kundehaandtering extends javax.swing.JPanel {
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
         // TODO add your handling code here:
         int customerID = 0;
-        try {
-            customerID = Integer.parseInt(txtDeleteCustomer.getText());
-            if (customerCtr.getCustomer(customerID) == null) {
-                customerCtr.deleteCustomer(customerID);
-                updateCustomerList();
-                txtDeleteCustomer.setText("");
-                //Efterfølgende er for at nulstille opdater vare vinduet.
-                //Dette forhindrer brugeren at opdaterer en vare,
-                //som ikke eksisterer.
-                JTextField[] txtFields = {txtUpdateCustomerName, txtUpdateCustomerAddress,
-                    txtUpdateCustomerPhone};
-                resetFields(txtFields);
-                disableFields(txtFields);
-                txtUpdateCustomerGetCustomer.setText("");
-                JOptionPane.showMessageDialog(this, "Varen med ID'et " + customerID + " blev slettet");
+//        try {
+        customerID = Integer.parseInt(txtDeleteCustomer.getText());
+        boolean rentStatus = rentCtr.checkRentStatusCustomer(customerID);
+        if (customerCtr.getCustomer(customerID) != null && rentStatus == false) {
+            customerCtr.deleteCustomer(customerID);
+            updateCustomerList();
+            txtDeleteCustomer.setText("");
+            //Efterfølgende er for at nulstille opdater vare vinduet.
+            //Dette forhindrer brugeren at opdaterer en vare,
+            //som ikke eksisterer.
+            JTextField[] txtFields = {txtUpdateCustomerName, txtUpdateCustomerAddress,
+                txtUpdateCustomerPhone};
+            resetFields(txtFields);
+            disableFields(txtFields);
+            txtUpdateCustomerGetCustomer.setText("");
+            JOptionPane.showMessageDialog(this, "Kunden med ID'et " + customerID + " blev slettet");
+
+        } else {
+            if (rentStatus == true) {
+                JOptionPane.showMessageDialog(this, "Kunden med ID'et " + customerID + " kan ikke slettet, da en udlejning er tilknyttet");
 
             } else {
-
                 JOptionPane.showMessageDialog(this, "ID'et " + customerID + " blev ikke fundet");
                 txtDeleteCustomer.setText("");
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Skal være et heltal");
-            txtDeleteCustomer.setText("");
         }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(this, "Skal være et heltal" + e.getMessage());
+//            txtDeleteCustomer.setText("");
+//        }
 }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
     private void btnUpdateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateCustomerActionPerformed
@@ -539,10 +520,17 @@ public class Kundehaandtering extends javax.swing.JPanel {
         txtUpdateCustomerGetCustomer.setText("");
 }//GEN-LAST:event_txtUpdateCustomerGetCustomerFocusGained
 
-    private void jPanel1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel1FocusGained
+    private void txtCustomerSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerSearchKeyTyped
         // TODO add your handling code here:
-        updateCustomerList();
-    }//GEN-LAST:event_jPanel1FocusGained
+    }//GEN-LAST:event_txtCustomerSearchKeyTyped
+
+    private void txtCustomerSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerSearchKeyPressed
+        // TODO add your handling code here:
+        int key = evt.getKeyCode();
+        if(key == KeyEvent.VK_ENTER) {
+            btnCustomerSeach.doClick();
+        }
+    }//GEN-LAST:event_txtCustomerSearchKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomerCreateCustomer;
@@ -550,18 +538,16 @@ public class Kundehaandtering extends javax.swing.JPanel {
     private javax.swing.JButton btnDeleteCustomer;
     private javax.swing.JButton btnUpdateCustomer;
     private javax.swing.JButton btnUpdateCustomerGetCustomer;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private java.awt.Label lblCreateCustomerPhone;
-    private java.awt.Label lblCustomerAddress;
-    private java.awt.Label lblCustomerName;
-    private java.awt.Label lblUpdateCustomerAddress;
-    private java.awt.Label lblUpdateCustomerName;
-    private java.awt.Label lblUpdateCustomerPhone;
+    private javax.swing.JLabel lblCreateCustomerPhone;
+    private javax.swing.JLabel lblCustomerAddress;
+    private javax.swing.JLabel lblCustomerName;
+    private javax.swing.JLabel lblUpdateCustomerAddress;
+    private javax.swing.JLabel lblUpdateCustomerName;
+    private javax.swing.JLabel lblUpdateCustomerPhone;
     private javax.swing.JPanel pCreateCustomer;
     private javax.swing.JPanel pCustomerList;
     private javax.swing.JPanel pDeleteCustomer;
-    private javax.swing.JPanel pSearchCustomer;
     private javax.swing.JPanel pUpdateCustomer;
     private javax.swing.JTable tblCustomerList;
     private javax.swing.JTextField txtCreateCustomerAddress;

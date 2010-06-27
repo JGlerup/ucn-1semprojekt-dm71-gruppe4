@@ -52,6 +52,7 @@ public class NewSale extends javax.swing.JFrame {
         tblNewSale.setData(sliList);
         tblNewSaleList.setModel(tblNewSale);
         this.setVisible(true);
+        tblNewSaleList.setAutoCreateRowSorter(true);
     }
 
     public void setSaleID(int saleID) {
@@ -550,9 +551,7 @@ public class NewSale extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pNewSale, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(pNewSale, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

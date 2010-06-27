@@ -16,26 +16,10 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-118,0,0,3,-8"/>
   </AuxValues>
 
-  <Layout>
-    <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" pref="1014" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
-    <DimensionLayout dim="1">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" pref="685" max="-2" attributes="0"/>
-              <EmptySpace pref="83" max="32767" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
-  </Layout>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
@@ -47,93 +31,39 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="pItemList" max="32767" attributes="1"/>
-                      <Component id="pSearchItem" alignment="0" min="-2" max="-2" attributes="1"/>
+                  <Component id="pItemList" max="32767" attributes="1"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="pDeleteItem" alignment="0" max="32767" attributes="1"/>
+                      <Component id="pUpdateItem" alignment="0" max="32767" attributes="1"/>
+                      <Component id="pCreateItem" alignment="0" min="-2" max="-2" attributes="1"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="pUpdateItem" max="32767" attributes="1"/>
-                      <Component id="pDeleteItem" max="32767" attributes="1"/>
-                      <Component id="pCreateItem" max="32767" attributes="1"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="pSearchItem" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="pItemList" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="pCreateItem" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="pDeleteItem" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="pUpdateItem" min="-2" max="-2" attributes="0"/>
+                          <Component id="pUpdateItem" min="-2" pref="281" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="pItemList" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="pSearchItem">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="S&#xf8;g vare"/>
-              </Border>
-            </Property>
-          </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnItemSeach" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="txtItemSearch" pref="573" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnItemSeach" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtItemSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JButton" name="btnItemSeach">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="S&#xf8;g"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnItemSeachActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtItemSearch">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Indtast vare-ID"/>
-              </Properties>
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtItemSearchFocusGained"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
         <Container class="javax.swing.JPanel" name="pItemList">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -147,8 +77,15 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="624" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" alignment="1" pref="568" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnItemSeach" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtItemSearch" pref="511" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -156,8 +93,13 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="580" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtItemSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnItemSeach" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="561" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -241,6 +183,22 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="btnItemSeach">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="S&#xf8;g"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnItemSeachActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtItemSearch">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Indtast vare-ID"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtItemSearchFocusGained"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pCreateItem">
@@ -257,154 +215,106 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblCreateItemBrand" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="txtCreateItemBrand" pref="220" max="32767" attributes="1"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCreateItemDescription" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCreateItemItemsInStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCreateItemMinInStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblItemPrice" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblItemName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCreateItemLocation" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCreateItemLocation1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="chkSerialNoYesOrNo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="72" max="32767" attributes="0"/>
-                                      <Component id="btnItemCreateItem" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txtCreateItemName" alignment="0" pref="220" max="32767" attributes="0"/>
-                                  <Component id="txtCreateItemPrice" alignment="0" pref="220" max="32767" attributes="0"/>
-                                  <Component id="txtCreateItemItemsInStock" alignment="0" pref="220" max="32767" attributes="0"/>
-                                  <Component id="txtCreateItemDescription" alignment="0" pref="220" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txtCreateItemMinInStock" min="-2" pref="75" max="-2" attributes="1"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblCreateItemMaxInStock" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="txtCreateItemMaxInStock" min="-2" pref="89" max="-2" attributes="1"/>
-                                  </Group>
-                                  <Component id="txtCreateItemLocation" alignment="1" pref="220" max="32767" attributes="1"/>
-                              </Group>
-                          </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblItemPrice" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblItemName" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCreateItemDescription" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCreateItemItemsInStock" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCreateItemMinInStock" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCreateItemBrand" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCreateItemLocation" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCreateItemSN" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="txtCreateItemName" alignment="0" pref="297" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="1">
+                              <Component id="txtCreateItemMinInStock" min="-2" pref="125" max="-2" attributes="1"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblCreateItemMaxInStock" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtCreateItemMaxInStock" pref="132" max="32767" attributes="1"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="1">
+                              <Component id="chkSerialNoYesOrNo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="149" max="32767" attributes="0"/>
+                              <Component id="btnItemCreateItem" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txtCreateItemBrand" alignment="0" pref="297" max="32767" attributes="1"/>
+                          <Component id="txtCreateItemPrice" alignment="0" pref="297" max="32767" attributes="1"/>
+                          <Component id="txtCreateItemDescription" alignment="0" pref="297" max="32767" attributes="1"/>
+                          <Component id="txtCreateItemItemsInStock" alignment="0" pref="297" max="32767" attributes="1"/>
+                          <Component id="txtCreateItemLocation" alignment="0" pref="297" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblItemName" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCreateItemName" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtCreateItemName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblItemName" alignment="3" min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblItemPrice" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCreateItemPrice" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblItemPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCreateItemPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txtCreateItemDescription" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCreateItemDescription" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCreateItemDescription" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCreateItemDescription" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCreateItemItemsInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCreateItemItemsInStock" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblCreateItemItemsInStock" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCreateItemItemsInStock" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCreateItemMinInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCreateItemMinInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCreateItemMaxInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCreateItemMaxInStock" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblCreateItemMinInStock" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCreateItemMinInStock" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCreateItemMaxInStock" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCreateItemMaxInStock" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCreateItemBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCreateItemBrand" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblCreateItemBrand" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCreateItemBrand" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCreateItemLocation" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCreateItemLocation" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="txtCreateItemLocation" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCreateItemLocation" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chkSerialNoYesOrNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCreateItemSN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnItemCreateItem" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblCreateItemLocation1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="chkSerialNoYesOrNo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnItemCreateItem" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="11" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="java.awt.Label" name="lblItemName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Name"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtCreateItemName">
-            </Component>
-            <Component class="java.awt.Label" name="lblItemPrice">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Pris"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCreateItemPrice">
             </Component>
-            <Component class="java.awt.Label" name="lblCreateItemDescription">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Beskrivelse"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtCreateItemDescription">
-            </Component>
-            <Component class="java.awt.Label" name="lblCreateItemItemsInStock">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Antal"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCreateItemItemsInStock">
             </Component>
-            <Component class="java.awt.Label" name="lblCreateItemMinInStock">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Min."/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtCreateItemMinInStock">
-            </Component>
-            <Component class="java.awt.Label" name="lblCreateItemMaxInStock">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Maks."/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCreateItemMaxInStock">
             </Component>
-            <Component class="java.awt.Label" name="lblCreateItemBrand">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Brand"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtCreateItemBrand">
-            </Component>
-            <Component class="java.awt.Label" name="lblCreateItemLocation">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Lokation"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCreateItemLocation">
             </Component>
@@ -416,11 +326,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnItemCreateItemActionPerformed"/>
               </Events>
             </Component>
-            <Component class="java.awt.Label" name="lblCreateItemLocation1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Serienr."/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JCheckBox" name="chkSerialNoYesOrNo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="(Ja/nej)"/>
@@ -428,6 +333,51 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkSerialNoYesOrNoActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblItemName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Navn:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblItemPrice">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pris:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCreateItemDescription">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Beskrivelse:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCreateItemItemsInStock">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Antal:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCreateItemMinInStock">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Min.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCreateItemMaxInStock">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Maks.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCreateItemBrand">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Brand:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCreateItemLocation">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lokation:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCreateItemSN">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Serienr.:"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -443,22 +393,20 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnDeleteItem" min="-2" max="-2" attributes="1"/>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
-                      <Component id="txtDeleteItem" min="-2" pref="221" max="-2" attributes="1"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="btnDeleteItem" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtDeleteItem" pref="291" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnDeleteItem" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtDeleteItem" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="txtDeleteItem" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="btnDeleteItem" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -491,50 +439,42 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnUpdateItem" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblUpdateItemItemsInStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblUpdateItemMinInStock" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblUpdateItemDescription" alignment="0" pref="69" max="32767" attributes="1"/>
-                                              <Component id="lblUpdateItemName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblUpdateItemPrice" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnUpdateItemGetItem" alignment="0" min="-2" max="-2" attributes="1"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblUpdateItemBrand" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblUpdateItemLocation" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtUpdateItemLocation" alignment="0" pref="219" max="32767" attributes="1"/>
-                                  <Component id="txtUpdateItemBrand" alignment="0" pref="219" max="32767" attributes="1"/>
-                                  <Component id="txtUpdateItemGetItem" pref="219" max="32767" attributes="1"/>
-                                  <Component id="txtUpdateItemPrice" alignment="0" pref="219" max="32767" attributes="0"/>
-                                  <Component id="txtUpdateItemDescription" alignment="0" pref="219" max="32767" attributes="0"/>
-                                  <Component id="txtUpdateItemItemsInStock" alignment="1" pref="219" max="32767" attributes="0"/>
-                                  <Component id="txtUpdateItemName" alignment="1" pref="219" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txtUpdateItemMinInStock" min="-2" pref="74" max="-2" attributes="1"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblUpdateItemMaxInStock" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtUpdateItemMaxInStock" pref="89" max="32767" attributes="1"/>
-                                  </Group>
-                              </Group>
-                          </Group>
+                          <Component id="lblUpdateItemBrand" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemLocation" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemMinInStock" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemItemsInStock" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemDescription" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemPrice" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemName" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="txtUpdateItemGetItem" alignment="1" pref="297" max="32767" attributes="1"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="txtUpdateItemMinInStock" pref="129" max="32767" attributes="1"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblUpdateItemMaxInStock" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtUpdateItemMaxInStock" min="-2" pref="132" max="-2" attributes="1"/>
+                          </Group>
+                          <Component id="txtUpdateItemItemsInStock" alignment="1" pref="297" max="32767" attributes="0"/>
+                          <Component id="txtUpdateItemBrand" alignment="0" pref="297" max="32767" attributes="1"/>
+                          <Component id="txtUpdateItemLocation" alignment="0" pref="297" max="32767" attributes="1"/>
+                          <Component id="txtUpdateItemDescription" alignment="1" pref="297" max="32767" attributes="0"/>
+                          <Component id="txtUpdateItemPrice" alignment="0" pref="297" max="32767" attributes="0"/>
+                          <Component id="txtUpdateItemName" alignment="0" pref="297" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="10" pref="10" max="10" attributes="0"/>
+                      <Component id="btnUpdateItemGetItem" min="-2" max="-2" attributes="1"/>
+                      <EmptySpace pref="313" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="275" max="32767" attributes="0"/>
+                      <Component id="btnUpdateItem" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="10" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -542,66 +482,57 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtUpdateItemGetItem" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnUpdateItemGetItem" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUpdateItemGetItem" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblUpdateItemName" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUpdateItemName" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblUpdateItemName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUpdateItemName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblUpdateItemPrice" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUpdateItemPrice" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtUpdateItemDescription" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblUpdateItemDescription" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtUpdateItemItemsInStock" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblUpdateItemItemsInStock" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblUpdateItemMinInStock" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUpdateItemMinInStock" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblUpdateItemMaxInStock" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUpdateItemMaxInStock" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblUpdateItemPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUpdateItemPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblUpdateItemBrand" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUpdateItemBrand" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtUpdateItemDescription" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemDescription" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblUpdateItemLocation" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtUpdateItemLocation" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtUpdateItemItemsInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemItemsInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblUpdateItemMinInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUpdateItemMinInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUpdateItemMaxInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUpdateItemMaxInStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblUpdateItemBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUpdateItemBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblUpdateItemLocation" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUpdateItemLocation" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnUpdateItem" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="java.awt.Label" name="lblUpdateItemName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Name"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtUpdateItemName">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="lblUpdateItemPrice">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Pris"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtUpdateItemPrice">
@@ -609,19 +540,9 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Label" name="lblUpdateItemDescription">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Beskrivelse"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtUpdateItemDescription">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="lblUpdateItemItemsInStock">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Antal"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtUpdateItemItemsInStock">
@@ -629,19 +550,9 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Label" name="lblUpdateItemMinInStock">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Min."/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtUpdateItemMinInStock">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="lblUpdateItemMaxInStock">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Maks."/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtUpdateItemMaxInStock">
@@ -649,19 +560,9 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="java.awt.Label" name="lblUpdateItemBrand">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Brand"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtUpdateItemBrand">
               <Properties>
                 <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.Label" name="lblUpdateItemLocation">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Lokation"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtUpdateItemLocation">
@@ -693,6 +594,46 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUpdateItemGetItemActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtUpdateItemGetItemFocusGained"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUpdateItemName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Navn:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUpdateItemPrice">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pris:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUpdateItemDescription">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Beskrivelse:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUpdateItemItemsInStock">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Antal:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUpdateItemMinInStock">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Min.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUpdateItemMaxInStock">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Max.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUpdateItemBrand">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Brand:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUpdateItemLocation">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lokation:"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

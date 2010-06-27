@@ -44,6 +44,7 @@ public class SaleMenu extends javax.swing.JPanel {
         ArrayList<Sale> saleList = saleCtr.getSaleList();
         tblSale.setData(saleList);
         tblSaleList.setModel(tblSale);
+        tblSaleList.setAutoCreateRowSorter(true);
     }
 
     /** This method is called from within the constructor to
@@ -55,13 +56,14 @@ public class SaleMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pSale = new javax.swing.JPanel();
         pSaleList = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSaleList = new javax.swing.JTable();
-        pFindSale = new javax.swing.JPanel();
-        btnSaleSearch = new javax.swing.JButton();
-        txtSeachSaleID = new javax.swing.JTextField();
+        btnEmployeeSeach = new javax.swing.JButton();
+        txtEmployeeSearch = new javax.swing.JTextField();
+        pShowContentSale = new javax.swing.JPanel();
+        btnShowContentSale = new javax.swing.JButton();
+        txtShowContentSaleID = new javax.swing.JTextField();
         pCreateSale = new javax.swing.JPanel();
         lblSaleDate = new javax.swing.JLabel();
         lblSaleItemQuantity = new javax.swing.JLabel();
@@ -73,10 +75,8 @@ public class SaleMenu extends javax.swing.JPanel {
         txtSaleDate = new javax.swing.JTextField();
         btnCreateSale = new javax.swing.JButton();
 
-        pSale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Salg", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
-        pSale.setPreferredSize(new java.awt.Dimension(500, 399));
-
-        pSaleList.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Liste", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
+        pSaleList.setBorder(javax.swing.BorderFactory.createTitledBorder("Salgsliste"));
+        pSaleList.setPreferredSize(new java.awt.Dimension(603, 641));
 
         tblSaleList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,68 +88,90 @@ public class SaleMenu extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblSaleList);
 
+        btnEmployeeSeach.setText("Søg");
+        btnEmployeeSeach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmployeeSeachActionPerformed(evt);
+            }
+        });
+
+        txtEmployeeSearch.setText("Indtast ID");
+        txtEmployeeSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmployeeSearchFocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout pSaleListLayout = new javax.swing.GroupLayout(pSaleList);
         pSaleList.setLayout(pSaleListLayout);
         pSaleListLayout.setHorizontalGroup(
             pSaleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSaleListLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+                .addGroup(pSaleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                    .addGroup(pSaleListLayout.createSequentialGroup()
+                        .addComponent(btnEmployeeSeach)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pSaleListLayout.setVerticalGroup(
             pSaleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pSaleListLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pFindSale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Søg efter salg", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
-
-        btnSaleSearch.setText("Søg");
-        btnSaleSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaleSearchActionPerformed(evt);
-            }
-        });
-
-        txtSeachSaleID.setText("Indtast ID");
-        txtSeachSaleID.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtSeachSaleIDFocusGained(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pFindSaleLayout = new javax.swing.GroupLayout(pFindSale);
-        pFindSale.setLayout(pFindSaleLayout);
-        pFindSaleLayout.setHorizontalGroup(
-            pFindSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pFindSaleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSaleSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pSaleListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmployeeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEmployeeSeach))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSeachSaleID, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        pFindSaleLayout.setVerticalGroup(
-            pFindSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pFindSaleLayout.createSequentialGroup()
-                .addGroup(pFindSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSaleSearch)
-                    .addComponent(txtSeachSaleID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+        pShowContentSale.setBorder(javax.swing.BorderFactory.createTitledBorder("Søg efter indeholdet af et salg"));
+
+        btnShowContentSale.setText("Vis");
+        btnShowContentSale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowContentSaleActionPerformed(evt);
+            }
+        });
+
+        txtShowContentSaleID.setText("Indtast ID");
+        txtShowContentSaleID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtShowContentSaleIDFocusGained(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pShowContentSaleLayout = new javax.swing.GroupLayout(pShowContentSale);
+        pShowContentSale.setLayout(pShowContentSaleLayout);
+        pShowContentSaleLayout.setHorizontalGroup(
+            pShowContentSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pShowContentSaleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnShowContentSale, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtShowContentSaleID, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pShowContentSaleLayout.setVerticalGroup(
+            pShowContentSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pShowContentSaleLayout.createSequentialGroup()
+                .addGroup(pShowContentSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnShowContentSale)
+                    .addComponent(txtShowContentSaleID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pCreateSale.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opret salg", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 0, 11))); // NOI18N
+        pCreateSale.setBorder(javax.swing.BorderFactory.createTitledBorder("Opret salg"));
 
-        lblSaleDate.setText("Dato");
+        lblSaleDate.setText("Dato:");
 
-        lblSaleItemQuantity.setText("Antal");
+        lblSaleItemQuantity.setText("Antal:");
 
-        lblSaleEmployeeID.setText("Medarbejder");
+        lblSaleEmployeeID.setText("Medarbejder-ID:");
 
-        lblSaleItemID.setText("Vare");
+        lblSaleItemID.setText("Vare:");
 
         txtSaleItemID.setText("Indtast ID");
         txtSaleItemID.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -195,96 +217,77 @@ public class SaleMenu extends javax.swing.JPanel {
         pCreateSaleLayout.setHorizontalGroup(
             pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCreateSaleLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
+                .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblSaleDate)
+                    .addComponent(lblSaleEmployeeID)
+                    .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblSaleItemQuantity)
+                        .addComponent(lblSaleItemID)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pCreateSaleLayout.createSequentialGroup()
-                        .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSaleItemQuantity)
-                            .addComponent(lblSaleDate)
-                            .addComponent(lblSaleItemID)
-                            .addComponent(lblSaleEmployeeID))
-                        .addGap(21, 21, 21)
-                        .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtSaleDate)
-                            .addComponent(txtSaleItemQuantity)
-                            .addComponent(txtSaleItemID)
-                            .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)))
-                    .addGroup(pCreateSaleLayout.createSequentialGroup()
-                        .addComponent(btnCreateSale, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                        .addGap(116, 116, 116)))
+                    .addComponent(btnCreateSale, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                    .addComponent(txtSaleItemID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                    .addComponent(txtSaleDate, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                    .addComponent(txtSaleItemQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+                    .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pCreateSaleLayout.setVerticalGroup(
             pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCreateSaleLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSaleEmployeeID)
-                    .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSaleItemID)
-                    .addComponent(txtSaleItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSaleItemQuantity)
-                    .addComponent(txtSaleItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaleEmployeeID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSaleDate)
-                    .addComponent(txtSaleDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                    .addComponent(txtSaleItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaleItemID))
+                .addGap(11, 11, 11)
+                .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSaleItemQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaleItemQuantity))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pCreateSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSaleDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaleDate))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(btnCreateSale)
                 .addContainerGap())
-        );
-
-        javax.swing.GroupLayout pSaleLayout = new javax.swing.GroupLayout(pSale);
-        pSale.setLayout(pSaleLayout);
-        pSaleLayout.setHorizontalGroup(
-            pSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pSaleLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pSaleList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pFindSale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(pCreateSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
-        );
-        pSaleLayout.setVerticalGroup(
-            pSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSaleLayout.createSequentialGroup()
-                .addGroup(pSaleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pSaleLayout.createSequentialGroup()
-                        .addComponent(pFindSale, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pSaleList, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pCreateSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pSale, javax.swing.GroupLayout.DEFAULT_SIZE, 974, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(pSaleList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pCreateSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pShowContentSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pSale, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pSaleList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pCreateSale, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pShowContentSale, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaleSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaleSearchActionPerformed
+    private void btnShowContentSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowContentSaleActionPerformed
         // TODO add your handling code here:
         try {
-            int saleID = Integer.parseInt(txtSeachSaleID.getText());
+            int saleID = Integer.parseInt(txtShowContentSaleID.getText());
             if (saleCtr.getSale(saleID) != null) {
                 SaleContents saleContents = new SaleContents();
                 saleContents.setVisible(true);
@@ -295,7 +298,7 @@ public class SaleMenu extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Fejl: " + e.getMessage());
         }
-}//GEN-LAST:event_btnSaleSearchActionPerformed
+}//GEN-LAST:event_btnShowContentSaleActionPerformed
 
     private void btnCreateSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSaleActionPerformed
         // TODO add your handling code here:
@@ -331,6 +334,7 @@ public class SaleMenu extends javax.swing.JPanel {
                                     newSale.setVisible(true);
                                     newSale.setSaleID(saleID);
                                     newSale.setGuiSale(this);
+                                    
                                 }
                             }
                         }
@@ -362,32 +366,64 @@ public class SaleMenu extends javax.swing.JPanel {
         txtSaleDate.setText("");
     }//GEN-LAST:event_txtSaleDateFocusGained
 
-    private void txtSeachSaleIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSeachSaleIDFocusGained
+    private void txtShowContentSaleIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtShowContentSaleIDFocusGained
         // TODO add your handling code here:
-        txtSeachSaleID.setText("");
-    }//GEN-LAST:event_txtSeachSaleIDFocusGained
+        txtShowContentSaleID.setText("");
+    }//GEN-LAST:event_txtShowContentSaleIDFocusGained
 
     private void txtSaleItemQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaleItemQuantityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSaleItemQuantityActionPerformed
 
+    private void btnEmployeeSeachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeSeachActionPerformed
+        // TODO add your handling code here:
+        try {
+            int employeeID = Integer.parseInt(txtEmployeeSearch.getText());
+            if (employeeCtr.getEmployee(employeeID) != null) {
+                employeeCtr.getEmployee(employeeID);
+                txtEmployeeSearch.setText("");
+                int rows = tblSaleList.getModel().getRowCount();
+                int col = 0;
+                for (int i = 0; i < rows; i++) {
+                    int value = (Integer) tblSaleList.getModel().getValueAt(i, col);
+                    if (value == employeeID) {
+                        tblSaleList.setRowSelectionInterval(i, i);
+                        tblSaleList.addRowSelectionInterval(i, i);
+                        tblSaleList.scrollRectToVisible(tblSaleList.getCellRect(i, i, true));
+                    }
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "ID'et " + employeeID + " blev ikke fundet");
+            }
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(this, "Skal være et heltal");
+            txtEmployeeSearch.setText("");
+        }
+}//GEN-LAST:event_btnEmployeeSeachActionPerformed
+
+    private void txtEmployeeSearchFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmployeeSearchFocusGained
+        // TODO add your handling code here:
+        txtEmployeeSearch.setText("");
+}//GEN-LAST:event_txtEmployeeSearchFocusGained
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateSale;
-    private javax.swing.JButton btnSaleSearch;
+    private javax.swing.JButton btnEmployeeSeach;
+    private javax.swing.JButton btnShowContentSale;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSaleDate;
     private javax.swing.JLabel lblSaleEmployeeID;
     private javax.swing.JLabel lblSaleItemID;
     private javax.swing.JLabel lblSaleItemQuantity;
     private javax.swing.JPanel pCreateSale;
-    private javax.swing.JPanel pFindSale;
-    private javax.swing.JPanel pSale;
     private javax.swing.JPanel pSaleList;
+    private javax.swing.JPanel pShowContentSale;
     private javax.swing.JTable tblSaleList;
+    private javax.swing.JTextField txtEmployeeSearch;
     private javax.swing.JTextField txtSaleDate;
     private javax.swing.JTextField txtSaleEmployeeID;
     private javax.swing.JTextField txtSaleItemID;
     private javax.swing.JTextField txtSaleItemQuantity;
-    private javax.swing.JTextField txtSeachSaleID;
+    private javax.swing.JTextField txtShowContentSaleID;
     // End of variables declaration//GEN-END:variables
 }

@@ -45,13 +45,15 @@ public class Udlejning extends javax.swing.JPanel {
         tblRentableItem.setData(rentableItemList);
         tblRentableItemList.setModel(tblRentableItem);
         this.setVisible(true);
+        tblRentableItemList.setAutoCreateRowSorter(true);
     }
 
     public void updateRentList() {
-        ArrayList<Rent> rentList = rentCtr.getRentContainer();
+        ArrayList<Rent> rentList = rentCtr.getRentList();
         tblRent.setData(rentList);
         tblRentList.setModel(tblRent);
         this.setVisible(true);
+        tblRentList.setAutoCreateRowSorter(true);
     }
 
     /** This method is called from within the constructor to
@@ -73,7 +75,6 @@ public class Udlejning extends javax.swing.JPanel {
         btnOpretUdlejningsvare = new javax.swing.JButton();
         txtOpretUdlejningsvareNavn = new javax.swing.JTextField();
         pDeliverRentableItem = new javax.swing.JPanel();
-        lblDeliverRentableItemID = new javax.swing.JLabel();
         txtDeliverRentableItemID = new javax.swing.JTextField();
         btnDeliverRentableItem = new javax.swing.JButton();
         pRentRentableItem = new javax.swing.JPanel();
@@ -87,7 +88,6 @@ public class Udlejning extends javax.swing.JPanel {
         lblRentRentableItemStatus = new javax.swing.JLabel();
         txtRentRentableItemStatus = new javax.swing.JTextField();
         pRemoveRentableItem = new javax.swing.JPanel();
-        lblRemoveRentableItemID = new javax.swing.JLabel();
         txtRemoveRentableItemID = new javax.swing.JTextField();
         btnRemoveRentableItem = new javax.swing.JButton();
         pRentList = new javax.swing.JPanel();
@@ -97,6 +97,7 @@ public class Udlejning extends javax.swing.JPanel {
         txtRentSearch = new javax.swing.JTextField();
 
         pRentableItemList.setBorder(javax.swing.BorderFactory.createTitledBorder("Udljeningsvarer"));
+        pRentableItemList.setPreferredSize(new java.awt.Dimension(600, 319));
 
         tblRentableItemList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,26 +140,31 @@ public class Udlejning extends javax.swing.JPanel {
         pRentableItemList.setLayout(pRentableItemListLayout);
         pRentableItemListLayout.setHorizontalGroup(
             pRentableItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pRentableItemListLayout.createSequentialGroup()
-                .addComponent(btnRentableItemSearch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRentableItemSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pRentableItemListLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pRentableItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                    .addGroup(pRentableItemListLayout.createSequentialGroup()
+                        .addComponent(btnRentableItemSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRentableItemSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pRentableItemListLayout.setVerticalGroup(
             pRentableItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pRentableItemListLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(pRentableItemListLayout.createSequentialGroup()
                 .addGroup(pRentableItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRentableItemSearch)
-                    .addComponent(txtRentableItemSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtRentableItemSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRentableItemSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pCreateRentableItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Opret udlejningsvare"));
         pCreateRentableItem.setPreferredSize(new java.awt.Dimension(190, 88));
 
-        lblpCreateRentableItemName.setText("Navn");
+        lblpCreateRentableItemName.setText("Navn:");
 
         btnOpretUdlejningsvare.setText("Opret");
         btnOpretUdlejningsvare.addActionListener(new java.awt.event.ActionListener() {
@@ -178,12 +184,12 @@ public class Udlejning extends javax.swing.JPanel {
         pCreateRentableItemLayout.setHorizontalGroup(
             pCreateRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCreateRentableItemLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(pCreateRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pCreateRentableItemLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pCreateRentableItemLayout.createSequentialGroup()
                         .addComponent(lblpCreateRentableItemName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(txtOpretUdlejningsvareNavn, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtOpretUdlejningsvareNavn, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnOpretUdlejningsvare, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -192,15 +198,13 @@ public class Udlejning extends javax.swing.JPanel {
             .addGroup(pCreateRentableItemLayout.createSequentialGroup()
                 .addContainerGap(12, Short.MAX_VALUE)
                 .addGroup(pCreateRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblpCreateRentableItemName)
-                    .addComponent(txtOpretUdlejningsvareNavn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtOpretUdlejningsvareNavn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblpCreateRentableItemName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnOpretUdlejningsvare))
         );
 
         pDeliverRentableItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Aflever udlejningsvare"));
-
-        lblDeliverRentableItemID.setText("ID");
 
         txtDeliverRentableItemID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,12 +225,9 @@ public class Udlejning extends javax.swing.JPanel {
             pDeliverRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pDeliverRentableItemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pDeliverRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pDeliverRentableItemLayout.createSequentialGroup()
-                        .addComponent(lblDeliverRentableItemID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(txtDeliverRentableItemID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnDeliverRentableItem, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addComponent(btnDeliverRentableItem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDeliverRentableItemID, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pDeliverRentableItemLayout.setVerticalGroup(
@@ -234,14 +235,13 @@ public class Udlejning extends javax.swing.JPanel {
             .addGroup(pDeliverRentableItemLayout.createSequentialGroup()
                 .addGroup(pDeliverRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDeliverRentableItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDeliverRentableItemID))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDeliverRentableItem))
+                    .addComponent(btnDeliverRentableItem))
+                .addContainerGap())
         );
 
         pRentRentableItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Udlån udlejningsvare"));
 
-        lblRentRentableItemID.setText("ID");
+        lblRentRentableItemID.setText("ID:");
 
         txtRentRentableItemID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,7 +256,7 @@ public class Udlejning extends javax.swing.JPanel {
             }
         });
 
-        lblRentRentableItemCustomerID.setText("Kunde-ID");
+        lblRentRentableItemCustomerID.setText("Kunde-ID:");
 
         txtRentRentableItemCustomerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -264,7 +264,7 @@ public class Udlejning extends javax.swing.JPanel {
             }
         });
 
-        lblRentRentableItemDate.setText("Afl. dato");
+        lblRentRentableItemDate.setText("Afl. dato:");
 
         txtRentRentableItemDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +272,7 @@ public class Udlejning extends javax.swing.JPanel {
             }
         });
 
-        lblRentRentableItemStatus.setText("Status");
+        lblRentRentableItemStatus.setText("Status:");
 
         txtRentRentableItemStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,17 +289,17 @@ public class Udlejning extends javax.swing.JPanel {
                 .addGroup(pRentRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRentRentableItem, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pRentRentableItemLayout.createSequentialGroup()
-                        .addGroup(pRentRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblRentRentableItemStatus)
-                            .addComponent(lblRentRentableItemDate)
+                        .addGroup(pRentRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblRentRentableItemID)
-                            .addComponent(lblRentRentableItemCustomerID))
-                        .addGap(18, 18, 18)
+                            .addComponent(lblRentRentableItemStatus)
+                            .addComponent(lblRentRentableItemCustomerID)
+                            .addComponent(lblRentRentableItemDate))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pRentRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRentRentableItemCustomerID, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                            .addComponent(txtRentRentableItemID, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                            .addComponent(txtRentRentableItemDate, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                            .addComponent(txtRentRentableItemStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE))))
+                            .addComponent(txtRentRentableItemCustomerID, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                            .addComponent(txtRentRentableItemID, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                            .addComponent(txtRentRentableItemDate, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
+                            .addComponent(txtRentRentableItemStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pRentRentableItemLayout.setVerticalGroup(
@@ -326,8 +326,6 @@ public class Udlejning extends javax.swing.JPanel {
 
         pRemoveRentableItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Slet udlejningsvare"));
 
-        lblRemoveRentableItemID.setText("ID");
-
         txtRemoveRentableItemID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRemoveRentableItemIDActionPerformed(evt);
@@ -345,27 +343,21 @@ public class Udlejning extends javax.swing.JPanel {
         pRemoveRentableItem.setLayout(pRemoveRentableItemLayout);
         pRemoveRentableItemLayout.setHorizontalGroup(
             pRemoveRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pRemoveRentableItemLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pRemoveRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pRemoveRentableItemLayout.createSequentialGroup()
-                        .addComponent(lblRemoveRentableItemID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                        .addComponent(txtRemoveRentableItemID, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnRemoveRentableItem, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pRemoveRentableItemLayout.createSequentialGroup()
+                .addComponent(btnRemoveRentableItem, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtRemoveRentableItemID, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
         );
         pRemoveRentableItemLayout.setVerticalGroup(
             pRemoveRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pRemoveRentableItemLayout.createSequentialGroup()
-                .addGroup(pRemoveRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRemoveRentableItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRemoveRentableItemID))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pRemoveRentableItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(txtRemoveRentableItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnRemoveRentableItem))
         );
 
         pRentList.setBorder(javax.swing.BorderFactory.createTitledBorder("Udlejninger"));
+        pRentList.setPreferredSize(new java.awt.Dimension(641, 392));
 
         tblRentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -408,20 +400,24 @@ public class Udlejning extends javax.swing.JPanel {
         pRentList.setLayout(pRentListLayout);
         pRentListLayout.setHorizontalGroup(
             pRentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-            .addGroup(pRentListLayout.createSequentialGroup()
-                .addComponent(btnRentSearch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtRentSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pRentListLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pRentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                    .addGroup(pRentListLayout.createSequentialGroup()
+                        .addComponent(btnRentSearch)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRentSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         pRentListLayout.setVerticalGroup(
             pRentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pRentListLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(pRentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRentSearch)
-                    .addComponent(txtRentSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRentSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRentSearch))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -431,33 +427,32 @@ public class Udlejning extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pRentList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pRentList, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                     .addComponent(pRentableItemList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pCreateRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pDeliverRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pRemoveRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pRentRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pDeliverRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                    .addComponent(pCreateRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pRentRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pRentableItemList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(pCreateRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)
-                        .addComponent(pRemoveRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pRemoveRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pRentRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pRentableItemList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pRentRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(pDeliverRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pDeliverRentableItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pRentList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -468,6 +463,7 @@ public class Udlejning extends javax.swing.JPanel {
         String rentableItemName = txtOpretUdlejningsvareNavn.getText();
         rentableItemCtr.createItem(rentableItemName);
         updateRentableItemList();
+        txtOpretUdlejningsvareNavn.requestFocus();
     }//GEN-LAST:event_btnOpretUdlejningsvareActionPerformed
 
     private void txtOpretUdlejningsvareNavnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOpretUdlejningsvareNavnActionPerformed
@@ -642,8 +638,6 @@ public class Udlejning extends javax.swing.JPanel {
     private javax.swing.JButton btnRentableItemSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblDeliverRentableItemID;
-    private javax.swing.JLabel lblRemoveRentableItemID;
     private javax.swing.JLabel lblRentRentableItemCustomerID;
     private javax.swing.JLabel lblRentRentableItemDate;
     private javax.swing.JLabel lblRentRentableItemID;

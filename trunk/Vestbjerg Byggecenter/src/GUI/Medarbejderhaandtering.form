@@ -3,10 +3,10 @@
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1024, 768]"/>
+      <Dimension value="[1016, 650]"/>
     </Property>
     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1024, 768]"/>
+      <Dimension value="[1016, 650]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -24,15 +24,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="pEmployeeList" min="-2" max="-2" attributes="1"/>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="pCreateEmployee" min="-2" max="-2" attributes="1"/>
-                  <Component id="pDeleteEmployee" min="-2" max="-2" attributes="1"/>
-                  <Component id="pUpdateEmployee" min="-2" max="-2" attributes="1"/>
+              <Component id="pEmployeeList" max="32767" attributes="1"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="pUpdateEmployee" alignment="0" min="-2" max="-2" attributes="1"/>
+                  <Component id="pDeleteEmployee" alignment="0" min="-2" max="-2" attributes="1"/>
+                  <Component id="pCreateEmployee" alignment="0" min="-2" max="-2" attributes="1"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -41,6 +42,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pEmployeeList" alignment="0" pref="630" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="pCreateEmployee" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -48,9 +50,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pUpdateEmployee" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="pEmployeeList" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,17 +64,26 @@
             <TitledBorder title="Medarbejderliste"/>
           </Border>
         </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[603, 641]"/>
+        </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnEmployeeSeach" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtEmployeeSearch" pref="506" max="32767" attributes="0"/>
+                  <Component id="txtEmployeeSearch" pref="514" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="jScrollPane1" alignment="1" pref="563" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="10" pref="10" max="10" attributes="0"/>
+                  <Component id="jScrollPane1" pref="571" max="32767" attributes="0"/>
+                  <EmptySpace min="10" pref="10" max="10" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -84,7 +94,8 @@
                       <Component id="btnEmployeeSeach" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="470" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="563" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -175,10 +186,11 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnDeleteEmployee" min="-2" max="-2" attributes="1"/>
-                  <EmptySpace pref="28" max="32767" attributes="0"/>
-                  <Component id="txtDeleteEmployee" pref="233" max="32767" attributes="1"/>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="txtDeleteEmployee" pref="307" max="32767" attributes="1"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -186,8 +198,8 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnDeleteEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtDeleteEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDeleteEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -223,16 +235,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblCreateEmployeePhone" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEmployeeAddress" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEmployeeName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtCreateEmployeeAddress" alignment="1" pref="244" max="32767" attributes="0"/>
-                              <Component id="txtCreateEmployeePhone" alignment="0" pref="244" max="32767" attributes="0"/>
-                              <Component id="txtCreateEmployeeName" alignment="1" min="-2" pref="244" max="-2" attributes="0"/>
+                              <Component id="lblEmployeeAddress" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEmployeeName" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCreateEmployeePhone" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="txtCreateEmployeeName" pref="311" max="32767" attributes="0"/>
+                              <Component id="txtCreateEmployeeAddress" alignment="1" pref="311" max="32767" attributes="0"/>
+                              <Component id="txtCreateEmployeePhone" alignment="0" pref="311" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="btnEmployeeCreateEmployee" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -245,19 +258,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblEmployeeName" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCreateEmployeeName" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtCreateEmployeeName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEmployeeName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblEmployeeAddress" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCreateEmployeeAddress" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtCreateEmployeeAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEmployeeAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblCreateEmployeePhone" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtCreateEmployeePhone" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtCreateEmployeePhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCreateEmployeePhone" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnEmployeeCreateEmployee" min="-2" max="-2" attributes="0"/>
@@ -267,24 +280,9 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="java.awt.Label" name="lblEmployeeName">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Navn"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtCreateEmployeeName">
         </Component>
-        <Component class="java.awt.Label" name="lblEmployeeAddress">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Adresse"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtCreateEmployeeAddress">
-        </Component>
-        <Component class="java.awt.Label" name="lblCreateEmployeePhone">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tlfnr."/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCreateEmployeePhone">
         </Component>
@@ -295,6 +293,21 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEmployeeCreateEmployeeActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblEmployeeName">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Navn:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblEmployeeAddress">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Adresse:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCreateEmployeePhone">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tlfnr.:"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -310,22 +323,27 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnUpdateEmployeeGetEmployee" min="-2" max="-2" attributes="1"/>
-                      <Component id="lblUpdateEmployeeName" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblUpdateEmployeeAddress" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblUpdateEmployeePhone" pref="55" max="32767" attributes="1"/>
-                  </Group>
-                  <EmptySpace pref="21" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnUpdateEmployee" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtUpdateEmployeeAddress" alignment="1" max="32767" attributes="1"/>
-                      <Component id="txtUpdateEmployeeName" alignment="1" max="32767" attributes="1"/>
-                      <Component id="txtUpdateEmployeeGetEmployee" alignment="1" pref="238" max="32767" attributes="1"/>
-                      <Component id="txtUpdateEmployeePhone" alignment="1" max="32767" attributes="1"/>
-                  </Group>
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="btnUpdateEmployee" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lblUpdateEmployeePhone" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblUpdateEmployeeAddress" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnUpdateEmployeeGetEmployee" alignment="1" min="-2" max="-2" attributes="1"/>
+                              <Component id="lblUpdateEmployeeName" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtUpdateEmployeeAddress" alignment="0" max="32767" attributes="1"/>
+                              <Component id="txtUpdateEmployeePhone" alignment="0" pref="303" max="32767" attributes="1"/>
+                              <Component id="txtUpdateEmployeeGetEmployee" alignment="0" max="32767" attributes="1"/>
+                              <Component id="txtUpdateEmployeeName" alignment="0" pref="277" max="32767" attributes="1"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -333,54 +351,40 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtUpdateEmployeeGetEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnUpdateEmployeeGetEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtUpdateEmployeeGetEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblUpdateEmployeeName" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtUpdateEmployeeName" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblUpdateEmployeeName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtUpdateEmployeeName" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblUpdateEmployeeAddress" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtUpdateEmployeeAddress" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtUpdateEmployeeAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblUpdateEmployeeAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblUpdateEmployeePhone" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtUpdateEmployeePhone" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txtUpdateEmployeePhone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblUpdateEmployeePhone" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnUpdateEmployee" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="148" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="java.awt.Label" name="lblUpdateEmployeeName">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Navn"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtUpdateEmployeeName">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Label" name="lblUpdateEmployeeAddress">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Adresse"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtUpdateEmployeeAddress">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="java.awt.Label" name="lblUpdateEmployeePhone">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tlfnr."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtUpdateEmployeePhone">
@@ -409,9 +413,23 @@
             <Property name="text" type="java.lang.String" value="Indtast medarbejder-ID"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUpdateEmployeeGetEmployeeActionPerformed"/>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtUpdateEmployeeGetEmployeeFocusGained"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUpdateEmployeeName">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Navn:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUpdateEmployeeAddress">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Adresse:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblUpdateEmployeePhone">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tlfnr.:"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

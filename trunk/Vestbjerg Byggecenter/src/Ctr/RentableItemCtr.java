@@ -4,7 +4,7 @@
  */
 package Ctr;
 
-import Model.RentItemContainer;
+import Model.RentableItemContainer;
 import Model.RentableItem;
 import java.util.ArrayList;
 
@@ -13,14 +13,14 @@ import java.util.ArrayList;
  */
 public class RentableItemCtr {
 
-    private RentItemContainer itemContainer;
+    private RentableItemContainer rentableItemContainer;
 
     /**
      * Konstruktør
-     * Initialiserer feltet itemContainer
+     * Initialiserer feltet rentableItemContainer
      */
     public RentableItemCtr() {
-        itemContainer = RentItemContainer.getInstance();
+        rentableItemContainer = RentableItemContainer.getInstance();
     }
 
     /**
@@ -30,7 +30,7 @@ public class RentableItemCtr {
      * @return Et objekt af klassen RentableItem
      */
     public RentableItem getItem(int id) {
-        RentableItem item = itemContainer.getRentableItem(id);
+        RentableItem item = rentableItemContainer.getRentableItem(id);
 
         return item;
     }
@@ -44,7 +44,7 @@ public class RentableItemCtr {
     public int createItem(String name) {
         RentableItem item = new RentableItem(name);
 
-        return itemContainer.addRentableItem(item);
+        return rentableItemContainer.addRentableItem(item);
     }
 
     /**
@@ -52,12 +52,12 @@ public class RentableItemCtr {
      * @param id Søgeværdi
      */
     public void deleteRentableItem(int id) {
-        itemContainer.deleteItem(id);
+        rentableItemContainer.deleteItem(id);
 
     }
 
     public ArrayList<RentableItem> getRentableItemList()
     {
-        return itemContainer.getRentItems();
+        return rentableItemContainer.getRentableItemList();
     }
 }
