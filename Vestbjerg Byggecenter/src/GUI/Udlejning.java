@@ -145,9 +145,9 @@ public class Udlejning extends javax.swing.JPanel {
                 .addGroup(pRentableItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
                     .addGroup(pRentableItemListLayout.createSequentialGroup()
-                        .addComponent(btnRentableItemSearch)
+                        .addComponent(txtRentableItemSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRentableItemSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)))
+                        .addComponent(btnRentableItemSearch)))
                 .addContainerGap())
         );
         pRentableItemListLayout.setVerticalGroup(
@@ -405,9 +405,9 @@ public class Udlejning extends javax.swing.JPanel {
                 .addGroup(pRentListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
                     .addGroup(pRentListLayout.createSequentialGroup()
-                        .addComponent(btnRentSearch)
+                        .addComponent(txtRentSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRentSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)))
+                        .addComponent(btnRentSearch)))
                 .addContainerGap())
         );
         pRentListLayout.setVerticalGroup(

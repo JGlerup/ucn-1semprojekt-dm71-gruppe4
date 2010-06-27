@@ -67,7 +67,6 @@ public class SaleContents extends javax.swing.JFrame {
         tblSaleContentsList = new javax.swing.JTable();
         btnSaleContents = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);

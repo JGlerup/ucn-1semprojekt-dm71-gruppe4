@@ -165,10 +165,10 @@ public class Lagerstyring extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
-                    .addGroup(pItemListLayout.createSequentialGroup()
-                        .addComponent(btnItemSeach)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pItemListLayout.createSequentialGroup()
+                        .addComponent(txtItemSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtItemSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)))
+                        .addComponent(btnItemSeach)))
                 .addContainerGap())
         );
         pItemListLayout.setVerticalGroup(

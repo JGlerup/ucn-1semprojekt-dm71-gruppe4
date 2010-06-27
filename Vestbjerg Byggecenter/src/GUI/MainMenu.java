@@ -69,7 +69,6 @@ public class MainMenu extends javax.swing.JFrame {
         gUISale1 = new GUI.SaleMenu();
         udlejning1 = new GUI.Udlejning();
         testMenu1 = new GUI.TestMenu();
-        medarbejderhaandtering2 = new GUI.Medarbejderhaandtering();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +78,6 @@ public class MainMenu extends javax.swing.JFrame {
         jTabbedPaneMainMenu.addTab("Salg", gUISale1);
         jTabbedPaneMainMenu.addTab("Udlejning", udlejning1);
         jTabbedPaneMainMenu.addTab("Test", testMenu1);
-        jTabbedPaneMainMenu.addTab("tab7", medarbejderhaandtering2);
 
         getContentPane().add(jTabbedPaneMainMenu, java.awt.BorderLayout.CENTER);
 
@@ -113,7 +111,6 @@ public class MainMenu extends javax.swing.JFrame {
     private GUI.Kundehaandtering kundehaandtering1;
     private GUI.Lagerstyring lagerstyring1;
     private GUI.Medarbejderhaandtering medarbejderhaandtering1;
-    private GUI.Medarbejderhaandtering medarbejderhaandtering2;
     private GUI.TestMenu testMenu1;
     private GUI.Udlejning udlejning1;
     // End of variables declaration//GEN-END:variables
