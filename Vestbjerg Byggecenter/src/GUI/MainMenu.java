@@ -14,6 +14,7 @@ import java.awt.KeyboardFocusManager;
 import java.util.HashSet;
 import java.util.Set;
 import javax.swing.InputMap;
+import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
 
@@ -27,20 +28,22 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         initComponents();
         setupKeyboardshortcuts();
-
+        testMenu1.setKundehaandtering(kundehaandtering1);
+        testMenu1.setLagerstyring(lagerstyring1);
+        testMenu1.setMedarbejderhaandtering(medarbejderhaandtering1);
+        testMenu1.setSaleMenu(gUISale1);
 
     }
 
-    public void setupKeyboardshortcuts()
-    {
+    public void setupKeyboardshortcuts() {
         InputMap im = jTabbedPaneMainMenu.getInputMap(jTabbedPaneMainMenu.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
         KeyStroke controlTab = KeyStroke.getKeyStroke("control TAB");
         im.put(controlTab, "navigateRight");
-        System.out.println(jTabbedPaneMainMenu.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+//        System.out.println(jTabbedPaneMainMenu.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
         Set newForwardKeys = new HashSet();
         newForwardKeys.add(KeyStroke.getKeyStroke("TAB"));
         jTabbedPaneMainMenu.setFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, newForwardKeys);
-        System.out.println(jTabbedPaneMainMenu.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
+//        System.out.println(jTabbedPaneMainMenu.getFocusTraversalKeys(KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS));
 
         KeyStroke controlTab2 = KeyStroke.getKeyStroke("control shift TAB");
         im.put(controlTab2, "navigateLeft");
@@ -50,12 +53,6 @@ public class MainMenu extends javax.swing.JFrame {
         jTabbedPaneMainMenu.setFocusTraversalKeys(KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, newBackwardKeys);
     }
 
-//    public void setupKeyboardshortcuts()
-//    {
-//        KeyStroke ksNextTab = KeyStroke.getKeyStroke(KeyEvent.VK_TAB, java.awt.event.InputEvent.CTRL_MASK);
-//        InputMap iMap = new InputMap();
-//        iMap.put(ksNextTab, "Next Tab");
-//    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -72,43 +69,22 @@ public class MainMenu extends javax.swing.JFrame {
         gUISale1 = new GUI.SaleMenu();
         udlejning1 = new GUI.Udlejning();
         testMenu1 = new GUI.TestMenu();
+        medarbejderhaandtering2 = new GUI.Medarbejderhaandtering();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPaneMainMenu.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTabbedPaneMainMenuKeyPressed(evt);
-            }
-        });
         jTabbedPaneMainMenu.addTab("Lagerstyring", lagerstyring1);
         jTabbedPaneMainMenu.addTab("Kundehåndtering", kundehaandtering1);
         jTabbedPaneMainMenu.addTab("Medarbejderhåndtering", medarbejderhaandtering1);
         jTabbedPaneMainMenu.addTab("Salg", gUISale1);
         jTabbedPaneMainMenu.addTab("Udlejning", udlejning1);
         jTabbedPaneMainMenu.addTab("Test", testMenu1);
+        jTabbedPaneMainMenu.addTab("tab7", medarbejderhaandtering2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPaneMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPaneMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jTabbedPaneMainMenu, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTabbedPaneMainMenuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTabbedPaneMainMenuKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTabbedPaneMainMenuKeyPressed
 
     /**
      * @param args the command line arguments
@@ -117,14 +93,15 @@ public class MainMenu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                try{
+                try {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-//                    UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-//                    UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-//                javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.ge);
-                new MainMenu().setVisible(true);
-                }
-                catch(Exception e) {
+//                  UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+//                  UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+//                  javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getCrossPlatformLookAndFeelClassName());
+//                    new MainMenu().setVisible(true);
+                    JFrame mainMenu = new MainMenu();
+                    mainMenu.setVisible(true);
+                } catch (Exception e) {
                     System.out.println(e);
                 }
             }
@@ -136,6 +113,7 @@ public class MainMenu extends javax.swing.JFrame {
     private GUI.Kundehaandtering kundehaandtering1;
     private GUI.Lagerstyring lagerstyring1;
     private GUI.Medarbejderhaandtering medarbejderhaandtering1;
+    private GUI.Medarbejderhaandtering medarbejderhaandtering2;
     private GUI.TestMenu testMenu1;
     private GUI.Udlejning udlejning1;
     // End of variables declaration//GEN-END:variables

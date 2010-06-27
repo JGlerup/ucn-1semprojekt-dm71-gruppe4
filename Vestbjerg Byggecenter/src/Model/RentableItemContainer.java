@@ -12,31 +12,31 @@ import java.util.ArrayList;
  * Den fungerer som en datase, hvor det er muligt
  * at gemme, slette og finde udlejningsvarer.
  */
-public class RentItemContainer {
+public class RentableItemContainer {
 
-    private static RentItemContainer instance;
-    private ArrayList<RentableItem> rentItems;
+    private static RentableItemContainer instance;
+    private ArrayList<RentableItem> rentableItemList;
 
     /**
      *
      */
-    public RentItemContainer() {
-        rentItems = new ArrayList<RentableItem>();
+    public RentableItemContainer() {
+        rentableItemList = new ArrayList<RentableItem>();
     }
 
     /**
      *
      * @return
      */
-    public static RentItemContainer getInstance() {
+    public static RentableItemContainer getInstance() {
         if (instance == null) {
-            instance = new RentItemContainer();
+            instance = new RentableItemContainer();
         }
         return instance;
     }
 
-    public ArrayList<RentableItem> getRentItems() {
-        return rentItems;
+    public ArrayList<RentableItem> getRentableItemList() {
+        return rentableItemList;
     }
 
     /**
@@ -46,7 +46,7 @@ public class RentItemContainer {
      */
     public RentableItem findItem(int ID) {
         RentableItem i = null;
-        for (RentableItem item : rentItems) {
+        for (RentableItem item : rentableItemList) {
             if (ID == item.getID()) {
                 i = item;
             }
@@ -61,7 +61,7 @@ public class RentItemContainer {
      */
     public int addRentableItem(RentableItem newItem) {
         int id = generateID(newItem);
-        rentItems.add(newItem);
+        rentableItemList.add(newItem);
         return id;
 
     }
@@ -72,7 +72,7 @@ public class RentItemContainer {
      * @return
      */
     public RentableItem getRentableItem(int id) {
-        for (RentableItem item : rentItems) {
+        for (RentableItem item : rentableItemList) {
             if (item.getID() == id) {
                 return item;
             }
@@ -87,7 +87,7 @@ public class RentItemContainer {
     public void deleteItem(int id) {
         RentableItem item = getRentableItem(id);
         if (item != null) {
-            rentItems.remove(item);
+            rentableItemList.remove(item);
         }
     }
 
@@ -100,9 +100,9 @@ public class RentItemContainer {
         int newID = 1;
 
         if (item.getID() == 0) {
-            if (rentItems.size() != 0) {
-                int lastIndex = rentItems.size() - 1;
-                RentableItem lastItem = rentItems.get(lastIndex);
+            if (rentableItemList.size() != 0) {
+                int lastIndex = rentableItemList.size() - 1;
+                RentableItem lastItem = rentableItemList.get(lastIndex);
                 newID = lastItem.getID();
                 newID += 1;
             }
@@ -117,8 +117,8 @@ public class RentItemContainer {
      * @return
      */
     public RentableItem getAvaliableItem() {
-        if (this.rentItems.size() > 0) {
-            for (RentableItem item : this.rentItems) {
+        if (this.rentableItemList.size() > 0) {
+            for (RentableItem item : this.rentableItemList) {
                 if (!item.getIsRented()) {
                     return item;
                 }

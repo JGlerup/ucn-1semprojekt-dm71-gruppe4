@@ -51,7 +51,7 @@ public class TableSale extends DefaultTableModel {
 //                columnName = "Varenavn";
 //                break;
             case 1:
-                columnName = "Date";
+                columnName = "Dato";
                 break;
             case 2:
                 columnName = "Pris";

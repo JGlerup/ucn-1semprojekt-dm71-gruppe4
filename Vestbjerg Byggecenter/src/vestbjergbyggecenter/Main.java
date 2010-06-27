@@ -5,7 +5,7 @@
 
 package vestbjergbyggecenter;
 
-import UI.MainMenuUI;
+import GUI.MainMenu;
 
 /**
  *
@@ -18,7 +18,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new MainMenuUI();
+//        new MainMenuUI();
+          new MainMenu();
         // TODO code application logic here
     }
 

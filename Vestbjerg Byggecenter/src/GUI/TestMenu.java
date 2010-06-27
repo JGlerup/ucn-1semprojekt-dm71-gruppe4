@@ -24,6 +24,9 @@ public class TestMenu extends javax.swing.JPanel {
     private EmployeeCtr employeeCtr;
     private CustomerCtr customerCtr;
     private Lagerstyring lagerstyring;
+    private Kundehaandtering kundehaandtering;
+    private Medarbejderhaandtering medarbejderhaandtering;
+    private SaleMenu saleMenu;
 //    private Kundehaandtering kundehaandtering;
 
     /** Creates new form testMenu */
@@ -32,7 +35,6 @@ public class TestMenu extends javax.swing.JPanel {
         itemCtr = new ItemCtr();
         employeeCtr = new EmployeeCtr();
         customerCtr = new CustomerCtr();
-        lagerstyring = new Lagerstyring();
     }
 
     /** This method is called from within the constructor to
@@ -70,6 +72,24 @@ public class TestMenu extends javax.swing.JPanel {
                 .addContainerGap(377, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    public void setKundehaandtering(Kundehaandtering kundehaandtering) {
+        this.kundehaandtering = kundehaandtering;
+    }
+
+    public void setMedarbejderhaandtering(Medarbejderhaandtering medarbejderhaandtering) {
+        this.medarbejderhaandtering = medarbejderhaandtering;
+    }
+
+    public void setSaleMenu(SaleMenu saleMenu) {
+        this.saleMenu = saleMenu;
+    }
+
+    public void setLagerstyring(Lagerstyring lagerstyring) {
+        this.lagerstyring = lagerstyring;
+    }
+
+
 
     private void createItems() {
         String itemName = "Bosch Køleskab";
@@ -168,7 +188,11 @@ public class TestMenu extends javax.swing.JPanel {
         // TODO add your handling code here:
         createItems();
         createEmployees();
-        createCustomer();        
+        createCustomer();
+        lagerstyring.updateItemList();
+        kundehaandtering.updateCustomerList();
+        medarbejderhaandtering.updateEmployeeList();
+        saleMenu.updateSaleList();
     }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

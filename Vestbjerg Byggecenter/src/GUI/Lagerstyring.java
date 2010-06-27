@@ -38,8 +38,7 @@ public class Lagerstyring extends javax.swing.JPanel {
         ArrayList<Item> itemList = itemCtr.getItemList();
         tblItem.setData(itemList);
         tblItemList.setModel(tblItem);
-        this.setVisible(true);
-
+        tblItemList.setAutoCreateRowSorter(true);
     }
 
     public void resetFields(JTextField[] textFields) {
@@ -60,9 +59,6 @@ public class Lagerstyring extends javax.swing.JPanel {
         }
     }
 
-    public void isEmpty() {
-    }
-
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -73,92 +69,59 @@ public class Lagerstyring extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        pSearchItem = new javax.swing.JPanel();
-        btnItemSeach = new javax.swing.JButton();
-        txtItemSearch = new javax.swing.JTextField();
         pItemList = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblItemList = new javax.swing.JTable();
+        btnItemSeach = new javax.swing.JButton();
+        txtItemSearch = new javax.swing.JTextField();
         pCreateItem = new javax.swing.JPanel();
-        lblItemName = new java.awt.Label();
         txtCreateItemName = new javax.swing.JTextField();
-        lblItemPrice = new java.awt.Label();
         txtCreateItemPrice = new javax.swing.JTextField();
-        lblCreateItemDescription = new java.awt.Label();
         txtCreateItemDescription = new javax.swing.JTextField();
-        lblCreateItemItemsInStock = new java.awt.Label();
         txtCreateItemItemsInStock = new javax.swing.JTextField();
-        lblCreateItemMinInStock = new java.awt.Label();
         txtCreateItemMinInStock = new javax.swing.JTextField();
-        lblCreateItemMaxInStock = new java.awt.Label();
         txtCreateItemMaxInStock = new javax.swing.JTextField();
-        lblCreateItemBrand = new java.awt.Label();
         txtCreateItemBrand = new javax.swing.JTextField();
-        lblCreateItemLocation = new java.awt.Label();
         txtCreateItemLocation = new javax.swing.JTextField();
         btnItemCreateItem = new javax.swing.JButton();
-        lblCreateItemLocation1 = new java.awt.Label();
         chkSerialNoYesOrNo = new javax.swing.JCheckBox();
+        lblItemName = new javax.swing.JLabel();
+        lblItemPrice = new javax.swing.JLabel();
+        lblCreateItemDescription = new javax.swing.JLabel();
+        lblCreateItemItemsInStock = new javax.swing.JLabel();
+        lblCreateItemMinInStock = new javax.swing.JLabel();
+        lblCreateItemMaxInStock = new javax.swing.JLabel();
+        lblCreateItemBrand = new javax.swing.JLabel();
+        lblCreateItemLocation = new javax.swing.JLabel();
+        lblCreateItemSN = new javax.swing.JLabel();
         pDeleteItem = new javax.swing.JPanel();
         txtDeleteItem = new javax.swing.JTextField();
         btnDeleteItem = new javax.swing.JButton();
         pUpdateItem = new javax.swing.JPanel();
-        lblUpdateItemName = new java.awt.Label();
         txtUpdateItemName = new javax.swing.JTextField();
-        lblUpdateItemPrice = new java.awt.Label();
         txtUpdateItemPrice = new javax.swing.JTextField();
-        lblUpdateItemDescription = new java.awt.Label();
         txtUpdateItemDescription = new javax.swing.JTextField();
-        lblUpdateItemItemsInStock = new java.awt.Label();
         txtUpdateItemItemsInStock = new javax.swing.JTextField();
-        lblUpdateItemMinInStock = new java.awt.Label();
         txtUpdateItemMinInStock = new javax.swing.JTextField();
-        lblUpdateItemMaxInStock = new java.awt.Label();
         txtUpdateItemMaxInStock = new javax.swing.JTextField();
-        lblUpdateItemBrand = new java.awt.Label();
         txtUpdateItemBrand = new javax.swing.JTextField();
-        lblUpdateItemLocation = new java.awt.Label();
         txtUpdateItemLocation = new javax.swing.JTextField();
         btnUpdateItem = new javax.swing.JButton();
         btnUpdateItemGetItem = new javax.swing.JButton();
         txtUpdateItemGetItem = new javax.swing.JTextField();
+        lblUpdateItemName = new javax.swing.JLabel();
+        lblUpdateItemPrice = new javax.swing.JLabel();
+        lblUpdateItemDescription = new javax.swing.JLabel();
+        lblUpdateItemItemsInStock = new javax.swing.JLabel();
+        lblUpdateItemMinInStock = new javax.swing.JLabel();
+        lblUpdateItemMaxInStock = new javax.swing.JLabel();
+        lblUpdateItemBrand = new javax.swing.JLabel();
+        lblUpdateItemLocation = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1024, 768));
+        setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel1.setPreferredSize(new java.awt.Dimension(1024, 768));
-
-        pSearchItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Søg vare"));
-
-        btnItemSeach.setText("Søg");
-        btnItemSeach.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnItemSeachActionPerformed(evt);
-            }
-        });
-
-        txtItemSearch.setText("Indtast vare-ID");
-        txtItemSearch.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                txtItemSearchFocusGained(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pSearchItemLayout = new javax.swing.GroupLayout(pSearchItem);
-        pSearchItem.setLayout(pSearchItemLayout);
-        pSearchItemLayout.setHorizontalGroup(
-            pSearchItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSearchItemLayout.createSequentialGroup()
-                .addComponent(btnItemSeach)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtItemSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        pSearchItemLayout.setVerticalGroup(
-            pSearchItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSearchItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnItemSeach)
-                .addComponent(txtItemSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
 
         pItemList.setBorder(javax.swing.BorderFactory.createTitledBorder("Vareliste"));
 
@@ -180,39 +143,46 @@ public class Lagerstyring extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblItemList);
 
+        btnItemSeach.setText("Søg");
+        btnItemSeach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnItemSeachActionPerformed(evt);
+            }
+        });
+
+        txtItemSearch.setText("Indtast vare-ID");
+        txtItemSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtItemSearchFocusGained(evt);
+            }
+        });
+
         javax.swing.GroupLayout pItemListLayout = new javax.swing.GroupLayout(pItemList);
         pItemList.setLayout(pItemListLayout);
         pItemListLayout.setHorizontalGroup(
             pItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pItemListLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
+                .addGroup(pItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                    .addGroup(pItemListLayout.createSequentialGroup()
+                        .addComponent(btnItemSeach)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtItemSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pItemListLayout.setVerticalGroup(
             pItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pItemListLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(pItemListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtItemSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnItemSeach))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pCreateItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Opret vare"));
-
-        lblItemName.setText("Name");
-
-        lblItemPrice.setText("Pris");
-
-        lblCreateItemDescription.setText("Beskrivelse");
-
-        lblCreateItemItemsInStock.setText("Antal");
-
-        lblCreateItemMinInStock.setText("Min.");
-
-        lblCreateItemMaxInStock.setText("Maks.");
-
-        lblCreateItemBrand.setText("Brand");
-
-        lblCreateItemLocation.setText("Lokation");
 
         btnItemCreateItem.setText("Opret vare");
         btnItemCreateItem.addActionListener(new java.awt.event.ActionListener() {
@@ -221,8 +191,6 @@ public class Lagerstyring extends javax.swing.JPanel {
             }
         });
 
-        lblCreateItemLocation1.setText("Serienr.");
-
         chkSerialNoYesOrNo.setText("(Ja/nej)");
         chkSerialNoYesOrNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,84 +198,98 @@ public class Lagerstyring extends javax.swing.JPanel {
             }
         });
 
+        lblItemName.setText("Navn:");
+
+        lblItemPrice.setText("Pris:");
+
+        lblCreateItemDescription.setText("Beskrivelse:");
+
+        lblCreateItemItemsInStock.setText("Antal:");
+
+        lblCreateItemMinInStock.setText("Min.:");
+
+        lblCreateItemMaxInStock.setText("Maks.:");
+
+        lblCreateItemBrand.setText("Brand:");
+
+        lblCreateItemLocation.setText("Lokation:");
+
+        lblCreateItemSN.setText("Serienr.:");
+
         javax.swing.GroupLayout pCreateItemLayout = new javax.swing.GroupLayout(pCreateItem);
         pCreateItem.setLayout(pCreateItemLayout);
         pCreateItemLayout.setHorizontalGroup(
             pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCreateItemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pCreateItemLayout.createSequentialGroup()
-                        .addComponent(lblCreateItemBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(txtCreateItemBrand, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
-                    .addGroup(pCreateItemLayout.createSequentialGroup()
-                        .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCreateItemDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCreateItemItemsInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCreateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCreateItemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCreateItemLocation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblItemPrice)
+                    .addComponent(lblItemName)
+                    .addComponent(lblCreateItemDescription)
+                    .addComponent(lblCreateItemItemsInStock)
+                    .addComponent(lblCreateItemMinInStock)
+                    .addComponent(lblCreateItemBrand)
+                    .addComponent(lblCreateItemLocation)
+                    .addComponent(lblCreateItemSN))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtCreateItemName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pCreateItemLayout.createSequentialGroup()
+                        .addComponent(txtCreateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pCreateItemLayout.createSequentialGroup()
-                                .addComponent(chkSerialNoYesOrNo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
-                                .addComponent(btnItemCreateItem))
-                            .addComponent(txtCreateItemName, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(txtCreateItemPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(txtCreateItemItemsInStock, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addComponent(txtCreateItemDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                            .addGroup(pCreateItemLayout.createSequentialGroup()
-                                .addComponent(txtCreateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblCreateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCreateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtCreateItemLocation, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))))
+                        .addComponent(lblCreateItemMaxInStock)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCreateItemMaxInStock, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pCreateItemLayout.createSequentialGroup()
+                        .addComponent(chkSerialNoYesOrNo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                        .addComponent(btnItemCreateItem))
+                    .addComponent(txtCreateItemBrand, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtCreateItemPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtCreateItemDescription, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtCreateItemItemsInStock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtCreateItemLocation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pCreateItemLayout.setVerticalGroup(
             pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pCreateItemLayout.createSequentialGroup()
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCreateItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCreateItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblItemPrice)
                     .addComponent(txtCreateItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtCreateItemDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreateItemDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCreateItemItemsInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreateItemDescription)
+                    .addComponent(txtCreateItemDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreateItemItemsInStock)
                     .addComponent(txtCreateItemItemsInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCreateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreateItemMinInStock)
                     .addComponent(txtCreateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCreateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCreateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCreateItemMaxInStock))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCreateItemBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreateItemBrand)
                     .addComponent(txtCreateItemBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtCreateItemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCreateItemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCreateItemLocation)
+                    .addComponent(txtCreateItemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCreateItemLocation1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(chkSerialNoYesOrNo)
-                        .addComponent(btnItemCreateItem)))
-                .addContainerGap())
+                .addGroup(pCreateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkSerialNoYesOrNo)
+                    .addComponent(lblCreateItemSN)
+                    .addComponent(btnItemCreateItem))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         pDeleteItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Slet vare"));
@@ -324,51 +306,34 @@ public class Lagerstyring extends javax.swing.JPanel {
         pDeleteItemLayout.setHorizontalGroup(
             pDeleteItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pDeleteItemLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
                 .addComponent(btnDeleteItem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(txtDeleteItem, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtDeleteItem, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pDeleteItemLayout.setVerticalGroup(
             pDeleteItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDeleteItemLayout.createSequentialGroup()
-                .addGroup(pDeleteItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDeleteItem)
-                    .addComponent(txtDeleteItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pDeleteItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(txtDeleteItem, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeleteItem))
         );
 
         pUpdateItem.setBorder(javax.swing.BorderFactory.createTitledBorder("Opdater vare"));
 
-        lblUpdateItemName.setText("Name");
-
         txtUpdateItemName.setEnabled(false);
-
-        lblUpdateItemPrice.setText("Pris");
 
         txtUpdateItemPrice.setEnabled(false);
 
-        lblUpdateItemDescription.setText("Beskrivelse");
-
         txtUpdateItemDescription.setEnabled(false);
-
-        lblUpdateItemItemsInStock.setText("Antal");
 
         txtUpdateItemItemsInStock.setEnabled(false);
 
-        lblUpdateItemMinInStock.setText("Min.");
-
         txtUpdateItemMinInStock.setEnabled(false);
-
-        lblUpdateItemMaxInStock.setText("Maks.");
 
         txtUpdateItemMaxInStock.setEnabled(false);
 
-        lblUpdateItemBrand.setText("Brand");
-
         txtUpdateItemBrand.setEnabled(false);
-
-        lblUpdateItemLocation.setText("Lokation");
 
         txtUpdateItemLocation.setEnabled(false);
 
@@ -398,6 +363,22 @@ public class Lagerstyring extends javax.swing.JPanel {
             }
         });
 
+        lblUpdateItemName.setText("Navn:");
+
+        lblUpdateItemPrice.setText("Pris:");
+
+        lblUpdateItemDescription.setText("Beskrivelse:");
+
+        lblUpdateItemItemsInStock.setText("Antal:");
+
+        lblUpdateItemMinInStock.setText("Min.:");
+
+        lblUpdateItemMaxInStock.setText("Max.:");
+
+        lblUpdateItemBrand.setText("Brand:");
+
+        lblUpdateItemLocation.setText("Lokation:");
+
         javax.swing.GroupLayout pUpdateItemLayout = new javax.swing.GroupLayout(pUpdateItem);
         pUpdateItem.setLayout(pUpdateItemLayout);
         pUpdateItemLayout.setHorizontalGroup(
@@ -405,128 +386,109 @@ public class Lagerstyring extends javax.swing.JPanel {
             .addGroup(pUpdateItemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnUpdateItem, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pUpdateItemLayout.createSequentialGroup()
-                        .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pUpdateItemLayout.createSequentialGroup()
-                                    .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblUpdateItemItemsInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblUpdateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblUpdateItemDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
-                                        .addComponent(lblUpdateItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblUpdateItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnUpdateItemGetItem))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                                .addGroup(pUpdateItemLayout.createSequentialGroup()
-                                    .addComponent(lblUpdateItemBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(41, 41, 41)))
-                            .addGroup(pUpdateItemLayout.createSequentialGroup()
-                                .addComponent(lblUpdateItemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)))
-                        .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUpdateItemLocation, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(txtUpdateItemBrand, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(txtUpdateItemGetItem, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(txtUpdateItemPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(txtUpdateItemDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(txtUpdateItemItemsInStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addComponent(txtUpdateItemName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                            .addGroup(pUpdateItemLayout.createSequentialGroup()
-                                .addComponent(txtUpdateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblUpdateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtUpdateItemMaxInStock, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)))))
+                    .addComponent(lblUpdateItemBrand, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateItemLocation, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateItemMinInStock, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateItemItemsInStock, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateItemDescription, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateItemPrice, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblUpdateItemName, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtUpdateItemGetItem, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addGroup(pUpdateItemLayout.createSequentialGroup()
+                        .addComponent(txtUpdateItemMinInStock, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblUpdateItemMaxInStock)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUpdateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUpdateItemItemsInStock, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtUpdateItemBrand, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtUpdateItemLocation, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtUpdateItemDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtUpdateItemPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(txtUpdateItemName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(pUpdateItemLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(btnUpdateItemGetItem)
+                .addContainerGap(313, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pUpdateItemLayout.createSequentialGroup()
+                .addContainerGap(275, Short.MAX_VALUE)
+                .addComponent(btnUpdateItem)
+                .addGap(10, 10, 10))
         );
         pUpdateItemLayout.setVerticalGroup(
             pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pUpdateItemLayout.createSequentialGroup()
                 .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUpdateItemGetItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdateItemGetItem))
+                    .addComponent(btnUpdateItemGetItem)
+                    .addComponent(txtUpdateItemGetItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUpdateItemName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUpdateItemName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUpdateItemName)
+                    .addComponent(txtUpdateItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUpdateItemPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUpdateItemPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUpdateItemDescription, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUpdateItemDescription, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUpdateItemItemsInStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUpdateItemItemsInStock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblUpdateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUpdateItemPrice)
+                    .addComponent(txtUpdateItemPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUpdateItemDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdateItemDescription))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUpdateItemItemsInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdateItemItemsInStock))
+                .addGap(5, 5, 5)
+                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUpdateItemMinInStock)
                     .addComponent(txtUpdateItemMinInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUpdateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUpdateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblUpdateItemBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUpdateItemMaxInStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUpdateItemMaxInStock))
+                .addGap(12, 12, 12)
+                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUpdateItemBrand)
                     .addComponent(txtUpdateItemBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUpdateItemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pUpdateItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUpdateItemLocation)
                     .addComponent(txtUpdateItemLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUpdateItem))
+                .addComponent(btnUpdateItem)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pItemList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pSearchItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pItemList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pUpdateItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pDeleteItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pCreateItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(25, 25, 25))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pDeleteItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pUpdateItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pCreateItem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(pSearchItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pItemList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(pCreateItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pDeleteItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pUpdateItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(pUpdateItem, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pItemList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1014, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
+        add(jPanel1);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnItemCreateItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnItemCreateItemActionPerformed
@@ -564,6 +526,7 @@ public class Lagerstyring extends javax.swing.JPanel {
                             updateItemList();
                             resetFields(txtFields);
                             JOptionPane.showMessageDialog(this, "En vare med ID'et " + itemID + " er blevet oprettet");
+                            txtCreateItemName.requestFocus();
                         }
                     }
                 }
@@ -571,7 +534,7 @@ public class Lagerstyring extends javax.swing.JPanel {
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this, "Et tal er påkrævet i felterne maks./min/antal");
         } catch (IllegalArgumentException iae) {
-            JOptionPane.showMessageDialog(this, "Fejl: Tallet skal mindst være 0");
+            JOptionPane.showMessageDialog(this, "Tallet skal mindst være 0");
         }
 
     }//GEN-LAST:event_btnItemCreateItemActionPerformed
@@ -593,9 +556,9 @@ public class Lagerstyring extends javax.swing.JPanel {
                 //Dette forhindrer brugeren at opdaterer en vare,
                 //som ikke eksisterer.
                 JTextField[] txtFields = {txtUpdateItemName, txtUpdateItemPrice,
-                txtUpdateItemDescription, txtUpdateItemMaxInStock,
-                txtUpdateItemMinInStock, txtUpdateItemItemsInStock,
-                txtUpdateItemBrand, txtUpdateItemLocation};
+                    txtUpdateItemDescription, txtUpdateItemMaxInStock,
+                    txtUpdateItemMinInStock, txtUpdateItemItemsInStock,
+                    txtUpdateItemBrand, txtUpdateItemLocation};
                 resetFields(txtFields);
                 disableFields(txtFields);
                 txtUpdateItemGetItem.setText("");
@@ -631,10 +594,10 @@ public class Lagerstyring extends javax.swing.JPanel {
                     }
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "ID'et " + itemID + " blev ikke fundet");
+                JOptionPane.showMessageDialog(this, "ID'et " + itemID + " blev ikke fundet", "Meddelelse", 2);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Fejl: Skal være et heltal");
+            JOptionPane.showMessageDialog(this, "Skal være et heltal");
             txtItemSearch.setText("");
         }
     }//GEN-LAST:event_btnItemSeachActionPerformed
@@ -720,7 +683,6 @@ public class Lagerstyring extends javax.swing.JPanel {
     private void txtUpdateItemGetItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateItemGetItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUpdateItemGetItemActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteItem;
     private javax.swing.JButton btnItemCreateItem;
@@ -730,27 +692,26 @@ public class Lagerstyring extends javax.swing.JPanel {
     private javax.swing.JCheckBox chkSerialNoYesOrNo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private java.awt.Label lblCreateItemBrand;
-    private java.awt.Label lblCreateItemDescription;
-    private java.awt.Label lblCreateItemItemsInStock;
-    private java.awt.Label lblCreateItemLocation;
-    private java.awt.Label lblCreateItemLocation1;
-    private java.awt.Label lblCreateItemMaxInStock;
-    private java.awt.Label lblCreateItemMinInStock;
-    private java.awt.Label lblItemName;
-    private java.awt.Label lblItemPrice;
-    private java.awt.Label lblUpdateItemBrand;
-    private java.awt.Label lblUpdateItemDescription;
-    private java.awt.Label lblUpdateItemItemsInStock;
-    private java.awt.Label lblUpdateItemLocation;
-    private java.awt.Label lblUpdateItemMaxInStock;
-    private java.awt.Label lblUpdateItemMinInStock;
-    private java.awt.Label lblUpdateItemName;
-    private java.awt.Label lblUpdateItemPrice;
+    private javax.swing.JLabel lblCreateItemBrand;
+    private javax.swing.JLabel lblCreateItemDescription;
+    private javax.swing.JLabel lblCreateItemItemsInStock;
+    private javax.swing.JLabel lblCreateItemLocation;
+    private javax.swing.JLabel lblCreateItemMaxInStock;
+    private javax.swing.JLabel lblCreateItemMinInStock;
+    private javax.swing.JLabel lblCreateItemSN;
+    private javax.swing.JLabel lblItemName;
+    private javax.swing.JLabel lblItemPrice;
+    private javax.swing.JLabel lblUpdateItemBrand;
+    private javax.swing.JLabel lblUpdateItemDescription;
+    private javax.swing.JLabel lblUpdateItemItemsInStock;
+    private javax.swing.JLabel lblUpdateItemLocation;
+    private javax.swing.JLabel lblUpdateItemMaxInStock;
+    private javax.swing.JLabel lblUpdateItemMinInStock;
+    private javax.swing.JLabel lblUpdateItemName;
+    private javax.swing.JLabel lblUpdateItemPrice;
     private javax.swing.JPanel pCreateItem;
     private javax.swing.JPanel pDeleteItem;
     private javax.swing.JPanel pItemList;
-    private javax.swing.JPanel pSearchItem;
     private javax.swing.JPanel pUpdateItem;
     private javax.swing.JTable tblItemList;
     private javax.swing.JTextField txtCreateItemBrand;

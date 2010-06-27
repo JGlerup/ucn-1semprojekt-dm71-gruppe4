@@ -95,7 +95,7 @@ public class RentContainer {
         return newID;
     }
 
-    public ArrayList<Rent> getRentContainer() {
+    public ArrayList<Rent> getRentList() {
         return rentList;
     }
 

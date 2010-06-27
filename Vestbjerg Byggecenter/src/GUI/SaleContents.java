@@ -8,7 +8,6 @@
  *
  * Created on 14-06-2010, 10:30:59
  */
-
 package GUI;
 
 import Ctr.SaleCtr;
@@ -37,13 +36,12 @@ public class SaleContents extends javax.swing.JFrame {
         this.saleID = saleID;
     }
 
-        public void updateSliList() {
+    public void updateSliList() {
         ArrayList<SalesLineItem> sliList = saleCtr.getSLIList(saleID);
         tblSaleContents.setData(sliList);
         tblSaleContentsList.setModel(tblSaleContents);
         this.setVisible(true);
     }
-
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -63,10 +61,10 @@ public class SaleContents extends javax.swing.JFrame {
         txtSaleDate = new javax.swing.JTextField();
         txtSaleTotalPrice = new javax.swing.JTextField();
         txtSaleEmployeeID = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblSaleContentsList = new javax.swing.JTable();
         lblSaleCustomerID = new javax.swing.JLabel();
         txtSaleCustomerID = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSaleContentsList = new javax.swing.JTable();
         btnSaleContents = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,22 +75,37 @@ public class SaleContents extends javax.swing.JFrame {
         });
 
         pSaleContents.setBorder(javax.swing.BorderFactory.createTitledBorder("Salgets indhold"));
+        pSaleContents.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblSaleID.setText("Salgs-ID");
+        pSaleContents.add(lblSaleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 20, -1, -1));
 
         lblSaleDate.setText("Dato");
+        pSaleContents.add(lblSaleDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 65, -1, -1));
 
         lblSaleTotalPrice.setText("Samlet pris");
+        pSaleContents.add(lblSaleTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 107, 112, -1));
 
         lblSaleEmployeeID.setText("Medarbejder-ID");
+        pSaleContents.add(lblSaleEmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 153, -1, -1));
 
         txtSaleID.setEditable(false);
+        pSaleContents.add(txtSaleID, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 40, 112, -1));
 
         txtSaleDate.setEditable(false);
+        pSaleContents.add(txtSaleDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 81, 112, -1));
 
         txtSaleTotalPrice.setEditable(false);
+        pSaleContents.add(txtSaleTotalPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 127, 112, -1));
 
         txtSaleEmployeeID.setEditable(false);
+        pSaleContents.add(txtSaleEmployeeID, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 173, 112, -1));
+
+        lblSaleCustomerID.setText("Kunde-ID");
+        pSaleContents.add(lblSaleCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 199, -1, -1));
+
+        txtSaleCustomerID.setEditable(false);
+        pSaleContents.add(txtSaleCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 219, 112, -1));
 
         tblSaleContentsList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,66 +129,7 @@ public class SaleContents extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblSaleContentsList);
         tblSaleContentsList.getColumnModel().getColumn(2).setResizable(false);
 
-        lblSaleCustomerID.setText("Kunde-ID");
-
-        txtSaleCustomerID.setEditable(false);
-        txtSaleCustomerID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSaleCustomerIDActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pSaleContentsLayout = new javax.swing.GroupLayout(pSaleContents);
-        pSaleContents.setLayout(pSaleContentsLayout);
-        pSaleContentsLayout.setHorizontalGroup(
-            pSaleContentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSaleContentsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pSaleContentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSaleID)
-                    .addComponent(lblSaleDate)
-                    .addComponent(lblSaleEmployeeID)
-                    .addGroup(pSaleContentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtSaleID, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtSaleDate, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtSaleTotalPrice, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblSaleTotalPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblSaleCustomerID)
-                    .addGroup(pSaleContentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtSaleCustomerID, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
-        pSaleContentsLayout.setVerticalGroup(
-            pSaleContentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pSaleContentsLayout.createSequentialGroup()
-                .addGroup(pSaleContentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pSaleContentsLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblSaleID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSaleID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(lblSaleDate)
-                        .addGap(2, 2, 2)
-                        .addComponent(txtSaleDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSaleTotalPrice)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSaleTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSaleEmployeeID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSaleEmployeeID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblSaleCustomerID)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSaleCustomerID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        pSaleContents.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, 371));
 
         btnSaleContents.setText("OK");
         btnSaleContents.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +145,7 @@ public class SaleContents extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pSaleContents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pSaleContents, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                     .addComponent(btnSaleContents, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -199,10 +153,10 @@ public class SaleContents extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pSaleContents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pSaleContents, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSaleContents)
-                .addGap(24, 24, 24))
+                .addContainerGap())
         );
 
         pack();
@@ -228,21 +182,17 @@ public class SaleContents extends javax.swing.JFrame {
         updateSliList();
     }//GEN-LAST:event_formComponentShown
 
-    private void txtSaleCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSaleCustomerIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSaleCustomerIDActionPerformed
-
     /**
-    * @param args the command line arguments
-    */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new SaleContents().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaleContents;
     private javax.swing.JScrollPane jScrollPane1;
@@ -259,5 +209,4 @@ public class SaleContents extends javax.swing.JFrame {
     private javax.swing.JTextField txtSaleID;
     private javax.swing.JTextField txtSaleTotalPrice;
     // End of variables declaration//GEN-END:variables
-
 }

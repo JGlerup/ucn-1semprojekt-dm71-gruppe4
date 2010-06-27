@@ -8,7 +8,7 @@ import Model.Customer;
 import Model.CustomerContainer;
 import Model.Rent;
 import Model.RentContainer;
-import Model.RentItemContainer;
+import Model.RentableItemContainer;
 import Model.RentableItem;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -21,7 +21,7 @@ import java.util.Date;
 public class RentCtr {
 
     private RentContainer rentContainer;
-    private RentItemContainer rentItemContainer;
+    private RentableItemContainer rentItemContainer;
     private CustomerContainer customerContainer;
 
     /**
@@ -30,7 +30,7 @@ public class RentCtr {
      */
     public RentCtr() {
         rentContainer = RentContainer.getInstance();
-        rentItemContainer = RentItemContainer.getInstance();
+        rentItemContainer = RentableItemContainer.getInstance();
         customerContainer = CustomerContainer.getInstance();
     }
 
@@ -62,15 +62,25 @@ public class RentCtr {
      * En metode, der kalder metoden deliverItem
      * @param id Søgeværdi
      */
-    public void deliverItem(int id) {
-        rentContainer.deliverItem(id);
+    public void deliverItem(int rentID) {
+        rentContainer.deliverItem(rentID);
     }
 
-    public ArrayList<Rent> getRentContainer() {
-        return rentContainer.getRentContainer();
+    public ArrayList<Rent> getRentList() {
+        return rentContainer.getRentList();
     }
 
-    public Rent getRent(int id) {
-        return rentContainer.findRent(id);
+    public Rent getRent(int rentID) {
+        return rentContainer.findRent(rentID);
+    }
+
+    public boolean checkRentStatusCustomer(int customerID) {
+        boolean rentStatus = false;
+        for(Rent r : getRentList()) {
+            if(r.getCustomer().getCustomerID() == customerID) {
+                rentStatus = true;
+            }
+        }
+        return rentStatus;
     }
 }
